@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hp2BaseMod", "Hp2BaseMod\Hp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hp2SampleMod", "Hp2SampleMod\Hp2SampleMod.csproj", "{B75D05B8-E399-4A25-B1A3-5A3993305713}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hp2BaseModTweaks", "Hp2BaseModTweaks\Hp2BaseModTweaks.csproj", "{34D72F5F-200E-48ED-8E16-12D6F8C1BED7}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hp2CheatMod", "Hp2CheatMod\Hp2CheatMod.csproj", "{0DB3BC2E-188E-4E9A-B7DF-A453208AC8AA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hp2RepeatThreesomeMod", "Hp2RepeatThreesomeMod\Hp2RepeatThreesomeMod.csproj", "{47BCCF55-0AA9-4483-A044-5A56310EA2D6}"
@@ -19,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hp2LadyJizzMod", "Hp2GirlsC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hp2DataModLoader", "Hp2DataModLoader\Hp2DataModLoader.csproj", "{D2C20E84-448A-47DF-8ACD-AB8AFF7CE09F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hp2SingleDateMod", "Hp2SingleDateMod\Hp2SingleDateMod.csproj", "{40EA195A-60A6-4A6B-A7D9-6347334F11B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hp2SingleDateMod", "Hp2SingleDateMod\Hp2SingleDateMod.csproj", "{40EA195A-60A6-4A6B-A7D9-6347334F11B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +33,6 @@ Global
 		{B75D05B8-E399-4A25-B1A3-5A3993305713}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B75D05B8-E399-4A25-B1A3-5A3993305713}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B75D05B8-E399-4A25-B1A3-5A3993305713}.Release|Any CPU.Build.0 = Release|Any CPU
-		{34D72F5F-200E-48ED-8E16-12D6F8C1BED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{34D72F5F-200E-48ED-8E16-12D6F8C1BED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{34D72F5F-200E-48ED-8E16-12D6F8C1BED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{34D72F5F-200E-48ED-8E16-12D6F8C1BED7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0DB3BC2E-188E-4E9A-B7DF-A453208AC8AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0DB3BC2E-188E-4E9A-B7DF-A453208AC8AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DB3BC2E-188E-4E9A-B7DF-A453208AC8AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
