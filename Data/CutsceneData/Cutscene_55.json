@@ -1,0 +1,694 @@
+{
+  "CleanUpType": 0,
+  "Steps": [
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 10,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "By the way...▸▸▸▸▸ dope kicks,▸▸▸▸▸ Nora.▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ Those are the new editions,▸▸▸▸▸ right?",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_attr_nora_ashley_1_ashley",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 4,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.581818163
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 8,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Ps[ss]sh!▸▸ I wish I had that kinda fuckin' money.▸▸▸▸▸ Nah,▸▸ these are knockoffs.",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_attr_nora_ashley_2_nora",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 0,
+          "eyesClosed": true,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.13636364
+          },
+          {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.6363636
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 10,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Oh yeah?▸▸▸▸▸▸▸▸▸▸ You want the real deal?▸▸▸▸▸ I can get you a pair.",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_attr_nora_ashley_3_ashley",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 4,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          {
+            "expressionType": 0,
+            "eyesClosed": true,
+            "percentRead": 0.6181818
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 8,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Yo[o]...▸▸▸▸▸▸▸▸▸▸ shut the fuck up,▸▸▸▸▸ for real?▸▸▸▸▸▸▸▸▸▸▸▸ Don't be playin' with me like that...",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_attr_nora_ashley_4_nora",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 0,
+          "eyesClosed": true,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.2
+          },
+          {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.6272727
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 10,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Yeah,▸▸▸▸▸▸▸▸ I've done some modeling work for them,▸▸▸▸▸ so,▸▸▸▸▸▸▸▸▸▸ I know people over there.▸▸▸▸▸",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_attr_nora_ashley_5_ashley",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 6,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.6636364
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 8,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "No shit?▸▸▸▸▸ Da[aa]mn...▸▸▸▸▸ aye,▸▸▸▸▸ thank you.▸▸▸ I owe you one,▸▸▸▸▸ uhhhh[hh]...▸▸",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_attr_nora_ashley_6_nora",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 4,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 4,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 0,
+            "eyesClosed": true,
+            "percentRead": 0.172727272
+          },
+          {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.3363636
+          },
+          {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.590909064
+          },
+          {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.8
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 10,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": true,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Ashley!▸▸▸▸▸▸▸▸▸▸ And,▸▸▸▸▸▸▸▸ don't mention it!▸▸▸▸▸▸▸▸▸▸ What are friends for?▸▸▸▸▸ I scratch your cunt,▸▸▸▸▸ you scratch mine...",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_attr_nora_ashley_7_ashley",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 8,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 0,
+            "eyesClosed": true,
+            "percentRead": 0.2181818
+          },
+          {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.418181837
+          },
+          {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.6181818
+          },
+          {
+            "expressionType": 8,
+            "eyesClosed": false,
+            "percentRead": 0.8
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    }
+  ],
+  "IsAdditive": false,
+  "Id": 55
+}

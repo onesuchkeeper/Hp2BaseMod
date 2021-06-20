@@ -1,0 +1,1020 @@
+{
+  "CleanUpType": 2,
+  "Steps": [
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 5,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Who are you cosplaying as!?▸▸▸▸▸▸▸ Is that Nioshi from Cyber Detective Nioshi!?",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_comp_zoey_sarah_1_sarah",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 5,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 4,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.4
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 4,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Cos▸▸▸▸▸play...▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ what a curious ritual,▸▸▸▸▸▸▸▸▸▸ dressing up as though you're a fictional character...",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_comp_zoey_sarah_2_zoey",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.26363638
+          },
+          {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.545454562
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 4,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "I wonder,▸▸ sometimes...▸▸▸▸▸▸▸▸▸▸▸▸▸ perhaps we,▸▸▸▸▸▸▸▸▸▸▸▸▸ ourselves,▸▸▸▸▸▸▸▸▸▸▸▸▸ are the fictional characters...",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_comp_zoey_sarah_3_zoey",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 7,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.327272773
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 5,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "[aaaa]▸You real[h]ly think so!?▸▸ Like,▸▸▸ like,▸▸ like maybe I'm a super▸▸ cute▸▸ anime▸▸ girl?[hh]",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_comp_zoey_sarah_4_sarah",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 5,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 7,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 7,
+            "eyesClosed": true,
+            "percentRead": 0.318181843
+          },
+          {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.481818229
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 4,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "One can never know the truth of reality.▸▸▸▸▸▸▸▸▸▸ It seems all possibilities must be considered...",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_comp_zoey_sarah_5_zoey",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 7,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.5
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 5,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Oooohh...▸▸▸▸▸▸▸ o▸▸kay...[h]",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_comp_zoey_sarah_6_sarah",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 4,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 4,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": []
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 5,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Wanna be friends!?[s]",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_comp_zoey_sarah_7_sarah",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": []
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 4,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Hmmm...▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ I'm sorry,▸▸▸▸▸▸▸▸▸▸▸▸▸ but I'm not feeling a very strong connection...",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_comp_zoey_sarah_8_zoey",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 4,
+          "eyesClosed": true,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.263636351
+          },
+          {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.5090909
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 5,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Pleeeeeeeeeeeeeeeeeeeease!?[hh]",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_comp_zoey_sarah_9_sarah",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 2,
+          "eyesClosed": true,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 2,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": []
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 4,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Okay!▸▸▸▸▸▸▸▸▸▸ Okay...▸▸▸▸▸ if you...▸▸▸▸▸ promise▸▸ to stop doing that,▸▸▸▸▸▸▸▸ please...",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_comp_zoey_sarah_10_zoey",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 5,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 2,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.3181818
+          },
+          {
+            "expressionType": 4,
+            "eyesClosed": true,
+            "percentRead": 0.6
+          },
+          {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.8545455
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 5,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": true,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Oh yeah!▸▸▸▸▸ Cyber assistant Suki,▸▸▸ reporting for duty!",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_comp_zoey_sarah_11_sarah",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 3,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.25454548
+          },
+          {
+            "expressionType": 0,
+            "eyesClosed": true,
+            "percentRead": 0.6454545
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    }
+  ],
+  "IsAdditive": false,
+  "Id": 24
+}

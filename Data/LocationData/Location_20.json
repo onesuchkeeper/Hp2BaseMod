@@ -1,0 +1,33 @@
+{
+  "LocationName": "Royal Suite",
+  "LocationType": 1,
+  "BgMusic": {
+    "AudioClipInfo": {
+      "Path": "bgm_royal_suite",
+      "IsExternal": false
+    },
+    "Volume": 0.5
+  },
+  "BgYOffset": 100.0,
+  "FinderLocationIcon": {
+    "Path": null,
+    "IsExternal": false
+  },
+  "DateGirlStyleType": 5,
+  "NonStopOptionText": "We should go all out too! Spare no expense! To the [[highlight]ROYAL SUITE]!",
+  "SpecialLabels": [],
+  "Backgrounds": [
+    {
+      "Path": "loc_bg_date_suite_0",
+      "IsExternal": false
+    },
+    {
+      "Path": "loc_bg_date_suite_1",
+      "IsExternal": false
+    }
+  ],
+  "ArriveBundleList": [],
+  "DepartBundleList": [],
+  "IsAdditive": false,
+  "Id": 20
+}

@@ -1,0 +1,677 @@
+{
+  "CleanUpType": 0,
+  "Steps": [
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 12,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": true,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Soo[oo]oo...▸▸▸▸▸▸▸▸▸▸▸▸▸ sorry to ask,▸▸▸▸▸ but I have to know!▸▸▸▸▸[hh]▸▸▸▸▸ Who's the prettiest girl you've met on this island?",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_baggage_b_1_polly",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 0,
+          "eyesClosed": true,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 4,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.200000018
+          },
+          {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.599999964
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 8,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": -1,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": null,
+        "StartExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": []
+      },
+      "DialogOptionInfos": [
+        {
+          "DialogOptionText": "This EXTRA cute and SUPER popular girl named Polly!",
+          "YuriDialogOptionText": "",
+          "Yuri": false,
+          "Steps": [
+            {
+              "StepType": 5,
+              "ProceedType": 0,
+              "DollTargetType": 0,
+              "TargetDollOrientation": 0,
+              "ExpressionType": 0,
+              "DollPositionType": 0,
+              "AnimationType": 0,
+              "SubCutsceneType": 0,
+              "NotificationType": 0,
+              "GirlPairRelationshipType": 0,
+              "SpecialStepPrefabName": null,
+              "BannerTextPrefabName": null,
+              "WindowPrefabName": null,
+              "EmitterBehaviorName": null,
+              "StringValue": "",
+              "FloatValue": 0.0,
+              "ProceedFloat": 0.0,
+              "TargetGirlDefinitionID": 12,
+              "IntValue": 0,
+              "EaseType": 0,
+              "EditorSelectedBranchIndex": 0,
+              "DialogTriggerDefinitionID": -1,
+              "EditorSelectedOptionIndex": 0,
+              "GirlDefinitionID": -1,
+              "ExpressionIndex": 0,
+              "HairstyleIndex": 0,
+              "OutfitIndex": 0,
+              "SubCutsceneDefinitionID": -1,
+              "SkipStep": false,
+              "TargetAlt": false,
+              "BoolValue": false,
+              "SetMood": false,
+              "ProceedBool": false,
+              "PositionInfo": {
+                "Xpos": 0.0,
+                "Ypos": 0.0
+              },
+              "AudioKlipInfo": {
+                "AudioClipInfo": null,
+                "Volume": 1.0
+              },
+              "LogicActionInfo": {
+                "Type": 0,
+                "AffectionType": 0,
+                "ResourceType": 0,
+                "PuzzleState": 0,
+                "StringValue": "",
+                "FloatValue": 0.0,
+                "IntValue": 0,
+                "LocationDefinitionID": -1,
+                "GirlPairDefinitionID": -1,
+                "CutsceneDefinitionID": -1,
+                "ItemDefinitionID": -1,
+                "GirlDefinitionID": -1,
+                "BoolValue": false,
+                "BackgroundMusic": {
+                  "AudioClipInfo": null,
+                  "Volume": 1.0
+                }
+              },
+              "DialogLineInfo": {
+                "DialogText": "[aaaahh]▸▸▸▸▸Real▸▸▸ly?▸▸▸▸▸▸▸ You think?[hh]▸▸▸▸▸▸▸ Oh, you're gonna make my face turn red saying things like that!",
+                "YuriDialogText": "",
+                "Yuri": false,
+                "YuriAudioClipInfo": null,
+                "AudioClipInfo": {
+                  "Path": "vo_baggage_b_2_polly",
+                  "IsExternal": false
+                },
+                "StartExpression": {
+                  "expressionType": 7,
+                  "eyesClosed": false,
+                  "percentRead": 0.0
+                },
+                "EndExpression": {
+                  "expressionType": 2,
+                  "eyesClosed": false,
+                  "percentRead": 0.0
+                },
+                "Expressions": [
+                  {
+                    "expressionType": 2,
+                    "eyesClosed": false,
+                    "percentRead": 0.436363637
+                  }
+                ]
+              },
+              "DialogOptionInfos": [],
+              "BranchInfos": []
+            }
+          ]
+        },
+        {
+          "DialogOptionText": "Hmmm... I'm not sure... there's some tight competition...",
+          "YuriDialogOptionText": "",
+          "Yuri": false,
+          "Steps": [
+            {
+              "StepType": 5,
+              "ProceedType": 0,
+              "DollTargetType": 0,
+              "TargetDollOrientation": 0,
+              "ExpressionType": 0,
+              "DollPositionType": 0,
+              "AnimationType": 0,
+              "SubCutsceneType": 0,
+              "NotificationType": 0,
+              "GirlPairRelationshipType": 0,
+              "SpecialStepPrefabName": null,
+              "BannerTextPrefabName": null,
+              "WindowPrefabName": null,
+              "EmitterBehaviorName": null,
+              "StringValue": "",
+              "FloatValue": 0.0,
+              "ProceedFloat": 0.0,
+              "TargetGirlDefinitionID": 12,
+              "IntValue": 0,
+              "EaseType": 0,
+              "EditorSelectedBranchIndex": 0,
+              "DialogTriggerDefinitionID": -1,
+              "EditorSelectedOptionIndex": 0,
+              "GirlDefinitionID": -1,
+              "ExpressionIndex": 0,
+              "HairstyleIndex": 0,
+              "OutfitIndex": 0,
+              "SubCutsceneDefinitionID": -1,
+              "SkipStep": false,
+              "TargetAlt": false,
+              "BoolValue": false,
+              "SetMood": false,
+              "ProceedBool": false,
+              "PositionInfo": {
+                "Xpos": 0.0,
+                "Ypos": 0.0
+              },
+              "AudioKlipInfo": {
+                "AudioClipInfo": null,
+                "Volume": 1.0
+              },
+              "LogicActionInfo": {
+                "Type": 0,
+                "AffectionType": 0,
+                "ResourceType": 0,
+                "PuzzleState": 0,
+                "StringValue": "",
+                "FloatValue": 0.0,
+                "IntValue": 0,
+                "LocationDefinitionID": -1,
+                "GirlPairDefinitionID": -1,
+                "CutsceneDefinitionID": -1,
+                "ItemDefinitionID": -1,
+                "GirlDefinitionID": -1,
+                "BoolValue": false,
+                "BackgroundMusic": {
+                  "AudioClipInfo": null,
+                  "Volume": 1.0
+                }
+              },
+              "DialogLineInfo": {
+                "DialogText": "Oo[oo]oo!▸▸▸▸▸▸▸▸ What's a girl gotta go to win THAT competition, hmm?▸▸▸▸▸▸▸▸ I like a good challenge!▸▸▸▸▸▸▸▸▸▸▸▸▸",
+                "YuriDialogText": "",
+                "Yuri": false,
+                "YuriAudioClipInfo": null,
+                "AudioClipInfo": {
+                  "Path": "vo_baggage_b_3_polly",
+                  "IsExternal": false
+                },
+                "StartExpression": {
+                  "expressionType": 4,
+                  "eyesClosed": false,
+                  "percentRead": 0.0
+                },
+                "EndExpression": {
+                  "expressionType": 0,
+                  "eyesClosed": false,
+                  "percentRead": 0.0
+                },
+                "Expressions": [
+                  {
+                    "expressionType": 0,
+                    "eyesClosed": false,
+                    "percentRead": 0.6545454
+                  },
+                  {
+                    "expressionType": 3,
+                    "eyesClosed": false,
+                    "percentRead": 0.8818182
+                  }
+                ]
+              },
+              "DialogOptionInfos": [],
+              "BranchInfos": []
+            }
+          ]
+        },
+        {
+          "DialogOptionText": "I can't choose. ALL women are beautiful in my eyes!",
+          "YuriDialogOptionText": "",
+          "Yuri": false,
+          "Steps": [
+            {
+              "StepType": 5,
+              "ProceedType": 0,
+              "DollTargetType": 0,
+              "TargetDollOrientation": 0,
+              "ExpressionType": 0,
+              "DollPositionType": 0,
+              "AnimationType": 0,
+              "SubCutsceneType": 0,
+              "NotificationType": 0,
+              "GirlPairRelationshipType": 0,
+              "SpecialStepPrefabName": null,
+              "BannerTextPrefabName": null,
+              "WindowPrefabName": null,
+              "EmitterBehaviorName": null,
+              "StringValue": "",
+              "FloatValue": 0.0,
+              "ProceedFloat": 0.0,
+              "TargetGirlDefinitionID": 12,
+              "IntValue": 0,
+              "EaseType": 0,
+              "EditorSelectedBranchIndex": 0,
+              "DialogTriggerDefinitionID": -1,
+              "EditorSelectedOptionIndex": 0,
+              "GirlDefinitionID": -1,
+              "ExpressionIndex": 0,
+              "HairstyleIndex": 0,
+              "OutfitIndex": 0,
+              "SubCutsceneDefinitionID": -1,
+              "SkipStep": false,
+              "TargetAlt": false,
+              "BoolValue": false,
+              "SetMood": false,
+              "ProceedBool": false,
+              "PositionInfo": {
+                "Xpos": 0.0,
+                "Ypos": 0.0
+              },
+              "AudioKlipInfo": {
+                "AudioClipInfo": null,
+                "Volume": 1.0
+              },
+              "LogicActionInfo": {
+                "Type": 0,
+                "AffectionType": 0,
+                "ResourceType": 0,
+                "PuzzleState": 0,
+                "StringValue": "",
+                "FloatValue": 0.0,
+                "IntValue": 0,
+                "LocationDefinitionID": -1,
+                "GirlPairDefinitionID": -1,
+                "CutsceneDefinitionID": -1,
+                "ItemDefinitionID": -1,
+                "GirlDefinitionID": -1,
+                "BoolValue": false,
+                "BackgroundMusic": {
+                  "AudioClipInfo": null,
+                  "Volume": 1.0
+                }
+              },
+              "DialogLineInfo": {
+                "DialogText": "Well,▸ ye[e]ah...[hh]▸▸▸▸▸ but you must have a favorite, right?▸▸▸▸▸[t]▸▸▸▸▸ Maybe a certain▸▸▸▸▸ TeleYouber girl?",
+                "YuriDialogText": "",
+                "Yuri": false,
+                "YuriAudioClipInfo": null,
+                "AudioClipInfo": {
+                  "Path": "vo_baggage_b_4_polly",
+                  "IsExternal": false
+                },
+                "StartExpression": {
+                  "expressionType": 2,
+                  "eyesClosed": false,
+                  "percentRead": 0.0
+                },
+                "EndExpression": {
+                  "expressionType": 2,
+                  "eyesClosed": false,
+                  "percentRead": 0.0
+                },
+                "Expressions": [
+                  {
+                    "expressionType": 4,
+                    "eyesClosed": false,
+                    "percentRead": 0.236363634
+                  },
+                  {
+                    "expressionType": 2,
+                    "eyesClosed": false,
+                    "percentRead": 0.6636363
+                  }
+                ]
+              },
+              "DialogOptionInfos": [],
+              "BranchInfos": []
+            }
+          ]
+        }
+      ],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 12,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Oh▸▸▸ lord,▸▸▸ I'm incorrig▸▸▸ible!▸▸▸▸▸[hh] You'll have to forgive me.▸▸▸▸▸ I shouldn't even ask questions like that.",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_baggage_b_5_polly",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 7,
+          "eyesClosed": true,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 2,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.381818175
+          },
+          {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.6363637
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 12,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": true,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "I guess I can MAYBE get a TEENSY bit jealous of pretty girls sometimes...[s]",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_baggage_b_6_polly",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 7,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 2,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.418181837
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    }
+  ],
+  "IsAdditive": false,
+  "Id": 152
+}

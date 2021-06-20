@@ -1,0 +1,41 @@
+{
+  "LocationName": "Marina",
+  "LocationType": 0,
+  "BgMusic": {
+    "AudioClipInfo": {
+      "Path": "bgm_marina",
+      "IsExternal": false
+    },
+    "Volume": 0.5
+  },
+  "BgYOffset": 180.0,
+  "FinderLocationIcon": {
+    "Path": "ui_location_icon_marina",
+    "IsExternal": false
+  },
+  "DateGirlStyleType": 0,
+  "NonStopOptionText": "",
+  "SpecialLabels": [],
+  "Backgrounds": [
+    {
+      "Path": "loc_bg_sim_marina_0",
+      "IsExternal": false
+    },
+    {
+      "Path": "loc_bg_sim_marina_1",
+      "IsExternal": false
+    },
+    {
+      "Path": "loc_bg_sim_marina_2",
+      "IsExternal": false
+    },
+    {
+      "Path": "loc_bg_sim_marina_3",
+      "IsExternal": false
+    }
+  ],
+  "ArriveBundleList": [],
+  "DepartBundleList": [],
+  "IsAdditive": false,
+  "Id": 8
+}

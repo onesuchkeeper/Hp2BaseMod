@@ -1,0 +1,416 @@
+{
+  "ItemDefinitionID": 108,
+  "PersistentFlags": true,
+  "EnableType": 2,
+  "EnableTriggerIndex": 0,
+  "EnableTokenDefID": 4,
+  "EnableIntVal": 0,
+  "EnableFloatVal": 0.0,
+  "EnableBoolVal": true,
+  "EnableStringVal": "",
+  "EnableAbilityDefID": -1,
+  "DisableAbilityDefID": -1,
+  "Hints": [
+    {
+      "hintType": 1,
+      "triggerIndex": 0,
+      "preText": "Sexuality Is Safe",
+      "postText": "",
+      "flagName": "",
+      "flagType": 0,
+      "boolValue": false,
+      "editorExpanded": true
+    },
+    {
+      "hintType": 0,
+      "triggerIndex": 1,
+      "preText": "Sexuality Is Safe In",
+      "postText": "",
+      "flagName": "",
+      "flagType": 0,
+      "boolValue": false,
+      "editorExpanded": true
+    }
+  ],
+  "Triggers": [
+    {
+      "TriggerType": 0,
+      "StepsProcessType": 2,
+      "PerentChance": 1.0,
+      "ThresholdValue": 0,
+      "ExecuteLimit": 0,
+      "VerbalizedIndex": -1,
+      "FocusMatters": false,
+      "OnUnfocused": false,
+      "ExhaustionMatters": false,
+      "OnExhausted": false,
+      "UpsetMatters": false,
+      "OnUpset": false,
+      "ThresholdPersistent": false,
+      "DefaultDisabled": false,
+      "Audibalized": true,
+      "Verbalized": false,
+      "StepInfos": [
+        {
+          "StepType": 3,
+          "FlagType": 0,
+          "ComparisonType": 0,
+          "StringValue": "",
+          "IntValue": 0,
+          "AbilityDefinitionID": -1,
+          "BoolValue": false,
+          "MoveModifier": {
+            "blockMoveCost": false,
+            "blockStaminaCost": false,
+            "blockStaminaRecover": false,
+            "postSwitchGirlFocus": false
+          },
+          "MatchModifierInfo": {
+            "PointsOperation": 2,
+            "PointsOperation2": 2,
+            "PointsFactor": 1.0,
+            "PointsFactor2": 1.0,
+            "TokenDefinitionID": -1,
+            "ReplaceDefinitionID": -1,
+            "Absorb": false,
+            "AbsorbAltGirl": false,
+            "ReplacePriority": false,
+            "SkipMostFavFactor": false,
+            "SkipLeastFavFactor": false,
+            "PointsOp": false,
+            "PointsOp2": false
+          },
+          "GiftModifier": {
+            "blockGift": false
+          },
+          "GirlConditionInfos": [],
+          "MoveConditionInfos": [],
+          "MatchConditionInfos": [
+            {
+              "Type": 3,
+              "TokenType": 0,
+              "ResourceType": 0,
+              "Comparison": 0,
+              "Val": 0,
+              "TokenDefinitionID": -1,
+              "BoolValue": false,
+              "Inverse": false
+            },
+            {
+              "Type": 0,
+              "TokenType": 0,
+              "ResourceType": 0,
+              "Comparison": 0,
+              "Val": 0,
+              "TokenDefinitionID": 4,
+              "BoolValue": false,
+              "Inverse": false
+            }
+          ],
+          "GiftConditionInfos": []
+        },
+        {
+          "StepType": 4,
+          "FlagType": 0,
+          "ComparisonType": 0,
+          "StringValue": "",
+          "IntValue": 0,
+          "AbilityDefinitionID": -1,
+          "BoolValue": false,
+          "MoveModifier": {
+            "blockMoveCost": false,
+            "blockStaminaCost": false,
+            "blockStaminaRecover": false,
+            "postSwitchGirlFocus": false
+          },
+          "MatchModifierInfo": {
+            "PointsOperation": 2,
+            "PointsOperation2": 2,
+            "PointsFactor": 1.0,
+            "PointsFactor2": 1.0,
+            "TokenDefinitionID": 6,
+            "ReplaceDefinitionID": -1,
+            "Absorb": false,
+            "AbsorbAltGirl": false,
+            "ReplacePriority": false,
+            "SkipMostFavFactor": false,
+            "SkipLeastFavFactor": false,
+            "PointsOp": false,
+            "PointsOp2": false
+          },
+          "GiftModifier": {
+            "blockGift": false
+          },
+          "GirlConditionInfos": [],
+          "MoveConditionInfos": [],
+          "MatchConditionInfos": [],
+          "GiftConditionInfos": []
+        }
+      ]
+    },
+    {
+      "TriggerType": 1,
+      "StepsProcessType": 0,
+      "PerentChance": 1.0,
+      "ThresholdValue": 15,
+      "ExecuteLimit": 0,
+      "VerbalizedIndex": -1,
+      "FocusMatters": false,
+      "OnUnfocused": false,
+      "ExhaustionMatters": false,
+      "OnExhausted": false,
+      "UpsetMatters": false,
+      "OnUpset": false,
+      "ThresholdPersistent": true,
+      "DefaultDisabled": false,
+      "Audibalized": false,
+      "Verbalized": false,
+      "StepInfos": [
+        {
+          "StepType": 16,
+          "FlagType": 0,
+          "ComparisonType": 0,
+          "StringValue": "sexuality_safe",
+          "IntValue": 1,
+          "AbilityDefinitionID": -1,
+          "BoolValue": false,
+          "MoveModifier": {
+            "blockMoveCost": false,
+            "blockStaminaCost": false,
+            "blockStaminaRecover": false,
+            "postSwitchGirlFocus": false
+          },
+          "MatchModifierInfo": {
+            "PointsOperation": 2,
+            "PointsOperation2": 2,
+            "PointsFactor": 1.0,
+            "PointsFactor2": 1.0,
+            "TokenDefinitionID": -1,
+            "ReplaceDefinitionID": -1,
+            "Absorb": false,
+            "AbsorbAltGirl": false,
+            "ReplacePriority": false,
+            "SkipMostFavFactor": false,
+            "SkipLeastFavFactor": false,
+            "PointsOp": false,
+            "PointsOp2": false
+          },
+          "GiftModifier": {
+            "blockGift": false
+          },
+          "GirlConditionInfos": [],
+          "MoveConditionInfos": [],
+          "MatchConditionInfos": [],
+          "GiftConditionInfos": []
+        },
+        {
+          "StepType": 7,
+          "FlagType": 0,
+          "ComparisonType": 0,
+          "StringValue": "",
+          "IntValue": 0,
+          "AbilityDefinitionID": -1,
+          "BoolValue": false,
+          "MoveModifier": {
+            "blockMoveCost": false,
+            "blockStaminaCost": false,
+            "blockStaminaRecover": false,
+            "postSwitchGirlFocus": false
+          },
+          "MatchModifierInfo": {
+            "PointsOperation": 2,
+            "PointsOperation2": 2,
+            "PointsFactor": 1.0,
+            "PointsFactor2": 1.0,
+            "TokenDefinitionID": -1,
+            "ReplaceDefinitionID": -1,
+            "Absorb": false,
+            "AbsorbAltGirl": false,
+            "ReplacePriority": false,
+            "SkipMostFavFactor": false,
+            "SkipLeastFavFactor": false,
+            "PointsOp": false,
+            "PointsOp2": false
+          },
+          "GiftModifier": {
+            "blockGift": false
+          },
+          "GirlConditionInfos": [],
+          "MoveConditionInfos": [],
+          "MatchConditionInfos": [],
+          "GiftConditionInfos": []
+        },
+        {
+          "StepType": 7,
+          "FlagType": 0,
+          "ComparisonType": 0,
+          "StringValue": "",
+          "IntValue": 1,
+          "AbilityDefinitionID": -1,
+          "BoolValue": false,
+          "MoveModifier": {
+            "blockMoveCost": false,
+            "blockStaminaCost": false,
+            "blockStaminaRecover": false,
+            "postSwitchGirlFocus": false
+          },
+          "MatchModifierInfo": {
+            "PointsOperation": 2,
+            "PointsOperation2": 2,
+            "PointsFactor": 1.0,
+            "PointsFactor2": 1.0,
+            "TokenDefinitionID": -1,
+            "ReplaceDefinitionID": -1,
+            "Absorb": false,
+            "AbsorbAltGirl": false,
+            "ReplacePriority": false,
+            "SkipMostFavFactor": false,
+            "SkipLeastFavFactor": false,
+            "PointsOp": false,
+            "PointsOp2": false
+          },
+          "GiftModifier": {
+            "blockGift": false
+          },
+          "GirlConditionInfos": [],
+          "MoveConditionInfos": [],
+          "MatchConditionInfos": [],
+          "GiftConditionInfos": []
+        }
+      ]
+    },
+    {
+      "TriggerType": 14,
+      "StepsProcessType": 2,
+      "PerentChance": 1.0,
+      "ThresholdValue": 0,
+      "ExecuteLimit": 0,
+      "VerbalizedIndex": -1,
+      "FocusMatters": false,
+      "OnUnfocused": false,
+      "ExhaustionMatters": false,
+      "OnExhausted": false,
+      "UpsetMatters": false,
+      "OnUpset": false,
+      "ThresholdPersistent": false,
+      "DefaultDisabled": false,
+      "Audibalized": false,
+      "Verbalized": false,
+      "StepInfos": [
+        {
+          "StepType": 15,
+          "FlagType": 0,
+          "ComparisonType": 0,
+          "StringValue": "sexuality_safe",
+          "IntValue": 1,
+          "AbilityDefinitionID": -1,
+          "BoolValue": false,
+          "MoveModifier": {
+            "blockMoveCost": false,
+            "blockStaminaCost": false,
+            "blockStaminaRecover": false,
+            "postSwitchGirlFocus": false
+          },
+          "MatchModifierInfo": {
+            "PointsOperation": 2,
+            "PointsOperation2": 2,
+            "PointsFactor": 1.0,
+            "PointsFactor2": 1.0,
+            "TokenDefinitionID": -1,
+            "ReplaceDefinitionID": -1,
+            "Absorb": false,
+            "AbsorbAltGirl": false,
+            "ReplacePriority": false,
+            "SkipMostFavFactor": false,
+            "SkipLeastFavFactor": false,
+            "PointsOp": false,
+            "PointsOp2": false
+          },
+          "GiftModifier": {
+            "blockGift": false
+          },
+          "GirlConditionInfos": [],
+          "MoveConditionInfos": [],
+          "MatchConditionInfos": [],
+          "GiftConditionInfos": []
+        },
+        {
+          "StepType": 7,
+          "FlagType": 0,
+          "ComparisonType": 0,
+          "StringValue": "",
+          "IntValue": 0,
+          "AbilityDefinitionID": -1,
+          "BoolValue": false,
+          "MoveModifier": {
+            "blockMoveCost": false,
+            "blockStaminaCost": false,
+            "blockStaminaRecover": false,
+            "postSwitchGirlFocus": false
+          },
+          "MatchModifierInfo": {
+            "PointsOperation": 2,
+            "PointsOperation2": 2,
+            "PointsFactor": 1.0,
+            "PointsFactor2": 1.0,
+            "TokenDefinitionID": -1,
+            "ReplaceDefinitionID": -1,
+            "Absorb": false,
+            "AbsorbAltGirl": false,
+            "ReplacePriority": false,
+            "SkipMostFavFactor": false,
+            "SkipLeastFavFactor": false,
+            "PointsOp": false,
+            "PointsOp2": false
+          },
+          "GiftModifier": {
+            "blockGift": false
+          },
+          "GirlConditionInfos": [],
+          "MoveConditionInfos": [],
+          "MatchConditionInfos": [],
+          "GiftConditionInfos": []
+        },
+        {
+          "StepType": 7,
+          "FlagType": 0,
+          "ComparisonType": 0,
+          "StringValue": "",
+          "IntValue": 1,
+          "AbilityDefinitionID": -1,
+          "BoolValue": false,
+          "MoveModifier": {
+            "blockMoveCost": false,
+            "blockStaminaCost": false,
+            "blockStaminaRecover": false,
+            "postSwitchGirlFocus": false
+          },
+          "MatchModifierInfo": {
+            "PointsOperation": 2,
+            "PointsOperation2": 2,
+            "PointsFactor": 1.0,
+            "PointsFactor2": 1.0,
+            "TokenDefinitionID": -1,
+            "ReplaceDefinitionID": -1,
+            "Absorb": false,
+            "AbsorbAltGirl": false,
+            "ReplacePriority": false,
+            "SkipMostFavFactor": false,
+            "SkipLeastFavFactor": false,
+            "PointsOp": false,
+            "PointsOp2": false
+          },
+          "GiftModifier": {
+            "blockGift": false
+          },
+          "GirlConditionInfos": [],
+          "MoveConditionInfos": [],
+          "MatchConditionInfos": [],
+          "GiftConditionInfos": []
+        }
+      ]
+    }
+  ],
+  "IsAdditive": false,
+  "Id": 16
+}

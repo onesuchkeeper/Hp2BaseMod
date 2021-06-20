@@ -1,0 +1,36 @@
+{
+  "TokenName": "Broken Heart",
+  "ResourceName": "!?",
+  "ResourceSign": "",
+  "ResourceType": 5,
+  "AffectionType": 0,
+  "Weight": 8,
+  "DifficultyWeightOffset": [
+    -2,
+    0,
+    0
+  ],
+  "BonusWeight": 0,
+  "Negative": true,
+  "AltBonusSprite": false,
+  "TokenSpriteInfo": {
+    "Path": "token_broken",
+    "IsExternal": false
+  },
+  "OverSpriteInfo": {
+    "Path": "token_broken_over",
+    "IsExternal": false
+  },
+  "AltTokenSpriteInfo": null,
+  "AltOverSpriteInfo": null,
+  "EnergyDefinitionID": 6,
+  "SfxMatchInfo": {
+    "AudioClipInfo": {
+      "Path": "sfx_puzzle_token_match_broken",
+      "IsExternal": false
+    },
+    "Volume": 0.6
+  },
+  "IsAdditive": false,
+  "Id": 6
+}

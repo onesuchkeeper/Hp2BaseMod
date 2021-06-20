@@ -1,0 +1,61 @@
+{
+  "GirlPairDefinitionID": 12,
+  "NextPhotoDefinitionID": -1,
+  "BigPhotoImages": [
+    {
+      "Path": "cg_12_jessie_abia_0",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_12_jessie_abia_1",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_12_jessie_abia_2",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_12_jessie_abia_0_alt",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_12_jessie_abia_1_alt",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_12_jessie_abia_2_alt",
+      "IsExternal": false
+    }
+  ],
+  "ThumbnailImages": [
+    {
+      "Path": "cg_thumb_12_jessie_abia_0",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_thumb_12_jessie_abia_1",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_thumb_12_jessie_abia_2",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_thumb_12_jessie_abia_0_alt",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_thumb_12_jessie_abia_1_alt",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_thumb_12_jessie_abia_2_alt",
+      "IsExternal": false
+    }
+  ],
+  "HasAlts": true,
+  "AltFlagName": "",
+  "AltCodeDefinitionID": 14,
+  "IsAdditive": false,
+  "Id": 12
+}

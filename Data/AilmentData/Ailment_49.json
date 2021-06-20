@@ -1,0 +1,17 @@
+{
+  "ItemDefinitionID": 288,
+  "PersistentFlags": false,
+  "EnableType": 4,
+  "EnableTriggerIndex": -1,
+  "EnableTokenDefID": -1,
+  "EnableIntVal": 0,
+  "EnableFloatVal": 0.0,
+  "EnableBoolVal": false,
+  "EnableStringVal": "",
+  "EnableAbilityDefID": 105,
+  "DisableAbilityDefID": 106,
+  "Hints": [],
+  "Triggers": [],
+  "IsAdditive": false,
+  "Id": 49
+}

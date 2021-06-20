@@ -1,0 +1,42 @@
+{
+  "TokenName": "Sentiment",
+  "ResourceName": "Sentiment",
+  "ResourceSign": "",
+  "ResourceType": 4,
+  "AffectionType": 0,
+  "Weight": 12,
+  "DifficultyWeightOffset": [
+    0,
+    0,
+    0
+  ],
+  "BonusWeight": 16,
+  "Negative": false,
+  "AltBonusSprite": true,
+  "TokenSpriteInfo": {
+    "Path": "token_sentiment",
+    "IsExternal": false
+  },
+  "OverSpriteInfo": {
+    "Path": "token_sentiment_over",
+    "IsExternal": false
+  },
+  "AltTokenSpriteInfo": {
+    "Path": "token_sentiment_bonus",
+    "IsExternal": false
+  },
+  "AltOverSpriteInfo": {
+    "Path": "token_sentiment_bonus_over",
+    "IsExternal": false
+  },
+  "EnergyDefinitionID": 8,
+  "SfxMatchInfo": {
+    "AudioClipInfo": {
+      "Path": "sfx_puzzle_token_match_sentiment",
+      "IsExternal": false
+    },
+    "Volume": 0.9
+  },
+  "IsAdditive": false,
+  "Id": 8
+}

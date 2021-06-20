@@ -1,0 +1,298 @@
+{
+  "EditorTab": 0,
+  "ForceType": 0,
+  "ResponseTriggerDefinitionID": -1,
+  "Priority": 0,
+  "DialogLineSetInfos": [
+    {
+      "DialogLines": [
+        {
+          "DialogText": "What up player!?▸▸▸▸▸▸▸▸ How's it goin' out there?▸▸▸▸▸ You crushin' it?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_hotel_room_greeting_1_kyu",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.354545444
+            }
+          ]
+        },
+        {
+          "DialogText": "What are you doing here?▸▸▸▸▸ Shouldn't you be nads▸▸ deep▸▸ in some kinda hole right now?",
+          "YuriDialogText": "What are you doing here?▸▸▸▸▸ Shouldn't you be knees▸▸ deep▸▸ in some kinda hole right now?",
+          "Yuri": true,
+          "YuriAudioClipInfo": {
+            "Path": "vo_hotel_room_greeting_2y_kyu",
+            "IsExternal": false
+          },
+          "AudioClipInfo": {
+            "Path": "vo_hotel_room_greeting_2_kyu",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.2909091
+            }
+          ]
+        },
+        {
+          "DialogText": "[uuggghh]▸▸I can't believe you get to smack all these titties around and I just have to watch...▸▸▸▸▸ what▸ a▸ gyp!▸▸",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_hotel_room_greeting_3_kyu",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.1
+            },
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.8363637
+            }
+          ]
+        },
+        {
+          "DialogText": "What do you want from me THIS time?▸▸▸▸▸▸▸▸▸▸ ASIDE from▸▸▸ THAT,▸▸▸▸▸ of course.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_hotel_room_greeting_4_kyu",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.5181818
+            }
+          ]
+        },
+        {
+          "DialogText": "Don't forget to chat these broads up a little.▸▸▸▸▸▸▸▸▸▸ You'd be surprised what you can learn about them!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_hotel_room_greeting_5_kyu",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.5181818
+            }
+          ]
+        },
+        {
+          "DialogText": "If you're having trouble,▸▸▸ try feeding these chicks before your date.▸▸▸▸▸▸▸ Bitches LO[OOO]VE to eat.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_hotel_room_greeting_6_kyu",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.263636351
+            },
+            {
+              "expressionType": 7,
+              "eyesClosed": true,
+              "percentRead": 0.7181818
+            }
+          ]
+        },
+        {
+          "DialogText": "Ughh,▸▸[hh]▸▸ I just saw myself in the mirror...▸▸▸▸▸▸▸▸ is▸▸ my▸▸ ass▸▸▸▸▸ REAL[h]LY▸▸▸ that▸▸▸ fat?▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ I gotta lay off the candy...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_hotel_room_greeting_7_kyu",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.09090909
+            },
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.363636374
+            },
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.781818151
+            }
+          ]
+        },
+        {
+          "DialogText": "You'd be surprised how many porn channels they have here.▸▸▸▸▸▸▸ Honestly,▸▸▸▸▸▸▸ it's▸▸▸▸▸ MO[OO]STLY porn channels...[s]▸▸",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_hotel_room_greeting_8_kyu",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.6727273
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    }
+  ],
+  "IsAdditive": false,
+  "Id": 49
+}

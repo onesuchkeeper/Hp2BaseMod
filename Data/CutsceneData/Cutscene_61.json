@@ -1,0 +1,204 @@
+{
+  "CleanUpType": 0,
+  "Steps": [
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 10,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Hey Polly,▸▸▸▸▸▸▸▸ let's turn that camera back on.▸▸▸▸▸ I've got a...▸▸▸▸▸▸▸▸▸▸ video▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ idea...",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_pre_ashley_polly_1_ashley",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 8,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.5
+          },
+          {
+            "expressionType": 8,
+            "eyesClosed": false,
+            "percentRead": 0.7181818
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 12,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": true,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "[aaaahh]▸▸▸▸▸Ash▸▸▸▸▸ley!▸▸▸▸▸▸▸▸▸▸ Are you thinkin' what I think you're thinkin'?▸▸▸▸▸▸▸ You▸▸ naughty▸▸ girl!",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_pre_ashley_polly_2_polly",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 7,
+          "eyesClosed": true,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 8,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.1
+          },
+          {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.3181818
+          },
+          {
+            "expressionType": 8,
+            "eyesClosed": false,
+            "percentRead": 0.763636351
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    }
+  ],
+  "IsAdditive": false,
+  "Id": 61
+}

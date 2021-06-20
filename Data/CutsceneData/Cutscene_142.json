@@ -1,0 +1,851 @@
+{
+  "CleanUpType": 0,
+  "Steps": [
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 8,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Aye▸▸ listen,▸▸▸▸▸ we're cool and everything,▸▸ but,▸▸▸▸▸ I just gotta warn you fair and square...",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_baggage_c_1_nora",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 0,
+          "eyesClosed": true,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 4,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.181818187
+          },
+          {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.554545462
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 8,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Don't ever try to do nothin' to fuck me over, o▸▸kay?▸▸▸▸▸ That would not be a good idea.",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_baggage_c_2_nora",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 1,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 1,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 1,
+            "eyesClosed": true,
+            "percentRead": 0.6181818
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 8,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "When I was locked up,▸▸ there was this bitch who couldn't keep her mouth shut...▸▸▸▸▸ so you know what I did?",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_baggage_c_3_nora",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 1,
+          "eyesClosed": true,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 4,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 1,
+            "eyesClosed": false,
+            "percentRead": 0.2181818
+          },
+          {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.727272749
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 8,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": true,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "When I got out,▸▸▸▸▸ I found out where the bitch lived,▸▸▸▸▸ I trashed her place and I fucked her boyfriend.",
+        "YuriDialogText": "When I got out,▸▸▸▸▸ I found out where the bitch lived,▸▸▸▸▸ I trashed her place and I fucked her girlfriend.",
+        "Yuri": true,
+        "YuriAudioClipInfo": {
+          "Path": "vo_baggage_c_4y_nora",
+          "IsExternal": false
+        },
+        "AudioClipInfo": {
+          "Path": "vo_baggage_c_4_nora",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 1,
+          "eyesClosed": true,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 1,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 1,
+            "eyesClosed": false,
+            "percentRead": 0.181818172
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 8,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": -1,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": null,
+        "StartExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": []
+      },
+      "DialogOptionInfos": [
+        {
+          "DialogOptionText": "Wow... a bit overkill, don't you think?",
+          "YuriDialogOptionText": "",
+          "Yuri": false,
+          "Steps": [
+            {
+              "StepType": 5,
+              "ProceedType": 0,
+              "DollTargetType": 0,
+              "TargetDollOrientation": 0,
+              "ExpressionType": 0,
+              "DollPositionType": 0,
+              "AnimationType": 0,
+              "SubCutsceneType": 0,
+              "NotificationType": 0,
+              "GirlPairRelationshipType": 0,
+              "SpecialStepPrefabName": null,
+              "BannerTextPrefabName": null,
+              "WindowPrefabName": null,
+              "EmitterBehaviorName": null,
+              "StringValue": "",
+              "FloatValue": 0.0,
+              "ProceedFloat": 0.0,
+              "TargetGirlDefinitionID": 8,
+              "IntValue": 0,
+              "EaseType": 0,
+              "EditorSelectedBranchIndex": 0,
+              "DialogTriggerDefinitionID": -1,
+              "EditorSelectedOptionIndex": 0,
+              "GirlDefinitionID": -1,
+              "ExpressionIndex": 0,
+              "HairstyleIndex": 0,
+              "OutfitIndex": 0,
+              "SubCutsceneDefinitionID": -1,
+              "SkipStep": false,
+              "TargetAlt": false,
+              "BoolValue": false,
+              "SetMood": false,
+              "ProceedBool": false,
+              "PositionInfo": {
+                "Xpos": 0.0,
+                "Ypos": 0.0
+              },
+              "AudioKlipInfo": {
+                "AudioClipInfo": null,
+                "Volume": 1.0
+              },
+              "LogicActionInfo": {
+                "Type": 0,
+                "AffectionType": 0,
+                "ResourceType": 0,
+                "PuzzleState": 0,
+                "StringValue": "",
+                "FloatValue": 0.0,
+                "IntValue": 0,
+                "LocationDefinitionID": -1,
+                "GirlPairDefinitionID": -1,
+                "CutsceneDefinitionID": -1,
+                "ItemDefinitionID": -1,
+                "GirlDefinitionID": -1,
+                "BoolValue": false,
+                "BackgroundMusic": {
+                  "AudioClipInfo": null,
+                  "Volume": 1.0
+                }
+              },
+              "DialogLineInfo": {
+                "DialogText": "Pssh,▸▸ whatever...▸▸▸▸▸ that fuckin' bitch had it coming.",
+                "YuriDialogText": "",
+                "Yuri": false,
+                "YuriAudioClipInfo": null,
+                "AudioClipInfo": {
+                  "Path": "vo_baggage_c_5_nora",
+                  "IsExternal": false
+                },
+                "StartExpression": {
+                  "expressionType": 0,
+                  "eyesClosed": true,
+                  "percentRead": 0.0
+                },
+                "EndExpression": {
+                  "expressionType": 1,
+                  "eyesClosed": false,
+                  "percentRead": 0.0
+                },
+                "Expressions": [
+                  {
+                    "expressionType": 1,
+                    "eyesClosed": false,
+                    "percentRead": 0.463636339
+                  }
+                ]
+              },
+              "DialogOptionInfos": [],
+              "BranchInfos": []
+            }
+          ]
+        },
+        {
+          "DialogOptionText": "Good, it sounds like she deserved it.",
+          "YuriDialogOptionText": "",
+          "Yuri": false,
+          "Steps": [
+            {
+              "StepType": 5,
+              "ProceedType": 0,
+              "DollTargetType": 0,
+              "TargetDollOrientation": 0,
+              "ExpressionType": 0,
+              "DollPositionType": 0,
+              "AnimationType": 0,
+              "SubCutsceneType": 0,
+              "NotificationType": 0,
+              "GirlPairRelationshipType": 0,
+              "SpecialStepPrefabName": null,
+              "BannerTextPrefabName": null,
+              "WindowPrefabName": null,
+              "EmitterBehaviorName": null,
+              "StringValue": "",
+              "FloatValue": 0.0,
+              "ProceedFloat": 0.0,
+              "TargetGirlDefinitionID": 8,
+              "IntValue": 0,
+              "EaseType": 0,
+              "EditorSelectedBranchIndex": 0,
+              "DialogTriggerDefinitionID": -1,
+              "EditorSelectedOptionIndex": 0,
+              "GirlDefinitionID": -1,
+              "ExpressionIndex": 0,
+              "HairstyleIndex": 0,
+              "OutfitIndex": 0,
+              "SubCutsceneDefinitionID": -1,
+              "SkipStep": false,
+              "TargetAlt": false,
+              "BoolValue": false,
+              "SetMood": false,
+              "ProceedBool": false,
+              "PositionInfo": {
+                "Xpos": 0.0,
+                "Ypos": 0.0
+              },
+              "AudioKlipInfo": {
+                "AudioClipInfo": null,
+                "Volume": 1.0
+              },
+              "LogicActionInfo": {
+                "Type": 0,
+                "AffectionType": 0,
+                "ResourceType": 0,
+                "PuzzleState": 0,
+                "StringValue": "",
+                "FloatValue": 0.0,
+                "IntValue": 0,
+                "LocationDefinitionID": -1,
+                "GirlPairDefinitionID": -1,
+                "CutsceneDefinitionID": -1,
+                "ItemDefinitionID": -1,
+                "GirlDefinitionID": -1,
+                "BoolValue": false,
+                "BackgroundMusic": {
+                  "AudioClipInfo": null,
+                  "Volume": 1.0
+                }
+              },
+              "DialogLineInfo": {
+                "DialogText": "That bitch is lucky I stopped there.▸▸▸▸▸ She got off easy.",
+                "YuriDialogText": "",
+                "Yuri": false,
+                "YuriAudioClipInfo": null,
+                "AudioClipInfo": {
+                  "Path": "vo_baggage_c_6_nora",
+                  "IsExternal": false
+                },
+                "StartExpression": {
+                  "expressionType": 1,
+                  "eyesClosed": false,
+                  "percentRead": 0.0
+                },
+                "EndExpression": {
+                  "expressionType": 1,
+                  "eyesClosed": false,
+                  "percentRead": 0.0
+                },
+                "Expressions": [
+                  {
+                    "expressionType": 1,
+                    "eyesClosed": true,
+                    "percentRead": 0.6636363
+                  }
+                ]
+              },
+              "DialogOptionInfos": [],
+              "BranchInfos": []
+            }
+          ]
+        },
+        {
+          "DialogOptionText": "Note to self... never piss off Nora.",
+          "YuriDialogOptionText": "",
+          "Yuri": false,
+          "Steps": [
+            {
+              "StepType": 5,
+              "ProceedType": 0,
+              "DollTargetType": 0,
+              "TargetDollOrientation": 0,
+              "ExpressionType": 0,
+              "DollPositionType": 0,
+              "AnimationType": 0,
+              "SubCutsceneType": 0,
+              "NotificationType": 0,
+              "GirlPairRelationshipType": 0,
+              "SpecialStepPrefabName": null,
+              "BannerTextPrefabName": null,
+              "WindowPrefabName": null,
+              "EmitterBehaviorName": null,
+              "StringValue": "",
+              "FloatValue": 0.0,
+              "ProceedFloat": 0.0,
+              "TargetGirlDefinitionID": 8,
+              "IntValue": 0,
+              "EaseType": 0,
+              "EditorSelectedBranchIndex": 0,
+              "DialogTriggerDefinitionID": -1,
+              "EditorSelectedOptionIndex": 0,
+              "GirlDefinitionID": -1,
+              "ExpressionIndex": 0,
+              "HairstyleIndex": 0,
+              "OutfitIndex": 0,
+              "SubCutsceneDefinitionID": -1,
+              "SkipStep": false,
+              "TargetAlt": false,
+              "BoolValue": false,
+              "SetMood": false,
+              "ProceedBool": false,
+              "PositionInfo": {
+                "Xpos": 0.0,
+                "Ypos": 0.0
+              },
+              "AudioKlipInfo": {
+                "AudioClipInfo": null,
+                "Volume": 1.0
+              },
+              "LogicActionInfo": {
+                "Type": 0,
+                "AffectionType": 0,
+                "ResourceType": 0,
+                "PuzzleState": 0,
+                "StringValue": "",
+                "FloatValue": 0.0,
+                "IntValue": 0,
+                "LocationDefinitionID": -1,
+                "GirlPairDefinitionID": -1,
+                "CutsceneDefinitionID": -1,
+                "ItemDefinitionID": -1,
+                "GirlDefinitionID": -1,
+                "BoolValue": false,
+                "BackgroundMusic": {
+                  "AudioClipInfo": null,
+                  "Volume": 1.0
+                }
+              },
+              "DialogLineInfo": {
+                "DialogText": "You're god damn right never piss off Nora...",
+                "YuriDialogText": "",
+                "Yuri": false,
+                "YuriAudioClipInfo": null,
+                "AudioClipInfo": {
+                  "Path": "vo_baggage_c_7_nora",
+                  "IsExternal": false
+                },
+                "StartExpression": {
+                  "expressionType": 1,
+                  "eyesClosed": false,
+                  "percentRead": 0.0
+                },
+                "EndExpression": {
+                  "expressionType": 1,
+                  "eyesClosed": false,
+                  "percentRead": 0.0
+                },
+                "Expressions": []
+              },
+              "DialogOptionInfos": [],
+              "BranchInfos": []
+            }
+          ]
+        }
+      ],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 8,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": true,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Aye,▸▸▸▸▸▸▸▸▸▸ if someone fucks with me,▸▸▸▸▸ I'm gonna fuck them twice as hard back.▸▸▸▸▸ I don't take no shit from nobody.",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_baggage_c_8_nora",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 1,
+          "eyesClosed": true,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 4,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 1,
+            "eyesClosed": false,
+            "percentRead": 0.11818181
+          },
+          {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.7181818
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    }
+  ],
+  "IsAdditive": false,
+  "Id": 142
+}

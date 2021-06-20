@@ -1,0 +1,4342 @@
+{
+  "EditorTab": 12,
+  "ForceType": 1,
+  "ResponseTriggerDefinitionID": -1,
+  "Priority": 0,
+  "DialogLineSetInfos": [
+    {
+      "DialogLines": [
+        {
+          "DialogText": "This is the DATE_GREETING dialog trigger.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": null,
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "This is just what I needed!▸▸▸▸▸ My shoulders have been tight for days now.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_1_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.445454538
+            }
+          ]
+        },
+        {
+          "DialogText": "All these wild fish colors and patterns are giving me new design ideas!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_2_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.5363636
+            }
+          ]
+        },
+        {
+          "DialogText": "You can't beat the feeling of sand between your toes!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_3_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": true,
+              "percentRead": 0.6363636
+            }
+          ]
+        },
+        {
+          "DialogText": "Last one in the pool buys the first round of drinks!▸▸[hahahaha]▸▸▸",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_4_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.718181849
+            }
+          ]
+        },
+        {
+          "DialogText": "I don't play golf very often,▸▸▸▸▸ so it'll take some getting used to!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_5_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.463636369
+            }
+          ]
+        },
+        {
+          "DialogText": "There's probably a lot of wealthy people here...▸▸▸▸▸ could be a good networking opportunity!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_6_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.563636363
+            }
+          ]
+        },
+        {
+          "DialogText": "Is it just me,▸▸ or do you feel like you've heard this song before?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_7_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "Whoa,▸▸▸ deja▸▸ vu!▸▸▸▸▸▸▸▸▸▸ Didn't you take me to a casino a couple of years ago?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_8_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 5,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.381818175
+            }
+          ]
+        },
+        {
+          "DialogText": "I knew you could plan a romantic date but▸▸▸ THIS is really something else!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_9_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.563636363
+            }
+          ]
+        },
+        {
+          "DialogText": "Careful now,▸▸▸▸▸ one too many drinks and I'LL be the one up on that stage!▸▸[hahahaha]▸▸",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_10_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.2
+            },
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.799999952
+            }
+          ]
+        },
+        {
+          "DialogText": "How'd you find out about this place?▸▸▸▸▸ It isn't on any of the tourist maps.▸▸▸",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_11_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.5
+            }
+          ]
+        },
+        {
+          "DialogText": "Wow, would you look at that?▸▸▸▸▸ The view from this room is incredible...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_13_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.4181818
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Oh▸▸ god...▸▸▸▸▸▸▸▸▸▸ this reminds me of a scene I once did.▸▸▸▸▸ We went through a LOT of oil that day.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_1_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.218181819
+            },
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.6
+            }
+          ]
+        },
+        {
+          "DialogText": "Awww,▸▸▸▸▸ this is nice.▸▸▸▸▸▸▸▸▸▸ Nobody ever takes me out on a cute date like this.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_2_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.4090909
+            }
+          ]
+        },
+        {
+          "DialogText": "Finally,▸▸▸▸▸ a nice quiet place we can just lay back and relax...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_3_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.218181819
+            }
+          ]
+        },
+        {
+          "DialogText": "I wonder if they have one of those HUGE cocktails you can order...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_4_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "I'm actually pretty good at golf, you know.▸▸▸▸▸ It's one of my MANY▸▸▸ hidden talents.▸▸▸▸▸[hahaha]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_5_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 8,
+              "eyesClosed": false,
+              "percentRead": 0.463636369
+            },
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.8818182
+            }
+          ]
+        },
+        {
+          "DialogText": "You're never too old to get hammered on a boat!▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ I may have made that rule up...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_6_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.6545454
+            }
+          ]
+        },
+        {
+          "DialogText": "I love it up here.▸▸▸▸▸ Don't you?▸▸▸▸▸ You can see almost the entire resort!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_7_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.3181818
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.5
+            }
+          ]
+        },
+        {
+          "DialogText": "You know the best part about a casino?▸▸▸ Free▸▸ dri-▸▸▸▸▸ Wait...▸▸▸▸▸▸▸▸▸▸ did I already say that?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_8_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.427272737
+            },
+            {
+              "expressionType": 4,
+              "eyesClosed": true,
+              "percentRead": 0.5909091
+            },
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.736363649
+            }
+          ]
+        },
+        {
+          "DialogText": "This is the kind of date I always imagined being taken on.▸▸▸▸▸▸▸▸[hhaahh]▸[hh]▸▸▸▸▸▸▸▸▸▸ Better late than never!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_9_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": true,
+              "percentRead": 0.5909091
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.781818151
+            }
+          ]
+        },
+        {
+          "DialogText": "Ah,▸▸▸ the strip club,▸▸▸▸▸ my old stomping ground.▸▸▸▸▸ I was so innocent back then.▸▸[hahaha]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_10_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.563636363
+            },
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.8818182
+            }
+          ]
+        },
+        {
+          "DialogText": "So...▸▸▸▸▸ is clothing optional here?▸▸▸▸▸[hhmmhhmm]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_11_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.763636351
+            }
+          ]
+        },
+        {
+          "DialogText": "Wooooww,▸▸▸▸▸▸▸▸ you really went all out here,▸▸▸▸▸ didn't you?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_13_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.763636351
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Oh good,▸▸▸ at least▸▸ I can go back to sleep here...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_1_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 5,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.236363634
+            }
+          ]
+        },
+        {
+          "DialogText": "I wish it was▸▸ me▸▸ floating in this tank right now...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_2_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "Okay,▸▸ well,▸▸ we're here,▸▸ soooo...▸▸ now what?[h]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_3_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.5181818
+            }
+          ]
+        },
+        {
+          "DialogText": "If I get my hair wet,▸▸▸▸▸ I'm gonna be like,▸▸▸ real▸ly pissed?[t]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_4_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.381818175
+            }
+          ]
+        },
+        {
+          "DialogText": "Ughh,▸▸ I should have brought an umbrella.[hh]▸▸▸▸▸ The sun▸▸▸ is like,▸▸▸▸▸ burn▸▸ing▸▸ my▸▸ fuck▸▸ing▸▸ skin.▸▸▸[h]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_5_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.0818181857
+            },
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.6181818
+            }
+          ]
+        },
+        {
+          "DialogText": "Wouldn't it be funny if we sailed to the Bermuda Triangle▸▸ and▸▸ NEVER▸▸ came back?▸▸▸",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_6_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.6272727
+            }
+          ]
+        },
+        {
+          "DialogText": "How▸▸ high▸▸ up are we?▸▸▸[hh]▸▸▸ Do you think you'd like,▸▸▸ die▸▸ if you jumped from up here?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_7_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.6363636
+            }
+          ]
+        },
+        {
+          "DialogText": "If this place is twenty-one and up,▸▸[hh]▸▸▸ don't worry,▸▸▸▸▸ I got a fake▸▸ I▸▸D.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_8_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.5181818
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.7
+            }
+          ]
+        },
+        {
+          "DialogText": "Oh my▸▸▸▸▸ GO[O]D...[h]▸▸ is this supposed to be like, ro▸▸man▸▸tic?▸▸▸[ah]▸[ha]▸▸▸ I think▸▸▸ I'm gonna▸▸ barf...▸▸",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_9_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.7
+            }
+          ]
+        },
+        {
+          "DialogText": "O▸▸kaaaay...▸▸[hh]▸▸▸ this place▸▸ looks like▸▸▸▸▸▸▸ it MIGHT be cool...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_10_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.7
+            }
+          ]
+        },
+        {
+          "DialogText": "Fuck...▸▸ I can't drown myself in water this shallow.▸▸▸[hhh]▸▸▸▸▸[aahh]▸▸▸ Oh well...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_11_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 1,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 1,
+              "eyesClosed": false,
+              "percentRead": 0.13636364
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": true,
+              "percentRead": 0.736363649
+            },
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.8454545
+            }
+          ]
+        },
+        {
+          "DialogText": "Do you think anybody was ever murdered in this room?▸▸[hh]▸▸▸▸▸ That'd be cool...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_13_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.7363636
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "What a beautiful spa...▸▸▸▸▸▸▸▸▸▸ a peaceful place to restore and reunify the body,▸▸▸▸▸ mind,▸▸▸▸▸ and spirit...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_1_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.290909082
+            },
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.74545455
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.8636364
+            }
+          ]
+        },
+        {
+          "DialogText": "I wish us all a wonderful date free of broken hearts,▸▸▸▸▸▸▸▸▸▸ and negative energy...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_2_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.7181818
+            }
+          ]
+        },
+        {
+          "DialogText": "Yes,▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ I▸▸ don't know why...▸▸▸▸▸▸▸▸▸▸ but this location resonates with me quite strongly...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_3_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.5
+            }
+          ]
+        },
+        {
+          "DialogText": "I rather dislike water...▸▸▸▸▸▸▸▸▸▸ but,▸▸▸▸▸▸▸▸▸▸ I should be okay,▸▸▸▸▸ as▸▸▸▸▸ long as it's not too deep.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_4_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.345454574
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.6636363
+            }
+          ]
+        },
+        {
+          "DialogText": "A competitive game?▸▸▸▸▸▸▸▸▸▸ Hmm...▸▸▸▸▸▸▸▸▸▸ what a curious choice for a date activity.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_5_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.336363643
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.5272727
+            }
+          ]
+        },
+        {
+          "DialogText": "I▸▸▸▸▸▸▸▸▸▸ don't like being surrounded by all this water...▸▸▸▸▸▸▸▸▸▸ but,▸▸▸▸▸ I will do what must be done.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_6_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.599999964
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.727272749
+            }
+          ]
+        },
+        {
+          "DialogText": "I▸▸ believe I've had▸▸▸ dreams about this place...▸▸▸▸▸▸▸▸▸▸ yes,▸▸▸▸▸▸▸▸▸▸ this location is somehow significant...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_7_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.5272727
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.6454545
+            }
+          ]
+        },
+        {
+          "DialogText": "I can tell...▸▸▸▸▸▸▸▸▸▸▸▸▸ bringing girls to a casino has brought you luck in the past,▸▸▸▸▸▸▸ has it not?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_8_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.263636351
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.8545455
+            }
+          ]
+        },
+        {
+          "DialogText": "I'm▸▸▸ rather curious to see all that the butterfly people have taught you...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_9_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.563636363
+            }
+          ]
+        },
+        {
+          "DialogText": "The▸▸▸ sexual energy▸▸▸ here▸▸▸ is so palpable▸▸▸▸▸ I can smell it...▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ that might just be the B.O. though.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_10_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.7
+            }
+          ]
+        },
+        {
+          "DialogText": "A hidden grotto...▸▸▸▸▸▸▸▸▸▸ fascinating.▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ It seems the perfect setting for...▸▸▸▸▸ intimate activities...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_11_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.25454545
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.463636339
+            },
+            {
+              "expressionType": 8,
+              "eyesClosed": false,
+              "percentRead": 0.7818182
+            }
+          ]
+        },
+        {
+          "DialogText": "Mmmm,▸▸▸▸▸ yes.▸▸▸▸▸▸▸▸▸▸ A wise location choice.▸▸▸▸▸▸▸▸▸▸ Many, many nuts have been bust here.",
+          "YuriDialogText": "Mmmm,▸▸▸▸▸ yes.▸▸▸▸▸▸▸▸▸▸ A wise location choice.▸▸▸▸▸▸▸▸▸▸ Many, many sheets have been soiled here.",
+          "Yuri": true,
+          "YuriAudioClipInfo": {
+            "Path": "vo_greeting_date_13y_zoey",
+            "IsExternal": false
+          },
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_13_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.272727281
+            },
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.6181818
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Uh-oh,▸▸▸▸▸▸▸ I didn't know we were gonna relax...▸▸▸▸▸ I had three energy drinks!▸▸[s]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_1_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 5,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "This reminds me▸▸ of my fish▸▸ tank▸▸ at home!▸▸▸▸▸[hh]▸▸▸▸▸ 'Cept all of these fish are still alive...[hh]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_2_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.581818163
+            }
+          ]
+        },
+        {
+          "DialogText": "Hey, who got a bunch of sand in the bed!?▸▸▸▸▸▸▸ Oh,▸▸▸ that was me...[h]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_3_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.6181818
+            }
+          ]
+        },
+        {
+          "DialogText": "Last one in the pool is a rotten sticky smelly egg![h]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_4_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "I've seen EVERY episode of \"My Girlfriend Is a Pro Golfer!?\",▸▸ so this'll be EA[AAA]SY▸▸ PE[E]AS[A]Y!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_5_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.6
+            }
+          ]
+        },
+        {
+          "DialogText": "Uhhh,▸▸ can we go back to the hotel?▸▸ I forgot my sunglasses...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_6_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.536363661
+            }
+          ]
+        },
+        {
+          "DialogText": "Heeeeyy...[hh]▸▸▸▸▸[hh] this sorta looks like that one hentai I saw!▸▸▸▸▸ 'Cept everyone here is wearing clothes...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_7_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.6363636
+            }
+          ]
+        },
+        {
+          "DialogText": "I've never▸▸ been to an arcade like▸▸ this▸▸ before!▸▸▸▸▸▸▸▸▸▸▸▸▸ Do you think they have Dance Fiesta here!?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_8_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 5,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.581818163
+            }
+          ]
+        },
+        {
+          "DialogText": "Whoooa-▸▸▸ho-▸▸▸HO!▸▸▸▸▸[hh]▸▸▸▸▸ This is faa[aa]aan-▸▸▸cee!▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ With a capital F!▸▸▸▸▸ And a capital A!▸▸▸▸▸ And a capital...▸▸▸▸▸ the other letters!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_9_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 5,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.472727269
+            },
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.6
+            },
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.736363649
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.8636363
+            }
+          ]
+        },
+        {
+          "DialogText": "This is a really weird convention...▸▸▸▸▸ who are all these girls cosplaying as?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_10_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.5181818
+            }
+          ]
+        },
+        {
+          "DialogText": "It's just like the hot spring scene in the first episode of Poki Poki Swim Club!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_11_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "Pilllooow fiiiiiight![hh]▸▸▸▸▸[hehehehehehehehe]▸▸[hh]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_13_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 5,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "I'm a certified massage therapist too!▸▸▸▸▸ So,▸▸▸▸▸▸▸▸▸▸ who wants to go first?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_1_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.5181818
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.7
+            }
+          ]
+        },
+        {
+          "DialogText": "Don't you just love it here?▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ This is where I come on my breaks.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_2_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.563636363
+            }
+          ]
+        },
+        {
+          "DialogText": "I always forget about this beach!▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ I should really come here more often.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_3_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.563636363
+            }
+          ]
+        },
+        {
+          "DialogText": "I hope I don't get too wet!▸▸▸▸▸[haha]▸▸▸▸▸ I still have to go to work later.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_4_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.581818163
+            }
+          ]
+        },
+        {
+          "DialogText": "I suppose it's never too late to learn how to play a new game!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_5_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "I hope I'm not spotted by any of my co-workers out here.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_6_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "It feels a little strange being out here while I'm off the clock.▸▸[hahahaha]▸▸[hhhh]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_7_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.74545455
+            }
+          ]
+        },
+        {
+          "DialogText": "I'll do my best,▸▸▸▸▸▸▸▸▸▸ but I swear,▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ I have▸▸▸▸▸ the worst luck in the world...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_8_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": true,
+              "percentRead": 0.299999982
+            },
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.563636363
+            }
+          ]
+        },
+        {
+          "DialogText": "It's so pretty here.▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ I rarely ever get taken to places as nice as this.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_9_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.4
+            }
+          ]
+        },
+        {
+          "DialogText": "Oh my...▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ all the girls here are so pretty...▸▸▸▸▸ and so...▸▸▸▸▸▸▸▸▸▸ confident.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_10_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.6363637
+            }
+          ]
+        },
+        {
+          "DialogText": "Even though I work for the resort,▸▸▸▸▸ I almost never get to come here!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_11_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.5
+            }
+          ]
+        },
+        {
+          "DialogText": "Oh...▸▸▸▸▸▸▸▸▸▸ you reserved the royal suite?▸▸▸▸▸▸▸▸▸▸ What, uhhh...▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ what did you have in mind?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_13_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "I'm real good at givin' massages!▸▸[hh]▸▸▸▸▸ They ain't back massages though...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_1_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.563636363
+            }
+          ]
+        },
+        {
+          "DialogText": "[hahahaha]▸▸[hhhh]Look at all the fishies![s]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_2_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.363636345
+            }
+          ]
+        },
+        {
+          "DialogText": "You wanna see me climb that tree?▸▸▸▸▸ I got real▸▸ strong▸▸ legs!▸▸▸▸▸[s]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_3_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.5
+            }
+          ]
+        },
+        {
+          "DialogText": "Do they got floaties here?[hh]▸▸▸▸▸ I can't swim too good...[hh]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_4_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.527272761
+            }
+          ]
+        },
+        {
+          "DialogText": "[aa]▸▸Oh!▸▸[aa]▸▸ This'll be fun!▸▸▸▸▸ I'm real good at tennis![s]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_5_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 5,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": true,
+              "percentRead": 0.590909064
+            }
+          ]
+        },
+        {
+          "DialogText": "I got a little boat just like this in my bathtub![h]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_6_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "Waaaaiitt...▸▸▸▸▸ why are we here again?▸▸▸▸▸▸▸▸▸▸[hh] Oh,▸▸▸▸▸ right!▸▸[hh]▸▸ The date![t]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_7_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.209090918
+            },
+            {
+              "expressionType": 5,
+              "eyesClosed": false,
+              "percentRead": 0.5181818
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.809090853
+            }
+          ]
+        },
+        {
+          "DialogText": "I don't get how the slot machines are supposta work...[hh]▸▸▸▸▸ it's too hard...[h]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_8_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.7181818
+            }
+          ]
+        },
+        {
+          "DialogText": "Do they got a bathroom here?▸▸▸▸▸[hh]▸▸▸ I gotta,▸▸▸▸▸ uhhh...▸▸▸▸▸▸▸ powder my nose.[heh]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_9_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.4181818
+            },
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.7272727
+            }
+          ]
+        },
+        {
+          "DialogText": "Hey![hh]▸▸▸▸▸ This is where I work![h]▸▸▸▸▸ You wanna see me dance?[s]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_10_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 5,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.227272734
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.6181818
+            }
+          ]
+        },
+        {
+          "DialogText": "I hope my glitter don't come off in the water...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_11_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "Woooooww!▸▸[hh]▸▸▸▸▸ Now this here's a LOT fancier than the back alleyway!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_13_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 5,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.281818181
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "After cleanin' this place▸▸ so many times,▸▸▸▸▸▸▸ it's kinda cool to like,▸▸▸▸▸ use it.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_1_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.5818182
+            }
+          ]
+        },
+        {
+          "DialogText": "It's actually kinda cool in here,▸▸ you know?▸▸▸▸▸▸▸▸▸▸ I should come here more often.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_2_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.6
+            }
+          ]
+        },
+        {
+          "DialogText": "Real talk?▸▸▸▸▸▸▸▸▸▸ I ain't been on many dates...▸▸▸▸▸ so,▸▸▸▸▸ like,▸▸▸▸▸▸▸▸▸▸ I'm still tryna figure this shit out.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_3_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.181818157
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.6636364
+            }
+          ]
+        },
+        {
+          "DialogText": "Shiiiit...[t]▸▸▸▸▸▸▸▸ did I forget to add chlorine to the water yesterday?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_4_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.25454545
+            }
+          ]
+        },
+        {
+          "DialogText": "O▸▸kay,▸▸▸▸▸ I got like▸▸▸ no idea what the fuck▸▸ I'm doin' here.▸▸▸▸▸ You gotta teach me.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_5_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.154545456
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.75454545
+            }
+          ]
+        },
+        {
+          "DialogText": "I feel bad for whoever's gotta clean all the rooms on this fuckin' thing.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_6_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "I definitely don't mind sitting down after the fuckin' day I've had today...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_7_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.599999964
+            }
+          ]
+        },
+        {
+          "DialogText": "I ain't stupid enough to put my money in these things...▸▸▸▸▸▸▸▸▸▸ I'll just watch you guys.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_8_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.7
+            }
+          ]
+        },
+        {
+          "DialogText": "Da[aaa]mn...▸▸▸▸▸ none of my broke ass exes ever took me to a place like this.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_9_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.25454545
+            }
+          ]
+        },
+        {
+          "DialogText": "I thought about working here,▸▸▸▸ but,▸▸ nah.▸▸▸▸▸▸▸▸▸▸ I did a webcam gig for a while...▸▸▸▸▸ not really my thing.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_10_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.454545468
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.781818151
+            }
+          ]
+        },
+        {
+          "DialogText": "This is the only pool in the resort people ain't fuckin' peein' in all day...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_11_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "Yeah, the room looks nice now,▸▸ but you should see it when I have to clean it...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_13_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.4090909
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "I was JUST thinking I could do with some pampering...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_1_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "The aquarium cost a FORTUNE to build, but,▸▸▸▸▸ the guests do seem to enjoy it.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_2_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.5
+            }
+          ]
+        },
+        {
+          "DialogText": "Let's see what you're made of, kid!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_3_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 8,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "You'd be surprised just how buoyant silicone is!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_4_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "I should warn you,▸▸▸ I AM rich, which makes me automatically good at golf.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_5_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.263636351
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.481818169
+            }
+          ]
+        },
+        {
+          "DialogText": "This▸▸▸ reminds▸▸▸▸▸ me...▸▸▸▸▸▸▸▸▸▸ I need to get on my husband about buying a new yacht.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_6_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.4
+            }
+          ]
+        },
+        {
+          "DialogText": "Now▸▸ remem▸▸ber...▸▸▸▸▸ it's important to respect your elders and do what you're told!▸▸▸▸▸▸▸▸▸▸",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_7_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.263636351
+            },
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.909090936
+            }
+          ]
+        },
+        {
+          "DialogText": "There's nothing like spending money at your own casino!▸▸▸▸▸ You can't lose!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_8_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.74545455
+            }
+          ]
+        },
+        {
+          "DialogText": "I've been on many,▸▸▸▸▸▸▸ MAN▸▸Y▸▸▸ up▸▸scale▸▸▸ dates.[s]▸▸▸▸▸▸▸ So[o],▸▸▸▸▸▸▸▸▸▸ your work is cut out for you!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_9_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.236363634
+            },
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.581818163
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.727272749
+            }
+          ]
+        },
+        {
+          "DialogText": "You like the girls?▸▸▸▸▸ I personally vet them all myself...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_10_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.4181818
+            }
+          ]
+        },
+        {
+          "DialogText": "So[o],▸▸ you found our little the secret, huh?▸▸▸▸▸▸▸▸▸▸ Just don't go telling ALL the guests!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_11_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.118181817
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.581818163
+            }
+          ]
+        },
+        {
+          "DialogText": "Ahhh,▸▸▸▸▸ the▸▸ ro▸▸yal▸▸▸▸ suite!▸[tt]▸▸▸▸▸▸▸▸▸ I probably reserve this room more than our guests do!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_13_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.136363626
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.481818169
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Aww▸▸▸▸▸ yeah...▸▸▸▸▸▸▸▸▸▸ THIS,▸▸▸▸▸▸▸▸▸▸ I can definitely do.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_1_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.418181837
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.6363636
+            }
+          ]
+        },
+        {
+          "DialogText": "Really?▸▸▸▸▸ An aquarium?▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ Alright...▸▸▸▸▸▸▸▸▸▸ I▸▸▸▸▸ hope you know what you're doing...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_2_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 5,
+              "eyesClosed": true,
+              "percentRead": 0.381818175
+            },
+            {
+              "expressionType": 5,
+              "eyesClosed": false,
+              "percentRead": 0.563636363
+            }
+          ]
+        },
+        {
+          "DialogText": "Well this looks boring...▸▸▸▸▸▸▸▸▸▸ you better have somethin' good up your sleeve!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_3_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.436363637
+            }
+          ]
+        },
+        {
+          "DialogText": "So THIS▸▸▸▸▸▸▸▸▸▸ is your plan to get us WET,▸▸▸▸▸ huh?▸▸▸▸▸▸▸▸▸▸[hahahahahahahaha]▸▸▸▸▸[hhhhhh]▸▸▸▸▸ Ahhh,▸▸▸ I crack myself up...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_4_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.49999997
+            },
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.7181818
+            }
+          ]
+        },
+        {
+          "DialogText": "What does a girl▸▸▸▸▸ have in common with a golf course?▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ A bunch of holes you're tryin' to shoot your balls in!▸▸▸▸▸▸▸[ha][ha][ha]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_5_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.454545468
+            },
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.8636364
+            }
+          ]
+        },
+        {
+          "DialogText": "If anyone needs me,▸▸▸▸▸▸▸ I'll be kicking back in one of these lounge chairs.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_6_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.345454544
+            }
+          ]
+        },
+        {
+          "DialogText": "I'd say I'm at like...▸▸▸▸▸ twenty percent wetness right now.▸▸▸▸▸ So,▸▸▸▸▸▸▸▸▸▸ you've got some work to do!▸▸▸▸▸",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_7_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.236363634
+            },
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.563636363
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.6818182
+            }
+          ]
+        },
+        {
+          "DialogText": "Ahhh,▸▸▸▸▸▸▸▸▸▸ tryin' to get...▸▸▸▸▸ LUCKY,▸▸▸▸▸ are we?▸▸▸▸▸▸▸▸▸▸ No?▸▸▸▸▸ Okay,▸▸▸▸▸ I'll stop.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_8_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.363636374
+            },
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.6636364
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.8636363
+            }
+          ]
+        },
+        {
+          "DialogText": "Oooo,▸▸▸▸▸ fan▸▸▸▸▸cy!▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ Is this how you get all the girls to fall for you?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_9_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.436363637
+            }
+          ]
+        },
+        {
+          "DialogText": "You think these chicks realize they could be making WAAAA[AAAAYY]YY more by selling lewds online?▸▸▸▸▸",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_10_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": true,
+              "percentRead": 0.454545468
+            },
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.599999964
+            }
+          ]
+        },
+        {
+          "DialogText": "Alright,▸▸▸▸▸▸▸▸▸▸ let's see whatcha got, big shot!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_11_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.363636374
+            }
+          ]
+        },
+        {
+          "DialogText": "[oooooooo]▸▸▸▸▸▸▸▸▸▸Damn,▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ why couldn't my boss put me up in a place like this?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_13_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.436363637
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "I hope I don't have any...▸▸ e-▸▸▸▸▸embarrassing accidents again...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_1_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.472727239
+            }
+          ]
+        },
+        {
+          "DialogText": "Being out on a real date,▸▸▸▸▸ with people...[hh]▸▸▸▸▸ it's all so new to me!▸▸▸▸▸ I like it though!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_2_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.5181818
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.8
+            }
+          ]
+        },
+        {
+          "DialogText": "Oh,▸▸▸▸▸ look...[hh]▸▸▸▸▸▸▸▸▸▸ there's nobody else around.▸▸▸▸▸▸▸▸▸▸ It's...▸▸▸▸▸ just the three of us...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_3_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 8,
+              "eyesClosed": false,
+              "percentRead": 0.5909091
+            }
+          ]
+        },
+        {
+          "DialogText": "Mmmmnnhh,▸▸▸▸▸▸▸▸▸▸ I'm all wet now...▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ and I haven't even gotten in the water yet...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_4_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 8,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.545454562
+            }
+          ]
+        },
+        {
+          "DialogText": "I'll hold onto your balls for you!▸▸▸▸▸ Uhh-▸▸ Wait,▸▸ no!▸▸▸▸▸ That came out wrong!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_5_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 5,
+              "eyesClosed": false,
+              "percentRead": 0.436363637
+            },
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.7090909
+            }
+          ]
+        },
+        {
+          "DialogText": "Wow!▸▸▸▸▸[hh]▸▸▸▸▸ I never thought I'd have the chance to be on an actual cruise ship!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_6_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.218181819
+            }
+          ]
+        },
+        {
+          "DialogText": "I'm horny to be here with you!▸▸▸▸▸▸▸▸▸▸ Uhh-▸▸▸▸▸ Happy!▸▸▸▸▸ Uhh,▸▸ not horny!▸▸[haha] Well, yes horny, but... uhhh,[uhuhuh]▸▸▸▸▸ never mind!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_7_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 5,
+              "eyesClosed": false,
+              "percentRead": 0.281818181
+            },
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.463636369
+            },
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.6
+            },
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.7363636
+            },
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.8636364
+            }
+          ]
+        },
+        {
+          "DialogText": "I wonder what my family would say if they knew I was gambling...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_8_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "[OOOOO]Ohhh!▸▸▸▸▸▸▸▸▸▸ THIS▸▸▸▸▸ is what you meant by▸▸▸ pri▸▸▸vate!▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ I was thinking...▸▸ umm,▸▸▸▸▸ s-▸▸▸something else...[heh]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_9_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.563636363
+            },
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.8181818
+            }
+          ]
+        },
+        {
+          "DialogText": "Unnghhawww...▸▸▸▸▸ every time I come in here I end up leaving without any money...[hh]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_10_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.236363649
+            }
+          ]
+        },
+        {
+          "DialogText": "You know,▸▸▸▸▸▸▸▸▸▸ there's a spot over there you can use to▸▸▸▸▸ spy on-▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ Err,▸▸▸▸▸▸▸▸▸▸ uhh,▸▸▸▸▸ n-▸▸ Uhh,▸▸ n-▸▸nothing!▸▸▸▸▸ Nothing!▸▸▸ Nevermind!▸▸[heh]▸▸[hhhh]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_11_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 5,
+              "eyesClosed": false,
+              "percentRead": 0.463636369
+            },
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.6818182
+            },
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.9
+            }
+          ]
+        },
+        {
+          "DialogText": "Okay...▸▸▸▸▸[hhhh]▸▸[oooo]▸▸▸▸▸ control yourself Abia.▸▸▸▸▸ Try to to think about...▸▸▸▸▸ mmmm,▸▸▸▸▸ oh no,▸▸▸▸▸ too late...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_13_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": true,
+              "percentRead": 0.12727274
+            },
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.25454548
+            },
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.6909091
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Ooo,▸▸▸ mass▸▸▸▸▸ag▸▸▸es!▸▸▸▸▸ This'll▸▸ be▸▸ n[iii]ice!▸▸▸▸▸▸▸▸▸▸ A-▸▸▸▸▸As long as I don't have to get▸▸▸▸▸ COMPLETELY naked...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_1_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.5454545
+            },
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.799999952
+            }
+          ]
+        },
+        {
+          "DialogText": "Int▸▸eres▸▸ting...▸▸▸▸▸[hh]▸▸▸ does anybody else have the sudden urge to go ice skating?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_2_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.354545444
+            }
+          ]
+        },
+        {
+          "DialogText": "I can't wait to see what you have in store for us lovely ladies!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_3_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "Who wants to play Marco Polo?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_4_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "Don't hold back on me now!▸▸▸[hh]▸▸▸ I've got a pretty good swing for a girl!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_5_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.463636339
+            }
+          ]
+        },
+        {
+          "DialogText": "Hold on,▸▸[hh]▸▸ I'm gonna update my status to[ooo]... I'm▸▸ on▸▸ a▸▸ boat,▸▸ bi[i▸▸i]tche[ee]s!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_6_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.572727263
+            }
+          ]
+        },
+        {
+          "DialogText": "Ughh!▸▸▸▸▸ I have the perfect outfit for this occasion, but I left it at ho[oo]me!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_7_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.136363626
+            }
+          ]
+        },
+        {
+          "DialogText": "Want me to blow on your dice for good luck?▸▸▸▸▸▸▸▸▸▸▸▸▸",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_8_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 8,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.75454545
+            }
+          ]
+        },
+        {
+          "DialogText": "[aaaahh]▸▸▸Will you LOOK▸▸ at this table?▸▸▸▸▸ And▸▸ that▸▸ view!▸▸▸▸▸ Oh,▸▸ this is just too much!▸▸",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_9_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.6818182
+            }
+          ]
+        },
+        {
+          "DialogText": "We[ee]ll[hh]...▸▸▸▸▸[hh]▸▸ the ladies here certainly don't leave anything to the imagination!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_10_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "Should we go skinny dipping?[hhahaha] I'm▸ so▸▸ bad![hh]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_11_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.436363637
+            },
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.6
+            }
+          ]
+        },
+        {
+          "DialogText": "I'm gonna post a selfie from the balcony.[hh]▸▸▸▸▸ Cap▸▸▸tion...[hh]▸▸▸▸▸ livin' my best life!▸▸▸",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_date_13_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": true,
+              "percentRead": 0.463636369
+            },
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.6999999
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "You can't be serious...▸▸▸▸▸ YOU▸▸▸ again!?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_date_retry_a_1_moxie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 1,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 1,
+              "eyesClosed": false,
+              "percentRead": 0.6363636
+            }
+          ]
+        },
+        {
+          "DialogText": "Back to suffer another HUMILIATION,▸▸ are you!?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_date_retry_b_1_moxie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 1,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 1,
+              "eyesClosed": false,
+              "percentRead": 0.481818229
+            }
+          ]
+        },
+        {
+          "DialogText": "Give▸▸ up,▸▸ boy!▸▸▸▸▸ Your efforts are hopeless!",
+          "YuriDialogText": "Give up, girl!▸▸▸▸▸ Your efforts are hopeless!",
+          "Yuri": true,
+          "YuriAudioClipInfo": {
+            "Path": "vo_date_retry_c_2y_moxie",
+            "IsExternal": false
+          },
+          "AudioClipInfo": {
+            "Path": "vo_date_retry_c_2_moxie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 1,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 1,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "How much more disappointment are we to TOLERATE!?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_date_retry_a_2_jewn",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 1,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 1,
+              "eyesClosed": false,
+              "percentRead": 0.7
+            }
+          ]
+        },
+        {
+          "DialogText": "They never learn...▸▸▸▸▸ do they?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_date_retry_b_2_jewn",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 1,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 1,
+              "eyesClosed": false,
+              "percentRead": 0.6636364
+            }
+          ]
+        },
+        {
+          "DialogText": "Ahhhh,▸▸▸▸▸▸▸▸▸▸▸▸▸ look who's returned Moxie...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_date_retry_c_1_jewn",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 1,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 1,
+              "eyesClosed": false,
+              "percentRead": 0.399999976
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "IsAdditive": false,
+  "Id": 15
+}

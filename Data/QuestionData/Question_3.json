@@ -1,0 +1,14 @@
+{
+  "QuestionName": "Music Genre",
+  "QuestionText": "What is your favorite [[highlight]music genre]?",
+  "QuestionAnswers": [
+    "Hip Hop",
+    "Country",
+    "Punk",
+    "J-pop",
+    "Techno",
+    "Classical"
+  ],
+  "IsAdditive": false,
+  "Id": 3
+}

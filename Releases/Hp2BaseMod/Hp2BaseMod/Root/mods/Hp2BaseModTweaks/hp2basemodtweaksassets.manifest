@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 1914969489
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b7c106d15c48b76f7ca4742c72efd9cb
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9e6ad29cbd2df8fbe1a15315db0e51ab
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/ui_titlescreen_logo_modded.png
+Dependencies: []

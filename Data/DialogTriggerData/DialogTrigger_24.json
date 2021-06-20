@@ -1,0 +1,704 @@
+{
+  "EditorTab": 12,
+  "ForceType": 0,
+  "ResponseTriggerDefinitionID": -1,
+  "Priority": 0,
+  "DialogLineSetInfos": [
+    {
+      "DialogLines": [
+        {
+          "DialogText": "This is the UNIQUE_REJECT dialog trigger.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": null,
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Quit goofing around!▸▸▸▸▸ You know I'm not gonna take that from you.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_1_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.390909076
+            }
+          ]
+        },
+        {
+          "DialogText": "I've been trying to practice minimalism, so▸▸▸ I don't want too many new things.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_2_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.590909064
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Hmmm...▸▸▸▸▸▸▸▸▸▸[hh]▸▸▸▸▸ don't you want to get me something that I like?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_1_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.381818175
+            }
+          ]
+        },
+        {
+          "DialogText": "I appreciate the thought...▸▸▸[hh]▸▸▸ but I don't see how this is gonna get me drunk.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_2_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.445454538
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Umm,▸▸▸ yee[e]eeahh[h]...▸▸ I'm gonna have to go▸▸▸ with▸▸▸ NO[OO]...[h]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_1_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.354545444
+            }
+          ]
+        },
+        {
+          "DialogText": "Am I supposed to like,▸ want▸▸ that?[t]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_2_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Surely this gift is meant for another?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_1_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "I'm afraid I have no need for such an object...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_2_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Mmmmm...▸▸▸▸▸ nope![h]▸▸▸▸▸ Sorry,▸▸▸ I don't really like that kinda thing.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_1_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.218181819
+            }
+          ]
+        },
+        {
+          "DialogText": "Here,▸▸ you dropped this.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_2_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Uhhhh...▸▸▸▸▸▸▸▸▸▸ did...▸▸▸▸▸▸▸▸▸▸ did you mean to give that to me?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_1_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "I'd hate to turn down such thoughtful gift,▸▸▸▸▸ but,▸▸▸▸▸ I'd really have no use for it!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_2_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.6181818
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Now what am I gonna do with that, sil[h]ly?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_1_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "No thanks!▸▸[hhhh]▸▸▸▸▸ I got an online wishlist I can send ya if ya want!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_2_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.336363643
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Look,▸▸▸▸▸ I appreciate it▸▸ and everything,▸▸▸ but,▸▸▸▸▸▸▸ I just ain't got a use for that.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_1_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.145454541
+            },
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.6454545
+            }
+          ]
+        },
+        {
+          "DialogText": "What's with the gifts,▸▸ huh?▸▸▸▸▸▸▸▸▸▸ Ain't you got your own self to worry about?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_2_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "My tastes are a bit mo[o]re...▸▸▸▸▸ expensive,▸▸▸▸▸▸▸▸ than...▸▸▸▸▸▸▸▸ that...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_1_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.445454538
+            },
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.8636363
+            }
+          ]
+        },
+        {
+          "DialogText": "Surely that's your idea of some kind of...▸▸▸▸▸ joke?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_2_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "[IIIIII]I'm not tryin' to shit on your gift... but,▸▸▸▸▸ it kinda sucks.▸▸[hahahaha]▸▸[hhhh]▸▸ Sorry.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_1_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.7181818
+            },
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.8818182
+            }
+          ]
+        },
+        {
+          "DialogText": "I'm not a mindless gift accepting machine.▸▸▸▸▸▸▸▸▸▸ You have to put SOME thought into it.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_2_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.536363661
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "No, no!▸▸▸▸▸ It's really nice, it is, but...▸▸▸▸▸▸▸▸▸▸ I don't deserve it!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_1_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.6636364
+            }
+          ]
+        },
+        {
+          "DialogText": "Why don't you give that to another girl?▸▸▸▸▸▸▸▸▸▸ I'm sure she would love it!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_2_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.590909064
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "No,▸▸ real▸ly,▸▸ I couldn't!▸▸ It wouldn't be right![t]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_1_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.5272727
+            }
+          ]
+        },
+        {
+          "DialogText": "I▸▸ wish▸▸ I could accept it!▸▸▸▸[hh]▸▸▸▸ There's just no room in my suitcases...[s]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_unique_reject_2_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.4909091
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    }
+  ],
+  "IsAdditive": false,
+  "Id": 24
+}

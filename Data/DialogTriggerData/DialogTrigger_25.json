@@ -1,0 +1,1107 @@
+{
+  "EditorTab": 12,
+  "ForceType": 0,
+  "ResponseTriggerDefinitionID": -1,
+  "Priority": 0,
+  "DialogLineSetInfos": [
+    {
+      "DialogLines": [
+        {
+          "DialogText": "This is the SHOES_ACCEPT dialog trigger.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": null,
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Yes!▸▸▸▸▸ I have the PERFECT outfit to go with these!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_1_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.2
+            }
+          ]
+        },
+        {
+          "DialogText": "No▸▸ way!▸▸▸▸▸ I was thinking of a design JUST like this!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_2_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.281818181
+            }
+          ]
+        },
+        {
+          "DialogText": "These are SUPER cute!▸▸▸▸▸ I can't wait until winter!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_3_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.4909091
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "St▸▸▸▸▸op!▸▸▸▸▸ How fucking cute are these shoes? I fucking LOVE them.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_1_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.26363638
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.6
+            }
+          ]
+        },
+        {
+          "DialogText": "[aaaa]▸▸▸▸▸I was looking everywhere for this pair!▸▸▸ Aww,▸▸▸▸▸ you're the best!▸▸",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_2_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.13636364
+            },
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.6272727
+            }
+          ]
+        },
+        {
+          "DialogText": "Have a little shoe fetish,▸▸ do we?▸▸▸▸▸[hahahaha]▸▸[hhhh]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_3_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.6818182
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Fuck,▸▸ o▸▸kay,▸▸[hh]▸▸ these▸▸▸ are▸▸▸▸▸ LITERAL▸▸LY▸▸▸[hh]▸▸ the sickest shoes I think I've▸▸▸▸▸ EVER seen!▸[h]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_1_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.09090909
+            },
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.581818163
+            }
+          ]
+        },
+        {
+          "DialogText": "Wait...▸▸[hh]▸▸▸ you actually like,▸▸ understand▸▸ my▸▸ style?▸▸▸[hh]▸▸▸▸▸ That's...▸ like...▸▸ cool?[h]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_2_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.7
+            }
+          ]
+        },
+        {
+          "DialogText": "I▸▸ GUESS I'll have to live another day...▸▸▸[hh]▸▸▸ as long as I get to wear▸▸▸ these.[h]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_3_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.545454562
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "The gifting of footwear...▸▸▸▸▸▸▸▸▸▸ what peculiar rituals we humans partake in...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_1_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.427272737
+            }
+          ]
+        },
+        {
+          "DialogText": "Thank you...▸▸▸▸▸▸▸▸▸▸ it's not often I'm able to find a pair of boots that conforms to my aesthetic.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_2_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.227272734
+            }
+          ]
+        },
+        {
+          "DialogText": "I can only imagine the incredible butterfly technology that enabled you to attain these...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_3_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.436363637
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "[ha]Sugoi!▸ Sugoi!▸ Sugoiii!!![hh]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_1_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "Where did you get these!?▸▸▸ These are sooo[oo]ooo kawaiiiiii![hh]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_2_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 5,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.4181818
+            }
+          ]
+        },
+        {
+          "DialogText": "[aa]▸▸[hh]▸▸▸I used to have a pair just like these!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_3_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 5,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.2272727
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "I love the feeling of sand in my flip flops.▸▸▸▸▸[hahahaha]▸▸[hhhh]▸▸▸▸▸ Is that weird?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_1_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.6
+            },
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.8
+            }
+          ]
+        },
+        {
+          "DialogText": "I'd walk around barefoot if I could.▸▸▸▸▸▸▸▸▸▸ These are the next best thing though!▸▸[ha][ha]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_2_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.5
+            },
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.8909091
+            }
+          ]
+        },
+        {
+          "DialogText": "How'd you know!?▸▸▸▸▸▸▸▸▸▸▸▸ I just noticed the strap was coming loose on my other pair.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_3_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.3181818
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "[AA]Aww[ww]ww![hh]▸▸▸▸ You're the sweetest, bestest boy▸ ever!▸▸▸▸▸",
+          "YuriDialogText": "[AA]Aww[ww]ww![hh]▸▸▸▸ You're the sweetest, bestest girl▸ ever!▸▸▸▸▸",
+          "Yuri": true,
+          "YuriAudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_1y_candace",
+            "IsExternal": false
+          },
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_1_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.318181843
+            }
+          ]
+        },
+        {
+          "DialogText": "You got these for little ol' ME!?▸▸[hh]▸▸▸▸▸▸▸▸▸▸[mmmwah▸▸mwah▸mwah▸mwahmwah]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_2_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": true,
+              "percentRead": 0.599999964
+            }
+          ]
+        },
+        {
+          "DialogText": "They're▸▸ so▸ pretty!▸▸▸▸▸[hh]▸▸▸▸▸ I can wear these for ya if ya like!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_3_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.454545468
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "O▸▸kay,▸▸▸▸▸ these...▸▸▸▸▸ are dope as hell.▸▸▸▸▸ Hell yeah,▸▸ I'll take them.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_1_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.1909091
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.6363636
+            }
+          ]
+        },
+        {
+          "DialogText": "Yoo[oo]oo,▸▸▸▸▸ thank you.▸▸▸▸▸▸▸▸ You just saved me a FUCK ton of money on new shoes.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_2_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.418181837
+            }
+          ]
+        },
+        {
+          "DialogText": "These are SO fucking clean,▸▸▸[hh]▸▸▸ I don't know if I can even wear them...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_3_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": true,
+              "percentRead": 0.4
+            },
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.4818182
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "These▸▸ are▸▸ simply▸▸▸▸ ador▸▸able!▸▸▸▸▸▸▸▸▸▸▸▸ I'm surprised I don't own them already!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_1_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.281818181
+            },
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.554545462
+            }
+          ]
+        },
+        {
+          "DialogText": "O[o]h[h]!▸▸▸▸▸▸▸▸▸▸ I▸▸ do hope I have room for these in my shoe closet...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_2_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        },
+        {
+          "DialogText": "Gor▸▸▸▸▸geous!▸▸▸▸▸▸▸▸▸▸ These will make an EXCELLENT addition to my wardrobe.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_3_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.336363643
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Yo,▸▸▸▸▸ these are really nice!▸▸▸▸▸ Since when do YOU have taste?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_1_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.5181818
+            }
+          ]
+        },
+        {
+          "DialogText": "Oh,▸▸▸ nice!▸▸▸▸▸▸▸▸▸▸ I modeled a pair just like these for one of my favorite brands.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_2_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.281818181
+            }
+          ]
+        },
+        {
+          "DialogText": "What?▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ I didn't think these were coming out until next year.▸▸▸▸▸▸▸ How'd YOU get these?▸▸▸▸▸",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_3_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.7181818
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "I'm▸▸▸▸▸ not accustomed to receiving this kind of attention...▸▸▸▸▸ so,▸▸▸▸▸ I'm not sure how to react!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_1_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.7181818
+            }
+          ]
+        },
+        {
+          "DialogText": "Are you sure!?▸▸[hh]▸▸▸▸▸ They're so nice...▸▸▸[hh]▸▸▸▸▸ I don't feel as though I've earned such a gift!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_2_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.25454545
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.463636369
+            }
+          ]
+        },
+        {
+          "DialogText": "T-▸▸▸▸▸▸▸▸thank you!▸▸▸▸[hh]▸▸▸▸ Is it customary to offer shoes to girls in your country?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_3_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.372727275
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "[aaaahh]▸▸▸▸▸You must have seen my video where I'm▸▸▸ GUSH▸▸ING about pumps!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_1_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.6636363
+            }
+          ]
+        },
+        {
+          "DialogText": "[aaaaaahh]▸▸▸▸▸▸▸▸▸▸I can match these with SO[O]▸▸ many▸▸ outfits...▸▸▸▸▸ ughh!▸▸▸▸▸ They're too perfect!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_2_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.6363636
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.736363649
+            }
+          ]
+        },
+        {
+          "DialogText": "I▸▸▸ think▸▸▸ I'm head over HEELS▸▸▸▸▸ in love with these shoes!▸▸▸▸▸▸▸▸▸▸▸▸▸ Get it?▸▸▸▸▸[hahaha]▸▸[hh]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_sim_shoes_accept_3_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.736363649
+            },
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.8454546
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    }
+  ],
+  "IsAdditive": false,
+  "Id": 25
+}

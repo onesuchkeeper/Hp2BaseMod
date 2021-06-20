@@ -1,0 +1,591 @@
+{
+  "CleanUpType": 0,
+  "Steps": [
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 7,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": true,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "[UU]Uhh[hh]hh...▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ what were we talkin' about?",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_baggage_b_1_candace",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 6,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 7,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.481818169
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 8,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": -1,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": false,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": null,
+        "StartExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 0,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": []
+      },
+      "DialogOptionInfos": [
+        {
+          "DialogOptionText": "We weren't talking about anything...",
+          "YuriDialogOptionText": "",
+          "Yuri": false,
+          "Steps": [
+            {
+              "StepType": 5,
+              "ProceedType": 0,
+              "DollTargetType": 0,
+              "TargetDollOrientation": 0,
+              "ExpressionType": 0,
+              "DollPositionType": 0,
+              "AnimationType": 0,
+              "SubCutsceneType": 0,
+              "NotificationType": 0,
+              "GirlPairRelationshipType": 0,
+              "SpecialStepPrefabName": null,
+              "BannerTextPrefabName": null,
+              "WindowPrefabName": null,
+              "EmitterBehaviorName": null,
+              "StringValue": "",
+              "FloatValue": 0.0,
+              "ProceedFloat": 0.0,
+              "TargetGirlDefinitionID": 7,
+              "IntValue": 0,
+              "EaseType": 0,
+              "EditorSelectedBranchIndex": 0,
+              "DialogTriggerDefinitionID": -1,
+              "EditorSelectedOptionIndex": 0,
+              "GirlDefinitionID": -1,
+              "ExpressionIndex": 0,
+              "HairstyleIndex": 0,
+              "OutfitIndex": 0,
+              "SubCutsceneDefinitionID": -1,
+              "SkipStep": false,
+              "TargetAlt": false,
+              "BoolValue": false,
+              "SetMood": false,
+              "ProceedBool": false,
+              "PositionInfo": {
+                "Xpos": 0.0,
+                "Ypos": 0.0
+              },
+              "AudioKlipInfo": {
+                "AudioClipInfo": null,
+                "Volume": 1.0
+              },
+              "LogicActionInfo": {
+                "Type": 0,
+                "AffectionType": 0,
+                "ResourceType": 0,
+                "PuzzleState": 0,
+                "StringValue": "",
+                "FloatValue": 0.0,
+                "IntValue": 0,
+                "LocationDefinitionID": -1,
+                "GirlPairDefinitionID": -1,
+                "CutsceneDefinitionID": -1,
+                "ItemDefinitionID": -1,
+                "GirlDefinitionID": -1,
+                "BoolValue": false,
+                "BackgroundMusic": {
+                  "AudioClipInfo": null,
+                  "Volume": 1.0
+                }
+              },
+              "DialogLineInfo": {
+                "DialogText": "Oh,[ho] wait!▸▸▸[hh]▸▸ I remember now![hh] It's...▸▸▸▸▸ uhh[hh]hh...▸▸",
+                "YuriDialogText": "",
+                "Yuri": false,
+                "YuriAudioClipInfo": null,
+                "AudioClipInfo": {
+                  "Path": "vo_baggage_b_2_candace",
+                  "IsExternal": false
+                },
+                "StartExpression": {
+                  "expressionType": 5,
+                  "eyesClosed": false,
+                  "percentRead": 0.0
+                },
+                "EndExpression": {
+                  "expressionType": 6,
+                  "eyesClosed": false,
+                  "percentRead": 0.0
+                },
+                "Expressions": [
+                  {
+                    "expressionType": 7,
+                    "eyesClosed": false,
+                    "percentRead": 0.3
+                  },
+                  {
+                    "expressionType": 6,
+                    "eyesClosed": false,
+                    "percentRead": 0.74545455
+                  }
+                ]
+              },
+              "DialogOptionInfos": [],
+              "BranchInfos": []
+            }
+          ]
+        },
+        {
+          "DialogOptionText": "How to solve the global climate crisis.",
+          "YuriDialogOptionText": "",
+          "Yuri": false,
+          "Steps": [
+            {
+              "StepType": 5,
+              "ProceedType": 0,
+              "DollTargetType": 0,
+              "TargetDollOrientation": 0,
+              "ExpressionType": 0,
+              "DollPositionType": 0,
+              "AnimationType": 0,
+              "SubCutsceneType": 0,
+              "NotificationType": 0,
+              "GirlPairRelationshipType": 0,
+              "SpecialStepPrefabName": null,
+              "BannerTextPrefabName": null,
+              "WindowPrefabName": null,
+              "EmitterBehaviorName": null,
+              "StringValue": "",
+              "FloatValue": 0.0,
+              "ProceedFloat": 0.0,
+              "TargetGirlDefinitionID": 7,
+              "IntValue": 0,
+              "EaseType": 0,
+              "EditorSelectedBranchIndex": 0,
+              "DialogTriggerDefinitionID": -1,
+              "EditorSelectedOptionIndex": 0,
+              "GirlDefinitionID": -1,
+              "ExpressionIndex": 0,
+              "HairstyleIndex": 0,
+              "OutfitIndex": 0,
+              "SubCutsceneDefinitionID": -1,
+              "SkipStep": false,
+              "TargetAlt": false,
+              "BoolValue": false,
+              "SetMood": false,
+              "ProceedBool": false,
+              "PositionInfo": {
+                "Xpos": 0.0,
+                "Ypos": 0.0
+              },
+              "AudioKlipInfo": {
+                "AudioClipInfo": null,
+                "Volume": 1.0
+              },
+              "LogicActionInfo": {
+                "Type": 0,
+                "AffectionType": 0,
+                "ResourceType": 0,
+                "PuzzleState": 0,
+                "StringValue": "",
+                "FloatValue": 0.0,
+                "IntValue": 0,
+                "LocationDefinitionID": -1,
+                "GirlPairDefinitionID": -1,
+                "CutsceneDefinitionID": -1,
+                "ItemDefinitionID": -1,
+                "GirlDefinitionID": -1,
+                "BoolValue": false,
+                "BackgroundMusic": {
+                  "AudioClipInfo": null,
+                  "Volume": 1.0
+                }
+              },
+              "DialogLineInfo": {
+                "DialogText": "Huh?[hh]▸▸▸▸▸[hh] I don't know nothin' about no climate...[hh]▸▸ alls I know about is...▸▸▸▸▸ uhh[hh]hh...",
+                "YuriDialogText": "",
+                "Yuri": false,
+                "YuriAudioClipInfo": null,
+                "AudioClipInfo": {
+                  "Path": "vo_baggage_b_3_candace",
+                  "IsExternal": false
+                },
+                "StartExpression": {
+                  "expressionType": 4,
+                  "eyesClosed": false,
+                  "percentRead": 0.0
+                },
+                "EndExpression": {
+                  "expressionType": 6,
+                  "eyesClosed": false,
+                  "percentRead": 0.0
+                },
+                "Expressions": [
+                  {
+                    "expressionType": 7,
+                    "eyesClosed": false,
+                    "percentRead": 0.181818187
+                  },
+                  {
+                    "expressionType": 6,
+                    "eyesClosed": false,
+                    "percentRead": 0.8454545
+                  }
+                ]
+              },
+              "DialogOptionInfos": [],
+              "BranchInfos": []
+            }
+          ]
+        },
+        {
+          "DialogOptionText": "I think you were about to show me your boobs.",
+          "YuriDialogOptionText": "",
+          "Yuri": false,
+          "Steps": [
+            {
+              "StepType": 5,
+              "ProceedType": 0,
+              "DollTargetType": 0,
+              "TargetDollOrientation": 0,
+              "ExpressionType": 0,
+              "DollPositionType": 0,
+              "AnimationType": 0,
+              "SubCutsceneType": 0,
+              "NotificationType": 0,
+              "GirlPairRelationshipType": 0,
+              "SpecialStepPrefabName": null,
+              "BannerTextPrefabName": null,
+              "WindowPrefabName": null,
+              "EmitterBehaviorName": null,
+              "StringValue": "",
+              "FloatValue": 0.0,
+              "ProceedFloat": 0.0,
+              "TargetGirlDefinitionID": 7,
+              "IntValue": 0,
+              "EaseType": 0,
+              "EditorSelectedBranchIndex": 0,
+              "DialogTriggerDefinitionID": -1,
+              "EditorSelectedOptionIndex": 0,
+              "GirlDefinitionID": -1,
+              "ExpressionIndex": 0,
+              "HairstyleIndex": 0,
+              "OutfitIndex": 0,
+              "SubCutsceneDefinitionID": -1,
+              "SkipStep": false,
+              "TargetAlt": false,
+              "BoolValue": false,
+              "SetMood": false,
+              "ProceedBool": false,
+              "PositionInfo": {
+                "Xpos": 0.0,
+                "Ypos": 0.0
+              },
+              "AudioKlipInfo": {
+                "AudioClipInfo": null,
+                "Volume": 1.0
+              },
+              "LogicActionInfo": {
+                "Type": 0,
+                "AffectionType": 0,
+                "ResourceType": 0,
+                "PuzzleState": 0,
+                "StringValue": "",
+                "FloatValue": 0.0,
+                "IntValue": 0,
+                "LocationDefinitionID": -1,
+                "GirlPairDefinitionID": -1,
+                "CutsceneDefinitionID": -1,
+                "ItemDefinitionID": -1,
+                "GirlDefinitionID": -1,
+                "BoolValue": false,
+                "BackgroundMusic": {
+                  "AudioClipInfo": null,
+                  "Volume": 1.0
+                }
+              },
+              "DialogLineInfo": {
+                "DialogText": "Oh![h]▸▸ Ok▸▸ay,▸▸▸▸▸ sure!▸▸▸▸▸[hh]▸▸ But,▸▸▸ you gotta pay for that, sil[h]ly.▸▸▸▸▸▸▸▸▸▸ How aboooout...▸▸▸▸▸ uhh[hh]hh...▸▸",
+                "YuriDialogText": "",
+                "Yuri": false,
+                "YuriAudioClipInfo": null,
+                "AudioClipInfo": {
+                  "Path": "vo_baggage_b_4_candace",
+                  "IsExternal": false
+                },
+                "StartExpression": {
+                  "expressionType": 5,
+                  "eyesClosed": false,
+                  "percentRead": 0.0
+                },
+                "EndExpression": {
+                  "expressionType": 6,
+                  "eyesClosed": false,
+                  "percentRead": 0.0
+                },
+                "Expressions": [
+                  {
+                    "expressionType": 3,
+                    "eyesClosed": false,
+                    "percentRead": 0.181818187
+                  },
+                  {
+                    "expressionType": 7,
+                    "eyesClosed": false,
+                    "percentRead": 0.318181753
+                  },
+                  {
+                    "expressionType": 0,
+                    "eyesClosed": false,
+                    "percentRead": 0.6727272
+                  },
+                  {
+                    "expressionType": 6,
+                    "eyesClosed": false,
+                    "percentRead": 0.8636363
+                  }
+                ]
+              },
+              "DialogOptionInfos": [],
+              "BranchInfos": []
+            }
+          ]
+        }
+      ],
+      "BranchInfos": []
+    },
+    {
+      "StepType": 5,
+      "ProceedType": 0,
+      "DollTargetType": 0,
+      "TargetDollOrientation": 0,
+      "ExpressionType": 0,
+      "DollPositionType": 0,
+      "AnimationType": 0,
+      "SubCutsceneType": 0,
+      "NotificationType": 0,
+      "GirlPairRelationshipType": 0,
+      "SpecialStepPrefabName": null,
+      "BannerTextPrefabName": null,
+      "WindowPrefabName": null,
+      "EmitterBehaviorName": null,
+      "StringValue": "",
+      "FloatValue": 0.0,
+      "ProceedFloat": 0.0,
+      "TargetGirlDefinitionID": 7,
+      "IntValue": 0,
+      "EaseType": 0,
+      "EditorSelectedBranchIndex": 0,
+      "DialogTriggerDefinitionID": -1,
+      "EditorSelectedOptionIndex": 0,
+      "GirlDefinitionID": -1,
+      "ExpressionIndex": 0,
+      "HairstyleIndex": 0,
+      "OutfitIndex": 0,
+      "SubCutsceneDefinitionID": -1,
+      "SkipStep": false,
+      "TargetAlt": false,
+      "BoolValue": false,
+      "SetMood": false,
+      "ProceedBool": true,
+      "PositionInfo": {
+        "Xpos": 0.0,
+        "Ypos": 0.0
+      },
+      "AudioKlipInfo": {
+        "AudioClipInfo": null,
+        "Volume": 1.0
+      },
+      "LogicActionInfo": {
+        "Type": 0,
+        "AffectionType": 0,
+        "ResourceType": 0,
+        "PuzzleState": 0,
+        "StringValue": "",
+        "FloatValue": 0.0,
+        "IntValue": 0,
+        "LocationDefinitionID": -1,
+        "GirlPairDefinitionID": -1,
+        "CutsceneDefinitionID": -1,
+        "ItemDefinitionID": -1,
+        "GirlDefinitionID": -1,
+        "BoolValue": false,
+        "BackgroundMusic": {
+          "AudioClipInfo": null,
+          "Volume": 1.0
+        }
+      },
+      "DialogLineInfo": {
+        "DialogText": "Oh▸▸▸▸▸ shoot...[t]▸▸▸▸▸▸▸▸▸▸ I forgot what we were talkin' about again...[h]",
+        "YuriDialogText": "",
+        "Yuri": false,
+        "YuriAudioClipInfo": null,
+        "AudioClipInfo": {
+          "Path": "vo_baggage_b_5_candace",
+          "IsExternal": false
+        },
+        "StartExpression": {
+          "expressionType": 7,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "EndExpression": {
+          "expressionType": 2,
+          "eyesClosed": false,
+          "percentRead": 0.0
+        },
+        "Expressions": [
+          {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.381818175
+          }
+        ]
+      },
+      "DialogOptionInfos": [],
+      "BranchInfos": []
+    }
+  ],
+  "IsAdditive": false,
+  "Id": 139
+}

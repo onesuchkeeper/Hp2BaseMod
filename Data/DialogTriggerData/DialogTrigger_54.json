@@ -1,0 +1,150 @@
+{
+  "EditorTab": 0,
+  "ForceType": 0,
+  "ResponseTriggerDefinitionID": -1,
+  "Priority": 0,
+  "DialogLineSetInfos": [
+    {
+      "DialogLines": [
+        {
+          "DialogText": "You got it this time!▸▸▸▸▸▸▸▸ I can feel it in my nether regions, and my nethers are never wrong!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_hotel_room_retry_1_kyu",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": true,
+              "percentRead": 0.3
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.6181818
+            }
+          ]
+        },
+        {
+          "DialogText": "No pressure,▸▸▸▸▸ but you can only fuck this up so many times before everyone dies...▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ good luck!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_hotel_room_retry_2_kyu",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.1818182
+            },
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.8636364
+            }
+          ]
+        },
+        {
+          "DialogText": "Give those sluts a punch in the cunt for me!▸▸▸▸▸ And▸▸ I do mean▸▸▸▸▸ IN▸▸▸▸▸ the cunt.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_hotel_room_retry_3_kyu",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 1,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.51818186
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    }
+  ],
+  "IsAdditive": false,
+  "Id": 54
+}

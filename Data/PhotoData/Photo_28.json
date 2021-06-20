@@ -1,0 +1,37 @@
+{
+  "GirlPairDefinitionID": 26,
+  "NextPhotoDefinitionID": -1,
+  "BigPhotoImages": [
+    {
+      "Path": "cg_00_kyu_lola_0",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_00_kyu_lola_1",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_00_kyu_lola_2",
+      "IsExternal": false
+    }
+  ],
+  "ThumbnailImages": [
+    {
+      "Path": "cg_thumb_00_kyu_lola_0",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_thumb_00_kyu_lola_1",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_thumb_00_kyu_lola_2",
+      "IsExternal": false
+    }
+  ],
+  "HasAlts": false,
+  "AltFlagName": "",
+  "AltCodeDefinitionID": -1,
+  "IsAdditive": false,
+  "Id": 28
+}

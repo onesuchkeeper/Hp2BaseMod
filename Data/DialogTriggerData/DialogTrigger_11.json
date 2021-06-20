@@ -1,0 +1,794 @@
+{
+  "EditorTab": 12,
+  "ForceType": 0,
+  "ResponseTriggerDefinitionID": -1,
+  "Priority": 0,
+  "DialogLineSetInfos": [
+    {
+      "DialogLines": [
+        {
+          "DialogText": "This is the GREETING_EVENING dialog trigger.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": null,
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "How's it going you two?▸▸▸▸▸ Hangin' in there?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_1_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.599999964
+            }
+          ]
+        },
+        {
+          "DialogText": "Have you seen the reflection of the sunset on the water?▸▸ It's beautiful!▸▸",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_2_lola",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.6818182
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "I swear,▸▸▸▸▸ you two get sexier every time I see you!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_1_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 8,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.281818151
+            }
+          ]
+        },
+        {
+          "DialogText": "Let's go somewhere where I won't get in trouble for smoking.[hh]▸▸▸ I'm dying for a cigarette.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_2_jessie",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.6636364
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Oh,▸▸ hey...▸▸[hh]▸▸ can you like,▸▸▸ hang on a second?▸▸▸[hh]▸▸▸ My friend just texted me...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_1_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.4181818
+            },
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.7
+            }
+          ]
+        },
+        {
+          "DialogText": "I'm▸▸▸▸▸ SO,▸▸▸▸▸▸▸ FUCKING,▸▸▸▸▸▸▸ BOOOORREED...[hh]▸▸▸▸▸[hh] why▸▸ is there never▸▸ anything to do?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_2_lillian",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 1,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 1,
+              "eyesClosed": true,
+              "percentRead": 0.345454544
+            },
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.6090909
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Ahh,▸▸▸▸▸▸▸▸▸▸ you're right on time.▸▸▸▸▸▸▸▸▸▸ I thought you'd be arriving about now...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_1_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.5
+            }
+          ]
+        },
+        {
+          "DialogText": "I had a feeling I'd be seeing you two this evening...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_2_zoey",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Du du du du▸▸▸ duu▸▸ duu▸▸ duu▸▸ duuuu![hh]▸▸▸▸▸ Hel[h]lo!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_1_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.772727251
+            }
+          ]
+        },
+        {
+          "DialogText": "Ni▸▸▸▸ Hao![hh]▸▸▸▸▸▸▸▸ Wait...▸▸ no, that doesn't sound right...[hh]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_2_sarah",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.345454544
+            },
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Hello again!▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸ If there's anything I can do for you, don't hesitate to ask!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_1_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.3181818
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.6636364
+            }
+          ]
+        },
+        {
+          "DialogText": "Good evening!▸▸▸▸▸ Welcome to Love Le- Oh,▸▸▸▸▸[haha]▸▸▸▸▸ wait, sorry,[haha]▸▸▸▸▸ I'm so used to saying that...",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_2_lailani",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.172727272
+            },
+            {
+              "expressionType": 5,
+              "eyesClosed": false,
+              "percentRead": 0.3181818
+            },
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.400000036
+            },
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.6363636
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "The sun's goin' away!▸▸▸▸▸ Bye bye Mr. Sun!▸▸[h]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_1_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.527272761
+            }
+          ]
+        },
+        {
+          "DialogText": "Yay!▸▸▸▸▸[hh]▸▸▸ My friends are here!▸▸▸▸▸▸▸▸[hahahaha]▸▸[hh]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_2_candace",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.272727251
+            },
+            {
+              "expressionType": 3,
+              "eyesClosed": false,
+              "percentRead": 0.736363649
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Da▸▸▸mn,▸▸▸▸▸ you guys again?▸▸▸▸▸▸▸▸▸▸▸▸ You got some kinda trackin' device on me or somethin'?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_1_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": true,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.1363636
+            },
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.436363637
+            }
+          ]
+        },
+        {
+          "DialogText": "[h]▸[hahahahaha]▸[hahahaha]▸▸▸▸▸[hh]Oh,▸▸ hmm?▸▸▸ Oh,▸▸ sorry...▸▸[hh]▸▸ my cousin just texted me a funny picture of her kid.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_2_nora",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 4,
+              "eyesClosed": false,
+              "percentRead": 0.26363638
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": true,
+              "percentRead": 0.5
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.581818163
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Ah[hhh]h,▸▸▸ per▸▸fect![t]▸▸▸▸▸▸▸ Just the two I wanted to see!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_1_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 3,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 8,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 8,
+              "eyesClosed": false,
+              "percentRead": 0.481818169
+            }
+          ]
+        },
+        {
+          "DialogText": "Sometimes I look out over this sprawling resort and think...[k]▸▸▸▸▸▸▸▸▸▸ ehh,▸▸▸▸▸▸▸▸ I could do better.",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_2_brooke",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 7,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 6,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": true,
+              "percentRead": 0.6909091
+            },
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.8090909
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Still here,▸▸▸▸▸ huh?▸▸▸▸▸▸▸▸▸▸ I was startin' to think you pussed out and flew home.▸▸▸▸▸",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_1_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 6,
+              "eyesClosed": false,
+              "percentRead": 0.363636374
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.7636364
+            }
+          ]
+        },
+        {
+          "DialogText": "I was wondering when I'd be seein' that sorry excuse for a face again!",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_2_ashley",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.463636339
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.8181818
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "Did...▸▸▸▸▸ uhh,▸▸▸▸▸ did you two come to visit▸▸ [h]m-▸▸me?▸▸▸▸▸",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_1_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 7,
+              "eyesClosed": false,
+              "percentRead": 0.336363643
+            },
+            {
+              "expressionType": 0,
+              "eyesClosed": false,
+              "percentRead": 0.8181818
+            }
+          ]
+        },
+        {
+          "DialogText": "Gahh!▸▸▸▸▸ Oh,▸▸ h-▸▸▸▸▸hi!▸▸▸▸▸▸▸▸▸▸ I Uhh,▸▸▸▸▸▸▸▸▸▸ I wasn't doing anything!▸▸▸▸▸ I just had an...▸▸▸▸▸ itch,▸▸▸▸▸ down there!▸▸[heh]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_2_abia",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 0,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        }
+      ]
+    },
+    {
+      "DialogLines": [
+        {
+          "DialogText": "I didn't expect to see you two here!▸▸[hh]▸▸▸ Oh, I hope my makeup is okay![h]",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_1_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 2,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": [
+            {
+              "expressionType": 2,
+              "eyesClosed": false,
+              "percentRead": 0.554545462
+            }
+          ]
+        },
+        {
+          "DialogText": "What do you think about this hair style?▸▸▸▸▸▸▸▸▸▸ You think it goes with my outfit?",
+          "YuriDialogText": "",
+          "Yuri": false,
+          "YuriAudioClipInfo": null,
+          "AudioClipInfo": {
+            "Path": "vo_greeting_evening_2_polly",
+            "IsExternal": false
+          },
+          "StartExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "EndExpression": {
+            "expressionType": 4,
+            "eyesClosed": false,
+            "percentRead": 0.0
+          },
+          "Expressions": []
+        }
+      ]
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    },
+    {
+      "DialogLines": []
+    }
+  ],
+  "IsAdditive": false,
+  "Id": 11
+}

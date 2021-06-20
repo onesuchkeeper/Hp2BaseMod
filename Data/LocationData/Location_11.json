@@ -1,0 +1,33 @@
+{
+  "LocationName": "Secluded Cabana",
+  "LocationType": 1,
+  "BgMusic": {
+    "AudioClipInfo": {
+      "Path": "bgm_secluded_cabana",
+      "IsExternal": false
+    },
+    "Volume": 0.5
+  },
+  "BgYOffset": 40.0,
+  "FinderLocationIcon": {
+    "Path": null,
+    "IsExternal": false
+  },
+  "DateGirlStyleType": 0,
+  "NonStopOptionText": "You know what? How about the [[highlight]SECLUDED CABANA]? That place is underrated.",
+  "SpecialLabels": [],
+  "Backgrounds": [
+    {
+      "Path": "loc_bg_date_cabana_0",
+      "IsExternal": false
+    },
+    {
+      "Path": "loc_bg_date_cabana_1",
+      "IsExternal": false
+    }
+  ],
+  "ArriveBundleList": [],
+  "DepartBundleList": [],
+  "IsAdditive": false,
+  "Id": 11
+}

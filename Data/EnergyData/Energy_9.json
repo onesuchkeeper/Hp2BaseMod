@@ -1,0 +1,67 @@
+{
+  "BurstSprites": [
+    {
+      "Path": "particle_token_energy_burst_stamina",
+      "IsExternal": false
+    }
+  ],
+  "TrailSprites": [
+    {
+      "Path": "particle_token_energy_stamina",
+      "IsExternal": false
+    },
+    {
+      "Path": "particle_token_energy_mist_stamina",
+      "IsExternal": false
+    }
+  ],
+  "SplashSprites": [
+    {
+      "Path": "particle_token_energy_stamina",
+      "IsExternal": false
+    },
+    {
+      "Path": "particle_token_energy_mist_stamina",
+      "IsExternal": false
+    }
+  ],
+  "SurgeSprites": [
+    {
+      "Path": "particle_token_energy_stamina",
+      "IsExternal": false
+    }
+  ],
+  "TextMaterialName": "stm_stamina",
+  "TextColorInfo": {
+    "R": 0.917647064,
+    "G": 0.917647064,
+    "B": 0.917647064,
+    "A": 1.0
+  },
+  "OutlineColorInfo": {
+    "R": 0.4627451,
+    "G": 0.4627451,
+    "B": 0.4627451,
+    "A": 1.0
+  },
+  "ShadowColorInfo": {
+    "R": 0.698039234,
+    "G": 0.698039234,
+    "B": 0.698039234,
+    "A": 1.0
+  },
+  "SurgeColorInfo": {
+    "R": 0.698039234,
+    "G": 0.698039234,
+    "B": 0.698039234,
+    "A": 1.0
+  },
+  "SurgeExpression": 3,
+  "SurgeEyesClosed": false,
+  "NegSurgeExpression": 4,
+  "NegSurgeEyesClosed": false,
+  "BossSurgeExpression": 1,
+  "BossSurgeEyesClosed": false,
+  "IsAdditive": false,
+  "Id": 9
+}

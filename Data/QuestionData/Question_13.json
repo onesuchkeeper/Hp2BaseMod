@@ -1,0 +1,14 @@
+{
+  "QuestionName": "Holiday",
+  "QuestionText": "What is your favorite [[highlight]holiday]?",
+  "QuestionAnswers": [
+    "New Year's Eve",
+    "Christmas",
+    "Halloween",
+    "Valentine's Day",
+    "Thanksgiving",
+    "Easter"
+  ],
+  "IsAdditive": false,
+  "Id": 13
+}

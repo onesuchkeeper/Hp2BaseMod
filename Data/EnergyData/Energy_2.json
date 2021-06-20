@@ -1,0 +1,67 @@
+{
+  "BurstSprites": [
+    {
+      "Path": "particle_token_energy_burst_flirtation",
+      "IsExternal": false
+    }
+  ],
+  "TrailSprites": [
+    {
+      "Path": "particle_token_energy_flirtation",
+      "IsExternal": false
+    },
+    {
+      "Path": "particle_token_energy_mist_flirtation",
+      "IsExternal": false
+    }
+  ],
+  "SplashSprites": [
+    {
+      "Path": "particle_token_energy_flirtation",
+      "IsExternal": false
+    },
+    {
+      "Path": "particle_token_energy_mist_flirtation",
+      "IsExternal": false
+    }
+  ],
+  "SurgeSprites": [
+    {
+      "Path": "particle_token_energy_flirtation",
+      "IsExternal": false
+    }
+  ],
+  "TextMaterialName": "stm_flirtation",
+  "TextColorInfo": {
+    "R": 0.709803939,
+    "G": 0.894117653,
+    "B": 0.5882353,
+    "A": 1.0
+  },
+  "OutlineColorInfo": {
+    "R": 0.3254902,
+    "G": 0.5019608,
+    "B": 0.05490196,
+    "A": 1.0
+  },
+  "ShadowColorInfo": {
+    "R": 0.356862754,
+    "G": 0.5882353,
+    "B": 0.08235294,
+    "A": 1.0
+  },
+  "SurgeColorInfo": {
+    "R": 0.356862754,
+    "G": 0.5882353,
+    "B": 0.08235294,
+    "A": 1.0
+  },
+  "SurgeExpression": 3,
+  "SurgeEyesClosed": false,
+  "NegSurgeExpression": 4,
+  "NegSurgeEyesClosed": false,
+  "BossSurgeExpression": 1,
+  "BossSurgeEyesClosed": false,
+  "IsAdditive": false,
+  "Id": 2
+}

@@ -1,0 +1,37 @@
+{
+  "GirlPairDefinitionID": 18,
+  "NextPhotoDefinitionID": -1,
+  "BigPhotoImages": [
+    {
+      "Path": "cg_18_sarah_brooke_0",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_18_sarah_brooke_1",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_18_sarah_brooke_2",
+      "IsExternal": false
+    }
+  ],
+  "ThumbnailImages": [
+    {
+      "Path": "cg_thumb_18_sarah_brooke_0",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_thumb_18_sarah_brooke_1",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_thumb_18_sarah_brooke_2",
+      "IsExternal": false
+    }
+  ],
+  "HasAlts": false,
+  "AltFlagName": "",
+  "AltCodeDefinitionID": -1,
+  "IsAdditive": false,
+  "Id": 18
+}

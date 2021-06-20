@@ -1,0 +1,57 @@
+{
+  "FavQuestions": [
+    {
+      "QuestionDefinitionID": 8,
+      "GirlResponceIndexOne": 2,
+      "GirlResponceIndexTwo": 5
+    },
+    {
+      "QuestionDefinitionID": 11,
+      "GirlResponceIndexOne": 2,
+      "GirlResponceIndexTwo": 0
+    },
+    {
+      "QuestionDefinitionID": 16,
+      "GirlResponceIndexOne": 3,
+      "GirlResponceIndexTwo": 3
+    },
+    {
+      "QuestionDefinitionID": 17,
+      "GirlResponceIndexOne": 4,
+      "GirlResponceIndexTwo": 2
+    },
+    {
+      "QuestionDefinitionID": 18,
+      "GirlResponceIndexOne": 1,
+      "GirlResponceIndexTwo": 1
+    },
+    {
+      "QuestionDefinitionID": 20,
+      "GirlResponceIndexOne": 1,
+      "GirlResponceIndexTwo": 5
+    }
+  ],
+  "GirlDefinitionOneID": 1,
+  "GirlDefinitionTwoID": 8,
+  "HasMeetingStyleOne": false,
+  "HasMeetingStyleTwo": true,
+  "IntroductionPair": true,
+  "IntroSidesFlipped": true,
+  "MeetingLocationDefinitionID": 7,
+  "MeetingStyleTypeOne": 0,
+  "MeetingStyleTypeTwo": 0,
+  "PhotoDefinitionID": 2,
+  "RelationshipCutsceneDefinitionIDs": [
+    11,
+    35,
+    59,
+    83
+  ],
+  "SexDayTime": 0,
+  "SexLocationDefinitionID": 10,
+  "SexStyleTypeOne": 3,
+  "SexStyleTypeTwo": 1,
+  "SpecialPair": false,
+  "IsAdditive": false,
+  "Id": 2
+}

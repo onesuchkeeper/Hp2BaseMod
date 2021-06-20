@@ -1,0 +1,33 @@
+{
+  "LocationName": "Secret Grotto",
+  "LocationType": 1,
+  "BgMusic": {
+    "AudioClipInfo": {
+      "Path": "bgm_secret_grotto",
+      "IsExternal": false
+    },
+    "Volume": 0.5
+  },
+  "BgYOffset": 180.0,
+  "FinderLocationIcon": {
+    "Path": null,
+    "IsExternal": false
+  },
+  "DateGirlStyleType": 4,
+  "NonStopOptionText": "Can I tell you a secret? I kinda sorta wanna do it at the [[highlight]SECRET GROTTO]...",
+  "SpecialLabels": [],
+  "Backgrounds": [
+    {
+      "Path": "loc_bg_date_grotto_0",
+      "IsExternal": false
+    },
+    {
+      "Path": "loc_bg_date_grotto_1",
+      "IsExternal": false
+    }
+  ],
+  "ArriveBundleList": [],
+  "DepartBundleList": [],
+  "IsAdditive": false,
+  "Id": 18
+}

@@ -1,0 +1,37 @@
+{
+  "GirlPairDefinitionID": 9,
+  "NextPhotoDefinitionID": -1,
+  "BigPhotoImages": [
+    {
+      "Path": "cg_09_jessie_brooke_0",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_09_jessie_brooke_1",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_09_jessie_brooke_2",
+      "IsExternal": false
+    }
+  ],
+  "ThumbnailImages": [
+    {
+      "Path": "cg_thumb_09_jessie_brooke_0",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_thumb_09_jessie_brooke_1",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_thumb_09_jessie_brooke_2",
+      "IsExternal": false
+    }
+  ],
+  "HasAlts": false,
+  "AltFlagName": "",
+  "AltCodeDefinitionID": -1,
+  "IsAdditive": false,
+  "Id": 9
+}

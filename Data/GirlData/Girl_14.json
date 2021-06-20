@@ -1,0 +1,871 @@
+{
+  "EditorTab": 0,
+  "GirlName": "Moxie",
+  "GirlNickName": "",
+  "GirlAge": -1,
+  "DialogTriggerTab": 14,
+  "SpecialCharacter": true,
+  "BossCharacter": true,
+  "FavoriteAffectionType": 0,
+  "LeastFavoriteAffectionType": 0,
+  "VoiceVolume": 0.9,
+  "SexVoiceVolume": 0.9,
+  "CellphonePortrait": {
+    "Path": "ui_girl_portrait_moxie",
+    "IsExternal": false
+  },
+  "CellphonePortraitAlt": null,
+  "CellphoneHead": null,
+  "CellphoneHeadAlt": null,
+  "CellphoneMiniHead": null,
+  "CellphoneMiniHeadAlt": null,
+  "BreathEmitterPos": {
+    "Xpos": 0.0,
+    "Ypos": 0.0
+  },
+  "UpsetEmitterPos": {
+    "Xpos": 0.0,
+    "Ypos": 0.0
+  },
+  "SpecialEffectName": "GloWingsMoxie",
+  "SpecialEffectOffset": {
+    "Xpos": 280.0,
+    "Ypos": 834.0
+  },
+  "ShoesType": 0,
+  "ShoesAdj": "",
+  "UniqueType": 0,
+  "UniqueAdj": "",
+  "BadFoodTypes": [],
+  "GirlPairDefIDs": [],
+  "BaggageItemDefIDs": [],
+  "UniqueItemDefIDs": [],
+  "ShoesItemDefIDs": [],
+  "HasAltStyles": false,
+  "AltStylesFlagName": "",
+  "AltStylesCodeDefinitionID": -1,
+  "UnlockStyleCodeDefinitionID": -1,
+  "PartIndexBody": 52,
+  "PartIndexNipples": 51,
+  "PartIndexBlushLight": 20,
+  "PartIndexBlushHeavy": 21,
+  "PartIndexBlink": 19,
+  "PartIndexMouthNeutral": 22,
+  "PartIndexesPhonemes": [
+    40,
+    22,
+    42,
+    43,
+    44
+  ],
+  "PartIndexesPhonemesTeeth": [
+    45,
+    22,
+    47,
+    48,
+    49
+  ],
+  "Parts": [
+    {
+      "PartType": 0,
+      "PartName": "neutral",
+      "X": 586,
+      "Y": 885,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_eyebrows_neutral",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 0,
+      "PartName": "annoyed",
+      "X": 588,
+      "Y": 877,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_eyebrows_annoyed",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 0,
+      "PartName": "disappointed",
+      "X": 585,
+      "Y": 873,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_eyebrows_disappointed",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 0,
+      "PartName": "excited",
+      "X": 581,
+      "Y": 864,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_eyebrows_excited",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 0,
+      "PartName": "confused",
+      "X": 583,
+      "Y": 868,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_eyebrows_confused",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 0,
+      "PartName": "inquisitive",
+      "X": 580,
+      "Y": 874,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_eyebrows_inquisitive",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 0,
+      "PartName": "sarcastic",
+      "X": 593,
+      "Y": 867,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_eyebrows_sarcastic",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 0,
+      "PartName": "shy",
+      "X": 591,
+      "Y": 864,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_eyebrows_shy",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 0,
+      "PartName": "horny",
+      "X": 592,
+      "Y": 863,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_eyebrows_horny",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 1,
+      "PartName": "sexy",
+      "X": 412,
+      "Y": 1065,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_fronthair_sexy",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 2,
+      "PartName": "neutral",
+      "X": 584,
+      "Y": 868,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_eyes_neutral",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 2,
+      "PartName": "annoyed",
+      "X": 582,
+      "Y": 868,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_eyes_annoyed",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 2,
+      "PartName": "disappointed",
+      "X": 584,
+      "Y": 868,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_eyes_disappointed",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 2,
+      "PartName": "excited",
+      "X": 597,
+      "Y": 858,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_eyes_excited",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 2,
+      "PartName": "confused",
+      "X": 584,
+      "Y": 869,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_eyes_confused",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 2,
+      "PartName": "inquisitive",
+      "X": 584,
+      "Y": 868,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_eyes_inquisitive",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 2,
+      "PartName": "sarcastic",
+      "X": 584,
+      "Y": 868,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_eyes_sarcastic",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 2,
+      "PartName": "shy",
+      "X": 584,
+      "Y": 868,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_eyes_shy",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 2,
+      "PartName": "horny",
+      "X": 592,
+      "Y": 872,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_eyes_horny",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 4,
+      "PartName": "blink",
+      "X": 593,
+      "Y": 858,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_blink_blink",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 6,
+      "PartName": "blushlight",
+      "X": 573,
+      "Y": 831,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_blushlight_blushlight",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 5,
+      "PartName": "blushheavy",
+      "X": 588,
+      "Y": 844,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_blushheavy_blushheavy",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 7,
+      "PartName": "neutral",
+      "X": 668,
+      "Y": 767,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_mouth_neutral",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 7,
+      "PartName": "annoyed",
+      "X": 676,
+      "Y": 760,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_mouth_annoyed",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 7,
+      "PartName": "disappointed",
+      "X": 667,
+      "Y": 759,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_mouth_disappointed",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 7,
+      "PartName": "excited",
+      "X": 667,
+      "Y": 783,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_mouth_excited",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 7,
+      "PartName": "confused",
+      "X": 671,
+      "Y": 760,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_mouth_confused",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 7,
+      "PartName": "inquisitive",
+      "X": 670,
+      "Y": 756,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_mouth_inquisitive",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 7,
+      "PartName": "sarcastic",
+      "X": 667,
+      "Y": 768,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_mouth_sarcastic",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 7,
+      "PartName": "shy",
+      "X": 665,
+      "Y": 766,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_mouth_shy",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 7,
+      "PartName": "horny",
+      "X": 664,
+      "Y": 762,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_mouth_horny",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 8,
+      "PartName": "neutral",
+      "X": 664,
+      "Y": 769,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_mouthopen_neutral",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 8,
+      "PartName": "annoyed",
+      "X": 663,
+      "Y": 769,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_mouthopen_annoyed",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 8,
+      "PartName": "disappointed",
+      "X": 668,
+      "Y": 768,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_mouthopen_disappointed",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 8,
+      "PartName": "excited",
+      "X": 668,
+      "Y": 771,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_mouthopen_excited",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 8,
+      "PartName": "confused",
+      "X": 667,
+      "Y": 761,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_mouthopen_confused",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 8,
+      "PartName": "inquisitive",
+      "X": 669,
+      "Y": 762,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_mouthopen_inquisitive",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 8,
+      "PartName": "sarcastic",
+      "X": 661,
+      "Y": 767,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_mouthopen_sarcastic",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 8,
+      "PartName": "shy",
+      "X": 668,
+      "Y": 769,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_mouthopen_shy",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 8,
+      "PartName": "horny",
+      "X": 656,
+      "Y": 773,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_mouthopen_horny",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 9,
+      "PartName": "aeil",
+      "X": 667,
+      "Y": 769,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_phonemes_aeil",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 9,
+      "PartName": "bmp",
+      "X": 668,
+      "Y": 760,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_phonemes_bmp",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 9,
+      "PartName": "oquw",
+      "X": 674,
+      "Y": 772,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_phonemes_oquw",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 9,
+      "PartName": "fv",
+      "X": 663,
+      "Y": 768,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_phonemes_fv",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 9,
+      "PartName": "other",
+      "X": 670,
+      "Y": 769,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_phonemes_other",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 10,
+      "PartName": "aeil",
+      "X": 667,
+      "Y": 769,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_phonemesteeth_aeil",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 10,
+      "PartName": "bmp",
+      "X": 668,
+      "Y": 760,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_phonemesteeth_bmp",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 10,
+      "PartName": "oquw",
+      "X": 674,
+      "Y": 772,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_phonemesteeth_oquw",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 10,
+      "PartName": "fv",
+      "X": 663,
+      "Y": 768,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_phonemesteeth_fv",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 10,
+      "PartName": "other",
+      "X": 670,
+      "Y": 769,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_phonemesteeth_other",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 11,
+      "PartName": "sexy",
+      "X": -10,
+      "Y": 792,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_outfit_sexy",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 12,
+      "PartName": "nipples",
+      "X": 443,
+      "Y": 566,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_nipples_nipples",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 13,
+      "PartName": "body",
+      "X": 262,
+      "Y": 956,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_body_body",
+        "IsExternal": false
+      }
+    },
+    {
+      "PartType": 14,
+      "PartName": "sexy",
+      "X": 269,
+      "Y": 1024,
+      "MirroredPartIndex": -1,
+      "AltPartIndex": -1,
+      "SpriteInfo": {
+        "Path": "14_backhair_sexy",
+        "IsExternal": false
+      }
+    }
+  ],
+  "DefaultExpressionIndex": 1,
+  "FailureExpressionIndex": 1,
+  "DefaultHairstyleIndex": 0,
+  "DefaultOutfitIndex": 0,
+  "Expressions": [
+    {
+      "expressionType": 0,
+      "partIndexEyebrows": 0,
+      "partIndexEyes": 10,
+      "partIndexEyesGlow": -1,
+      "partIndexMouthClosed": 22,
+      "partIndexMouthOpen": 31,
+      "eyesClosed": false,
+      "mouthOpen": false,
+      "editorExpanded": false
+    },
+    {
+      "expressionType": 1,
+      "partIndexEyebrows": 1,
+      "partIndexEyes": 11,
+      "partIndexEyesGlow": -1,
+      "partIndexMouthClosed": 23,
+      "partIndexMouthOpen": 32,
+      "eyesClosed": false,
+      "mouthOpen": false,
+      "editorExpanded": false
+    },
+    {
+      "expressionType": 2,
+      "partIndexEyebrows": 2,
+      "partIndexEyes": 12,
+      "partIndexEyesGlow": -1,
+      "partIndexMouthClosed": 24,
+      "partIndexMouthOpen": 33,
+      "eyesClosed": false,
+      "mouthOpen": false,
+      "editorExpanded": false
+    },
+    {
+      "expressionType": 3,
+      "partIndexEyebrows": 1,
+      "partIndexEyes": 13,
+      "partIndexEyesGlow": -1,
+      "partIndexMouthClosed": 25,
+      "partIndexMouthOpen": 34,
+      "eyesClosed": true,
+      "mouthOpen": false,
+      "editorExpanded": false
+    },
+    {
+      "expressionType": 4,
+      "partIndexEyebrows": 4,
+      "partIndexEyes": 14,
+      "partIndexEyesGlow": -1,
+      "partIndexMouthClosed": 26,
+      "partIndexMouthOpen": 35,
+      "eyesClosed": false,
+      "mouthOpen": false,
+      "editorExpanded": false
+    },
+    {
+      "expressionType": 5,
+      "partIndexEyebrows": 5,
+      "partIndexEyes": 15,
+      "partIndexEyesGlow": -1,
+      "partIndexMouthClosed": 27,
+      "partIndexMouthOpen": 36,
+      "eyesClosed": false,
+      "mouthOpen": false,
+      "editorExpanded": false
+    },
+    {
+      "expressionType": 6,
+      "partIndexEyebrows": 6,
+      "partIndexEyes": 16,
+      "partIndexEyesGlow": -1,
+      "partIndexMouthClosed": 28,
+      "partIndexMouthOpen": 37,
+      "eyesClosed": false,
+      "mouthOpen": false,
+      "editorExpanded": false
+    },
+    {
+      "expressionType": 7,
+      "partIndexEyebrows": 7,
+      "partIndexEyes": 17,
+      "partIndexEyesGlow": -1,
+      "partIndexMouthClosed": 29,
+      "partIndexMouthOpen": 38,
+      "eyesClosed": false,
+      "mouthOpen": false,
+      "editorExpanded": false
+    },
+    {
+      "expressionType": 8,
+      "partIndexEyebrows": 8,
+      "partIndexEyes": 18,
+      "partIndexEyesGlow": -1,
+      "partIndexMouthClosed": 30,
+      "partIndexMouthOpen": 39,
+      "eyesClosed": false,
+      "mouthOpen": false,
+      "editorExpanded": false
+    },
+    {
+      "expressionType": 9,
+      "partIndexEyebrows": 2,
+      "partIndexEyes": 18,
+      "partIndexEyesGlow": -1,
+      "partIndexMouthClosed": 46,
+      "partIndexMouthOpen": 45,
+      "eyesClosed": false,
+      "mouthOpen": true,
+      "editorExpanded": false
+    },
+    {
+      "expressionType": 10,
+      "partIndexEyebrows": 1,
+      "partIndexEyes": 11,
+      "partIndexEyesGlow": -1,
+      "partIndexMouthClosed": 46,
+      "partIndexMouthOpen": 45,
+      "eyesClosed": false,
+      "mouthOpen": false,
+      "editorExpanded": false
+    }
+  ],
+  "Hairstyles": [
+    {
+      "hairstyleName": "sexy",
+      "partIndexFronthair": 9,
+      "partIndexBackhair": 53,
+      "pairOutfitIndex": 0,
+      "tightlyPaired": false,
+      "hideSpecials": false,
+      "editorExpanded": false
+    }
+  ],
+  "Outfits": [
+    {
+      "outfitName": "sexy",
+      "partIndexOutfit": 50,
+      "pairHairstyleIndex": 0,
+      "tightlyPaired": false,
+      "hideNipples": true,
+      "editorExpanded": false
+    }
+  ],
+  "SpecialParts": [],
+  "HerQuestions": [],
+  "FavAnswers": [],
+  "IsAdditive": false,
+  "Id": 14
+}

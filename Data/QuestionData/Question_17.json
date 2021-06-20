@@ -1,0 +1,14 @@
+{
+  "QuestionName": "Trait in Partner",
+  "QuestionText": "What is your favorite [[highlight]trait to have in a partner]?",
+  "QuestionAnswers": [
+    "Confidence",
+    "Acceptance",
+    "Height",
+    "Wealth",
+    "Big Dick/Big Tits",
+    "Sense of Humor"
+  ],
+  "IsAdditive": false,
+  "Id": 17
+}

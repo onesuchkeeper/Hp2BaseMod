@@ -1,0 +1,41 @@
+{
+  "LocationName": "Courtyard",
+  "LocationType": 0,
+  "BgMusic": {
+    "AudioClipInfo": {
+      "Path": "bgm_hotel_courtyard",
+      "IsExternal": false
+    },
+    "Volume": 0.5
+  },
+  "BgYOffset": 70.0,
+  "FinderLocationIcon": {
+    "Path": "ui_location_icon_courtyard",
+    "IsExternal": false
+  },
+  "DateGirlStyleType": 0,
+  "NonStopOptionText": "",
+  "SpecialLabels": [],
+  "Backgrounds": [
+    {
+      "Path": "loc_bg_sim_courtyard_0",
+      "IsExternal": false
+    },
+    {
+      "Path": "loc_bg_sim_courtyard_1",
+      "IsExternal": false
+    },
+    {
+      "Path": "loc_bg_sim_courtyard_2",
+      "IsExternal": false
+    },
+    {
+      "Path": "loc_bg_sim_courtyard_3",
+      "IsExternal": false
+    }
+  ],
+  "ArriveBundleList": [],
+  "DepartBundleList": [],
+  "IsAdditive": false,
+  "Id": 4
+}

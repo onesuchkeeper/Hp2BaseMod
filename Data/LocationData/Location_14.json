@@ -1,0 +1,33 @@
+{
+  "LocationName": "Cruise Ship",
+  "LocationType": 1,
+  "BgMusic": {
+    "AudioClipInfo": {
+      "Path": "bgm_cruise_ship",
+      "IsExternal": false
+    },
+    "Volume": 0.5
+  },
+  "BgYOffset": 120.0,
+  "FinderLocationIcon": {
+    "Path": null,
+    "IsExternal": false
+  },
+  "DateGirlStyleType": 4,
+  "NonStopOptionText": "Hell, let's make it interesting! Let's do it on the [[highlight]CRUISE SHIP]!",
+  "SpecialLabels": [],
+  "Backgrounds": [
+    {
+      "Path": "loc_bg_date_ship_0",
+      "IsExternal": false
+    },
+    {
+      "Path": "loc_bg_date_ship_1",
+      "IsExternal": false
+    }
+  ],
+  "ArriveBundleList": [],
+  "DepartBundleList": [],
+  "IsAdditive": false,
+  "Id": 14
+}

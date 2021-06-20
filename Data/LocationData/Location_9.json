@@ -1,0 +1,33 @@
+{
+  "LocationName": "Massage Spa",
+  "LocationType": 1,
+  "BgMusic": {
+    "AudioClipInfo": {
+      "Path": "bgm_massage_spa",
+      "IsExternal": false
+    },
+    "Volume": 0.5
+  },
+  "BgYOffset": 160.0,
+  "FinderLocationIcon": {
+    "Path": null,
+    "IsExternal": false
+  },
+  "DateGirlStyleType": 0,
+  "NonStopOptionText": "I know just the spot! The [[highlight]MASSAGE SPA]! We're gonna need a lot of oil!",
+  "SpecialLabels": [],
+  "Backgrounds": [
+    {
+      "Path": "loc_bg_date_spa_0",
+      "IsExternal": false
+    },
+    {
+      "Path": "loc_bg_date_spa_1",
+      "IsExternal": false
+    }
+  ],
+  "ArriveBundleList": [],
+  "DepartBundleList": [],
+  "IsAdditive": false,
+  "Id": 9
+}

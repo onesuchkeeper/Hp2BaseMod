@@ -1,0 +1,42 @@
+{
+  "TokenName": "Sexuality",
+  "ResourceName": "Affection",
+  "ResourceSign": "",
+  "ResourceType": 0,
+  "AffectionType": 3,
+  "Weight": 12,
+  "DifficultyWeightOffset": [
+    0,
+    0,
+    0
+  ],
+  "BonusWeight": 16,
+  "Negative": false,
+  "AltBonusSprite": false,
+  "TokenSpriteInfo": {
+    "Path": "token_sexuality",
+    "IsExternal": false
+  },
+  "OverSpriteInfo": {
+    "Path": "token_sexuality_over",
+    "IsExternal": false
+  },
+  "AltTokenSpriteInfo": {
+    "Path": "token_sexuality_power",
+    "IsExternal": false
+  },
+  "AltOverSpriteInfo": {
+    "Path": "token_sexuality_power_over",
+    "IsExternal": false
+  },
+  "EnergyDefinitionID": 4,
+  "SfxMatchInfo": {
+    "AudioClipInfo": {
+      "Path": "sfx_puzzle_token_match_sexuality",
+      "IsExternal": false
+    },
+    "Volume": 0.8
+  },
+  "IsAdditive": false,
+  "Id": 4
+}

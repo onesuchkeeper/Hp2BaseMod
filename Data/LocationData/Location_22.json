@@ -1,0 +1,143 @@
+{
+  "LocationName": "Your Apartment",
+  "LocationType": 2,
+  "BgMusic": {
+    "AudioClipInfo": {
+      "Path": "bgm_your_apartment",
+      "IsExternal": false
+    },
+    "Volume": 0.5
+  },
+  "BgYOffset": 160.0,
+  "FinderLocationIcon": {
+    "Path": null,
+    "IsExternal": false
+  },
+  "DateGirlStyleType": 0,
+  "NonStopOptionText": "",
+  "SpecialLabels": [
+    {
+      "labelText": "ON A TUESDAY NIGHT",
+      "flagName": "",
+      "inverse": false,
+      "editorExpanded": true
+    }
+  ],
+  "Backgrounds": [
+    {
+      "Path": "loc_bg_special_apartment_0",
+      "IsExternal": false
+    }
+  ],
+  "ArriveBundleList": [
+    {
+      "Conditions": [
+        {
+          "Type": 7,
+          "ComparisonType": 2,
+          "DaytimeType": 0,
+          "DollOrientation": 0,
+          "AffectionType": 0,
+          "ResourceType": 0,
+          "SettingDifficulty": 0,
+          "DateType": 0,
+          "StringValue": "",
+          "IntValue": 1,
+          "LocationDefinitionID": -1,
+          "GirlPairDefinitionID": -1,
+          "GirlDefinitionID": -1,
+          "ItemDefinitionID": -1,
+          "Inverse": false,
+          "BoolValue": false
+        }
+      ],
+      "Actions": [
+        {
+          "Type": 4,
+          "AffectionType": 0,
+          "ResourceType": 0,
+          "PuzzleState": 0,
+          "StringValue": "",
+          "FloatValue": 0.0,
+          "IntValue": 2,
+          "LocationDefinitionID": -1,
+          "GirlPairDefinitionID": -1,
+          "CutsceneDefinitionID": -1,
+          "ItemDefinitionID": -1,
+          "GirlDefinitionID": -1,
+          "BoolValue": false,
+          "BackgroundMusic": {
+            "AudioClipInfo": null,
+            "Volume": 1.0
+          }
+        },
+        {
+          "Type": 6,
+          "AffectionType": 0,
+          "ResourceType": 0,
+          "PuzzleState": 0,
+          "StringValue": "",
+          "FloatValue": 0.0,
+          "IntValue": 0,
+          "LocationDefinitionID": -1,
+          "GirlPairDefinitionID": -1,
+          "CutsceneDefinitionID": 6,
+          "ItemDefinitionID": -1,
+          "GirlDefinitionID": -1,
+          "BoolValue": false,
+          "BackgroundMusic": {
+            "AudioClipInfo": null,
+            "Volume": 1.0
+          }
+        }
+      ]
+    }
+  ],
+  "DepartBundleList": [
+    {
+      "Conditions": [
+        {
+          "Type": 7,
+          "ComparisonType": 2,
+          "DaytimeType": 0,
+          "DollOrientation": 0,
+          "AffectionType": 0,
+          "ResourceType": 0,
+          "SettingDifficulty": 0,
+          "DateType": 0,
+          "StringValue": "",
+          "IntValue": 2,
+          "LocationDefinitionID": -1,
+          "GirlPairDefinitionID": -1,
+          "GirlDefinitionID": -1,
+          "ItemDefinitionID": -1,
+          "Inverse": false,
+          "BoolValue": false
+        }
+      ],
+      "Actions": [
+        {
+          "Type": 0,
+          "AffectionType": 0,
+          "ResourceType": 0,
+          "PuzzleState": 0,
+          "StringValue": "",
+          "FloatValue": 0.0,
+          "IntValue": 1,
+          "LocationDefinitionID": 25,
+          "GirlPairDefinitionID": -1,
+          "CutsceneDefinitionID": -1,
+          "ItemDefinitionID": -1,
+          "GirlDefinitionID": -1,
+          "BoolValue": false,
+          "BackgroundMusic": {
+            "AudioClipInfo": null,
+            "Volume": 1.0
+          }
+        }
+      ]
+    }
+  ],
+  "IsAdditive": false,
+  "Id": 22
+}

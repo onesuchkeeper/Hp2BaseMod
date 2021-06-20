@@ -1,0 +1,14 @@
+{
+  "QuestionName": "Pet",
+  "QuestionText": "What is your favorite [[highlight]type of pet]?",
+  "QuestionAnswers": [
+    "Cat",
+    "Snake",
+    "Bird",
+    "Fish",
+    "Dog",
+    "None"
+  ],
+  "IsAdditive": false,
+  "Id": 14
+}

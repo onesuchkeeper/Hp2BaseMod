@@ -1,0 +1,9 @@
+{
+  "CodeHash": "760BDB0C734C4EBAC66DBD901AF594B5",
+  "CodeType": 0,
+  "Disabled": true,
+  "OffMessage": "Location transition speed is back to normal!",
+  "OnMessage": "Location transition speed is now much faster!",
+  "IsAdditive": false,
+  "Id": 13
+}

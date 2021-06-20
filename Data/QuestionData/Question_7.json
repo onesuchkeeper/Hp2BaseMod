@@ -1,0 +1,14 @@
+{
+  "QuestionName": "Type of Exercise",
+  "QuestionText": "What is your favorite [[highlight]way to exercise]?",
+  "QuestionAnswers": [
+    "Boxing",
+    "None",
+    "Swimming",
+    "Yoga",
+    "Spinning",
+    "Weight Lifting"
+  ],
+  "IsAdditive": false,
+  "Id": 7
+}

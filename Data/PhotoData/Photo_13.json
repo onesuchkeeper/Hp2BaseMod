@@ -1,0 +1,37 @@
+{
+  "GirlPairDefinitionID": 13,
+  "NextPhotoDefinitionID": -1,
+  "BigPhotoImages": [
+    {
+      "Path": "cg_13_lillian_lailani_0",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_13_lillian_lailani_1",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_13_lillian_lailani_2",
+      "IsExternal": false
+    }
+  ],
+  "ThumbnailImages": [
+    {
+      "Path": "cg_thumb_13_lillian_lailani_0",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_thumb_13_lillian_lailani_1",
+      "IsExternal": false
+    },
+    {
+      "Path": "cg_thumb_13_lillian_lailani_2",
+      "IsExternal": false
+    }
+  ],
+  "HasAlts": false,
+  "AltFlagName": "",
+  "AltCodeDefinitionID": -1,
+  "IsAdditive": false,
+  "Id": 13
+}
