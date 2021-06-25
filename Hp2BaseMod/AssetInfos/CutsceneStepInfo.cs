@@ -1,6 +1,7 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
 using DG.Tweening;
+using Hp2BaseMod.ModLoader;
 using System;
 using System.Collections.Generic;
 using System.Linq;

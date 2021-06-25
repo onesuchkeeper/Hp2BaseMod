@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using HarmonyLib;
-using Hp2BaseMod;
+using Hp2BaseMod.Save;
 using Newtonsoft.Json;
 
-namespace Hp2BaseModLoader
+namespace Hp2BaseMod.ModLoader
 {
     /// <summary>
     /// The Loader must be public to be accessed. 

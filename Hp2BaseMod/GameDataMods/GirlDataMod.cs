@@ -1,6 +1,7 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
 using Hp2BaseMod.AssetInfos;
+using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
@@ -70,6 +71,11 @@ namespace Hp2BaseMod.GameDataMods
 		public List<int> FavAnswers;
 
 		public GirlDataMod() { }
+
+		public GirlDataMod(int id, bool isAdditive)
+			: base(id, isAdditive)
+		{
+		}
 
 		public GirlDataMod(int id,
 						   EditorGirlDefinitionTab? editorTab,

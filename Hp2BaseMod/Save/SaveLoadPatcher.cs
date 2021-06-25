@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using System;
 using System.IO;
 
-namespace Hp2BaseModLoader
+namespace Hp2BaseMod.Save
 {
     internal static class SaveLoadPatcher
     {

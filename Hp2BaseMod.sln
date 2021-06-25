@@ -11,13 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hp2CheatMod", "Hp2CheatMod\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hp2RepeatThreesomeMod", "Hp2RepeatThreesomeMod\Hp2RepeatThreesomeMod.csproj", "{47BCCF55-0AA9-4483-A044-5A56310EA2D6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hp2BaseModLoader", "Hp2BaseModLoader\Hp2BaseModLoader.csproj", "{EF971CDA-F83F-4FAD-9DA1-0E1B4D8D56B2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hp2LadyJizzMod", "Hp2GirlsCanJizzTooMod\Hp2LadyJizzMod.csproj", "{52119760-8C07-4411-8ECD-2136A2331240}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hp2DataModLoader", "Hp2DataModLoader\Hp2DataModLoader.csproj", "{D2C20E84-448A-47DF-8ACD-AB8AFF7CE09F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hp2SingleDateMod", "Hp2SingleDateMod\Hp2SingleDateMod.csproj", "{40EA195A-60A6-4A6B-A7D9-6347334F11B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hp2BaseModTweaks", "Hp2BaseModTweaks\Hp2BaseModTweaks.csproj", "{EFEDC8D8-A926-4935-AF19-B2390BF1B139}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,6 @@ Global
 		{47BCCF55-0AA9-4483-A044-5A56310EA2D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47BCCF55-0AA9-4483-A044-5A56310EA2D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47BCCF55-0AA9-4483-A044-5A56310EA2D6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EF971CDA-F83F-4FAD-9DA1-0E1B4D8D56B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EF971CDA-F83F-4FAD-9DA1-0E1B4D8D56B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EF971CDA-F83F-4FAD-9DA1-0E1B4D8D56B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EF971CDA-F83F-4FAD-9DA1-0E1B4D8D56B2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{52119760-8C07-4411-8ECD-2136A2331240}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{52119760-8C07-4411-8ECD-2136A2331240}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52119760-8C07-4411-8ECD-2136A2331240}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -57,6 +53,10 @@ Global
 		{40EA195A-60A6-4A6B-A7D9-6347334F11B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40EA195A-60A6-4A6B-A7D9-6347334F11B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40EA195A-60A6-4A6B-A7D9-6347334F11B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFEDC8D8-A926-4935-AF19-B2390BF1B139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFEDC8D8-A926-4935-AF19-B2390BF1B139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFEDC8D8-A926-4935-AF19-B2390BF1B139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFEDC8D8-A926-4935-AF19-B2390BF1B139}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

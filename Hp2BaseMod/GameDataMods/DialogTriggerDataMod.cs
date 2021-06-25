@@ -1,6 +1,7 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
 using Hp2BaseMod.AssetInfos;
+using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,11 @@ namespace Hp2BaseMod.GameDataMods
         public List<DialogTriggerLineSetInfo> DialogLineSetInfos;
 
         public DialogTriggerDataMod() { }
+
+        public DialogTriggerDataMod(int id, bool isAdditive)
+            :base(id, isAdditive)
+        {
+        }
 
         public DialogTriggerDataMod(int id,
                                     EditorDialogTriggerTab? editorTab, 

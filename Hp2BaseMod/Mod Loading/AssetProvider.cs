@@ -3,7 +3,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Hp2BaseMod
+namespace Hp2BaseMod.ModLoader
 {
     public class AssetProvider
     {

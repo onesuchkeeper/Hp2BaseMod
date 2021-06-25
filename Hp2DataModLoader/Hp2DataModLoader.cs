@@ -10,167 +10,62 @@ namespace Hp2SampleMod
 {
     public class Hp2DataModLoader : IHp2BaseModStarter
     {
+        private readonly string BasePath = "mods/Hp2DataModLoader";
+
         public void Start(GameDataModder gameDataModder)
         {
-            //need to be done like this b/c it doesn't have access to definition types :(
-            //ability
-            string[] abilityFiles = Directory.GetFiles("mods/Hp2DataModLoader/abilityMods");
-            foreach (var file in abilityFiles)
+            foreach(var path in Directory.GetFiles(BasePath + "/abilityMods"))
             {
-                var configString = File.ReadAllText(file);
-                var mod = JsonConvert.DeserializeObject(configString, typeof(AbilityDataMod)) as AbilityDataMod;
-                if (mod != null)
-                {
-                    gameDataModder.AddData(mod);
-                }
+                gameDataModder.AddData<AbilityDataMod>(path);
             }
-            //ailment
-            string[] ailmentFiles = Directory.GetFiles("mods/Hp2DataModLoader/ailmentMods");
-            foreach (var file in ailmentFiles)
+            foreach (var path in Directory.GetFiles(BasePath + "/ailmentMods"))
             {
-                var configString = File.ReadAllText(file);
-                var mod = JsonConvert.DeserializeObject(configString, typeof(AilmentDataMod)) as AilmentDataMod;
-                if (mod != null)
-                {
-                    gameDataModder.AddData(mod);
-                }
+                gameDataModder.AddData<AilmentDataMod>(path);
             }
-            //Code
-            string[] codeFiles = Directory.GetFiles("mods/Hp2DataModLoader/codeMods");
-            foreach (var file in codeFiles)
+            foreach (var path in Directory.GetFiles(BasePath + "/codeMods"))
             {
-                var configString = File.ReadAllText(file);
-                var mod = JsonConvert.DeserializeObject(configString, typeof(CodeDataMod)) as CodeDataMod;
-                if (mod != null)
-                {
-                    gameDataModder.AddData(mod);
-                }
+                gameDataModder.AddData<CodeDataMod>(path);
             }
-            //cutscene
-            string[] cutsceneFiles = Directory.GetFiles("mods/Hp2DataModLoader/cutsceneMods");
-            foreach (var file in cutsceneFiles)
+            foreach (var path in Directory.GetFiles(BasePath + "/cutsceneMods"))
             {
-                var configString = File.ReadAllText(file);
-                var mod = JsonConvert.DeserializeObject(configString, typeof(CutsceneDataMod)) as CutsceneDataMod;
-                if (mod != null)
-                {
-                    gameDataModder.AddData(mod);
-                }
+                gameDataModder.AddData<CutsceneDataMod>(path);
             }
-            //dialogTrigger
-            string[] dialogTriggerFiles = Directory.GetFiles("mods/Hp2DataModLoader/dialogTriggerMods");
-            foreach (var file in dialogTriggerFiles)
+            foreach (var path in Directory.GetFiles(BasePath + "/dialogTriggerMods"))
             {
-                var configString = File.ReadAllText(file);
-                var mod = JsonConvert.DeserializeObject(configString, typeof(DialogTriggerDataMod)) as DialogTriggerDataMod;
-                if (mod != null)
-                {
-                    gameDataModder.AddData(mod);
-                }
+                gameDataModder.AddData<DialogTriggerDataMod>(path);
             }
-            //Energy
-            string[] energyFiles = Directory.GetFiles("mods/Hp2DataModLoader/energyMods");
-            foreach (var file in energyFiles)
+            foreach (var path in Directory.GetFiles(BasePath + "/energyMods"))
             {
-                var configString = File.ReadAllText(file);
-                var mod = JsonConvert.DeserializeObject(configString, typeof(EnergyDataMod)) as EnergyDataMod;
-                if (mod != null)
-                {
-                    gameDataModder.AddData(mod);
-                }
+                gameDataModder.AddData<EnergyDataMod>(path);
             }
-            //GirlData
-            string[] girlFiles = Directory.GetFiles("mods/Hp2DataModLoader/girlMods");
-            foreach (var file in girlFiles)
+            foreach (var path in Directory.GetFiles(BasePath + "/girlMods"))
             {
-                var configString = File.ReadAllText(file);
-                var mod = JsonConvert.DeserializeObject(configString, typeof(GirlDataMod)) as GirlDataMod;
-                if (mod != null)
-                {
-                    gameDataModder.AddData(mod);
-                }
+                gameDataModder.AddData<GirlDataMod>(path);
             }
-            //GirlPair
-            string[] girlPairFiles = Directory.GetFiles("mods/Hp2DataModLoader/girlPairMods");
-            foreach (var file in girlPairFiles)
+            foreach (var path in Directory.GetFiles(BasePath + "/girlPairMods"))
             {
-                var configString = File.ReadAllText(file);
-                var mod = JsonConvert.DeserializeObject(configString, typeof(GirlPairDataMod)) as GirlPairDataMod;
-                if (mod != null)
-                {
-                    gameDataModder.AddData(mod);
-                }
+                gameDataModder.AddData<GirlPairDataMod>(path);
             }
-            //ItemData
-            string[] itemFiles = Directory.GetFiles("mods/Hp2DataModLoader/itemMods");
-            foreach (var file in itemFiles)
+            foreach (var path in Directory.GetFiles(BasePath + "/itemMods"))
             {
-                var configString = File.ReadAllText(file);
-                var mod = JsonConvert.DeserializeObject(configString, typeof(ItemDataMod)) as ItemDataMod;
-                if (mod != null)
-                {
-                    gameDataModder.AddData(mod);
-                }
+                gameDataModder.AddData<ItemDataMod>(path);
             }
-            //LocationData
-            string[] locationFiles = Directory.GetFiles("mods/Hp2DataModLoader/locationMods");
-            foreach (var file in locationFiles)
+            foreach (var path in Directory.GetFiles(BasePath + "/locationMods"))
             {
-                var configString = File.ReadAllText(file);
-                var mod = JsonConvert.DeserializeObject(configString, typeof(LocationDataMod)) as LocationDataMod;
-                if (mod != null)
-                {
-                    gameDataModder.AddData(mod);
-                }
+                gameDataModder.AddData<LocationDataMod>(path);
             }
-            //PhotoData
-            string[] photoFiles = Directory.GetFiles("mods/Hp2DataModLoader/photoMods");
-            foreach (var file in photoFiles)
+            foreach (var path in Directory.GetFiles(BasePath + "/photoMods"))
             {
-                var configString = File.ReadAllText(file);
-                var mod = JsonConvert.DeserializeObject(configString, typeof(PhotoDataMod)) as PhotoDataMod;
-                if (mod != null)
-                {
-                    gameDataModder.AddData(mod);
-                }
+                gameDataModder.AddData<PhotoDataMod>(path);
             }
-            //QuestionData
-            string[] questionFiles = Directory.GetFiles("mods/Hp2DataModLoader/questionMods");
-            foreach (var file in questionFiles)
+            foreach (var path in Directory.GetFiles(BasePath + "/questionMods"))
             {
-                var configString = File.ReadAllText(file);
-                var mod = JsonConvert.DeserializeObject(configString, typeof(QuestionDataMod)) as QuestionDataMod;
-                if (mod != null)
-                {
-                    gameDataModder.AddData(mod);
-                }
+                gameDataModder.AddData<QuestionDataMod>(path);
             }
-            //TokenData
-            string[] tokenFiles = Directory.GetFiles("mods/Hp2DataModLoader/tokenMods");
-            foreach (var file in tokenFiles)
+            foreach (var path in Directory.GetFiles(BasePath + "/tokenMods"))
             {
-                var configString = File.ReadAllText(file);
-                var mod = JsonConvert.DeserializeObject(configString, typeof(TokenDataMod)) as TokenDataMod;
-                if (mod != null)
-                {
-                    gameDataModder.AddData(mod);
-                }
+                gameDataModder.AddData<TokenDataMod>(path);
             }
         }
-
-        //private void foo<T>(string path, GameDataModder gameDataModder)
-        //    where T : class
-        //{
-        //    string[] tokenFiles = Directory.GetFiles(path);
-        //    foreach (var file in tokenFiles)
-        //    {
-        //        var configString = File.ReadAllText(file);
-        //        var mod = JsonConvert.DeserializeObject(configString, typeof(T)) as T;
-        //        if (mod != null)
-        //        {
-        //            gameDataModder.AddData(mod);
-        //        }
-        //    }
-        //}
     }
 }

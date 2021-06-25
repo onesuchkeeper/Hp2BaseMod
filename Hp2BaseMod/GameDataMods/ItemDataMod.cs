@@ -2,6 +2,7 @@
 
 using Hp2BaseMod.AssetInfos;
 using Hp2BaseMod.GameDataMods.Interface;
+using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
 
@@ -43,7 +44,12 @@ namespace Hp2BaseMod.GameDataMods
 
 		public ItemDataMod() { }
 
-        public ItemDataMod(int id,
+		public ItemDataMod(int id, bool isAdditive)
+			: base(id, isAdditive)
+		{
+		}
+
+		public ItemDataMod(int id,
 						   string itemName,
 						   ItemType? itemType,
 						   string itemDescription, 

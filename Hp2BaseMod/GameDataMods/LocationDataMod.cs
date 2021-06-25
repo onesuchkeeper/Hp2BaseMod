@@ -1,6 +1,7 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
 using Hp2BaseMod.AssetInfos;
+using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,11 @@ namespace Hp2BaseMod.GameDataMods
         public List<LogicBundleInfo> DepartBundleList;
 
         public LocationDataMod() { }
+
+        public LocationDataMod(int id, bool isAdditive)
+            : base(id, isAdditive)
+        {
+        }
 
         public LocationDataMod(int id,
                                string locationName,

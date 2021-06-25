@@ -2,6 +2,7 @@
 
 using Hp2BaseMod.AssetInfos;
 using Hp2BaseMod.GameDataMods.Interface;
+using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,11 @@ namespace Hp2BaseMod.GameDataMods
         public int? AltCodeDefinitionID;
 
         public PhotoDataMod() { }
+
+        public PhotoDataMod(int id, bool isAdditive)
+            : base(id, isAdditive)
+        {
+        }
 
         public PhotoDataMod(int id,
                             int? girlPairDefinitionID,

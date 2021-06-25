@@ -1,6 +1,6 @@
 ﻿// Hp2BaseModLoader 2021, by OneSuchKeeper
 
-namespace Hp2BaseMod
+namespace Hp2BaseMod.ModLoader
 {
     public class ConfigEntry
     {
@@ -29,7 +29,7 @@ namespace Hp2BaseMod
             }
 
             if (!path.EndsWith(".dll")
-               || prioStr == "")
+               || string.IsNullOrEmpty(prioStr))
             {
                 priority = -1;
                 IsValid = false;

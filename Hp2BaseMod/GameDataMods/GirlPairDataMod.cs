@@ -2,6 +2,7 @@
 
 using Hp2BaseMod.AssetInfos;
 using Hp2BaseMod.GameDataMods.Interface;
+using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
@@ -35,8 +36,12 @@ namespace Hp2BaseMod.GameDataMods
 
         public GirlPairDataMod() { }
 
+        public GirlPairDataMod(int id, bool isAdditive)
+            : base(id, isAdditive)
+        {
+        }
+
         public GirlPairDataMod(int id,
-                               bool? active,
                                List<GirlPairFavQuestionInfo> favQuestions,
                                int? girlDefinitionOneID,
                                int? girlDefinitionTwoID,
@@ -102,6 +107,7 @@ namespace Hp2BaseMod.GameDataMods
         public override void SetData(GirlPairDefinition def, GameData gameData, AssetProvider assetProvider)
         {
             def.id = Id;
+            def.active = true;
 
             Access.NullableSet(ref def.meetingStyleTypeOne,MeetingStyleTypeOne);
             Access.NullableSet(ref def.meetingStyleTypeTwo, MeetingStyleTypeTwo);

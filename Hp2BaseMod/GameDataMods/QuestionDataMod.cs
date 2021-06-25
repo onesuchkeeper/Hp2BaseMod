@@ -1,6 +1,7 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
 using Hp2BaseMod.GameDataMods.Interface;
+using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,11 @@ namespace Hp2BaseMod.GameDataMods
         public List<string> QuestionAnswers;
 
         public QuestionDataMod() { }
+
+        public QuestionDataMod(int id, bool isAdditive)
+            : base(id, isAdditive)
+        {
+        }
 
         public QuestionDataMod(int id,
                                string questionName,

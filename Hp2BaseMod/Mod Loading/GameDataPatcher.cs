@@ -1,7 +1,6 @@
 ﻿// Hp2BaseMododLoader 2021, by OneSuchKeeper
 
 using HarmonyLib;
-using Hp2BaseMod;
 using Hp2BaseMod.GameDataMods;
 using Hp2BaseMod.GameDataMods.Interface;
 using Newtonsoft.Json;
@@ -10,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Hp2BaseModLoader
+namespace Hp2BaseMod.ModLoader
 {
     internal static class GameDataPatcher
     {
@@ -33,10 +32,12 @@ namespace Hp2BaseModLoader
         {
             //read config
             var configString = System.IO.File.ReadAllText(@"mods\GameDataModifier.json");
-            if (configString == "") { return; }
+            if (string.IsNullOrEmpty(configString)) { return; }
 
             var gameDataModder = JsonConvert.DeserializeObject(configString, typeof(GameDataModder)) as GameDataModder;
+            if (gameDataModder == null) { return; }
 
+            //grab dicts
             var gameDataPrivateFeilds = typeof(GameData).GetFields(System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
 
             /*
@@ -58,7 +59,7 @@ namespace Hp2BaseModLoader
                 Index: 15, Name: _codeData
              */
 
-            //grab dicts
+            
             var abilityDataDict = GetDataDict<AbilityData, AbilityDefinition>(__instance, gameDataPrivateFeilds[10]);
             var ailmentDataDict = GetDataDict<AilmentData, AilmentDefinition>(__instance, gameDataPrivateFeilds[9]);
             var codeDataDict = GetDataDict<CodeData, CodeDefinition>(__instance, gameDataPrivateFeilds[15]);
@@ -74,10 +75,11 @@ namespace Hp2BaseModLoader
             var questionDataDict = GetDataDict<QuestionData, QuestionDefinition>(__instance, gameDataPrivateFeilds[12]);
             var tokenDataDict = GetDataDict<TokenData, TokenDefinition>(__instance, gameDataPrivateFeilds[8]);
 
-            //make all default data mods to load their assets, not efficiant, I should make this better but I'm lazy
+            //asset provider
             var assetProvider = new AssetProvider(new Dictionary<string, UnityEngine.Object>());
 
             #region Defaultmods
+            //make all default data mods to load their assets, not efficiant, I should make this better but I'm lazy
 
             foreach (var ability in abilityDataDict)
             {
@@ -221,75 +223,92 @@ namespace Hp2BaseModLoader
 
             #endregion Defaultmods
 
+            //mods
+            var abilityDataMods = gameDataModder.ReadMods<AbilityDataMod>();
+            var ailmentDataMods = gameDataModder.ReadMods<AilmentDataMod>();
+            var codeDataMods = gameDataModder.ReadMods<CodeDataMod>();
+            var cutsceneDataMods = gameDataModder.ReadMods<CutsceneDataMod>();
+            var dialogTriggerDataMods = gameDataModder.ReadMods<DialogTriggerDataMod>();
+            var dlcDataMods = gameDataModder.ReadMods<DlcDataMod>();
+            var energyDataMods = gameDataModder.ReadMods<EnergyDataMod>();
+            var girlDataMods = gameDataModder.ReadMods<GirlDataMod>();
+            var girlPairDataMods = gameDataModder.ReadMods<GirlPairDataMod>();
+            var itemDataMods = gameDataModder.ReadMods<ItemDataMod>();
+            var locationDataMods = gameDataModder.ReadMods<LocationDataMod>();
+            var photoDataMods = gameDataModder.ReadMods<PhotoDataMod>();
+            var questionDataMods = gameDataModder.ReadMods<QuestionDataMod>();
+            var tokenDataMods = gameDataModder.ReadMods<TokenDataMod>();
+
             //grab defs to be modded, all need to be grabbed before any are setup
-            var modAbilities = CreateEmpties<AbilityDefinition, AbilityDataMod>(abilityDataDict, gameDataModder);
-            var modAilments = CreateEmpties<AilmentDefinition, AilmentDataMod>(ailmentDataDict, gameDataModder);
-            var modCodes = CreateEmpties<CodeDefinition, CodeDataMod>(codeDataDict, gameDataModder);
-            var modCutscenes = CreateEmpties<CutsceneDefinition, CutsceneDataMod>(cutsceneDataDict, gameDataModder);
-            var modDialogTriggers = CreateEmpties<DialogTriggerDefinition, DialogTriggerDataMod>(dialogTriggerDataDict, gameDataModder);
-            var modDlc = CreateEmpties<DlcDefinition, DlcDataMod>(dlcDataDict, gameDataModder);
-            var modEnergys = CreateEmpties<EnergyDefinition, EnergyDataMod>(energyDataDict, gameDataModder);
-            var modGirls = CreateEmpties<GirlDefinition, GirlDataMod>(girlDataDict, gameDataModder);
-            var modGirlPairs = CreateEmpties<GirlPairDefinition, GirlPairDataMod>(girlPairDataDict, gameDataModder);
-            var modItems = CreateEmpties<ItemDefinition, ItemDataMod>(itemDataDict, gameDataModder);
-            var modLocations = CreateEmpties<LocationDefinition, LocationDataMod>(locationDataDict, gameDataModder);
-            var modPhotos = CreateEmpties<PhotoDefinition, PhotoDataMod>(photoDataDict, gameDataModder);
-            var modQuestions = CreateEmpties<QuestionDefinition, QuestionDataMod>(questionDataDict, gameDataModder);
-            var modTokens = CreateEmpties<TokenDefinition, TokenDataMod>(tokenDataDict, gameDataModder);
+            var modAbilities = CreateEmpties(abilityDataDict, abilityDataMods);
+            var modAilments = CreateEmpties(ailmentDataDict, ailmentDataMods);
+            var modCodes = CreateEmpties(codeDataDict, codeDataMods);
+            var modCutscenes = CreateEmpties(cutsceneDataDict, cutsceneDataMods);
+            var modDialogTriggers = CreateEmpties(dialogTriggerDataDict, dialogTriggerDataMods);
+            var modDlc = CreateEmpties(dlcDataDict, dlcDataMods);
+            var modEnergys = CreateEmpties(energyDataDict, energyDataMods);
+            var modGirls = CreateEmpties(girlDataDict, girlDataMods);
+            var modGirlPairs = CreateEmpties(girlPairDataDict, girlPairDataMods);
+            var modItems = CreateEmpties(itemDataDict, itemDataMods);
+            var modLocations = CreateEmpties(locationDataDict, locationDataMods);
+            var modPhotos = CreateEmpties(photoDataDict, photoDataMods);
+            var modQuestions = CreateEmpties(questionDataDict, questionDataMods);
+            var modTokens = CreateEmpties(tokenDataDict, tokenDataMods);
 
             //setup defs
-            SetupDef<AbilityDefinition, AbilityDataMod>(modAbilities, gameDataModder, __instance, assetProvider);
-            SetupDef<AilmentDefinition, AilmentDataMod>(modAilments, gameDataModder, __instance, assetProvider);
-            SetupDef<CodeDefinition, CodeDataMod>(modCodes, gameDataModder, __instance, assetProvider);
-            SetupDef<CutsceneDefinition, CutsceneDataMod>(modCutscenes, gameDataModder, __instance, assetProvider);
-            SetupDef<DialogTriggerDefinition, DialogTriggerDataMod>(modDialogTriggers, gameDataModder, __instance, assetProvider);
-            SetupDef<DlcDefinition, DlcDataMod>(modDlc, gameDataModder, __instance, assetProvider);
-            SetupDef<EnergyDefinition, EnergyDataMod>(modEnergys, gameDataModder, __instance, assetProvider);
-            SetupDef<GirlDefinition, GirlDataMod>(modGirls, gameDataModder, __instance, assetProvider);
-            SetupDef<GirlPairDefinition, GirlPairDataMod>(modGirlPairs, gameDataModder, __instance, assetProvider);
-            SetupDef<ItemDefinition, ItemDataMod>(modItems, gameDataModder, __instance, assetProvider);
-            SetupDef<LocationDefinition, LocationDataMod>(modLocations, gameDataModder, __instance, assetProvider);
-            SetupDef<PhotoDefinition, PhotoDataMod>(modPhotos, gameDataModder, __instance, assetProvider);
-            SetupDef<QuestionDefinition, QuestionDataMod>(modQuestions, gameDataModder, __instance, assetProvider);
-            SetupDef<TokenDefinition, TokenDataMod>(modTokens, gameDataModder, __instance, assetProvider);
+            SetupDefs(modAbilities, abilityDataMods, __instance, assetProvider);
+            SetupDefs(modAilments, ailmentDataMods, __instance, assetProvider);
+            SetupDefs(modCodes, codeDataMods, __instance, assetProvider);
+            SetupDefs(modCutscenes, cutsceneDataMods, __instance, assetProvider);
+            SetupDefs(modDialogTriggers, dialogTriggerDataMods, __instance, assetProvider);
+            SetupDefs(modDlc, dlcDataMods, __instance, assetProvider);
+            SetupDefs(modEnergys, energyDataMods, __instance, assetProvider);
+            SetupDefs(modGirls, girlDataMods, __instance, assetProvider);
+            SetupDefs(modGirlPairs, girlPairDataMods, __instance, assetProvider);
+            SetupDefs(modItems, itemDataMods, __instance, assetProvider);
+            SetupDefs(modLocations, locationDataMods, __instance, assetProvider);
+            SetupDefs(modPhotos, photoDataMods, __instance, assetProvider);
+            SetupDefs(modQuestions, questionDataMods, __instance, assetProvider);
+            SetupDefs(modTokens, tokenDataMods, __instance, assetProvider);
         }
 
-        private static Dictionary<int, Def> GetDataDict<Data, Def>(GameData __instance, FieldInfo field)
+        private static Dictionary<int, D> GetDataDict<Data, D>(GameData __instance, FieldInfo field)
             where Data: class
-            where Def : Definition
+            where D : Definition
         {
-            return typeof(Data).GetFields(System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)[0]
-                               .GetValue(field.GetValue(__instance) as Data) as Dictionary<int, Def>;
+            return typeof(Data).GetFields(BindingFlags.NonPublic | BindingFlags.Instance)[0]
+                               .GetValue(field.GetValue(__instance) as Data) as Dictionary<int, D>;
         }
 
-        private static Dictionary<int, V> CreateEmpties<V,M>(Dictionary<int, V> dict, GameDataModder gameDataModder)
-            where V : Definition, new()
-            where M : IDataMod<V>
+        private static Dictionary<int, D> CreateEmpties<D>(Dictionary<int, D> dict, IEnumerable<IDataMod<D>> mods)
+            where D : Definition, new()
         {
-            var defs = new Dictionary<int, V>();
+            var defs = new Dictionary<int, D>();
 
-            foreach (var mod in gameDataModder.GetMods<M>())
+            foreach (var mod in mods)
             {
                 if (!dict.ContainsKey(mod.Id))
                 {
-                    dict.Add(mod.Id, new V());
+                    dict.Add(mod.Id, new D());
                 }
-                defs.Add(mod.Id, dict[mod.Id]);
+                if (!defs.ContainsKey(mod.Id))
+                {
+                    defs.Add(mod.Id, dict[mod.Id]);
+                }
             }
 
             return defs;
         }
 
-        private static void SetupDef<V, M>(Dictionary<int, V> defs, GameDataModder gameDataModder, GameData __instance, AssetProvider prefabProvider)
-            where V : Definition, new()
-            where M : IDataMod<V>
+        private static void SetupDefs<D>(Dictionary<int, D> defs, IEnumerable<IDataMod<D>> mods, GameData __instance, AssetProvider prefabProvider)
+            where D : Definition
         {
-            foreach(var mod in gameDataModder.GetMods<M>().Where(x => !x.IsAdditive))
+            foreach(var mod in mods.Where(x => !x.IsAdditive))
             {
                 mod.SetData(defs[mod.Id], __instance, prefabProvider);
             }
 
-            foreach (var mod in gameDataModder.GetMods<M>().Where(x => x.IsAdditive))
+            foreach (var mod in mods.Where(x => x.IsAdditive))
             {
                 mod.SetData(defs[mod.Id], __instance, prefabProvider);
             }

@@ -1,5 +1,6 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
+using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
 
@@ -23,10 +24,9 @@ namespace Hp2BaseMod.GameDataMods
             DlcName = dlcName;
         }
 
-        public DlcDataMod(DlcDefinition def)
-            : base(def.id, false)
+        public DlcDataMod(int id, bool isAdditive)
+            : base(id, isAdditive)
         {
-            DlcName = def.dlcName;
         }
 
         public override void SetData(DlcDefinition def, GameData gameData, AssetProvider assetProvider)

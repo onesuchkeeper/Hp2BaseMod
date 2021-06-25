@@ -1,5 +1,6 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
+using Hp2BaseMod.ModLoader;
 using System;
 using System.IO;
 using UnityEngine;

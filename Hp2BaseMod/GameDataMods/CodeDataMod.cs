@@ -1,5 +1,6 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
+using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
 
@@ -18,6 +19,11 @@ namespace Hp2BaseMod.GameDataMods
         public string OnMessage;
 
         public CodeDataMod() { }
+
+        public CodeDataMod(int id, bool isAdditive)
+            : base(id, isAdditive)
+        {
+        }
 
         public CodeDataMod(int id,
                            string codeHash,

@@ -8,7 +8,7 @@ using UnityEngine;
 using Hp2BaseMod;
 using Hp2BaseMod.GameDataMods;
 
-namespace Hp2NudeDurringSexMod
+namespace Hp2RepeatThreesomeMod
 {
     public class Hp2RepeatThreesomeMod : IHp2BaseModStarter
     {
@@ -18,7 +18,7 @@ namespace Hp2NudeDurringSexMod
             {
                 var harmony = new Harmony("Hp2RepeatThreesomeMod.Hp2BaseMod");
 
-                var localCode = new CodeDataMod(10002, 
+                var localCode = new CodeDataMod(Constants.LocalCodeId, 
                                                 "EA29B6A7A0AB1F669743E6C792F930F7",
                                                 CodeType.TOGGLE,
                                                 false,
@@ -26,7 +26,7 @@ namespace Hp2NudeDurringSexMod
                                                 "Lovers' threesome location requirement off.");
                 gameDataMod.AddData(localCode);
 
-                var nudeCode = new CodeDataMod(10003, 
+                var nudeCode = new CodeDataMod(Constants.NudeCodeId, 
                                                "40F45CA75FE6A9E007131D26FF9D36F6",
                                                CodeType.TOGGLE,
                                                false,
@@ -145,7 +145,7 @@ namespace Hp2NudeDurringSexMod
                                     )
                                     ||
                                     (
-                                        Game.Persistence.playerData.unlockedCodes.Any(x => x.id == 10002)
+                                        Game.Persistence.playerData.unlockedCodes.Any(x => x.id == Constants.LocalCodeId)
                                         &&
                                         (playerFileGirlPair.relationshipType == GirlPairRelationshipType.LOVERS)
                                     )
@@ -260,7 +260,7 @@ namespace Hp2NudeDurringSexMod
         public void OnRoundOverCutsceneComplete()
         {
             var cutscene = _privateFeilds[6].GetValue(_puzzleManager) as CutsceneDefinition;
-            var nodeCode = Game.Persistence.playerData.unlockedCodes.Any(x => x.id == 10003);
+            var nodeCode = Game.Persistence.playerData.unlockedCodes.Any(x => x.id == Constants.NudeCodeId);
 
             Game.Session.Cutscenes.CutsceneCompleteEvent -= OnRoundOverCutsceneComplete;
             if (nodeCode && cutscene == _puzzleManager.cutsceneNewroundBonus)

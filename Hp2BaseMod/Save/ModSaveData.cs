@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Hp2BaseModLoader
+namespace Hp2BaseMod.Save
 {
     [Serializable]
     class ModSaveData

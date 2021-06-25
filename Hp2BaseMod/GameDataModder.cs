@@ -2,108 +2,209 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using HarmonyLib;
 using Hp2BaseMod.GameDataMods;
+using Hp2BaseMod.GameDataMods.Interface;
+using Newtonsoft.Json;
 
 namespace Hp2BaseMod
 {
+
     /// <summary>
-    /// Interface class to add in data mods
+    /// Interface class to add in data mods.
     /// </summary>
     public class GameDataModder
     {
-        //These unfortunatly need to be public to allow for json serialization
-        public List<AbilityDataMod> AbilityDataMods = new List<AbilityDataMod>();
-        public List<AilmentDataMod> AilmentDataMods = new List<AilmentDataMod>();
-        public List<CodeDataMod> CodeDataMods = new List<CodeDataMod>();
-        public List<CutsceneDataMod> CutsceneDataMods = new List<CutsceneDataMod>();
-        public List<DialogTriggerDataMod> DialogTriggerDataMods = new List<DialogTriggerDataMod>();
-        public List<DlcDataMod> DlcDataMods = new List<DlcDataMod>();
-        public List<EnergyDataMod> EnergyDataMods = new List<EnergyDataMod>();
-        public List<GirlDataMod> GirlDataMods = new List<GirlDataMod>();
-        public List<GirlPairDataMod> GirlPairDataMods = new List<GirlPairDataMod>();
-        public List<ItemDataMod> ItemDataMods = new List<ItemDataMod>();
-        public List<LocationDataMod> LocationDataMods = new List<LocationDataMod>();
-        public List<PhotoDataMod> PhotoDataMods = new List<PhotoDataMod>();
-        public List<QuestionDataMod> QuestionDataMods = new List<QuestionDataMod>();
-        public List<TokenDataMod> TokenDataMods = new List<TokenDataMod>();
-
-        public void AddData(AbilityDataMod data) { AbilityDataMods.Add(data); }
-        public void AddData(AilmentDataMod data) { AilmentDataMods.Add(data); }
-        public void AddData(CutsceneDataMod data) { CutsceneDataMods.Add(data); }
-        public void AddData(CodeDataMod data) { CodeDataMods.Add(data); }
-        public void AddData(DialogTriggerDataMod data) { DialogTriggerDataMods.Add(data); }
-        public void AddData(DlcDataMod data) { DlcDataMods.Add(data); }
-        public void AddData(EnergyDataMod data) { EnergyDataMods.Add(data); }
-        public void AddData(GirlDataMod data) { GirlDataMods.Add(data); }
-        public void AddData(GirlPairDataMod data) { GirlPairDataMods.Add(data); }
-        public void AddData(ItemDataMod data) { ItemDataMods.Add(data); }
-        public void AddData(LocationDataMod data) { LocationDataMods.Add(data); }
-        public void AddData(PhotoDataMod data) { PhotoDataMods.Add(data); }
-        public void AddData(QuestionDataMod data) { QuestionDataMods.Add(data); }
-        public void AddData(TokenDataMod data) { TokenDataMods.Add(data); }
-
-        public IEnumerable<T> GetMods<T>()
+        private Dictionary<Type, GameDataType> TypeToGameDataType = new Dictionary<Type, GameDataType>()
         {
-            //switch to dict? maybe?
-            if (typeof(T) == typeof(AbilityDataMod))
+            { typeof(AbilityDataMod), GameDataType.Ability },
+            { typeof(AilmentDataMod), GameDataType.Ailment },
+            { typeof(CodeDataMod), GameDataType.Code },
+            { typeof(CutsceneDataMod), GameDataType.Cutscene },
+            { typeof(DialogTriggerDataMod), GameDataType.DialogTrigger },
+            { typeof(DlcDataMod), GameDataType.Dlc },
+            { typeof(EnergyDataMod), GameDataType.Energy },
+            { typeof(GirlDataMod), GameDataType.Girl },
+            { typeof(GirlPairDataMod), GameDataType.GirlPair },
+            { typeof(ItemDataMod), GameDataType.Item },
+            { typeof(LocationDataMod), GameDataType.Location },
+            { typeof(PhotoDataMod), GameDataType.Photo },
+            { typeof(QuestionDataMod), GameDataType.Question },
+            { typeof(TokenDataMod), GameDataType.Token }
+        };
+
+        [JsonProperty]
+        private List<AbilityDataMod> AbilityMods = new List<AbilityDataMod>();
+        [JsonProperty]
+        private List<AilmentDataMod> AilmentMods = new List<AilmentDataMod>();
+        [JsonProperty]
+        private List<CodeDataMod> CodeMods = new List<CodeDataMod>();
+        [JsonProperty]
+        private List<CutsceneDataMod> CutsceneMods = new List<CutsceneDataMod>();
+        [JsonProperty]
+        private List<DialogTriggerDataMod> DialogTriggerMods = new List<DialogTriggerDataMod>();
+        [JsonProperty]
+        private List<DlcDataMod> DlcMods = new List<DlcDataMod>();
+        [JsonProperty]
+        private List<EnergyDataMod> EnergyMods = new List<EnergyDataMod>();
+        [JsonProperty]
+        private List<GirlDataMod> GirlMods = new List<GirlDataMod>();
+        [JsonProperty]
+        private List<GirlPairDataMod> GirlPairMods = new List<GirlPairDataMod>();
+        [JsonProperty]
+        private List<ItemDataMod> ItemMods = new List<ItemDataMod>();
+        [JsonProperty]
+        private List<LocationDataMod> LocationMods = new List<LocationDataMod>();
+        [JsonProperty]
+        private List<PhotoDataMod> PhotoMods = new List<PhotoDataMod>();
+        [JsonProperty]
+        private List<QuestionDataMod> QuestionMods = new List<QuestionDataMod>();
+        [JsonProperty]
+        private List<TokenDataMod> TokenMods = new List<TokenDataMod>();
+
+        [JsonProperty]
+        private Dictionary<GameDataType, IList<string>> ModPathListsByType = new Dictionary<GameDataType, IList<string>>
+        {
+            { GameDataType.Ability, new List<string>() },
+            { GameDataType.Ailment, new List<string>() },
+            { GameDataType.Code, new List<string>() },
+            { GameDataType.Cutscene, new List<string>() },
+            { GameDataType.DialogTrigger, new List<string>() },
+            { GameDataType.Dlc, new List<string>() },
+            { GameDataType.Energy, new List<string>() },
+            { GameDataType.Girl, new List<string>() },
+            { GameDataType.GirlPair, new List<string>() },
+            { GameDataType.Item, new List<string>() },
+            { GameDataType.Location, new List<string>() },
+            { GameDataType.Photo, new List<string>() },
+            { GameDataType.Question, new List<string>() },
+            { GameDataType.Token, new List<string>() }
+        };
+
+        public void AddData(AbilityDataMod data) { AbilityMods.Add(data); }
+        public void AddData(AilmentDataMod data) { AilmentMods.Add(data); }
+        public void AddData(CodeDataMod data) { CodeMods.Add(data); }
+        public void AddData(CutsceneDataMod data) { CutsceneMods.Add(data); }
+        public void AddData(DialogTriggerDataMod data) { DialogTriggerMods.Add(data); }
+        public void AddData(DlcDataMod data) { DlcMods.Add(data); }
+        public void AddData(EnergyDataMod data) { EnergyMods.Add(data); }
+        public void AddData(GirlDataMod data) { GirlMods.Add(data); }
+        public void AddData(GirlPairDataMod data) { GirlPairMods.Add(data); }
+        public void AddData(ItemDataMod data) { ItemMods.Add(data); }
+        public void AddData(LocationDataMod data) { LocationMods.Add(data); }
+        public void AddData(PhotoDataMod data) { PhotoMods.Add(data); }
+        public void AddData(QuestionDataMod data) { QuestionMods.Add(data); }
+        public void AddData(TokenDataMod data) { TokenMods.Add(data); }
+
+        /// <summary>
+        /// Adds a data mod for gameDataType from a path
+        /// </summary>
+        /// <param name="path">the path</param>
+        public void AddData<M>(string path)
+        {
+            ModPathListsByType[TypeToGameDataType[typeof(M)]].Add(path);
+        }
+
+        /// <summary>
+        /// Reads all data mods for a definition from a gameDataModder. Includes serialized and unserialised mods.
+        /// </summary>
+        /// <typeparam name="M">The mod type</typeparam>
+        /// <returns>An IEnumerable of data mods for the definition</returns>
+        internal IEnumerable<M> ReadMods<M>()
+            where M : class
+        {
+            IList<M> mods = ModListsByType<M>();
+
+            foreach (var path in ModPathListsByType[TypeToGameDataType[typeof(M)]])
             {
-                return AbilityDataMods as IEnumerable<T>;
+                var deserializedMod = DeserializeMod<M>(path);
+                if (deserializedMod != null)
+                {
+                    mods.Add(deserializedMod);
+                }
             }
-            else if (typeof(T) == typeof(AilmentDataMod))
+
+            return mods;
+        }
+
+        /// <summary>
+        /// Deserialized a mod from a path
+        /// </summary>
+        /// <typeparam name="M">The type of definition modded</typeparam>
+        /// <param name="path">The path to the mod file</param>
+        /// <returns>The deserialaied mod</returns>
+        private static M DeserializeMod<M>(string path)
+            where M : class
+        {
+            var configString = File.ReadAllText(path);
+            return JsonConvert.DeserializeObject(configString, typeof(M)) as M;
+        }
+
+        private IList<M> ModListsByType<M>()
+        {
+            var type = typeof(M);
+
+            if (type == typeof(AbilityDataMod))
             {
-                return AilmentDataMods as IEnumerable<T>;
+                return AbilityMods.ToList() as IList<M>;
             }
-            else if (typeof(T) == typeof(CutsceneDataMod))
+            else if (type == typeof(AilmentDataMod))
             {
-                return CutsceneDataMods as IEnumerable<T>;
+                return AilmentMods.ToList() as IList<M>;
             }
-            else if (typeof(T) == typeof(CodeDataMod))
+            else if (type == typeof(CodeDataMod))
             {
-                return CodeDataMods as IEnumerable<T>;
+                return CodeMods.ToList() as IList<M>;
             }
-            else if (typeof(T) == typeof(DialogTriggerDataMod))
+            else if (type == typeof(CutsceneDataMod))
             {
-                return DialogTriggerDataMods as IEnumerable<T>;
+                return CutsceneMods.ToList() as IList<M>;
             }
-            else if (typeof(T) == typeof(DlcDataMod))
+            else if (type == typeof(DialogTriggerDataMod))
             {
-                return DlcDataMods as IEnumerable<T>;
+                return DialogTriggerMods.ToList() as IList<M>;
             }
-            else if (typeof(T) == typeof(EnergyDataMod))
+            else if (type == typeof(DlcDataMod))
             {
-                return EnergyDataMods as IEnumerable<T>;
+                return DlcMods.ToList() as IList<M>;
             }
-            else if (typeof(T) == typeof(GirlDataMod))
+            else if (type == typeof(EnergyDataMod))
             {
-                return GirlDataMods as IEnumerable<T>;
+                return EnergyMods.ToList() as IList<M>;
             }
-            else if (typeof(T) == typeof(GirlPairDataMod))
+            else if (type == typeof(GirlDataMod))
             {
-                return GirlPairDataMods as IEnumerable<T>;
+                return GirlMods.ToList() as IList<M>;
             }
-            else if (typeof(T) == typeof(ItemDataMod))
+            else if (type == typeof(GirlPairDataMod))
             {
-                return ItemDataMods as IEnumerable<T>;
+                return GirlPairMods.ToList() as IList<M>;
             }
-            else if (typeof(T) == typeof(LocationDataMod))
+            else if (type == typeof(ItemDataMod))
             {
-                return LocationDataMods as IEnumerable<T>;
+                return ItemMods.ToList() as IList<M>;
             }
-            else if (typeof(T) == typeof(PhotoDataMod))
+            else if (type == typeof(LocationDataMod))
             {
-                return PhotoDataMods as IEnumerable<T>;
+                return LocationMods.ToList() as IList<M>;
             }
-            else if (typeof(T) == typeof(QuestionDataMod))
+            else if (type == typeof(PhotoDataMod))
             {
-                return QuestionDataMods as IEnumerable<T>;
+                return PhotoMods.ToList() as IList<M>;
             }
-            else if (typeof(T) == typeof(TokenDataMod))
+            else if (type == typeof(QuestionDataMod))
             {
-                return TokenDataMods as IEnumerable<T>;
+                return QuestionMods.ToList() as IList<M>;
+            }
+            else if (type == typeof(TokenDataMod))
+            {
+                return TokenMods.ToList() as IList<M>;
             }
             else
             {
-                throw new Exception($"Yo that type isn't handled: {nameof(T)}");
+                throw new Exception("GameDataModder.ModListsByType: Unhandled Type");
             }
         }
     }

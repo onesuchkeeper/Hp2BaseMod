@@ -1,6 +1,7 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
-//TODO, move to seperate assembly
+using Hp2BaseMod.ModLoader;
+
 namespace Hp2BaseMod.GameDataMods.Interface
 {
     /// <summary>
