@@ -58,18 +58,9 @@ namespace Hp2BaseMod.GameDataMods
             Access.NullableSet(ref def.codeType, CodeType);
             Access.NullableSet(ref def.disabled, Disabled);
 
-            if (IsAdditive)
-            {
-                Access.NullSet(ref def.offMessage, OffMessage);
-                Access.NullSet(ref def.onMessage, OnMessage);
-                Access.NullSet(ref def.codeHash, CodeHash);
-            }
-            else
-            {
-                def.offMessage = OffMessage;
-                def.onMessage = OnMessage;
-                def.codeHash = CodeHash;
-            }
+            Access.NullSet(ref def.offMessage, OffMessage);
+            Access.NullSet(ref def.onMessage, OnMessage);
+            Access.NullSet(ref def.codeHash, CodeHash);
         }
     }
 }

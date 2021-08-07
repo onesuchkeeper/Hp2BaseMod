@@ -110,32 +110,16 @@ namespace Hp2BaseMod.GameDataMods
 			Access.NullableSet(ref def.altBonusSprite, AltBonusSprite);
 			if (EnergyDefinitionID.HasValue) { def.energyDefinition = gameData.Energy.Get(EnergyDefinitionID.Value); }
 
-			if (IsAdditive)
-            {
-				Access.NullSet(ref def.tokenName, TokenName);
-				Access.NullSet(ref def.resourceName, ResourceName);
-				Access.NullSet(ref def.resourceSign, ResourceSign);
-				Access.NullSet(ref def.difficultyWeightOffset, DifficultyWeightOffset);
+			Access.NullSet(ref def.tokenName, TokenName);
+			Access.NullSet(ref def.resourceName, ResourceName);
+			Access.NullSet(ref def.resourceSign, ResourceSign);
+			Access.NullSet(ref def.difficultyWeightOffset, DifficultyWeightOffset);
 
-				if (TokenSpriteInfo != null) { def.tokenSprite = TokenSpriteInfo.ToSprite(assetProvider); }
-				if (OverSpriteInfo != null) { def.overSprite = OverSpriteInfo.ToSprite(assetProvider); }
-				if (AltTokenSpriteInfo != null) { def.altTokenSprite = AltTokenSpriteInfo.ToSprite(assetProvider); }
-				if (AltOverSpriteInfo != null) { def.altOverSprite = AltOverSpriteInfo.ToSprite(assetProvider); }
-				if (SfxMatchInfo != null) { def.sfxMatch = SfxMatchInfo.ToAudioKlip(assetProvider); }
-			}
-			else
-            {
-				def.tokenName = TokenName;
-				def.resourceName = ResourceName;
-				def.resourceSign = ResourceSign;
-				def.difficultyWeightOffset = DifficultyWeightOffset;
-
-				def.tokenSprite = TokenSpriteInfo.ToSprite(assetProvider);
-				def.overSprite = OverSpriteInfo.ToSprite(assetProvider);
-				def.altTokenSprite = AltTokenSpriteInfo.ToSprite(assetProvider);
-				def.altOverSprite = AltOverSpriteInfo.ToSprite(assetProvider);
-				def.sfxMatch = SfxMatchInfo.ToAudioKlip(assetProvider);
-			}
+			if (TokenSpriteInfo != null) { def.tokenSprite = TokenSpriteInfo.ToSprite(assetProvider); }
+			if (OverSpriteInfo != null) { def.overSprite = OverSpriteInfo.ToSprite(assetProvider); }
+			if (AltTokenSpriteInfo != null) { def.altTokenSprite = AltTokenSpriteInfo.ToSprite(assetProvider); }
+			if (AltOverSpriteInfo != null) { def.altOverSprite = AltOverSpriteInfo.ToSprite(assetProvider); }
+			if (SfxMatchInfo != null) { def.sfxMatch = SfxMatchInfo.ToAudioKlip(assetProvider); }
 		}
     }
 }

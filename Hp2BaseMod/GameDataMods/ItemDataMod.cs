@@ -170,24 +170,13 @@ namespace Hp2BaseMod.GameDataMods
 			if (EnergyDefinitionID.HasValue) { def.energyDefinition = gameData.Energy.Get(EnergyDefinitionID.Value); }
 			if (GirlDefinitionID.HasValue) { def.girlDefinition = gameData.Girls.Get(GirlDefinitionID.Value); }
 			if (AbilityDefinitionID.HasValue) { def.abilityDefinition = gameData.Abilities.Get(AbilityDefinitionID.Value); }
-			
 
-			if (IsAdditive)
-            {
-				Access.NullSet(ref def.itemName,ItemName);
-				Access.NullSet(ref def.itemDescription, ItemDescription);
-				Access.NullSet(ref def.categoryDescription, CategoryDescription);
-				Access.NullSet(ref def.costDescription, CostDescription);
-				if (ItemSpriteInfo != null) { def.itemSprite = ItemSpriteInfo.ToSprite(assetProvider); }
-			}
-            else
-            {
-				def.itemName = ItemName;
-				def.itemDescription = ItemDescription;
-				def.categoryDescription = CategoryDescription;
-				def.costDescription = CostDescription;
-				def.itemSprite = ItemSpriteInfo?.ToSprite(assetProvider);
-			}
+
+			Access.NullSet(ref def.itemName, ItemName);
+			Access.NullSet(ref def.itemDescription, ItemDescription);
+			Access.NullSet(ref def.categoryDescription, CategoryDescription);
+			Access.NullSet(ref def.costDescription, CostDescription);
+			if (ItemSpriteInfo != null) { def.itemSprite = ItemSpriteInfo.ToSprite(assetProvider); }
 		}
     }
 }

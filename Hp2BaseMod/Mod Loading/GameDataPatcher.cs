@@ -78,6 +78,8 @@ namespace Hp2BaseMod.ModLoader
             //asset provider
             var assetProvider = new AssetProvider(new Dictionary<string, UnityEngine.Object>());
 
+            assetProvider.AddAsset("None", null);
+
             #region Defaultmods
             //make all default data mods to load their assets, not efficiant, I should make this better but I'm lazy
 

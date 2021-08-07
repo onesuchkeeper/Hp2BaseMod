@@ -52,18 +52,9 @@ namespace Hp2BaseMod.GameDataMods
         {
             def.id = Id;
 
-            if (IsAdditive)
-            {
-                Access.NullSet(ref def.questionName, QuestionName);
-                Access.NullSet(ref def.questionText, QuestionText);
-                Access.NullSet(ref def.questionAnswers, QuestionAnswers);
-            }
-            else
-            {
-                def.questionName = QuestionName;
-                def.questionText = QuestionText;
-                def.questionAnswers = QuestionAnswers;
-            }
+            Access.NullSet(ref def.questionName, QuestionName);
+            Access.NullSet(ref def.questionText, QuestionText);
+            Access.NullSet(ref def.questionAnswers, QuestionAnswers);
         }
     }
 }

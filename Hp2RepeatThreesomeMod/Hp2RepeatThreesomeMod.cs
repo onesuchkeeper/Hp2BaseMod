@@ -16,7 +16,7 @@ namespace Hp2RepeatThreesomeMod
         {
             try
             {
-                var harmony = new Harmony("Hp2RepeatThreesomeMod.Hp2BaseMod");
+                var harmony = new Harmony("Hp2BaseMod.Hp2RepeatThreesomeMod");
 
                 var localCode = new CodeDataMod(Constants.LocalCodeId, 
                                                 "EA29B6A7A0AB1F669743E6C792F930F7",

@@ -75,14 +75,7 @@ namespace Hp2BaseMod.GameDataMods
             if (NextPhotoDefinitionID.HasValue) { def.nextPhotoDefinition = gameData.Photos.Get(NextPhotoDefinitionID.Value); }
             if (AltCodeDefinitionID.HasValue) { def.altCodeDefinition = gameData.Codes.Get(AltCodeDefinitionID.Value); }
 
-            if (IsAdditive)
-            {
-                Access.NullSet(ref def.altFlagName, AltFlagName);
-            }
-            else
-            {
-                def.altFlagName = AltFlagName;
-            }
+            Access.NullSet(ref def.altFlagName, AltFlagName);
 
             SetSprites(ref def.bigPhotoImages, BigPhotoImages, assetProvider);
             SetSprites(ref def.thumbnailImages, ThumbnailImages, assetProvider);

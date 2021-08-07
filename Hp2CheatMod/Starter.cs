@@ -10,7 +10,7 @@ namespace Hp2NudeDurringSexMod
         {
             try
             {
-                var harmony = new Harmony("Hp2CheatMod.Hp2BaseMod");
+                var harmony = new Harmony("Hp2BaseMod.Hp2CheatMod");
 
                 var mOrigional = AccessTools.Method(typeof(PuzzleStatus), "AddPuzzleReward");
                 var mPostfix = SymbolExtensions.GetMethodInfo(() => PuzzleSetGetMatchRewards_Patch.TransplierA(null));

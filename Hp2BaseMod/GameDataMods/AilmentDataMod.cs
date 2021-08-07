@@ -104,16 +104,8 @@ namespace Hp2BaseMod.GameDataMods
             if (EnableAbilityDefID.HasValue) { def.enableAbilityDef = gameData.Abilities.Get(EnableAbilityDefID.Value); }
             if (DisableAbilityDefID.HasValue) { def.disableAbilityDef = gameData.Abilities.Get(DisableAbilityDefID.Value); }
 
-            if (IsAdditive)
-            {
-                Access.NullSet(ref def.enableStringVal, EnableStringVal);
-                Access.NullSet(ref def.hints, Hints);
-            }
-            else
-            {
-                def.enableStringVal = EnableStringVal;
-                def.hints = Hints;
-            }
+            Access.NullSet(ref def.enableStringVal, EnableStringVal);
+            Access.NullSet(ref def.hints, Hints);
 
             SetAilmentTriggers(ref def.triggers, Triggers, gameData);
         }

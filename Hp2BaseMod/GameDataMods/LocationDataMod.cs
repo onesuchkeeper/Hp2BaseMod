@@ -86,23 +86,12 @@ namespace Hp2BaseMod.GameDataMods
             Access.NullableSet(ref def.bgYOffset, BgYOffset);
             Access.NullableSet(ref def.locationType, LocationType);
 
-            if (IsAdditive)
-            {
-                Access.NullSet(ref def.locationName, LocationName);
-                Access.NullSet(ref def.nonStopOptionText, NonStopOptionText);
-                Access.NullSet(ref def.specialLabels, SpecialLabels);
+            Access.NullSet(ref def.locationName, LocationName);
+            Access.NullSet(ref def.nonStopOptionText, NonStopOptionText);
+            Access.NullSet(ref def.specialLabels, SpecialLabels);
 
-                if (BgMusic != null) { def.bgMusic = BgMusic.ToAudioKlip(assetProvider); }
-                if (FinderLocationIcon != null) { def.finderLocationIcon = FinderLocationIcon.ToSprite(assetProvider); }
-            }
-            else
-            {
-                def.locationName = LocationName;
-                def.bgMusic = BgMusic.ToAudioKlip(assetProvider);
-                def.finderLocationIcon = FinderLocationIcon.ToSprite(assetProvider);
-                def.nonStopOptionText = NonStopOptionText;
-                def.specialLabels = SpecialLabels;
-            }
+            if (BgMusic != null) { def.bgMusic = BgMusic.ToAudioKlip(assetProvider); }
+            if (FinderLocationIcon != null) { def.finderLocationIcon = FinderLocationIcon.ToSprite(assetProvider); }
 
             SetSprites(ref def.backgrounds, Backgrounds, assetProvider);
             SetLogicBundles(ref def.arriveBundleList, ArriveBundleList, gameData, assetProvider);

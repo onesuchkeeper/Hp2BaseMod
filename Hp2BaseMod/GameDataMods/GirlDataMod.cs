@@ -278,68 +278,35 @@ namespace Hp2BaseMod.GameDataMods
 			if (AltStylesCodeDefinitionID.HasValue) { def.altStylesCodeDefinition = gameData.Codes.Get(AltStylesCodeDefinitionID.Value); }
 			if (UnlockStyleCodeDefinitionID.HasValue) { def.unlockStyleCodeDefinition = gameData.Codes.Get(UnlockStyleCodeDefinitionID.Value); }
 
-            if (IsAdditive)
-            {
-				Access.NullSet(ref def.girlName, GirlName);
-				Access.NullSet(ref def.girlNickName, GirlNickName);
-				Access.NullSet(ref def.expressions, Expressions);
-				Access.NullSet(ref def.hairstyles, Hairstyles);
-				Access.NullSet(ref def.outfits, Outfits);
-				Access.NullSet(ref def.specialParts, SpecialParts);
-				Access.NullSet(ref def.herQuestions, HerQuestions);
-				Access.NullSet(ref def.favAnswers, FavAnswers);
-				Access.NullSet(ref def.altStylesFlagName, AltStylesFlagName);
-				Access.NullSet(ref def.partIndexesPhonemes, PartIndexesPhonemes);
-				Access.NullSet(ref def.partIndexesPhonemesTeeth, PartIndexesPhonemesTeeth);
-				Access.NullSet(ref def.shoesAdj, ShoesAdj);
-				Access.NullSet(ref def.uniqueAdj, UniqueAdj);
-				Access.NullSet(ref def.badFoodTypes, BadFoodTypes);
+			Access.NullSet(ref def.girlName, GirlName);
+			Access.NullSet(ref def.girlNickName, GirlNickName);
+			Access.NullSet(ref def.expressions, Expressions);
+			Access.NullSet(ref def.hairstyles, Hairstyles);
+			Access.NullSet(ref def.outfits, Outfits);
+			Access.NullSet(ref def.specialParts, SpecialParts);
+			Access.NullSet(ref def.herQuestions, HerQuestions);
+			Access.NullSet(ref def.favAnswers, FavAnswers);
+			Access.NullSet(ref def.altStylesFlagName, AltStylesFlagName);
+			Access.NullSet(ref def.partIndexesPhonemes, PartIndexesPhonemes);
+			Access.NullSet(ref def.partIndexesPhonemesTeeth, PartIndexesPhonemesTeeth);
+			Access.NullSet(ref def.shoesAdj, ShoesAdj);
+			Access.NullSet(ref def.uniqueAdj, UniqueAdj);
+			Access.NullSet(ref def.badFoodTypes, BadFoodTypes);
 
-                if (CellphonePortrait != null) { def.cellphonePortrait = CellphonePortrait.ToSprite(assetProvider); }
-                if (CellphonePortraitAlt != null) { def.cellphonePortraitAlt = CellphonePortraitAlt.ToSprite(assetProvider); }
-                if (CellphoneHead != null) { def.cellphoneHead = CellphoneHead.ToSprite(assetProvider); }
-                if (CellphoneHeadAlt != null) { def.cellphoneHeadAlt = CellphoneHeadAlt.ToSprite(assetProvider); }
-                if (CellphoneMiniHead != null) { def.cellphoneMiniHead = CellphoneMiniHead.ToSprite(assetProvider); }
-                if (CellphoneMiniHeadAlt != null) { def.cellphoneMiniHeadAlt = CellphoneMiniHeadAlt.ToSprite(assetProvider); }
+			if (CellphonePortrait != null) { def.cellphonePortrait = CellphonePortrait.ToSprite(assetProvider); }
+			if (CellphonePortraitAlt != null) { def.cellphonePortraitAlt = CellphonePortraitAlt.ToSprite(assetProvider); }
+			if (CellphoneHead != null) { def.cellphoneHead = CellphoneHead.ToSprite(assetProvider); }
+			if (CellphoneHeadAlt != null) { def.cellphoneHeadAlt = CellphoneHeadAlt.ToSprite(assetProvider); }
+			if (CellphoneMiniHead != null) { def.cellphoneMiniHead = CellphoneMiniHead.ToSprite(assetProvider); }
+			if (CellphoneMiniHeadAlt != null) { def.cellphoneMiniHeadAlt = CellphoneMiniHeadAlt.ToSprite(assetProvider); }
 
-                if (BreathEmitterPos != null) { def.breathEmitterPos = BreathEmitterPos.ToVector2(); }
-                if (UpsetEmitterPos != null) { def.upsetEmitterPos = UpsetEmitterPos.ToVector2(); }
-                if (SpecialEffectOffset != null) { def.specialEffectOffset = SpecialEffectOffset.ToVector2(); }
+			if (BreathEmitterPos != null) { def.breathEmitterPos = BreathEmitterPos.ToVector2(); }
+			if (UpsetEmitterPos != null) { def.upsetEmitterPos = UpsetEmitterPos.ToVector2(); }
+			if (SpecialEffectOffset != null) { def.specialEffectOffset = SpecialEffectOffset.ToVector2(); }
 
-                if (SpecialEffectName != null) { def.specialEffectPrefab = (UiDollSpecialEffect)assetProvider.GetAsset(SpecialEffectName); }
-            }
-            else
-            {
-                def.girlName = GirlName;
-                def.girlNickName = GirlNickName;
-                def.expressions = Expressions;
-                def.hairstyles = Hairstyles;
-                def.outfits = Outfits;
-                def.specialParts = SpecialParts;
-                def.herQuestions = HerQuestions;
-                def.favAnswers = FavAnswers;
-                def.altStylesFlagName = AltStylesFlagName;
-                def.partIndexesPhonemes = PartIndexesPhonemes;
-                def.partIndexesPhonemesTeeth = PartIndexesPhonemesTeeth;
-                def.shoesAdj = ShoesAdj;
-                def.uniqueAdj = UniqueAdj;
-                def.badFoodTypes = BadFoodTypes;
+			if (SpecialEffectName != null) { def.specialEffectPrefab = (UiDollSpecialEffect)assetProvider.GetAsset(SpecialEffectName); }
 
-                def.cellphonePortrait = CellphonePortrait?.ToSprite(assetProvider);
-                def.cellphonePortraitAlt = CellphonePortraitAlt?.ToSprite(assetProvider);
-                def.cellphoneHead = CellphoneHead?.ToSprite(assetProvider);
-                def.cellphoneHeadAlt = CellphoneHeadAlt?.ToSprite(assetProvider);
-                def.cellphoneMiniHead = CellphoneMiniHead?.ToSprite(assetProvider);
-                def.cellphoneMiniHeadAlt = CellphoneMiniHeadAlt?.ToSprite(assetProvider);
-
-                def.breathEmitterPos = BreathEmitterPos?.ToVector2() ?? Vector2.zero;
-                def.upsetEmitterPos = UpsetEmitterPos?.ToVector2() ?? Vector2.zero;
-                def.specialEffectOffset = SpecialEffectOffset?.ToVector2() ?? Vector2.zero;
-
-                def.specialEffectPrefab = (UiDollSpecialEffect)assetProvider.GetAsset(SpecialEffectName);
-            }
-
-            SetGirlPairs(ref def.girlPairDefs, GirlPairDefIDs, gameData);
+			SetGirlPairs(ref def.girlPairDefs, GirlPairDefIDs, gameData);
             SetItems(ref def.baggageItemDefs, BaggageItemDefIDs, gameData);
             SetItems(ref def.uniqueItemDefs, UniqueItemDefIDs, gameData);
             SetItems(ref def.shoesItemDefs, ShoesItemDefIDs, gameData);

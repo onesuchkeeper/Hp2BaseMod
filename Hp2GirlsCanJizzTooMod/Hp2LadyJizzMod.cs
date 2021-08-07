@@ -16,7 +16,7 @@ namespace Hp2LadyJizzMod
             {
                 int dummy = 0;
 
-                var harmony = new Harmony("Hp2LadyJizzMod.Hp2BaseMod");
+                var harmony = new Harmony("Hp2BaseMod.Hp2LadyJizzMod");
 
                 var femaleJizzToggleCode = new CodeDataMod(Constants.FemaleJizzToggleCodeID, 
                                                            "509B82A2A4E16DF3774EA93B133F840F",
@@ -46,7 +46,7 @@ namespace Hp2LadyJizzMod
         public static void InitPostfix(ref int __result)
         {
             if (__result == 1
-                && Game.Persistence.playerData.unlockedCodes.Any(x => (x.id == Constants.FemaleJizzToggleCodeID))) 
+                && Game.Persistence.playerData.unlockedCodes.Any(x => x.id == Constants.FemaleJizzToggleCodeID)) 
             {
                 __result = 2; 
             }

@@ -58,14 +58,7 @@ namespace Hp2BaseMod.GameDataMods
             Access.NullableSet(ref def.selectableTarget, SelectableTarget);
             Access.NullableSet(ref def.targetMinimumCount, TargetMinimumCount);
 
-            if (IsAdditive)
-            {
-                if (TargetConditionSetInfo != null) { def.targetConditionSet = TargetConditionSetInfo.ToTokenConditionSet(gameData); }
-            }
-            else
-            {
-                def.targetConditionSet = TargetConditionSetInfo?.ToTokenConditionSet(gameData);
-            }
+            if (TargetConditionSetInfo != null) { def.targetConditionSet = TargetConditionSetInfo.ToTokenConditionSet(gameData); }
 
             SetAbilitySteps(ref def.steps, Steps, gameData, assetProvider);
         }

@@ -107,22 +107,11 @@ namespace Hp2BaseMod.GameDataMods
             Access.NullableSet(ref def.bossSurgeExpression, BossSurgeExpression);
             Access.NullableSet(ref def.bossSurgeEyesClosed, BossSurgeEyesClosed);
 
-            if (IsAdditive)
-            {
-                if (TextMaterialName != null) { def.textMaterial = (Material)assetProvider.GetAsset(TextMaterialName); }
-                if (TextColorInfo != null) { def.textColor = TextColorInfo.ToColor(); }
-                if (OutlineColorInfo != null) { def.outlineColor = OutlineColorInfo.ToColor(); }
-                if (ShadowColorInfo != null) { def.shadowColor = ShadowColorInfo.ToColor(); }
-                if (SurgeColorInfo != null) { def.surgeColor = SurgeColorInfo.ToColor(); }
-            }
-            else
-            {
-                def.textMaterial = (Material)assetProvider.GetAsset(TextMaterialName);
-                def.textColor = TextColorInfo?.ToColor() ?? Color.white;
-                def.outlineColor = OutlineColorInfo?.ToColor() ?? Color.white;
-                def.shadowColor = ShadowColorInfo?.ToColor() ?? Color.white;
-                def.surgeColor = SurgeColorInfo?.ToColor() ?? Color.white;
-            }
+            if (TextMaterialName != null) { def.textMaterial = (Material)assetProvider.GetAsset(TextMaterialName); }
+            if (TextColorInfo != null) { def.textColor = TextColorInfo.ToColor(); }
+            if (OutlineColorInfo != null) { def.outlineColor = OutlineColorInfo.ToColor(); }
+            if (ShadowColorInfo != null) { def.shadowColor = ShadowColorInfo.ToColor(); }
+            if (SurgeColorInfo != null) { def.surgeColor = SurgeColorInfo.ToColor(); }
 
             SetSprites(ref def.burstSprites, BurstSprites, assetProvider);
             SetSprites(ref def.trailSprites, TrailSprites, assetProvider);

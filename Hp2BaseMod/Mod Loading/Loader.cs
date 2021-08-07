@@ -99,7 +99,7 @@ namespace Hp2BaseMod.ModLoader
                 }
 
                 // Game Data Modifications
-                var harmony = new Harmony("Hp2BaseModLoader.Hp2BaseMod");
+                var harmony = new Harmony("Hp2BaseMod.Hp2BaseModLoader");
 
                 tw.WriteLine("----Applying Game Data Modifications----");
                 tw.WriteLine("Generating data mod Json");
