@@ -34,13 +34,15 @@ namespace Hp2RepeatThreesomeMod
                                                "Nudity durring bonus rounds on.");
                 gameDataMod.AddData(nudeCode);
 
+
+
                 var PuzzleManager_OnRoundOver = AccessTools.Method(typeof(PuzzleManager), "OnRoundOver");
                 var LeversThreesomePrefix = SymbolExtensions.GetMethodInfo(() => LoversThreesome(null));
                 harmony.Patch(PuzzleManager_OnRoundOver, new HarmonyMethod(LeversThreesomePrefix));
 
-                var UiDoll_ChangeOutfit = AccessTools.Method(typeof(UiDoll), "ChangeOutfit");
-                var N69AddNudePrefix = SymbolExtensions.GetMethodInfo(() => N69AddNude(null, -1));
-                harmony.Patch(UiDoll_ChangeOutfit, new HarmonyMethod(N69AddNudePrefix));
+                //var UiDoll_ChangeOutfit = AccessTools.Method(typeof(UiDoll), "ChangeOutfit");
+                //var N69AddNudePrefix = SymbolExtensions.GetMethodInfo(() => N69AddNude(null, -1));
+                //harmony.Patch(UiDoll_ChangeOutfit, new HarmonyMethod(N69AddNudePrefix));
             }
             catch (Exception e)
             {
@@ -57,6 +59,8 @@ namespace Hp2RepeatThreesomeMod
         /// <returns></returns>
         public static bool N69AddNude(UiDoll __instance, int outfitIndex)
         {
+            Harmony.DEBUG = true;
+            FileLog.Log("ChangeOutfit");
             var privateFeilds = typeof(UiDoll).GetFields(System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
 
             var girlDefinition = (privateFeilds[2].GetValue(__instance) as GirlDefinition);
@@ -94,6 +98,7 @@ namespace Hp2RepeatThreesomeMod
                 }
                 __instance.partNipples.Show();
             }
+            Harmony.DEBUG = false;
             return false;
         }
 
@@ -104,6 +109,8 @@ namespace Hp2RepeatThreesomeMod
         /// <returns></returns>
         public static bool LoversThreesome(PuzzleManager __instance)
         {
+            Harmony.DEBUG = true;
+            FileLog.Log("OnRoundOver");
             //Access private memebrs
             var privateFeilds = typeof(PuzzleManager).GetFields(System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
 
@@ -118,67 +125,68 @@ namespace Hp2RepeatThreesomeMod
             switch (puzzleStatus.statusType)
             {
                 case PuzzleStatusType.NORMAL:
+                    FileLog.Log("Normal Puzzle");
+                    GirlPairDefinition currentGirlPair = Game.Session.Location.currentGirlPair;
+                    PlayerFileGirlPair playerFileGirlPair = Game.Persistence.playerFile.GetPlayerFileGirlPair(currentGirlPair);
+                    if (playerFileGirlPair != null)
                     {
-                        GirlPairDefinition currentGirlPair = Game.Session.Location.currentGirlPair;
-                        PlayerFileGirlPair playerFileGirlPair = Game.Persistence.playerFile.GetPlayerFileGirlPair(currentGirlPair);
-                        if (playerFileGirlPair != null)
+                        Game.Persistence.playerFile.GetPlayerFileGirl(currentGirlPair.girlDefinitionOne);
+                        Game.Persistence.playerFile.GetPlayerFileGirl(currentGirlPair.girlDefinitionTwo);
+                        if (puzzleGrid.roundState == PuzzleRoundState.SUCCESS)
                         {
-                            Game.Persistence.playerFile.GetPlayerFileGirl(currentGirlPair.girlDefinitionOne);
-                            Game.Persistence.playerFile.GetPlayerFileGirl(currentGirlPair.girlDefinitionTwo);
-                            if (puzzleGrid.roundState == PuzzleRoundState.SUCCESS)
+                            FileLog.Log(" Puzzle success");
+                            if (playerFileGirlPair.relationshipType == GirlPairRelationshipType.COMPATIBLE)
                             {
-                                if (playerFileGirlPair.relationshipType == GirlPairRelationshipType.COMPATIBLE)
-                                {
-                                    privateFeilds[5].SetValue(__instance, __instance.cutsceneSuccessCompatible);
-                                    playerFileGirlPair.RelationshipLevelUp();
-                                }
-                                else if
+                                privateFeilds[5].SetValue(__instance, __instance.cutsceneSuccessCompatible);
+                                playerFileGirlPair.RelationshipLevelUp();
+                            }
+                            else if
+                            (
                                 (
+                                    (Game.Session.Location.currentLocation == currentGirlPair.sexLocationDefinition)
+                                    &&
                                     (
-                                        (Game.Session.Location.currentLocation == currentGirlPair.sexLocationDefinition)
-                                        &&
-                                        (
-                                            (playerFileGirlPair.relationshipType == GirlPairRelationshipType.ATTRACTED)
-                                            ||
-                                            (playerFileGirlPair.relationshipType == GirlPairRelationshipType.LOVERS)
-                                        )
-                                    )
-                                    ||
-                                    (
-                                        Game.Persistence.playerData.unlockedCodes.Any(x => x.id == Constants.LocalCodeId)
-                                        &&
+                                        (playerFileGirlPair.relationshipType == GirlPairRelationshipType.ATTRACTED)
+                                        ||
                                         (playerFileGirlPair.relationshipType == GirlPairRelationshipType.LOVERS)
                                     )
                                 )
+                                ||
+                                (
+                                    (playerFileGirlPair.relationshipType == GirlPairRelationshipType.LOVERS)
+                                    &&
+                                    Game.Persistence.playerData.unlockedCodes.Any(x => x.id == Constants.LocalCodeId)
+                                )
+                            )
+                            {
+                                FileLog.Log(" This worked!");
+                                if (!puzzleStatus.bonusRound)
                                 {
-                                    if (!puzzleStatus.bonusRound)
-                                    {
-                                        privateFeilds[5].SetValue(__instance, __instance.cutsceneSuccessAttracted);
-                                        privateFeilds[6].SetValue(__instance, __instance.cutsceneNewroundBonus);
-                                        flag = false;
-                                    }
-                                    else
-                                    {
-                                        privateFeilds[5].SetValue(__instance, __instance.cutsceneSuccessBonus);
-                                        playerFileGirlPair.RelationshipLevelUp();
-                                    }
+                                    privateFeilds[5].SetValue(__instance, __instance.cutsceneSuccessAttracted);
+                                    privateFeilds[6].SetValue(__instance, __instance.cutsceneNewroundBonus);
+                                    flag = false;
                                 }
                                 else
                                 {
-                                    privateFeilds[5].SetValue(__instance, __instance.cutsceneSuccess);
-                                }
-                                if (flag && Game.Persistence.playerFile.storyProgress >= 14 && !Game.Persistence.playerData.unlockedCodes.Contains(Game.Session.Puzzle.noAlphaModeCode))
-                                {
-                                    Game.Persistence.playerFile.alphaDateCount++;
+                                    privateFeilds[5].SetValue(__instance, __instance.cutsceneSuccessBonus);
+                                    playerFileGirlPair.RelationshipLevelUp();
                                 }
                             }
+                            else
+                            {
+                                privateFeilds[5].SetValue(__instance, __instance.cutsceneSuccess);
+                            }
+                            if (flag && Game.Persistence.playerFile.storyProgress >= 14 && !Game.Persistence.playerData.unlockedCodes.Contains(Game.Session.Puzzle.noAlphaModeCode))
+                            {
+                                Game.Persistence.playerFile.alphaDateCount++;
+                            }
                         }
-                        else if (puzzleGrid.roundState == PuzzleRoundState.SUCCESS)
-                        {
-                            privateFeilds[5].SetValue(__instance, __instance.cutsceneSuccess);
-                        }
-                        break;
                     }
+                    else if (puzzleGrid.roundState == PuzzleRoundState.SUCCESS)
+                    {
+                        privateFeilds[5].SetValue(__instance, __instance.cutsceneSuccess);
+                    }
+                    break;
                 case PuzzleStatusType.NONSTOP:
                     if (puzzleGrid.roundState == PuzzleRoundState.SUCCESS)
                     {
@@ -235,6 +243,8 @@ namespace Hp2RepeatThreesomeMod
 
             Game.Session.Cutscenes.StartCutscene(privateFeilds[5].GetValue(__instance) as CutsceneDefinition, null);
 
+            Harmony.DEBUG = false;
+
             return false;
         }
     }
@@ -277,15 +287,6 @@ namespace Hp2RepeatThreesomeMod
                 Game.Session.gameCanvas.dollLeft.ChangeOutfit(-69);
                 Game.Session.gameCanvas.dollRight.ChangeOutfit(-69);
             }
-        }
-
-        public static bool unlockHash(string hash)
-        {//I dont want to add in linq
-            foreach(var code in Game.Persistence.playerData.unlockedCodes)
-            {
-                if (code.codeHash == hash) { return true; }
-            }
-            return false;
         }
     }
 }

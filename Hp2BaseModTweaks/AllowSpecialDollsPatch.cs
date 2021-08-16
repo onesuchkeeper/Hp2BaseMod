@@ -1,32 +1,16 @@
 ﻿// Hp2Sample 2021, By OneSuchKeeper
 
 using HarmonyLib;
-using System;
 
 namespace Hp2BaseModTweaks
 {
 	/// <summary>
 	/// It didn't like me adding a prefix to load girl for whatever reason, but change outfit works just as well I guess...
 	/// </summary>
-    public static class LoadUIDollPatch
+	[HarmonyPatch(typeof(UiDoll), "ChangeOutfit")]
+    public static class AllowSpecialDollsPatch
     {
-		public static void Patch(Harmony harmony)
-		{
-			try
-			{
-				var mOrigional = AccessTools.Method(typeof(UiDoll), "ChangeOutfit");
-				var mChangeOutfitPost = SymbolExtensions.GetMethodInfo(() => ChangeOutfitPost(null));
-
-                harmony.Patch(mOrigional, null, new HarmonyMethod(mChangeOutfitPost));
-			}
-			catch (Exception e)
-			{
-				Harmony.DEBUG = true;
-				FileLog.Log("EXCEPTION Hp2BaseModTweaks.LoadUIDollPatch: " + e.Message);
-			}
-		}
-
-		private static void ChangeOutfitPost(UiDoll __instance)
+		private static void Postfix(UiDoll __instance)
 		{
 			if (__instance.soulGirlDefinition?.specialCharacter ?? true) { return; }
 
