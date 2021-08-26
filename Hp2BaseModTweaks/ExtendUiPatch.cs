@@ -77,15 +77,27 @@ namespace Hp2BaseModTweaks
 	{
 		private static void Postfix(WindowManager __instance)
         {
-            __instance.WindowShowEvent += Functionality.PostWindowChange;
+            __instance.WindowShownEvent += Functionality.PostWindowChange;
         }
     }
 
 	/// <summary>
-	/// Addds PostWindow handlers to WindowManager 
+	/// 
 	/// </summary>
 	[HarmonyPatch(typeof(GameSession), MethodType.Constructor)]
 	public static class ExtendGameSession
+	{
+		private static void Postfix(GameSession __instance)
+		{
+			AssetHolder.Instance.SubscribedOpenEvent = false;
+		}
+	}
+
+	/// <summary>
+	/// Addds PostWindow handlers to WindowManager 
+	/// </summary>
+	[HarmonyPatch(typeof(UiWindowPhotos), MethodType.Constructor)]
+	public static class PostOnPhotoComplete
 	{
 		private static void Postfix(GameSession __instance)
 		{
@@ -264,6 +276,8 @@ namespace Hp2BaseModTweaks
 
 							slot.girlDefinition = newDef;
 						}
+						UiAppFileIconSlot terst = appWardrobe.fileIconSlots.FirstOrDefault();
+						AccessTools.Field(typeof(UiCellphoneAppWardrobe), "_selectedFileIconSlot").SetValue(appWardrobe, terst);
                     }
 
 					// Create buttons for girl icons
@@ -290,6 +304,30 @@ namespace Hp2BaseModTweaks
 						Game.Session.gameCanvas.cellphone.Refresh(true);
 					}));
 				}
+
+				// Always refresh lists and doll in case of invalid characters
+				var girlDef = (AccessTools.Field(typeof(UiCellphoneAppWardrobe), "_selectedFileIconSlot").GetValue(appWardrobe) as UiAppFileIconSlot).girlDefinition;
+
+				var playerFileGirl = Game.Persistence.playerFile.GetPlayerFileGirl(girlDef);
+
+				//var wardrobeDoll = AccessTools.Field(typeof(UiCellphoneAppWardrobe), "_wardrobeDoll").GetValue(appWardrobe) as UiDoll;
+
+				FileLog.Log($"GirlDef: {girlDef.girlName ?? "Is Null"}, Player File Girl: {(playerFileGirl == null ? "Is Null" : "Not Null")}");
+				//FileLog.Log($"Wardrobe Doll: {(wardrobeDoll == null ? "Is Null" : "Not Null")}");
+
+				//wardrobeDoll.LoadGirl(girlDef);
+
+				FileLog.Log($"doll loaded");
+
+				appWardrobe.selectListHairstyle.Populate(playerFileGirl);
+				appWardrobe.selectListOutfit.Populate(playerFileGirl);
+
+				FileLog.Log($"lists populated");
+
+				//wardrobeDoll.ChangeHairstyle();
+				//wardrobeDoll.ChangeOutfit();
+
+				FileLog.Log($"doll dressed");
 			}
 			else
             {
@@ -299,6 +337,10 @@ namespace Hp2BaseModTweaks
 			if (currentApp is UiCellphoneAppNew appNew)
             {
 				//Add buttons for head sprites
+            }
+			else
+            {
+				//reset index to 0
             }
 
 			Harmony.DEBUG = false;
@@ -347,6 +389,7 @@ namespace Hp2BaseModTweaks
 			Harmony.DEBUG = false;
 		}
 
+		// This has to be subcribed later in execution
 		public static void SubscribePostLocation()
         {
 			if (!AssetHolder.Instance.SubscribedOpenEvent)

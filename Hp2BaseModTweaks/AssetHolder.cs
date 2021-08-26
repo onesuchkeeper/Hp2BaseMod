@@ -20,7 +20,7 @@ namespace Hp2BaseModTweaks
         public static readonly int PairsPerPage = 24;
 
         public int WarbrobeGirlPageIndex = 0;
-        public static readonly int WarbrobeGirlsPerPage = 12;
+        public static readonly int WarbrobeGirlsPerPage = 2;//12;
 
         public int WarbrobeOutfitPageIndex = 0;
         public static readonly int WarbrobeOutfitsPerPage = 12;
