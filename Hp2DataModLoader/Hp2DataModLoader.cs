@@ -1,70 +1,46 @@
 ﻿// Hp2DataModLoader 2021, by onesuchkeeper
 
-using System;
+using System.Collections.Generic;
 using System.IO;
 using Hp2BaseMod;
-using Hp2BaseMod.GameDataMods;
-using Newtonsoft.Json;
 
 namespace Hp2SampleMod
 {
     public class Hp2DataModLoader : IHp2BaseModStarter
     {
-        private readonly string BasePath = "mods/Hp2DataModLoader";
+        private Dictionary<GameDataType, string> dirs = new Dictionary<GameDataType, string>
+        {
+            { GameDataType.Ability, "mods/Hp2DataModLoader/abilityMods" },
+            { GameDataType.Ailment, "mods/Hp2DataModLoader/ailmentMods" },
+            { GameDataType.Code, "mods/Hp2DataModLoader/codeMods" },
+            { GameDataType.Cutscene, "mods/Hp2DataModLoader/cutsceneMods" },
+            { GameDataType.DialogTrigger, "mods/Hp2DataModLoader/dialogTriggerMods" },
+            { GameDataType.Energy, "mods/Hp2DataModLoader/energyMods" },
+            { GameDataType.Girl, "mods/Hp2DataModLoader/girlMods" },
+            { GameDataType.GirlPair, "mods/Hp2DataModLoader/girlPairMods" },
+            { GameDataType.Item, "mods/Hp2DataModLoader/itemMods" },
+            { GameDataType.Location, "mods/Hp2DataModLoader/locationMods" },
+            { GameDataType.Photo, "mods/Hp2DataModLoader/photoMods" },
+            { GameDataType.Question, "mods/Hp2DataModLoader/questionMods" },
+            { GameDataType.Token, "mods/Hp2DataModLoader/tokenMods" }
+        };
 
         public void Start(GameDataModder gameDataModder)
         {
-            foreach(var path in Directory.GetFiles(BasePath + "/abilityMods"))
+            foreach (var dir in dirs)
             {
-                gameDataModder.AddData<AbilityDataMod>(path);
-            }
-            foreach (var path in Directory.GetFiles(BasePath + "/ailmentMods"))
-            {
-                gameDataModder.AddData<AilmentDataMod>(path);
-            }
-            foreach (var path in Directory.GetFiles(BasePath + "/codeMods"))
-            {
-                gameDataModder.AddData<CodeDataMod>(path);
-            }
-            foreach (var path in Directory.GetFiles(BasePath + "/cutsceneMods"))
-            {
-                gameDataModder.AddData<CutsceneDataMod>(path);
-            }
-            foreach (var path in Directory.GetFiles(BasePath + "/dialogTriggerMods"))
-            {
-                gameDataModder.AddData<DialogTriggerDataMod>(path);
-            }
-            foreach (var path in Directory.GetFiles(BasePath + "/energyMods"))
-            {
-                gameDataModder.AddData<EnergyDataMod>(path);
-            }
-            foreach (var path in Directory.GetFiles(BasePath + "/girlMods"))
-            {
-                gameDataModder.AddData<GirlDataMod>(path);
-            }
-            foreach (var path in Directory.GetFiles(BasePath + "/girlPairMods"))
-            {
-                gameDataModder.AddData<GirlPairDataMod>(path);
-            }
-            foreach (var path in Directory.GetFiles(BasePath + "/itemMods"))
-            {
-                gameDataModder.AddData<ItemDataMod>(path);
-            }
-            foreach (var path in Directory.GetFiles(BasePath + "/locationMods"))
-            {
-                gameDataModder.AddData<LocationDataMod>(path);
-            }
-            foreach (var path in Directory.GetFiles(BasePath + "/photoMods"))
-            {
-                gameDataModder.AddData<PhotoDataMod>(path);
-            }
-            foreach (var path in Directory.GetFiles(BasePath + "/questionMods"))
-            {
-                gameDataModder.AddData<QuestionDataMod>(path);
-            }
-            foreach (var path in Directory.GetFiles(BasePath + "/tokenMods"))
-            {
-                gameDataModder.AddData<TokenDataMod>(path);
+                try 
+                {
+                    foreach (var path in Directory.GetFiles(dir.Value))
+                    {
+                        gameDataModder.LogLine($"Adding Data Mod: {path}");
+                        gameDataModder.AddData(dir.Key, path);
+                    }
+                }
+                catch (DirectoryNotFoundException e)
+                {
+                    gameDataModder.LogLine("Error: " + e.Message);
+                }
             }
         }
     }

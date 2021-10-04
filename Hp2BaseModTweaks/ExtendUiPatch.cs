@@ -8,8 +8,6 @@ using UnityEngine.UI;
 
 namespace Hp2BaseModTweaks
 {
-	//Add handel to hub manager
-
 	/// <summary>
 	/// Loads button prefabs into asset manager
 	/// </summary>
@@ -50,9 +48,6 @@ namespace Hp2BaseModTweaks
 		[HarmonyPostfix]
 		[HarmonyPatch("Refresh")]
 		private static void PostfixRefresh(UiCellphone __instance, bool hard) { Functionality.PostAppChange(); }
-
-		// Open and LoadApp Cause issues :(
-		// and extending OnAppButtonPressed or wa
 	}
 
 	/// <summary>
@@ -61,8 +56,6 @@ namespace Hp2BaseModTweaks
 	[HarmonyPatch(typeof(LocationManager), MethodType.Constructor)]
 	public static class ExtendLocationManager
 	{
-		// This is pretty hackey, I would have prefered to do this anywhere else but the cell phone is
-		// part of the title screen as well so this keeps crashing. SOLID my man... I beg you
 		private static void Postfix(LocationManager __instance)
 		{
 			__instance.ArriveEvent += Functionality.SubscribePostLocation;
@@ -128,7 +121,7 @@ namespace Hp2BaseModTweaks
 
 					AssetHolder.Instance.GirlPageIndex = (pagesCap == 0)
 						? 0
-						: NfMod(AssetHolder.Instance.GirlPageIndex, pagesCap);
+						: Wrap(AssetHolder.Instance.GirlPageIndex, 0, pagesCap);
 
 					if (AssetHolder.Instance.GirlPageIndex != 0)
 					{
@@ -193,7 +186,7 @@ namespace Hp2BaseModTweaks
 
 					AssetHolder.Instance.PairPageIndex = (pagesCap == 0)
 						? 0
-						: NfMod(AssetHolder.Instance.PairPageIndex, pagesCap);
+						: Wrap(AssetHolder.Instance.PairPageIndex, 0, pagesCap);
 
 					if (AssetHolder.Instance.PairPageIndex != 0)
 					{
@@ -245,52 +238,79 @@ namespace Hp2BaseModTweaks
 
 			if (currentApp is UiCellphoneAppWardrobe appWardrobe)
             {
-				var playerFileGirls = Game.Persistence.playerFile.girls.Where(x => x.playerMet).ToArray();
+				var playerFileGirls = Game.Persistence.playerFile.girls.Where(x => x.playerMet).OrderBy(o => o.girlDefinition.id).ToArray();
 
 				// Setup icons
 				if (playerFileGirls.Length > AssetHolder.WarbrobeGirlsPerPage)
                 {
+					// wrap index
 					var pagesCap = (playerFileGirls.Length / AssetHolder.WarbrobeGirlsPerPage);
 
-					AssetHolder.Instance.WarbrobeGirlPageIndex = (pagesCap == 0)
-						? 0
-						: NfMod(AssetHolder.Instance.WarbrobeGirlPageIndex, pagesCap);
-
-					if (AssetHolder.Instance.WarbrobeGirlPageIndex != 0)
+					if (AssetHolder.Instance.WarbrobeGirlPageIndex == -1)
+                    {
+						AssetHolder.Instance.WarbrobeGirlPageIndex = pagesCap;
+					}
+					else if (AssetHolder.Instance.WarbrobeGirlPageIndex == pagesCap)
 					{
-						var index = AssetHolder.Instance.WarbrobeGirlPageIndex * AssetHolder.WarbrobeGirlsPerPage;
+						AssetHolder.Instance.WarbrobeGirlPageIndex = 0;
+					}
 
-						foreach (var slot in appWardrobe.fileIconSlots)
-						{
-							GirlDefinition newDef = null;
+					// Set backend data
+					var index = AssetHolder.Instance.WarbrobeGirlPageIndex * AssetHolder.WarbrobeGirlsPerPage;
+					var kyuDef = Game.Data.Girls.Get(13);
 
-							if (index < playerFileGirls.Length)
-							{
-								newDef = playerFileGirls[index].girlDefinition;
-								index++;
-							}
-                            else
-                            {
-								newDef = Game.Data.Girls.Get(13);
-							}
+					foreach (var slot in appWardrobe.fileIconSlots.Take(AssetHolder.WarbrobeGirlsPerPage))
+                    {
+						GirlDefinition newDef = null;
 
-							slot.girlDefinition = newDef;
-						}
-						UiAppFileIconSlot terst = appWardrobe.fileIconSlots.FirstOrDefault();
-						AccessTools.Field(typeof(UiCellphoneAppWardrobe), "_selectedFileIconSlot").SetValue(appWardrobe, terst);
+                        if (index < playerFileGirls.Length)
+                        {
+                            newDef = playerFileGirls[index].girlDefinition;
+                            index++;
+                        }
+                        else
+                        {
+                            newDef = kyuDef;
+                        }
+
+                        slot.girlDefinition = newDef;
                     }
+
+                    foreach (var slot in appWardrobe.fileIconSlots.Skip(AssetHolder.WarbrobeGirlsPerPage))
+                    {
+                        slot.girlDefinition = kyuDef;
+					}
+
+					var firstIconSlot = appWardrobe.fileIconSlots.First();
+
+					var selectedFileIconSlot = AccessTools.Field(typeof(UiCellphoneAppWardrobe), "_selectedFileIconSlot");
+					selectedFileIconSlot.SetValue(appWardrobe, appWardrobe.fileIconSlots[0]);
+
+					// Refresh Ui
+					var playerFileGirl = Game.Persistence.playerFile.GetPlayerFileGirl(firstIconSlot.girlDefinition);
+					var wardrobeDoll = Game.Session.gameCanvas.dollRight;
+
+					if (firstIconSlot.girlDefinition != wardrobeDoll.girlDefinition)
+					{
+						Game.Persistence.playerFile.SetFlagValue("wardrobe_girl_id", firstIconSlot.girlDefinition.id);
+						wardrobeDoll.LoadGirl(firstIconSlot.girlDefinition, -1, -1, -1, null);
+
+						appWardrobe.selectListHairstyle.Populate(playerFileGirl);
+						appWardrobe.selectListOutfit.Populate(playerFileGirl);
+						appWardrobe.wearOnDatesCheckBox.Populate(playerFileGirl.stylesOnDates);
+					}
+					else
+					{
+						wardrobeDoll.ChangeHairstyle(-1);
+						wardrobeDoll.ChangeOutfit(-1);
+					}
 
 					// Create buttons for girl icons
 					var buttonLeftGO = (GameObject)UnityEngine.Object.Instantiate(AssetHolder.Instance.Assets[2], appWardrobe.fileIconSlotsContainer.parent);
 					var buttonLeftButton = buttonLeftGO.GetComponent<Button>();
 					var buttonLeftTransform = buttonLeftGO.GetComponent<RectTransform>();
 
-					var buttonRightGO = (GameObject)UnityEngine.Object.Instantiate(AssetHolder.Instance.Assets[3], appWardrobe.fileIconSlotsContainer.parent);
-					var buttonRightButton = buttonRightGO.GetComponent<Button>();
-					var buttonRightTransform = buttonRightGO.GetComponent<RectTransform>();
-
 					buttonLeftTransform.anchoredPosition = new Vector2(30f, -30f);
-					buttonRightTransform.anchoredPosition = new Vector2(356f, -30f);
 
 					buttonLeftButton.onClick.AddListener(new UnityEngine.Events.UnityAction(() =>
 					{
@@ -298,41 +318,33 @@ namespace Hp2BaseModTweaks
 						Game.Session.gameCanvas.cellphone.Refresh(true);
 					}));
 
+					var buttonRightGO = (GameObject)UnityEngine.Object.Instantiate(AssetHolder.Instance.Assets[3], appWardrobe.fileIconSlotsContainer.parent);
+					var buttonRightButton = buttonRightGO.GetComponent<Button>();
+					var buttonRightTransform = buttonRightGO.GetComponent<RectTransform>();
+
+					buttonRightTransform.anchoredPosition = new Vector2(356f, -30f);
+
 					buttonRightButton.onClick.AddListener(new UnityEngine.Events.UnityAction(() =>
 					{
 						AssetHolder.Instance.WarbrobeGirlPageIndex += 1;
 						Game.Session.gameCanvas.cellphone.Refresh(true);
 					}));
+
+					// Buttons for hair & outfits, Todo
+
+					// Refresh
+					if (AssetHolder.Instance.WardropeNeedsRefresh)
+                    {
+						AssetHolder.Instance.WardropeNeedsRefresh = false;
+						Game.Session.gameCanvas.cellphone.Refresh(true);
+					}
 				}
-
-				// Always refresh lists and doll in case of invalid characters
-				var girlDef = (AccessTools.Field(typeof(UiCellphoneAppWardrobe), "_selectedFileIconSlot").GetValue(appWardrobe) as UiAppFileIconSlot).girlDefinition;
-
-				var playerFileGirl = Game.Persistence.playerFile.GetPlayerFileGirl(girlDef);
-
-				//var wardrobeDoll = AccessTools.Field(typeof(UiCellphoneAppWardrobe), "_wardrobeDoll").GetValue(appWardrobe) as UiDoll;
-
-				FileLog.Log($"GirlDef: {girlDef.girlName ?? "Is Null"}, Player File Girl: {(playerFileGirl == null ? "Is Null" : "Not Null")}");
-				//FileLog.Log($"Wardrobe Doll: {(wardrobeDoll == null ? "Is Null" : "Not Null")}");
-
-				//wardrobeDoll.LoadGirl(girlDef);
-
-				FileLog.Log($"doll loaded");
-
-				appWardrobe.selectListHairstyle.Populate(playerFileGirl);
-				appWardrobe.selectListOutfit.Populate(playerFileGirl);
-
-				FileLog.Log($"lists populated");
-
-				//wardrobeDoll.ChangeHairstyle();
-				//wardrobeDoll.ChangeOutfit();
-
-				FileLog.Log($"doll dressed");
 			}
 			else
             {
 				AssetHolder.Instance.WarbrobeGirlPageIndex = 0;
-            }
+				AssetHolder.Instance.WardropeNeedsRefresh = true;
+			}
 
 			if (currentApp is UiCellphoneAppNew appNew)
             {
@@ -356,7 +368,8 @@ namespace Hp2BaseModTweaks
 
 			if (currentWindow is UiWindowPhotos windowPhotos)
             {
-				if (Game.Data.Photos.GetAll().Count > AssetHolder.PhotossPerPage)
+				// -2 for Kyu's potos
+				if (Game.Data.Photos.GetAll().Count-2 > AssetHolder.PhotossPerPage)
                 {
 					var slotsContainer = windowPhotos.transform.GetChild(1).GetChild(0);
 
@@ -399,6 +412,6 @@ namespace Hp2BaseModTweaks
 			}
         }
 
-        public static int NfMod(int x, int m) => (x % m + m) % m;
+		public static int Wrap(int x, int min, int max) => ((x - min) % (max - min + 1)) + min;
 	}
 }

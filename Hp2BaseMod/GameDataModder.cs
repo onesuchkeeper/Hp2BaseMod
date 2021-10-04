@@ -4,14 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using HarmonyLib;
 using Hp2BaseMod.GameDataMods;
-using Hp2BaseMod.GameDataMods.Interface;
 using Newtonsoft.Json;
 
 namespace Hp2BaseMod
 {
-
     /// <summary>
     /// Interface class to add in data mods.
     /// </summary>
@@ -83,6 +80,36 @@ namespace Hp2BaseMod
             { GameDataType.Token, new List<string>() }
         };
 
+        /// <summary>
+        /// loader log
+        /// </summary>
+        private TextWriter _tw;
+
+        /// <summary>
+        /// empty Constructor, needed for serialization
+        /// </summary>
+        public GameDataModder()
+        {
+        }
+
+        /// <summary>
+        /// Constructor with textWriter
+        /// </summary>
+        /// <param name="tw">loader log</param>
+        public GameDataModder(TextWriter tw)
+        {
+            _tw = tw ?? throw new ArgumentNullException(nameof(tw));
+        }
+
+        /// <summary>
+        /// outputs to the loader log
+        /// </summary>
+        /// <param name="line"></param>
+        public void LogLine(string line)
+        {
+            _tw?.WriteLine("        " + line);
+        }
+
         public void AddData(AbilityDataMod data) { AbilityMods.Add(data); }
         public void AddData(AilmentDataMod data) { AilmentMods.Add(data); }
         public void AddData(CodeDataMod data) { CodeMods.Add(data); }
@@ -101,10 +128,11 @@ namespace Hp2BaseMod
         /// <summary>
         /// Adds a data mod for gameDataType from a path
         /// </summary>
+        /// <param name="path">type of mod</param>
         /// <param name="path">the path</param>
-        public void AddData<M>(string path)
+        public void AddData(GameDataType type, string path)
         {
-            ModPathListsByType[TypeToGameDataType[typeof(M)]].Add(path);
+            ModPathListsByType[type].Add(path);
         }
 
         /// <summary>

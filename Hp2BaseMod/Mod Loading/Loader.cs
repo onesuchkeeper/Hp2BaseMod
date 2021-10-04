@@ -18,7 +18,7 @@ namespace Hp2BaseMod.ModLoader
         public static void Main(string[] args)
         {
             TextWriter tw = File.CreateText(@"mods\Hp2BaseModLoader.log");
-            GameDataModder gameDataMod = new GameDataModder();
+            GameDataModder gameDataMod = new GameDataModder(tw);
 
             try
             {
@@ -70,7 +70,7 @@ namespace Hp2BaseMod.ModLoader
                 }
 
                 // Load mods
-                tw.WriteLine("------Loading mods------");
+                tw.WriteLine("\n------Loading mods------");
                 foreach (var mod in modsCatalog)
                 {
                     tw.WriteLine("Loading " + mod.path);
@@ -101,7 +101,7 @@ namespace Hp2BaseMod.ModLoader
                 // Game Data Modifications
                 var harmony = new Harmony("Hp2BaseMod.Hp2BaseModLoader");
 
-                tw.WriteLine("----Applying Game Data Modifications----");
+                tw.WriteLine("\n----Applying Game Data Modifications----");
                 tw.WriteLine("Generating data mod Json");
                 var AddRemoveConfig = File.CreateText(@"mods\GameDataModifier.json");
                 var jsonStr = JsonConvert.SerializeObject(gameDataMod);
@@ -112,18 +112,17 @@ namespace Hp2BaseMod.ModLoader
                 tw.WriteLine("Finished!");
 
                 // Save file diff
-                tw.WriteLine("----Setting up data mod savefile----");
+                tw.WriteLine("\n----Setting up data mod savefile----");
                 SaveLoadPatcher.Patch(harmony);
                 tw.WriteLine("Finished!");
-
-                // Log
-                tw.Flush();
             }
             catch (Exception e)
             {
                 tw.WriteLine($"EXCEPTION:\n>Source:\n{e.Source}\n>Message:\n{e.Message}\n>StackTrace:\n{e.StackTrace}");
-                tw.Flush();
             }
+
+            // Log
+            tw.Flush();
         }
     }
 }
