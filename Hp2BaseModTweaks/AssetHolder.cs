@@ -14,6 +14,7 @@ namespace Hp2BaseModTweaks
         public UnityEngine.Object[] Assets;
 
         public int GirlPageIndex = 0;
+        public bool GirlAppNeedsRefresh = true;
         public static readonly int GirlsPerPage = 12;
 
         public int PairPageIndex = 0;
@@ -27,6 +28,7 @@ namespace Hp2BaseModTweaks
         public static readonly int WarbrobeOutfitsPerPage = 12;
 
         public int PhotoPageIndex = 0;
+        public bool PhotoWindowNeedsRefresh = true;
         public static readonly int PhotossPerPage = 29;
 
         public bool SubscribedOpenEvent = false;

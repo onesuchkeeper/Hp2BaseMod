@@ -103,6 +103,11 @@ namespace Hp2BaseModTweaks
 	/// </summary>
 	public static class Functionality
     {
+		public static void foo()
+        {
+
+        }
+
 		public static void PostAppChange()
 		{
 			Harmony.DEBUG = true;
@@ -113,37 +118,49 @@ namespace Hp2BaseModTweaks
 
 			if (currentApp is UiCellphoneAppGirls appGirls)
             {
-				var playerFileGirls = Game.Persistence.playerFile.girls.Where(x => x.playerMet).ToArray();
+				var playerFileGirls = Game.Persistence.playerFile.girls.Where(x => x.playerMet).OrderBy(o => o.girlDefinition.id).ToArray();
 
 				if (playerFileGirls.Length > AssetHolder.GirlsPerPage)
                 {
+					// wrap index
 					var pagesCap = (playerFileGirls.Length / AssetHolder.GirlsPerPage);
 
-					AssetHolder.Instance.GirlPageIndex = (pagesCap == 0)
-						? 0
-						: Wrap(AssetHolder.Instance.GirlPageIndex, 0, pagesCap);
-
-					if (AssetHolder.Instance.GirlPageIndex != 0)
+					if (AssetHolder.Instance.GirlPageIndex < 0)
 					{
-						var index = AssetHolder.Instance.GirlPageIndex * AssetHolder.GirlsPerPage;
-
-						foreach (var slot in appGirls.girlSlots)
-						{
-							GirlDefinition newDef = null;
-
-							if (index < playerFileGirls.Length)
-							{
-								newDef = playerFileGirls[index].girlDefinition;
-								index++;
-							}
-							else
-							{
-								newDef = Game.Data.Girls.Get(13);
-							}
-
-							slot.girlDefinition = newDef;
-						}
+						AssetHolder.Instance.GirlPageIndex = pagesCap;
 					}
+					else if (AssetHolder.Instance.GirlPageIndex > pagesCap)
+					{
+						AssetHolder.Instance.GirlPageIndex = 0;
+					}
+
+					// set backend data
+					var index = AssetHolder.Instance.GirlPageIndex * AssetHolder.GirlsPerPage;
+					var kyuDef = Game.Data.Girls.Get(13);
+
+					foreach (var slot in appGirls.girlSlots.Take(AssetHolder.GirlsPerPage))
+					{
+						GirlDefinition newDef = null;
+
+						if (index < playerFileGirls.Length)
+						{
+							newDef = playerFileGirls[index].girlDefinition;
+							index++;
+						}
+						else
+						{
+							newDef = kyuDef;
+						}
+
+						slot.girlDefinition = newDef;
+					}
+
+					foreach (var slot in appGirls.girlSlots.Skip(AssetHolder.GirlsPerPage))
+					{
+						slot.girlDefinition = kyuDef;
+					}
+
+					// Refresh Ui
 
 					// Create buttons
 					var buttonLeftGO = (GameObject)UnityEngine.Object.Instantiate(AssetHolder.Instance.Assets[2], appGirls.girlSlotsContainer.parent);
@@ -168,46 +185,79 @@ namespace Hp2BaseModTweaks
                         AssetHolder.Instance.GirlPageIndex += 1;
 						Game.Session.gameCanvas.cellphone.Refresh(true);
 					}));
-                }
+
+					// Refresh
+					if (AssetHolder.Instance.GirlAppNeedsRefresh)
+					{
+						AssetHolder.Instance.GirlAppNeedsRefresh = false;
+						Game.Session.gameCanvas.cellphone.Refresh(true);
+					}
+				}
 			}
             else
             {
 				AssetHolder.Instance.GirlPageIndex = 0;
+				AssetHolder.Instance.GirlAppNeedsRefresh = true;
 			}
 
 			if (currentApp is UiCellphoneAppPairs appPairs)
 			{
 				var playerFilePairs = Game.Persistence.playerFile.metGirlPairs.ToArray();
 
-				if (playerFilePairs.Length > AssetHolder.PairsPerPage)
-				{
-					// setup page
+				void updateSlots()
+                {
+					// wrap index
 					var pagesCap = (playerFilePairs.Length / AssetHolder.PairsPerPage);
 
-					AssetHolder.Instance.PairPageIndex = (pagesCap == 0)
-						? 0
-						: Wrap(AssetHolder.Instance.PairPageIndex, 0, pagesCap);
-
-					if (AssetHolder.Instance.PairPageIndex != 0)
+					if (AssetHolder.Instance.PairPageIndex < 0)
 					{
-						var index = AssetHolder.Instance.PairPageIndex * AssetHolder.PairsPerPage;
-
-						foreach (var slot in appPairs.pairSlots)
-						{
-							GirlPairDefinition newDef = null;
-
-							if (index < playerFilePairs.Length)
-							{
-								newDef = playerFilePairs[index];
-								index++;
-							}
-
-							slot.Populate(newDef);
-						}
+						AssetHolder.Instance.PairPageIndex = pagesCap;
+					}
+					else if (AssetHolder.Instance.PairPageIndex > pagesCap)
+					{
+						AssetHolder.Instance.PairPageIndex = 0;
 					}
 
-					// Create buttons
-					var buttonLeftGO = (GameObject)UnityEngine.Object.Instantiate(AssetHolder.Instance.Assets[2], appPairs.pairSlotsContainer.parent);
+					// Set backend data
+					var index = AssetHolder.Instance.PairPageIndex * AssetHolder.PairsPerPage;
+					int num = -1;
+
+					foreach (var slot in appPairs.pairSlots.Take(AssetHolder.PairsPerPage))
+					{
+						GirlPairDefinition newDef = null;
+
+						if (index < playerFilePairs.Length)
+						{
+							newDef = playerFilePairs[index];
+							slot.canvasGroup.alpha = 1f;
+							slot.canvasGroup.blocksRaycasts = true;
+							slot.button.Enable();
+							index++;
+							num++;
+						}
+
+						slot.rectTransform.anchoredPosition = new Vector2((float)(num % 4) * 256f, (float)Mathf.FloorToInt((float)num / 4f) * -90f);
+						slot.Populate(newDef);
+					}
+
+					foreach (var slot in appPairs.pairSlots.Skip(AssetHolder.PairsPerPage))
+					{
+						slot.Populate(null);
+					}
+
+					num++;
+
+					appPairs.pairSlotsContainer.anchoredPosition =
+						//Game.Session.gameCanvas.cellphoneContainer.anchoredPosition +
+						//Game.Session.gameCanvas.cellphone.rectTransform.anchoredPosition
+						new Vector2(528, -282)
+						+new Vector2((float)Mathf.Min(num - 1, 3) * -128f, (float)Mathf.Max(Mathf.CeilToInt((float)num / 4f) - 1, 0) * 45f);
+				}
+
+				if (playerFilePairs.Length > AssetHolder.PairsPerPage)
+				{
+                    // Create buttons
+                    var buttonLeftGO = (GameObject)UnityEngine.Object.Instantiate(AssetHolder.Instance.Assets[2], appPairs.pairSlotsContainer.parent);
 					var buttonLeftButton = buttonLeftGO.GetComponent<Button>();
 					var buttonLeftTransform = buttonLeftGO.GetComponent<RectTransform>();
 
@@ -221,15 +271,18 @@ namespace Hp2BaseModTweaks
 					buttonLeftButton.onClick.AddListener(new UnityEngine.Events.UnityAction(() =>
 					{
 						AssetHolder.Instance.PairPageIndex -= 1;
-						Game.Session.gameCanvas.cellphone.Refresh(true);
+						updateSlots();
 					}));
 
 					buttonRightButton.onClick.AddListener(new UnityEngine.Events.UnityAction(() =>
 					{
 						AssetHolder.Instance.PairPageIndex += 1;
-						Game.Session.gameCanvas.cellphone.Refresh(true);
+						buttonLeftButton.interactable = true;
+						updateSlots();
 					}));
 				}
+
+				updateSlots();
 			}
 			else
             {
@@ -246,11 +299,11 @@ namespace Hp2BaseModTweaks
 					// wrap index
 					var pagesCap = (playerFileGirls.Length / AssetHolder.WarbrobeGirlsPerPage);
 
-					if (AssetHolder.Instance.WarbrobeGirlPageIndex == -1)
+					if (AssetHolder.Instance.WarbrobeGirlPageIndex < 0)
                     {
 						AssetHolder.Instance.WarbrobeGirlPageIndex = pagesCap;
 					}
-					else if (AssetHolder.Instance.WarbrobeGirlPageIndex == pagesCap)
+					else if (AssetHolder.Instance.WarbrobeGirlPageIndex > pagesCap)
 					{
 						AssetHolder.Instance.WarbrobeGirlPageIndex = 0;
 					}
@@ -287,6 +340,13 @@ namespace Hp2BaseModTweaks
 					selectedFileIconSlot.SetValue(appWardrobe, appWardrobe.fileIconSlots[0]);
 
 					// Refresh Ui
+					if (AssetHolder.Instance.WardropeNeedsRefresh)
+					{
+						AssetHolder.Instance.WardropeNeedsRefresh = false;
+						Game.Session.gameCanvas.cellphone.Refresh(true);
+						return;
+					}
+
 					var playerFileGirl = Game.Persistence.playerFile.GetPlayerFileGirl(firstIconSlot.girlDefinition);
 					var wardrobeDoll = Game.Session.gameCanvas.dollRight;
 
@@ -331,13 +391,6 @@ namespace Hp2BaseModTweaks
 					}));
 
 					// Buttons for hair & outfits, Todo
-
-					// Refresh
-					if (AssetHolder.Instance.WardropeNeedsRefresh)
-                    {
-						AssetHolder.Instance.WardropeNeedsRefresh = false;
-						Game.Session.gameCanvas.cellphone.Refresh(true);
-					}
 				}
 			}
 			else
@@ -355,6 +408,15 @@ namespace Hp2BaseModTweaks
 				//reset index to 0
             }
 
+			if (currentApp is UiCellphoneAppProfile appProfile)
+			{
+				//Add buttons for pairs
+			}
+			else
+			{
+				//reset index to 0
+			}
+
 			Harmony.DEBUG = false;
 		}
 
@@ -368,36 +430,84 @@ namespace Hp2BaseModTweaks
 
 			if (currentWindow is UiWindowPhotos windowPhotos)
             {
-				// -2 for Kyu's potos
-				if (Game.Data.Photos.GetAll().Count-2 > AssetHolder.PhotossPerPage)
+				var photos = Game.Data.Photos.GetAll().OrderBy(o => o.id).ToArray();
+
+				void updateSlots()
                 {
+					// wrap index
+					var pagesCap = (photos.Length - 2) / AssetHolder.PhotossPerPage;
+					if (AssetHolder.Instance.PhotoPageIndex < 0)
+					{
+						AssetHolder.Instance.PhotoPageIndex = pagesCap;
+					}
+					else if (AssetHolder.Instance.PhotoPageIndex > pagesCap)
+					{
+						AssetHolder.Instance.PhotoPageIndex = 0;
+					}
+
+					// set backend data, +2 for kyu's extra photos
+					var index = AssetHolder.Instance.PhotoPageIndex == 0
+						? AssetHolder.Instance.PhotoPageIndex * AssetHolder.PhotossPerPage
+						: (AssetHolder.Instance.PhotoPageIndex * AssetHolder.PhotossPerPage) + 2;
+
+
+					var photoDefinition = AccessTools.Field(typeof(UiPhotoSlot), "_photoDefinition");
+
+					foreach (var slot in windowPhotos.photoSlots)
+					{
+						if (index < photos.Length)
+						{
+							photoDefinition.SetValue(slot, photos[index]);
+							slot.buttonBehavior.Enable();
+							index++;
+						}
+						else
+						{
+							photoDefinition.SetValue(slot, null);
+							slot.thumbnailImage = null;
+							slot.buttonBehavior.Disable();
+						}
+
+						slot.Refresh(0);
+					}
+
+					// first page has special handling with kyu and the nymphojin stuff
+					if (AssetHolder.Instance.PhotoPageIndex == 0)
+					{
+						//set player's kyu choice
+					}
+				}
+
+				// -2 for Kyu's potos
+				if (photos.Length - 2 > AssetHolder.PhotossPerPage)
+				{
 					var slotsContainer = windowPhotos.transform.GetChild(1).GetChild(0);
 
-                    // Create buttons
-                    var buttonLeftGO = (GameObject)UnityEngine.Object.Instantiate(AssetHolder.Instance.Assets[0], slotsContainer);
-                    var buttonLeftButton = buttonLeftGO.GetComponent<Button>();
-                    var buttonLeftTransform = buttonLeftGO.GetComponent<RectTransform>();
+					// Create buttons
+					var buttonLeftGO = (GameObject)UnityEngine.Object.Instantiate(AssetHolder.Instance.Assets[0], slotsContainer);
+					var buttonLeftButton = buttonLeftGO.GetComponent<Button>();
+					var buttonLeftTransform = buttonLeftGO.GetComponent<RectTransform>();
 
-                    var buttonRightGO = (GameObject)UnityEngine.Object.Instantiate(AssetHolder.Instance.Assets[1], slotsContainer);
-                    var buttonRightButton = buttonRightGO.GetComponent<Button>();
-                    var buttonRightTransform = buttonRightGO.GetComponent<RectTransform>();
+					var buttonRightGO = (GameObject)UnityEngine.Object.Instantiate(AssetHolder.Instance.Assets[1], slotsContainer);
+					var buttonRightButton = buttonRightGO.GetComponent<Button>();
+					var buttonRightTransform = buttonRightGO.GetComponent<RectTransform>();
 
-                    buttonLeftTransform.anchoredPosition = new Vector2(-110f, 125f);
-                    buttonRightTransform.anchoredPosition = new Vector2(1688f, 125f);
+					buttonLeftTransform.anchoredPosition = new Vector2(-110f, 125f);
+					buttonRightTransform.anchoredPosition = new Vector2(1688f, 125f);
 
-                    buttonLeftButton.onClick.AddListener(new UnityEngine.Events.UnityAction(() =>
-                    {
-                        AssetHolder.Instance.GirlPageIndex -= 1;
-						FileLog.Log("Left BOOP");
+					buttonLeftButton.onClick.AddListener(new UnityEngine.Events.UnityAction(() =>
+					{
+						AssetHolder.Instance.PhotoPageIndex -= 1;
+						updateSlots();
 					}));
 
-                    buttonRightButton.onClick.AddListener(new UnityEngine.Events.UnityAction(() =>
-                    {
-                        AssetHolder.Instance.GirlPageIndex += 1;
-						FileLog.Log("Right BOOP");
+					buttonRightButton.onClick.AddListener(new UnityEngine.Events.UnityAction(() =>
+					{
+						AssetHolder.Instance.PhotoPageIndex += 1;
+						updateSlots();
 					}));
-                }
-            }
+				}
+			}
 
 			Harmony.DEBUG = false;
 		}
@@ -411,7 +521,5 @@ namespace Hp2BaseModTweaks
 				AssetHolder.Instance.SubscribedOpenEvent = true;
 			}
         }
-
-		public static int Wrap(int x, int min, int max) => ((x - min) % (max - min + 1)) + min;
 	}
 }
