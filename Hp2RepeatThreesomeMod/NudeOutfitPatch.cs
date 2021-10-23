@@ -5,7 +5,7 @@ using HarmonyLib;
 namespace Hp2RepeatThreesomeMod
 {
     [HarmonyPatch(typeof(UiDoll), "ChangeOutfit")]
-    class NudeOutfixPatch
+    class NudeOutfitPatch
     {
         public static bool Prefix(UiDoll __instance, int outfitIndex)
         {

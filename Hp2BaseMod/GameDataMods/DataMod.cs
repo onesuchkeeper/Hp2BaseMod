@@ -19,6 +19,10 @@ namespace Hp2BaseMod.GameDataMods
         public int Id { get; set; }
         public bool IsAdditive { get; set; }
 
+        public string ModName;
+
+        public int ModType;
+
         public DataMod() {}
 
         public DataMod(int id, bool isAdditive)
