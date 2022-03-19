@@ -3,31 +3,34 @@
 using Hp2BaseMod.AssetInfos;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataMods
 {
     /// <summary>
     /// Serializable information to make an AilmentDefinition
     /// </summary>
-    [Serializable]
+    [UiSonClass]
     public class AilmentDataMod : DataMod<AilmentDefinition>
     {
         public int? ItemDefinitionID;
-		public bool? PersistentFlags;
-		public AilmentEnableType? EnableType;
-		public int? EnableTriggerIndex;
-		public int? EnableTokenDefID;
-		public int? EnableIntVal;
-		public float? EnableFloatVal;
-		public bool? EnableBoolVal;
-		public string EnableStringVal;
-		public int? EnableAbilityDefID;
-		public int? DisableAbilityDefID;
-		public List<AilmentHintSubDefinition> Hints;
-		public List<AilmentTriggerInfo> Triggers;
+        public bool? PersistentFlags;
+
+        [UiSonEnumSelectorUi(typeof(AilmentEnableType?))]
+        public AilmentEnableType? EnableType;
+
+        public int? EnableTriggerIndex;
+        public int? EnableTokenDefID;
+        public int? EnableIntVal;
+        public float? EnableFloatVal;
+        public bool? EnableBoolVal;
+        public string EnableStringVal;
+        public int? EnableAbilityDefID;
+        public int? DisableAbilityDefID;
+        public List<AilmentHintSubDefinition> Hints;
+        public List<AilmentTriggerInfo> Triggers;
 
         public AilmentDataMod() { }
 
@@ -51,7 +54,7 @@ namespace Hp2BaseMod.GameDataMods
                               List<AilmentHintSubDefinition> hints,
                               List<AilmentTriggerInfo> triggers,
                               bool isAdditive = false)
-            :base(id, isAdditive)
+            : base(id, isAdditive)
         {
             ItemDefinitionID = itemDefinitionID;
             PersistentFlags = persistentFlags;
@@ -69,7 +72,7 @@ namespace Hp2BaseMod.GameDataMods
         }
 
         public AilmentDataMod(AilmentDefinition def)
-            :base(def.id, false)
+            : base(def.id, false)
         {
             PersistentFlags = def.persistentFlags;
             EnableType = def.enableType;

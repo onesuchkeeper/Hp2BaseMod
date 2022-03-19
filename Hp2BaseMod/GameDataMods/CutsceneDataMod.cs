@@ -6,13 +6,14 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataMods
 {
     /// <summary>
     /// Serializable information to make a CutsceneDefinition
     /// </summary>
-    [Serializable]
+    [UiSonClass]
     public class CutsceneDataMod : DataMod<CutsceneDefinition>
     {
         public CutsceneCleanUpType? CleanUpType;

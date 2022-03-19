@@ -6,6 +6,7 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UiSon.Attribute;
 using UnityEngine;
 
 namespace Hp2BaseMod.GameDataMods
@@ -13,24 +14,24 @@ namespace Hp2BaseMod.GameDataMods
     /// <summary>
     /// Serializable information to make an EnergyDefinition
     /// </summary>
-    [Serializable]
+    [UiSonClass]
     public class EnergyDataMod : DataMod<EnergyDefinition>
     {
         public List<SpriteInfo> BurstSprites;
-		public List<SpriteInfo> TrailSprites;
-		public List<SpriteInfo> SplashSprites;
-		public List<SpriteInfo> SurgeSprites;
-		public string TextMaterialName;
-		public ColorInfo TextColorInfo;
-		public ColorInfo OutlineColorInfo;
-		public ColorInfo ShadowColorInfo;
-		public ColorInfo SurgeColorInfo;
-		public GirlExpressionType? SurgeExpression;
-		public bool? SurgeEyesClosed;
-		public GirlExpressionType? NegSurgeExpression;
-		public bool? NegSurgeEyesClosed;
-		public GirlExpressionType? BossSurgeExpression;
-		public bool? BossSurgeEyesClosed;
+        public List<SpriteInfo> TrailSprites;
+        public List<SpriteInfo> SplashSprites;
+        public List<SpriteInfo> SurgeSprites;
+        public string TextMaterialName;
+        public ColorInfo TextColorInfo;
+        public ColorInfo OutlineColorInfo;
+        public ColorInfo ShadowColorInfo;
+        public ColorInfo SurgeColorInfo;
+        public GirlExpressionType? SurgeExpression;
+        public bool? SurgeEyesClosed;
+        public GirlExpressionType? NegSurgeExpression;
+        public bool? NegSurgeEyesClosed;
+        public GirlExpressionType? BossSurgeExpression;
+        public bool? BossSurgeEyesClosed;
 
         public EnergyDataMod() { }
 

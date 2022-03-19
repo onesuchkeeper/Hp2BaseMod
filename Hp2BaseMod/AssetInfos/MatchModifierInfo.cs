@@ -17,12 +17,12 @@ namespace Hp2BaseMod.AssetInfos
         public int TokenDefinitionID;
         public int ReplaceDefinitionID;
         public bool Absorb;
-		public bool AbsorbAltGirl;
-		public bool ReplacePriority;
-		public bool SkipMostFavFactor;
-		public bool SkipLeastFavFactor;
-		public bool PointsOp;
-		public bool PointsOp2;
+        public bool AbsorbAltGirl;
+        public bool ReplacePriority;
+        public bool SkipMostFavFactor;
+        public bool SkipLeastFavFactor;
+        public bool PointsOp;
+        public bool PointsOp2;
 
         public MatchModifierInfo() { }
 

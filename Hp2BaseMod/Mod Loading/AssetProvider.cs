@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Hp2BaseMod.ModLoader
 {
+    /// <summary>
+    /// Holding space for unity objects like audio files, prefabs and images from the game while setting up data mods
+    /// </summary>
     public class AssetProvider
     {
         private Dictionary<string, Object> Assets;

@@ -2,16 +2,19 @@
 
 using Hp2BaseMod.ModLoader;
 using System;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.AssetInfos
 {
     /// <summary>
     /// Serializable information to make an AudioKlip
     /// </summary>
-    [Serializable]
     public class AudioKlipInfo
     {
+        [UiSonMemberClass]
         public AudioClipInfo AudioClipInfo;
+
+        [UiSonTextEditUi]
         public float Volume;
 
         public AudioKlipInfo() { }

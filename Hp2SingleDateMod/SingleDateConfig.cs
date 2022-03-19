@@ -25,7 +25,7 @@ namespace Hp2SingleDateMod
         public CutsceneDataMod PreSexCutscene;
         public CutsceneDataMod PostSexCutscene;
 
-        public int AddMods(GameDataModder gameDataModder)
+        public int AddMods(ModInterface gameDataModder)
         {
             gameDataModder.AddData(Photo);
 

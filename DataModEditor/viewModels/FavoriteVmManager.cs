@@ -1,12 +1,12 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
 using DataModEditor.Data;
-using DataModEditor.Interfaces;
+using DataModEditor.Elements;
 using System.Collections.Generic;
 
 namespace DataModEditor
 {
-    public class FavoriteVm : BaseVM
+    public class FavoriteVm : NPCBase
     {
         public int Index { get; set; } = 0;
 

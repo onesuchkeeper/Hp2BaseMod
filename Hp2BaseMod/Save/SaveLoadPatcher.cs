@@ -18,8 +18,7 @@ namespace Hp2BaseMod.Save
             }
             catch (Exception e)
             {
-                Harmony.DEBUG = true;
-                FileLog.Log("EXCEPTION SaveLoadPatcher: " + e.Message);
+                ModInterface.Instance.LogLine("EXCEPTION SaveLoadPatcher: " + e.Message);
             }
         }
 

@@ -18,6 +18,9 @@
     <Reference Include="DOTween">
       <HintPath>..\lib\DOTween.dll</HintPath>
     </Reference>
+    <Reference Include="UiSon.Attribute">
+      <HintPath>..\..\..\knackname\UiSon\UiSon.Attributes\bin\Debug\netcoreapp2.0\UiSon.Attribute.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.AudioModule">
       <HintPath>..\lib\UnityEngine.AudioModule.dll</HintPath>
     </Reference>

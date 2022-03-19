@@ -19,7 +19,7 @@ namespace Hp2BaseMod.AssetInfos
 
         public CutsceneBranchInfo() { }
 
-        public CutsceneBranchInfo(int cutsceneDefinitionID, 
+        public CutsceneBranchInfo(int cutsceneDefinitionID,
                                   List<LogicConditionInfo> conditions,
                                   List<CutsceneStepInfo> steps)
         {
@@ -35,7 +35,7 @@ namespace Hp2BaseMod.AssetInfos
 
             CutsceneDefinitionID = cutsceneBranch.cutsceneDefinition?.id ?? -1;
 
-            if (cutsceneBranch.conditions != null)  { Conditions = cutsceneBranch.conditions.Select(x => new LogicConditionInfo(x)).ToList(); }
+            if (cutsceneBranch.conditions != null) { Conditions = cutsceneBranch.conditions.Select(x => new LogicConditionInfo(x)).ToList(); }
             if (cutsceneBranch.steps != null) { Steps = cutsceneBranch.steps.Select(x => new CutsceneStepInfo(x, assetProvider)).ToList(); }
         }
 

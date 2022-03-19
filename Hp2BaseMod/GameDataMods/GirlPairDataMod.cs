@@ -1,19 +1,18 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
 using Hp2BaseMod.AssetInfos;
-using Hp2BaseMod.GameDataMods.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataMods
 {
     /// <summary>
     /// Serializable information to make a GirlPairDefinition
     /// </summary>
-    [Serializable]
+    [UiSonClass]
     public class GirlPairDataMod : DataMod<GirlPairDefinition>
     {
         public List<GirlPairFavQuestionInfo> FavQuestions;
@@ -109,7 +108,7 @@ namespace Hp2BaseMod.GameDataMods
             def.id = Id;
             def.active = true;
 
-            Access.NullableSet(ref def.meetingStyleTypeOne,MeetingStyleTypeOne);
+            Access.NullableSet(ref def.meetingStyleTypeOne, MeetingStyleTypeOne);
             Access.NullableSet(ref def.meetingStyleTypeTwo, MeetingStyleTypeTwo);
             Access.NullableSet(ref def.introductionPair, IntroductionPair);
             Access.NullableSet(ref def.introSidesFlipped, IntroSidesFlipped);

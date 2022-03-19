@@ -28,7 +28,7 @@ namespace Hp2BaseMod.AssetInfos
         public GirlPairFavQuestionInfo(GirlPairFavQuestionSubDefinition girlPairFavQuestion)
         {
             if (girlPairFavQuestion == null) { throw new ArgumentNullException(nameof(girlPairFavQuestion)); }
-            
+
             GirlResponceIndexOne = girlPairFavQuestion.girlResponseIndexOne;
             GirlResponceIndexTwo = girlPairFavQuestion.girlResponseIndexTwo;
 
@@ -38,7 +38,7 @@ namespace Hp2BaseMod.AssetInfos
         public GirlPairFavQuestionSubDefinition ToGirlPairFavQuestion(GameData gameData)
         {
             var newDef = new GirlPairFavQuestionSubDefinition();
-            
+
             newDef.girlResponseIndexOne = GirlResponceIndexOne;
             newDef.girlResponseIndexTwo = GirlResponceIndexTwo;
 

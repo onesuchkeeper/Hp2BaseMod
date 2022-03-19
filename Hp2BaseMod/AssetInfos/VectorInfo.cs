@@ -16,7 +16,7 @@ namespace Hp2BaseMod.AssetInfos
 
         public VectorInfo() { }
 
-        public VectorInfo (float x, float y)
+        public VectorInfo(float x, float y)
         {
             Xpos = x;
             Ypos = y;

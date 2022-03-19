@@ -71,7 +71,7 @@ namespace Hp2BaseMod.AssetInfos
             newDef.altPartIndex = AltPartIndex;
 
             if (SpriteInfo != null) { newDef.sprite = SpriteInfo?.ToSprite(assetProvider); }
-            
+
             return newDef;
         }
     }

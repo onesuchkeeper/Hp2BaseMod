@@ -8,6 +8,7 @@ namespace DataModEditor.Data
     {
         public static Dictionary<int, string> DialogTriggers = new Dictionary<int, string>
         {
+            { 0, "null"},
             { 1, "MISC_TEST"},
             { 2, "HER_QUESTION_INTRO"},
             { 3, "HER_QUESTION_BAD_RESPONSE"},

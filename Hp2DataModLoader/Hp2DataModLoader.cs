@@ -25,11 +25,11 @@ namespace Hp2SampleMod
             { GameDataType.Token, "mods/Hp2DataModLoader/tokenMods" }
         };
 
-        public void Start(GameDataModder gameDataModder)
+        public void Start(ModInterface gameDataModder)
         {
             foreach (var dir in dirs)
             {
-                try 
+                try
                 {
                     foreach (var path in Directory.GetFiles(dir.Value))
                     {

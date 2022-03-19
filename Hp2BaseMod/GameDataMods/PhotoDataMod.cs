@@ -1,19 +1,18 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
 using Hp2BaseMod.AssetInfos;
-using Hp2BaseMod.GameDataMods.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataMods
 {
     /// <summary>
     /// Serializable information to make a PhotoDefinition
     /// </summary>
-    [Serializable]
+    [UiSonClass]
     public class PhotoDataMod : DataMod<PhotoDefinition>
     {
         public int? GirlPairDefinitionID;
@@ -40,7 +39,7 @@ namespace Hp2BaseMod.GameDataMods
                             string altFlagName,
                             int? altCodeDefinitionID,
                             bool isAdditive = false)
-            :base(id, isAdditive)
+            : base(id, isAdditive)
         {
             GirlPairDefinitionID = girlPairDefinitionID;
             NextPhotoDefinitionID = nextPhotoDefinitionID;

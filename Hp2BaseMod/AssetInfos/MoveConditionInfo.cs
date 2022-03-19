@@ -55,7 +55,7 @@ namespace Hp2BaseMod.AssetInfos
             TokenDefinitionID = moveCondition.tokenDefinition?.id ?? -1;
         }
 
-        public MoveCondition ToMoveCondition(GameData gameData) 
+        public MoveCondition ToMoveCondition(GameData gameData)
         {
             var newMC = new MoveCondition();
 

@@ -6,7 +6,7 @@ namespace Hp2NudeDurringSexMod
 {
     public class Starter : IHp2BaseModStarter
     {
-        public void Start(GameDataModder gameDataMod)
+        public void Start(ModInterface gameDataMod)
         {
             try
             {

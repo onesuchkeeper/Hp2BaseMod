@@ -1,93 +1,83 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
-using DataModEditor.Interfaces;
-using Hp2BaseMod.GameDataMods;
-using System.Linq;
+using DataModEditor.Elements;
+using Hp2BaseMod.AssetInfos;
+using System.Collections.Generic;
 
 namespace DataModEditor
 {
-    public class DollHairstyleVm : BaseVM
+    public class DollHairstyleVm : NPCBase
     {
-        public string Front { get; set; } = "null";
-        public string Back { get; set; } = "null";
-
-        public string AltFront { get; set; } = "null";
-        public string AltBack { get; set; } = "null";
-
-        //validate these as doubles, so I actually need 4 of theses... :/
-        public string X { get; set; } = "null";
-        public string Y { get; set; } = "null";
+        public IEnumerable<DollPartVm> DollParts => _dollParts;
+        private DollPartVm[] _dollParts =
+        { new DollPartVm("Hair Front"),
+        new DollPartVm("Hair Back"),
+        new DollPartVm("Hair Front Alt"),
+        new DollPartVm("Hair Back Alt") };
 
         public string Name { get; set; } = "null";
 
         public string Type => _type.ToString();
         private GirlStyleType _type;
 
-        // make another constructor for populate
         public DollHairstyleVm(GirlStyleType type)
         {
             _type = type;
         }
 
-        public void Populate(GirlDataMod girlDataMod)
+        public void Populate(List<GirlPartInfo> parts, GirlHairstyleSubDefinition hairstyle)
         {
-            //still needs offsets
-            var hairstyle = girlDataMod.Hairstyles.FirstOrDefault(x => x.pairOutfitIndex == (int)_type);
-
             if (hairstyle == null)
             {
                 return;
             }
 
+            Name = hairstyle.hairstyleName;
+
+            var front = _dollParts[0];
+            var back = _dollParts[1];
+            var frontAlt = _dollParts[2];
+            var backAlt = _dollParts[3];
+
             if (hairstyle.partIndexFronthair == -1)
             {
-                Front = AltFront = "null";
+                front.Populate();
+                frontAlt.Populate();
             }
             else
             {
-                var front = girlDataMod.Parts[hairstyle.partIndexFronthair];
+                var part = parts[hairstyle.partIndexFronthair];
 
-                Front = front.SpriteInfo?.IsExternal ?? false
-                    ? front.SpriteInfo.Path
-                    : "null";
+                front.Populate(part);
 
-                if (front.AltPartIndex == -1)
+                if (part.AltPartIndex == -1)
                 {
-                    AltFront = "null";
+                    frontAlt.Populate();
                 }
                 else
                 {
-                    var frontAlt = girlDataMod.Parts[front.AltPartIndex];
-
-                    AltFront = frontAlt.SpriteInfo?.IsExternal ?? false
-                        ? frontAlt.SpriteInfo.Path
-                        : "null";
+                    frontAlt.Populate(parts[part.AltPartIndex]);
                 }
             }
 
             if (hairstyle.partIndexBackhair == -1)
             {
-                Back = AltBack = "null";
+                back.Populate();
+                backAlt.Populate();
             }
             else
             {
-                var back = girlDataMod.Parts[hairstyle.partIndexBackhair];
+                var part = parts[hairstyle.partIndexFronthair];
 
-                Back = back.SpriteInfo?.IsExternal ?? false
-                    ? back.SpriteInfo.Path
-                    : "null";
+                back.Populate(part);
 
-                if (back.AltPartIndex == -1)
+                if (part.AltPartIndex == -1)
                 {
-                    AltFront = "null";
+                    backAlt.Populate();
                 }
                 else
                 {
-                    var backAlt = girlDataMod.Parts[back.AltPartIndex];
-
-                    AltBack = backAlt.SpriteInfo?.IsExternal ?? false
-                        ? backAlt.SpriteInfo.Path
-                        : "null";
+                    backAlt.Populate(parts[part.AltPartIndex]);
                 }
             }
         }

@@ -13,6 +13,66 @@
         </StackPanel>
     </TabItem.Header>
 
+    <TabItem.Resources>
+
+        <DataTemplate x:Key="EnumeratedPartsTemplate">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Type: "/>
+                    <TextBlock Text="{Binding Type}"/>
+                    <TextBlock Text=", Name: "/>
+                    <TextBox Text="{Binding Name, Mode=TwoWay}"/>
+                </StackPanel>
+
+                <DataGrid ItemsSource="{Binding DollParts}" AutoGenerateColumns="False" Margin="4">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name"
+                                                    Binding="{Binding Name, Mode=OneWay}"
+                                                    IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Path"
+                                                    Binding="{Binding Path, Mode=TwoWay}"/>
+                        <DataGridTextColumn Header="X Offest"
+                                                    Binding="{Binding XOffset, Mode=TwoWay}"/>
+                        <DataGridTextColumn Header="Y Offset"
+                                                    Binding="{Binding YOffset, Mode=TwoWay}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="QuestionTemplate">
+            <Border BorderThickness="4" BorderBrush="Red">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+                    <Button Content="X" HorizontalAlignment="Right" Margin="4"/>
+                    <StackPanel Orientation="Horizontal" Margin="4" HorizontalAlignment="Stretch">
+                        <TextBlock Text="Dialog: "/>
+                        <TextBox Text="{Binding Dialog}" HorizontalAlignment="Stretch"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="4" HorizontalAlignment="Stretch">
+                        <TextBlock Text="Audio Path: "/>
+                        <TextBox Text="{Binding AudioPath}" HorizontalAlignment="Stretch"/>
+                    </StackPanel>
+                    <DataGrid ItemsSource="{Binding Choices}" AutoGenerateColumns="False" Margin="4" HorizontalAlignment="Stretch">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name"
+                                        Binding="{Binding Name, Mode=OneWay}"
+                                        IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Text"
+                                        Binding="{Binding Text, Mode=TwoWay}"
+                                        Width="2*"/>
+                            <DataGridTextColumn Header="Alt Text"
+                                        Binding="{Binding AltText, Mode=TwoWay}"
+                                        Width="*"/>
+                            <DataGridTextColumn Header="Responce"
+                                        Binding="{Binding Responce, Mode=TwoWay}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+
+    </TabItem.Resources>
+
     <ScrollViewer>
         <StackPanel Orientation="Vertical">
             <Expander Header="Meta Info" IsExpanded="True">
@@ -187,46 +247,15 @@
                             <TextBlock Text="Questions"/>
                             <Button Content="+" Click="AddQuestion"/>
                         </StackPanel>
-                        
-                        <DataGrid ItemsSource="{Binding Questions}" AutoGenerateColumns="False">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Choice 1" Width="*" Binding="{Binding Choice1}"/>
-                                <DataGridTextColumn Header="Choice 1 Alt" Binding="{Binding Choice1Alt}"/>
-                                <DataGridTemplateColumn Header="Responce 1">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <ComboBox SelectedIndex="{Binding Responce1, Mode=TwoWay}" ItemsSource="{Binding ResponceOptions}"/>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                                <DataGridTextColumn Header="Choice 2" Width="*" Binding="{Binding Choice2}"/>
-                                <DataGridTextColumn Header="Choice 2 Alt" Binding="{Binding Choice2Alt}"/>
-                                <DataGridTemplateColumn Header="Responce 2">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <ComboBox SelectedIndex="{Binding Responce2}" ItemsSource="{Binding ResponceOptions}"/>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
 
-                                <DataGridTextColumn Header="Choice 3" Width="*" Binding="{Binding Choice3}"/>
-                                <DataGridTextColumn Header="Choice 3 Alt" Binding="{Binding Choice3Alt}"/>
-                                <DataGridTemplateColumn Header="Responce 3">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <ComboBox SelectedIndex="{Binding Responce3}" ItemsSource="{Binding ResponceOptions}"/>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                                <DataGridTemplateColumn Header="Remove">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button Content="X" Click="RemoveQuestion"/>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                            </DataGrid.Columns>
-                        </DataGrid>
+                        <ItemsControl ItemsSource="{Binding Questions}"
+                                      ItemTemplate="{StaticResource QuestionTemplate}" >
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
 
                         <TextBlock Text="Favorites:" FontWeight="Bold"/>
                         <DataGrid ItemsSource="{Binding FavoriteOptions}" AutoGenerateColumns="False">
@@ -275,12 +304,6 @@
                         
                         <Line Stretch="Fill" Stroke="Black" X2="1" Margin="4"/>
 
-                        <!--<StackPanel Orientation="Horizontal" Margin="4">
-                            <TextBlock Text=" Base Offset: X-"/>
-                            <TextBox Text="{Binding BlushHeavyPosX, Mode=TwoWay}"/>
-                            <TextBlock Text=" Y-"/>
-                            <TextBox Text="{Binding BlushHeavyPosY, Mode=TwoWay}"/>
-                        </StackPanel>-->
                         <StackPanel Orientation="Horizontal"  Margin="4">
                             <TextBlock Text=" Breath Emmiter Pos: X-"/>
                             <TextBox Text="{Binding BreathPosX, Mode=TwoWay}"/>
@@ -319,9 +342,9 @@
                                                     Width="*"
                                                     Binding="{Binding Path, Mode=TwoWay}"/>
                                 <DataGridTextColumn Header="X Offest"
-                                                    Binding="{Binding X, Mode=TwoWay}"/>
+                                                    Binding="{Binding XOffset, Mode=TwoWay}"/>
                                 <DataGridTextColumn Header="Y Offset"
-                                                    Binding="{Binding Y, Mode=TwoWay}"/>
+                                                    Binding="{Binding YOffset, Mode=TwoWay}"/>
                             </DataGrid.Columns>
                         </DataGrid>
 
@@ -332,59 +355,43 @@
                             <TextBlock Text=" Alt Styles Flag Name: "/>
                             <TextBox Text="{Binding AltStyleFlagName}"/>
                             <TextBlock Text=" Alt Style Code: "/>
-                            <ComboBox SelectedIndex="{Binding HasAltStyles}"
-                                  ItemsSource="{Binding NullableBoolOptions}"/>
+                            <ComboBox SelectedIndex="{Binding AltStyleCode, Mode=TwoWay}"
+                                      ItemsSource="{Binding CodeOptions}"/>
                             <TextBlock Text=" Unlock Style Code: "/>
-                            <ComboBox SelectedIndex="{Binding HasAltStyles}"
-                                  ItemsSource="{Binding NullableBoolOptions}"/>
-
+                            <ComboBox SelectedIndex="{Binding UnlockStyleCode, Mode=TwoWay}"
+                                      ItemsSource="{Binding CodeOptions}"/>
                         </StackPanel>
 
-                        <DataGrid ItemsSource="{Binding DollOutfits}" AutoGenerateColumns="False" Margin="4">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Style"
-                                                    Binding="{Binding Type, Mode=OneWay}"
-                                                    IsReadOnly="True"/>
-                                <DataGridTextColumn Header="Name"
-                                                    Binding="{Binding Name, Mode=TwoWay}"/>
-                                <DataGridTextColumn Header="Outfit Image Path"
-                                                    Width="*"
-                                                    Binding="{Binding Path, Mode=TwoWay}"/>
-                                <DataGridTextColumn Header="Alt Outfit Image Path"
-                                                    Width="*"
-                                                    Binding="{Binding AltPath, Mode=TwoWay}"/>
-                                <DataGridTextColumn Header="X Offest"
-                                                    Binding="{Binding X, Mode=TwoWay}"/>
-                                <DataGridTextColumn Header="Y Offset"
-                                                    Binding="{Binding Y, Mode=TwoWay}"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
+                        <Line Stretch="Fill" Stroke="Black" X2="1" Margin="4"/>
 
-                        <DataGrid ItemsSource="{Binding DollHairstyles}" AutoGenerateColumns="False" Margin="4">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Style"
-                                                    Binding="{Binding Type, Mode=OneWay}"
-                                                    IsReadOnly="True"/>
-                                <DataGridTextColumn Header="Name"
-                                                    Binding="{Binding Name, Mode=TwoWay}"/>
-                                <DataGridTextColumn Header="Front Hair Image Path"
-                                                    Width="*"
-                                                    Binding="{Binding Front, Mode=TwoWay}"/>
-                                <DataGridTextColumn Header="Back Hair Image Path"
-                                                    Width="*"
-                                                    Binding="{Binding Back, Mode=TwoWay}"/>
-                                <DataGridTextColumn Header="Alt Front Hair Image Path"
-                                                    Width="*"
-                                                    Binding="{Binding AltFront, Mode=TwoWay}"/>
-                                <DataGridTextColumn Header="Alt Back Hair Image Path"
-                                                    Width="*"
-                                                    Binding="{Binding AltBack, Mode=TwoWay}"/>
-                                <DataGridTextColumn Header="X Offest"
-                                                    Binding="{Binding X, Mode=TwoWay}"/>
-                                <DataGridTextColumn Header="Y Offset"
-                                                    Binding="{Binding Y, Mode=TwoWay}"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
+                        <TextBlock Text="Outfits" HorizontalAlignment="Center" FontWeight="Bold"/>
+
+                        <Line Stretch="Fill" Stroke="Black" X2="1" Margin="4"/>
+
+                        <ItemsControl ItemsSource="{Binding DollOutfits}"
+                                      ItemTemplate="{StaticResource EnumeratedPartsTemplate}" >
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+
+                        <Line Stretch="Fill" Stroke="Black" X2="1" Margin="4"/>
+
+                        <TextBlock Text="Hairstyles" HorizontalAlignment="Center" FontWeight="Bold"/>
+
+                        <Line Stretch="Fill" Stroke="Black" X2="1" Margin="4"/>
+
+                        <ItemsControl ItemsSource="{Binding DollHairstyles}"
+                                      ItemTemplate="{StaticResource EnumeratedPartsTemplate}" >
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+
                     </StackPanel>
                 </Border>
             </Expander>

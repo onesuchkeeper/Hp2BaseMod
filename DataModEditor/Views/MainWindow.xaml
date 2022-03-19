@@ -8,16 +8,24 @@
         mc:Ignorable="d"
         Title="Hp2 Data Mod Editor" Height="720" Width="1280">
 
+    <Window.Resources>
+
+    </Window.Resources>
+    
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
                 <MenuItem Header="_New">
                     <MenuItem Header="_Girl Mod"
                               Click="NewGirlMod"/>
+                    <MenuItem Header="_Code Mod"
+                              Click="NewCodeMod"/>
                 </MenuItem>
                 <MenuItem Header="_Open">
                     <MenuItem Header="_Girl Mod"
                               Click="OpenGirlMod"/>
+                    <MenuItem Header="_Code Mod"
+                              Click="OpenCodeMod"/>
                 </MenuItem>
                 <MenuItem Header="_Sync with Hp2DataModLoader" Click="Hp2DataModLoaderLoad"/>
                 <Separator/>
@@ -34,11 +42,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-
             <ScrollViewer Grid.Column="0">
                 <StackPanel Orientation="Vertical" Margin="4">
                     <Image MaxHeight="160"
-                               Source="/logo.png"
+                               Source="/Views/logo.png"
                                HorizontalAlignment="Center"
                                Stretch="Uniform"
                                StretchDirection="Both"
@@ -46,7 +53,7 @@
 
                     <Line Stretch="Fill" Stroke="Black" X2="1" Margin="4"/>
                     
-                    <TextBlock TextWrapping="Wrap" Text="This editor is designed to work with the Hp2DataModLoader, but can also be used to generate standalone data mods for use in other mods. 'null' values are ignored when applying data mods, allowing the creation of data mods that target only specific properties. 'IsAdditive' mods will append values to collections instead of replacing them. I.E, a GirlMod's 'Question' or 'Baggadge' collections."/>
+                    <TextBlock TextWrapping="Wrap" Text="This editor is designed to work with the Hp2DataModLoader, but can also be used to generate standalone data mods for use in other mods. 'null' values are ignored when applying data mods, allowing the creation of data mods that target only specific properties."/>
                     <TextBlock TextWrapping="Wrap">           
                         <Hyperlink NavigateUri="https://www.patreon.com/onesuchkeeper" RequestNavigate="Hyperlink_RequestNavigate">
                             Support Me On Patreon
@@ -59,7 +66,7 @@
                                FontWeight="Bold"
                                TextWrapping="Wrap"/>
                     <ScrollViewer MaxHeight="80">
-                        <ListBox ItemsSource="{Binding GirlMods}">
+                        <ListBox>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Title}"/>
@@ -72,7 +79,7 @@
                                FontWeight="Bold"
                                TextWrapping="Wrap"/>
                     <ScrollViewer MaxHeight="80">
-                        <ListBox ItemsSource="{Binding GirlMods}">
+                        <ListBox>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Title}"/>
@@ -84,11 +91,20 @@
                     <TextBlock Text="Code Mods"
                                FontWeight="Bold"
                                TextWrapping="Wrap"/>
-                    <ScrollViewer MaxHeight="80">
-                        <ListBox ItemsSource="{Binding GirlMods}">
+                    <ScrollViewer MaxHeight="80" HorizontalContentAlignment="Stretch">
+                        <ListBox ItemsSource="{Binding CodeMods}"
+                                 PreviewMouseLeftButtonUp="CodesListBox_MouseLeftButtonUp"
+                                 x:Name="CodesListBox">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Title}"/>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="{Binding Title}" Grid.Column="0"/>
+                                        <Button Content="X" Click="RemoveCode" Grid.Column="1"/>
+                                    </Grid>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
@@ -98,7 +114,7 @@
                                FontWeight="Bold"
                                TextWrapping="Wrap"/>
                     <ScrollViewer MaxHeight="80">
-                        <ListBox ItemsSource="{Binding GirlMods}">
+                        <ListBox>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Title}"/>
@@ -111,7 +127,7 @@
                                FontWeight="Bold"
                                TextWrapping="Wrap"/>
                     <ScrollViewer MaxHeight="80">
-                        <ListBox ItemsSource="{Binding GirlMods}">
+                        <ListBox>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Title}"/>
@@ -124,7 +140,7 @@
                                FontWeight="Bold"
                                TextWrapping="Wrap"/>
                     <ScrollViewer MaxHeight="80">
-                        <ListBox ItemsSource="{Binding GirlMods}">
+                        <ListBox>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Title}"/>
@@ -142,7 +158,14 @@
                                  x:Name="GirlsListBox">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Title}"/>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="{Binding Title}" Grid.Column="0"/>
+                                        <Button Content="X" Click="RemoveGirl" Grid.Column="1"/>
+                                    </Grid>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
@@ -152,7 +175,7 @@
                                FontWeight="Bold"
                                TextWrapping="Wrap"/>
                     <ScrollViewer MaxHeight="80">
-                        <ListBox ItemsSource="{Binding GirlMods}">
+                        <ListBox>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Title}"/>
@@ -165,7 +188,7 @@
                                FontWeight="Bold"
                                TextWrapping="Wrap"/>
                     <ScrollViewer MaxHeight="80">
-                        <ListBox ItemsSource="{Binding GirlMods}">
+                        <ListBox>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Title}"/>
@@ -178,7 +201,7 @@
                                FontWeight="Bold"
                                TextWrapping="Wrap"/>
                     <ScrollViewer MaxHeight="80">
-                        <ListBox ItemsSource="{Binding GirlMods}">
+                        <ListBox>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Title}"/>
@@ -191,7 +214,7 @@
                                FontWeight="Bold"
                                TextWrapping="Wrap"/>
                     <ScrollViewer MaxHeight="80">
-                        <ListBox ItemsSource="{Binding GirlMods}">
+                        <ListBox>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Title}"/>
@@ -204,7 +227,7 @@
                                FontWeight="Bold"
                                TextWrapping="Wrap"/>
                     <ScrollViewer MaxHeight="80">
-                        <ListBox ItemsSource="{Binding GirlMods}">
+                        <ListBox>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Title}"/>
@@ -217,7 +240,7 @@
                                FontWeight="Bold"
                                TextWrapping="Wrap"/>
                     <ScrollViewer MaxHeight="80">
-                        <ListBox ItemsSource="{Binding GirlMods}">
+                        <ListBox>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Title}"/>

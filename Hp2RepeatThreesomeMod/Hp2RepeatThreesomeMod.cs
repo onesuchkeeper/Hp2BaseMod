@@ -8,23 +8,21 @@ namespace Hp2RepeatThreesomeMod
 {
     public class Hp2RepeatThreesomeMod : IHp2BaseModStarter
     {
-        public void Start(GameDataModder gameDataMod)
+        public void Start(ModInterface modInterface)
         {
-            var localCode = new CodeDataMod(Constants.LocalCodeId,
-                                            "EA29B6A7A0AB1F669743E6C792F930F7",
+            modInterface.AddData(new CodeDataMod(Constants.LocalCodeId,
+                                            "405DE09E6B1CBB24DF756FFE413CBE09",
                                             CodeType.TOGGLE,
                                             false,
                                             "Lovers' threesome location requirement on.",
-                                            "Lovers' threesome location requirement off.");
-            gameDataMod.AddData(localCode);
+                                            "Lovers' threesome location requirement off."));
 
-            var nudeCode = new CodeDataMod(Constants.NudeCodeId,
+            modInterface.AddData(new CodeDataMod(Constants.NudeCodeId,
                                            "40F45CA75FE6A9E007131D26FF9D36F6",
                                            CodeType.TOGGLE,
                                            false,
                                            "Nudity durring bonus rounds off.",
-                                           "Nudity durring bonus rounds on.");
-            gameDataMod.AddData(nudeCode);
+                                           "Nudity durring bonus rounds on."));
 
             new Harmony("Hp2BaseMod.Hp2RepeatThreesomeMod").PatchAll();
         }

@@ -16,7 +16,7 @@ namespace Hp2BaseMod.AssetInfos
         public string Path;
         public bool IsExternal;
 
-        public SpriteInfo () { }
+        public SpriteInfo() { }
 
         public SpriteInfo(string path,
                           bool isExternal)

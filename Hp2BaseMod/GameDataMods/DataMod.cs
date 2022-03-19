@@ -6,6 +6,7 @@ using Hp2BaseMod.ModLoader;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UiSon.Attribute;
 using UnityEngine;
 
 namespace Hp2BaseMod.GameDataMods
@@ -13,17 +14,26 @@ namespace Hp2BaseMod.GameDataMods
     /// <summary>
     /// Serializable information to make a definition
     /// </summary>
-    [Serializable]
+    [UiSonGroup("Mod Info", 100, DisplayMode.Vertial, Alignment.Stretch, GroupType.Expander)]
     public class DataMod<T> : IDataMod<T>
     {
+        private const string intOnlyRegex = "^-?[0-9]+$";
+
+        [UiSonTextEditUi(0, "Mod Info", intOnlyRegex)]
+        [UiSonTag("Id")]
         public int Id { get; set; }
+
+        [UiSonCheckboxUi("Mod Info")]
         public bool IsAdditive { get; set; }
 
+        [UiSonTextEditUi(0, "Mod Info")]
         public string ModName;
 
-        public int ModType;
+        [UiSonCollection]
+        [UiSonMemberClass(0, "Mod Info")]
+        public List<ModTag> Tags;
 
-        public DataMod() {}
+        public DataMod() { }
 
         public DataMod(int id, bool isAdditive)
         {
@@ -31,7 +41,7 @@ namespace Hp2BaseMod.GameDataMods
             IsAdditive = isAdditive;
         }
 
-        public virtual void SetData(T def, GameData gameData, AssetProvider assetProvider) =>  throw new NotImplementedException();
+        public virtual void SetData(T def, GameData gameData, AssetProvider assetProvider) => throw new NotImplementedException();
 
         #region SetUtility
 
@@ -53,7 +63,7 @@ namespace Hp2BaseMod.GameDataMods
             {
                 var items = ids.Select(x => gameData.Items.Get(x)).ToList();
 
-                if (IsAdditive && collection != null)  { items.AddRange(collection); }
+                if (IsAdditive && collection != null) { items.AddRange(collection); }
 
                 collection = items;
             }
@@ -89,7 +99,7 @@ namespace Hp2BaseMod.GameDataMods
             {
                 var abilitySteps = infos.Select(x => x.ToAbilityStep(gameData, assetProvider)).ToList();
 
-                 if (IsAdditive && collection != null) { abilitySteps.AddRange(collection); }
+                if (IsAdditive && collection != null) { abilitySteps.AddRange(collection); }
 
                 collection = abilitySteps;
             }
@@ -142,7 +152,7 @@ namespace Hp2BaseMod.GameDataMods
                 collection = cutsceneSteps;
             }
         }
-        
+
         internal void SetDialogTriggerLineSets(ref List<DialogTriggerLineSet> collection, List<DialogTriggerLineSetInfo> infos, GameData gameData, AssetProvider assetProvider)
         {
             if (infos != null)

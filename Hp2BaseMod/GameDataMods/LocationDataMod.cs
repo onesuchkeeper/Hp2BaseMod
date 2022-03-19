@@ -3,16 +3,16 @@
 using Hp2BaseMod.AssetInfos;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataMods
 {
     /// <summary>
     /// Serializable information to make a LocationDefinition
     /// </summary>
-    [Serializable]
+    [UiSonClass]
     public class LocationDataMod : DataMod<LocationDefinition>
     {
         public string LocationName;
@@ -47,7 +47,7 @@ namespace Hp2BaseMod.GameDataMods
                                List<LogicBundleInfo> arriveBundleList,
                                List<LogicBundleInfo> departBundleList,
                                bool isAdditive = false)
-            :base(id, isAdditive)
+            : base(id, isAdditive)
         {
             LocationName = locationName;
             LocationType = locationType;

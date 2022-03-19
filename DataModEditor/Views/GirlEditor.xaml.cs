@@ -1,5 +1,6 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
+using DataModEditor.Elements;
 using DataModEditor.Interfaces;
 using Hp2BaseMod;
 using System;
@@ -25,7 +26,7 @@ namespace DataModEditor
 
         public GameDataType type => GameDataType.Girl;
 
-        public GirlVM Vm => _vm;
+        public NPCBase Vm => _vm;
         private GirlVM _vm;
 
         private TabControl _controller;
@@ -39,7 +40,7 @@ namespace DataModEditor
             InitializeComponent();
 
             //see if this is still needed
-            _vm.PropertyChanged += (s,e) => { OnPropertyChanged(); };
+            _vm.PropertyChanged += (s, e) => { OnPropertyChanged(); };
         }
 
         #region enumerated properties add/remove

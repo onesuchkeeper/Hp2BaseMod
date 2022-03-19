@@ -10,6 +10,6 @@ namespace Hp2BaseMod
         /// <summary>
         /// Starts the mod, called by the Hp2BaseMod
         /// </summary>
-        void Start(GameDataModder gameDataModder);
+        void Start(ModInterface gameDataModder);
     }
 }

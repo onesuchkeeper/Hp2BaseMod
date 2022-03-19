@@ -1,6 +1,7 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
 using DataModEditor.Data;
+using DataModEditor.Elements;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,17 +9,43 @@ using System.Linq;
 
 namespace DataModEditor
 {
-    public class GirlQuestionVm
+    public class GirlQuestionVm : NPCBase
     {
-        public string Choice1 { get; set; } = "null";
-        public string Choice1Alt { get; set; } = "null";
-        public int Responce1 { get; set; } = 0;
-        public string Choice2 { get; set; } = "null";
-        public string Choice2Alt { get; set; } = "null";
-        public int Responce2 { get; set; } = 0;
-        public string Choice3 { get; set; } = "null";
-        public string Choice3Alt { get; set; } = "null";
-        public int Responce3 { get; set; } = 0;
+        public string Dialog
+        {
+            get => _dialog;
+            set
+            {
+                if (_dialog != value)
+                {
+                    _dialog = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private string _dialog = "null";
+
+        public string AudioPath
+        {
+            get => _audioPath;
+            set
+            {
+                if (_audioPath != value)
+                {
+                    _audioPath = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private string _audioPath = "null";
+
+        public IEnumerable<QuestionChoiceVm> Choices => _choices;
+        private QuestionChoiceVm[] _choices =
+        {
+            new QuestionChoiceVm("Correct"),
+            new QuestionChoiceVm("Wrong A"),
+            new QuestionChoiceVm("Wrong B")
+        };
 
         public IEnumerable<string> ResponceOptions { get; } = Default.DialogTriggers.Select(x => x.Value);
 
@@ -36,21 +63,12 @@ namespace DataModEditor
 
         public void Populate(GirlQuestionSubDefinition girlQuestion)
         {
-            //There are always 3, except now that I'm thinking about it there could maybe be more, shit. For now there's 3 ok?
-            var answers = girlQuestion.answers[0];
-            Choice1 = answers.answerText;
-            Choice1Alt = answers.answerTextAlt;
-            Responce1 = answers.responseIndex;//fix this
-
-            answers = girlQuestion.answers[1];
-            Choice2 = answers.answerText ?? "null";
-            Choice2Alt = answers.answerTextAlt ?? "null";
-            Responce2 = answers.responseIndex;//fix this
-
-            answers = girlQuestion.answers[2];
-            Choice3 = answers.answerText ?? "null";
-            Choice3Alt = answers.answerTextAlt ?? "null";
-            Responce3 = answers.responseIndex;//fix this when dialog trigger managher is a thing
+            for (int i = 0; i < 3; i++)
+            {
+                _choices[i].Text = girlQuestion.answers[i].answerText;
+                _choices[i].AltText = girlQuestion.answers[i].answerTextAlt;
+                _choices[i].Responce = girlQuestion.answers[i].responseIndex;
+            }
         }
     }
 }

@@ -1,21 +1,34 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
 using System;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.AssetInfos
 {
     /// <summary>
     /// Serializable information to make a TokenCondition
     /// </summary>
-    [Serializable]
     public class TokenConditionInfo
     {
+        [UiSonEnumSelectorUi(typeof(TokenConditionType))]
         public TokenConditionType Type;
+
+        [UiSonEnumSelectorUi(typeof(TokenConditionTokenType))]
         public TokenConditionTokenType TokenType;
+
+        [UiSonEnumSelectorUi(typeof(NumberComparisonType))]
         public NumberComparisonType Comparison;
+
+        [UiSonTextEditUi]
         public string Val;
+
+        [UiSonTextEditUi]
         public int TokenDefinitionID;
+
+        [UiSonCheckboxUi]
         public bool OppositeGirl;
+
+        [UiSonCheckboxUi]
         public bool Inverse;
 
         public TokenConditionInfo() { }

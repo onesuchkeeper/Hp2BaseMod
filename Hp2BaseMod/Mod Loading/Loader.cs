@@ -1,12 +1,12 @@
 ﻿// Hp2BaseMododLoader 2021, by OneSuchKeeper
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
 using HarmonyLib;
 using Hp2BaseMod.Save;
 using Newtonsoft.Json;
+using System;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 
 namespace Hp2BaseMod.ModLoader
 {
@@ -17,112 +17,140 @@ namespace Hp2BaseMod.ModLoader
     {
         public static void Main(string[] args)
         {
-            TextWriter tw = File.CreateText(@"mods\Hp2BaseModLoader.log");
-            GameDataModder gameDataMod = new GameDataModder(tw);
+            // Make sure we have a mods dir
+            if (!Directory.Exists("mods"))
+            {
+                Directory.CreateDirectory("mods");
+                return;
+            }
+
+            ModInterface modInterface = new ModInterface(File.CreateText(@"mods\Hp2BaseMod.log"));
+            modInterface.Awake();
+
+            modInterface.LogLine("Starting HP2BaseMod, Version Beta 1.0 by onesuchkeeper");
 
             try
             {
-                if (!Directory.Exists("mods"))
-                {
-                    Directory.CreateDirectory("mods");
-                    return;
-                }
-               
-                //Discover mods
-                tw.WriteLine("------Discovering mods------");
-                var modsCatalog = new List<ConfigEntry>();
+                // Discover mods
+                modInterface.LogLine(Environment.NewLine + "------Discovering mods------");
+                modInterface.IncreaseLogIndent();
 
                 foreach (var dir in Directory.GetDirectories("mods"))
                 {
-                    tw.WriteLine("Looking in " + dir);
-                    var configPath = dir + @"\Hp2BaseMod.config";
+                    modInterface.LogLine($"Looking in {dir}");
+                    modInterface.IncreaseLogIndent();
+
+                    var configPath = dir + @"\Hp2ModConfig.json";
 
                     if (File.Exists(configPath))
                     {
-                        tw.WriteLine("  Hp2BaseMod.config found!");
-                        string[] lines = File.ReadAllLines(configPath);
+                        modInterface.LogLine($"{configPath} found!");
+                        modInterface.IncreaseLogIndent();
 
-                        foreach (var line in lines)
+                        var newMod = JsonConvert.DeserializeObject(File.ReadAllText(configPath), typeof(Hp2Mod)) as Hp2Mod;
+
+                        if (newMod != null)
                         {
-                            var configEntry = new ConfigEntry(line);
+                            var badAssembly = false;
 
-                            if (!configEntry.IsValid)
+                            foreach (var assemblyInfo in newMod.Assemblies)
                             {
-                                tw.WriteLine("    Bad config entry [" + line + "], skipping");
-                                break;
+                                if (File.Exists(assemblyInfo.Path))
+                                {
+                                    modInterface.LogLine("assembly found! - " + assemblyInfo.Path);
+                                }
+                                else
+                                {
+                                    modInterface.LogLine("Failed to find " + assemblyInfo.Path);
+                                    badAssembly = true;
+                                }
                             }
 
-                            if (File.Exists(configEntry.path))
+                            if (badAssembly)
                             {
-                                tw.WriteLine("    dll found! - " + configEntry.path);
-                                modsCatalog.Add(configEntry);
+                                modInterface.LogLine("Due to missing asseblies above, mod will be ignored.");
                             }
                             else
                             {
-                                tw.WriteLine("    Failed to find " + configEntry.path);
+                                modInterface.AddMod(newMod);
                             }
                         }
+                        else
+                        {
+                            modInterface.LogLine($"Failed to deserialize. Check your file format.");
+                        }
+
+                        modInterface.DecreaseLogIndent();
                     }
                     else
                     {
-                        tw.WriteLine("  Failed to find Hp2BaseMod.config");
+                        modInterface.LogLine($"  Failed to find {configPath}");
                     }
+
+                    modInterface.DecreaseLogIndent();
                 }
 
-                // Load mods
-                tw.WriteLine("\n------Loading mods------");
-                foreach (var mod in modsCatalog)
-                {
-                    tw.WriteLine("Loading " + mod.path);
+                modInterface.DecreaseLogIndent();
 
-                    var dll = Assembly.LoadFile(mod.path);
+                // Load mods
+                modInterface.LogLine(Environment.NewLine + "------Loading mods------");
+                modInterface.IncreaseLogIndent();
+
+                // order all of the assemblies by their priority
+                foreach (var assemblyInfo in modInterface.Mods.SelectMany(x => x.Assemblies).OrderBy(x => x.Priority))
+                {
+                    modInterface.LogLine("Loading " + assemblyInfo.Path);
+                    modInterface.IncreaseLogIndent();
+
+                    var dll = Assembly.LoadFile(assemblyInfo.Path);
                     if (dll == null)
                     {
-                        tw.WriteLine("  Failed to load " + mod.path);
+                        modInterface.LogLine("Failed to load " + assemblyInfo.Path);
                     }
                     else
                     {
-                        tw.WriteLine("  Loading dll types:");
                         foreach (Type type in dll.ExportedTypes)
                         {
-                            tw.WriteLine($"    Loading type: {type.Name}");
-
                             //actually load the type
                             if (typeof(IHp2BaseModStarter).IsAssignableFrom(type))
                             {
-                                tw.WriteLine("      type is a starter, starting");
+                                modInterface.LogLine($"type {type.Name} is a starter, starting");
+                                modInterface.IncreaseLogIndent();
                                 var c = Activator.CreateInstance(type);
-                                (c as IHp2BaseModStarter).Start(gameDataMod);
+                                (c as IHp2BaseModStarter).Start(modInterface);
+                                modInterface.DecreaseLogIndent();
                             }
                         }
                     }
+
+                    modInterface.DecreaseLogIndent();
                 }
+                modInterface.DecreaseLogIndent();
 
                 // Game Data Modifications
                 var harmony = new Harmony("Hp2BaseMod.Hp2BaseModLoader");
 
-                tw.WriteLine("\n----Applying Game Data Modifications----");
-                tw.WriteLine("Generating data mod Json");
-                var AddRemoveConfig = File.CreateText(@"mods\GameDataModifier.json");
-                var jsonStr = JsonConvert.SerializeObject(gameDataMod);
-                AddRemoveConfig.Write(jsonStr);
-                AddRemoveConfig.Flush();
-                tw.WriteLine("Applying data Patch");
+                modInterface.LogLine(Environment.NewLine + "----Applying Game Data Modifications----");
+                modInterface.IncreaseLogIndent();
                 GameDataPatcher.Patch(harmony);
-                tw.WriteLine("Finished!");
+                modInterface.LogLine("Finished!");
+                modInterface.DecreaseLogIndent();
 
                 // Save file diff
-                tw.WriteLine("\n----Setting up data mod savefile----");
+                modInterface.LogLine(Environment.NewLine + "----Setting up data mod savefile----");
+                modInterface.IncreaseLogIndent();
                 SaveLoadPatcher.Patch(harmony);
-                tw.WriteLine("Finished!");
+                modInterface.LogLine("Finished!");
+                modInterface.DecreaseLogIndent();
             }
             catch (Exception e)
             {
-                tw.WriteLine($"EXCEPTION:\n>Source:\n{e.Source}\n>Message:\n{e.Message}\n>StackTrace:\n{e.StackTrace}");
+                modInterface.LogLine($"EXCEPTION:\n>Source:\n{e.Source}\n>Message:\n{e.Message}\n>StackTrace:\n{e.StackTrace}");
             }
 
-            // Log
-            tw.Flush();
+            modInterface.IsAtRuntime = true;
+
+            modInterface.LogLine(Art.Random());
         }
     }
 }

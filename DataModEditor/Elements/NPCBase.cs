@@ -3,13 +3,13 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace DataModEditor.Interfaces
+namespace DataModEditor.Elements
 {
-    public class BaseVM : INotifyPropertyChanged
+    public abstract class NPCBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public void OnPropertyChanged([CallerMemberName]string name = null)
+        public void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }

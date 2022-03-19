@@ -53,6 +53,10 @@ namespace Hp2BaseMod.Save
             }
         }
 
+        /// <summary>
+        /// Creates a <see cref="SaveData"/> from this object's data
+        /// </summary>
+        /// <returns></returns>
         public SaveData ToSaveData()
         {
             // The nuumber of save files on construct doesn't matter, I'm overwriting it

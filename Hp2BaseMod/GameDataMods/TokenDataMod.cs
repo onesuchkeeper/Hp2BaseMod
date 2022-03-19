@@ -3,16 +3,16 @@
 using Hp2BaseMod.AssetInfos;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
-using System;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataMods
 {
-    /// <summary>
-    /// Serializable information to make a TokenDefinition
-    /// </summary>
-    [Serializable]
-    public class TokenDataMod : DataMod<TokenDefinition>
-    {
+	/// <summary>
+	/// Serializable information to make a TokenDefinition
+	/// </summary>
+	[UiSonClass]
+	public class TokenDataMod : DataMod<TokenDefinition>
+	{
 		public string TokenName;
 		public string ResourceName;
 		public string ResourceSign;
@@ -47,7 +47,7 @@ namespace Hp2BaseMod.GameDataMods
 							int[] difficultyWeightOffset,
 							int? bonusWeight,
 							bool? negative,
-							bool?altBonusSprite,
+							bool? altBonusSprite,
 							SpriteInfo tokenSpriteInfo,
 							SpriteInfo overSpriteInfo,
 							SpriteInfo altTokenSpriteInfo,
@@ -99,8 +99,8 @@ namespace Hp2BaseMod.GameDataMods
 		}
 
 		public override void SetData(TokenDefinition def, GameData gameData, AssetProvider assetProvider)
-        {
-            def.id = Id;
+		{
+			def.id = Id;
 
 			Access.NullableSet(ref def.resourceType, ResourceType);
 			Access.NullableSet(ref def.affectionType, AffectionType);
@@ -121,5 +121,5 @@ namespace Hp2BaseMod.GameDataMods
 			if (AltOverSpriteInfo != null) { def.altOverSprite = AltOverSpriteInfo.ToSprite(assetProvider); }
 			if (SfxMatchInfo != null) { def.sfxMatch = SfxMatchInfo.ToAudioKlip(assetProvider); }
 		}
-    }
+	}
 }

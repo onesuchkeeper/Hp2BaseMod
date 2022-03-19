@@ -8,6 +8,7 @@ namespace DataModEditor.Data
     {
         public static Dictionary<int, string> Girls = new Dictionary<int, string>
         {
+            { -1, "null"},
             { 1, "Lola"},
             { 2, "Jessie"},
             { 3, "Lillian"},

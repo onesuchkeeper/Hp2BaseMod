@@ -11,6 +11,9 @@ using System.Reflection;
 
 namespace Hp2BaseMod.ModLoader
 {
+    /// <summary>
+    /// Patches in game data
+    /// </summary>
     internal static class GameDataPatcher
     {
         public static void Patch(Harmony harmony)
@@ -24,19 +27,11 @@ namespace Hp2BaseMod.ModLoader
             }
             catch (Exception e)
             {
-                Harmony.DEBUG = true;
-                FileLog.Log("EXCEPTION GameDataPatcher: " + e.Message);
+                ModInterface.Instance.LogLine("EXCEPTION GameDataPatcher: " + e.Message);
             }
         }
         private static void AddRemoveData(GameData __instance)
         {
-            //read config
-            var configString = System.IO.File.ReadAllText(@"mods\GameDataModifier.json");
-            if (string.IsNullOrEmpty(configString)) { return; }
-
-            var gameDataModder = JsonConvert.DeserializeObject(configString, typeof(GameDataModder)) as GameDataModder;
-            if (gameDataModder == null) { return; }
-
             //grab dicts
             var gameDataPrivateFeilds = typeof(GameData).GetFields(System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
 
@@ -59,7 +54,7 @@ namespace Hp2BaseMod.ModLoader
                 Index: 15, Name: _codeData
              */
 
-            
+
             var abilityDataDict = GetDataDict<AbilityData, AbilityDefinition>(__instance, gameDataPrivateFeilds[10]);
             var ailmentDataDict = GetDataDict<AilmentData, AilmentDefinition>(__instance, gameDataPrivateFeilds[9]);
             var codeDataDict = GetDataDict<CodeData, CodeDefinition>(__instance, gameDataPrivateFeilds[15]);
@@ -81,7 +76,7 @@ namespace Hp2BaseMod.ModLoader
             assetProvider.AddAsset("None", null);
 
             #region Defaultmods
-            //make all default data mods to load their assets, not efficiant, I should make this better but I'm lazy
+            //make all default data mods to load their assets into the provider, not efficiant, I should make this better but I'm lazy. And I can't spell efficiant
 
             foreach (var ability in abilityDataDict)
             {
@@ -226,20 +221,20 @@ namespace Hp2BaseMod.ModLoader
             #endregion Defaultmods
 
             //mods
-            var abilityDataMods = gameDataModder.ReadMods<AbilityDataMod>();
-            var ailmentDataMods = gameDataModder.ReadMods<AilmentDataMod>();
-            var codeDataMods = gameDataModder.ReadMods<CodeDataMod>();
-            var cutsceneDataMods = gameDataModder.ReadMods<CutsceneDataMod>();
-            var dialogTriggerDataMods = gameDataModder.ReadMods<DialogTriggerDataMod>();
-            var dlcDataMods = gameDataModder.ReadMods<DlcDataMod>();
-            var energyDataMods = gameDataModder.ReadMods<EnergyDataMod>();
-            var girlDataMods = gameDataModder.ReadMods<GirlDataMod>();
-            var girlPairDataMods = gameDataModder.ReadMods<GirlPairDataMod>();
-            var itemDataMods = gameDataModder.ReadMods<ItemDataMod>();
-            var locationDataMods = gameDataModder.ReadMods<LocationDataMod>();
-            var photoDataMods = gameDataModder.ReadMods<PhotoDataMod>();
-            var questionDataMods = gameDataModder.ReadMods<QuestionDataMod>();
-            var tokenDataMods = gameDataModder.ReadMods<TokenDataMod>();
+            var abilityDataMods = ModInterface.Instance.ReadMods<AbilityDataMod>();
+            var ailmentDataMods = ModInterface.Instance.ReadMods<AilmentDataMod>();
+            var codeDataMods = ModInterface.Instance.ReadMods<CodeDataMod>();
+            var cutsceneDataMods = ModInterface.Instance.ReadMods<CutsceneDataMod>();
+            var dialogTriggerDataMods = ModInterface.Instance.ReadMods<DialogTriggerDataMod>();
+            var dlcDataMods = ModInterface.Instance.ReadMods<DlcDataMod>();
+            var energyDataMods = ModInterface.Instance.ReadMods<EnergyDataMod>();
+            var girlDataMods = ModInterface.Instance.ReadMods<GirlDataMod>();
+            var girlPairDataMods = ModInterface.Instance.ReadMods<GirlPairDataMod>();
+            var itemDataMods = ModInterface.Instance.ReadMods<ItemDataMod>();
+            var locationDataMods = ModInterface.Instance.ReadMods<LocationDataMod>();
+            var photoDataMods = ModInterface.Instance.ReadMods<PhotoDataMod>();
+            var questionDataMods = ModInterface.Instance.ReadMods<QuestionDataMod>();
+            var tokenDataMods = ModInterface.Instance.ReadMods<TokenDataMod>();
 
             //grab defs to be modded, all need to be grabbed before any are setup
             var modAbilities = CreateEmpties(abilityDataDict, abilityDataMods);
@@ -275,7 +270,7 @@ namespace Hp2BaseMod.ModLoader
         }
 
         private static Dictionary<int, D> GetDataDict<Data, D>(GameData __instance, FieldInfo field)
-            where Data: class
+            where Data : class
             where D : Definition
         {
             return typeof(Data).GetFields(BindingFlags.NonPublic | BindingFlags.Instance)[0]
@@ -305,7 +300,7 @@ namespace Hp2BaseMod.ModLoader
         private static void SetupDefs<D>(Dictionary<int, D> defs, IEnumerable<IDataMod<D>> mods, GameData __instance, AssetProvider prefabProvider)
             where D : Definition
         {
-            foreach(var mod in mods.Where(x => !x.IsAdditive))
+            foreach (var mod in mods.Where(x => !x.IsAdditive))
             {
                 mod.SetData(defs[mod.Id], __instance, prefabProvider);
             }

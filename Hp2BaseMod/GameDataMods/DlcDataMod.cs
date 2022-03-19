@@ -3,13 +3,14 @@
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataMods
 {
     /// <summary>
     /// Serializable information to make a DlcDefinition
     /// </summary>
-    [Serializable]
+    [UiSonClass]
     public class DlcDataMod : DataMod<DlcDefinition>
     {
         public string DlcName;

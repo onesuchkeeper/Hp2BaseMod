@@ -3,21 +3,29 @@
 using Hp2BaseMod.AssetInfos;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataMods
 {
     /// <summary>
     /// Serializable information to make an AbilityDefinition
     /// </summary>
-    [Serializable]
+    [UiSonClass]
     public class AbilityDataMod : DataMod<AbilityDefinition>
     {
+        [UiSonSelectorUi(new string[] { "null", "True", "False"}, 0)]
         public bool? SelectableTarget;
+
+        [UiSonMemberClass]
         public TokenConditionSetInfo TargetConditionSetInfo;
+
+        [UiSonTextEditUi]
         public int? TargetMinimumCount;
+
+        [UiSonCollection]
+        [UiSonMemberClass]
         public List<AbilityStepInfo> Steps;
 
         public AbilityDataMod() { }
@@ -33,7 +41,7 @@ namespace Hp2BaseMod.GameDataMods
                               int? targetMinimumCount,
                               List<AbilityStepInfo> steps,
                               bool isAdditive = false)
-            :base(id, isAdditive)
+            : base(id, isAdditive)
         {
             SelectableTarget = selectableTarget;
             TargetConditionSetInfo = targetConditionSetInfo;
@@ -42,7 +50,7 @@ namespace Hp2BaseMod.GameDataMods
         }
 
         public AbilityDataMod(AbilityDefinition def, AssetProvider assetProvider)
-            :base(def.id, false)
+            : base(def.id, false)
         {
             SelectableTarget = def.selectableTarget;
             TargetMinimumCount = def.targetMinimumCount;

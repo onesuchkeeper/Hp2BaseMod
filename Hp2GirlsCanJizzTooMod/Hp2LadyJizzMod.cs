@@ -10,15 +10,17 @@ namespace Hp2LadyJizzMod
 {
     public class Hp2LadyJizzMod : IHp2BaseModStarter
     {
-        public void Start(GameDataModder gameDataMod)
+        public void Start(ModInterface gameDataMod)
         {
             try
             {
+                ModInterface.Instance.LogLine("Hello from lady jizz mod!");
+
                 int dummy = 0;
 
                 var harmony = new Harmony("Hp2BaseMod.Hp2LadyJizzMod");
 
-                var femaleJizzToggleCode = new CodeDataMod(Constants.FemaleJizzToggleCodeID, 
+                var femaleJizzToggleCode = new CodeDataMod(Constants.FemaleJizzToggleCodeID,
                                                            "509B82A2A4E16DF3774EA93B133F840F",
                                                            CodeType.TOGGLE,
                                                            false,
@@ -46,15 +48,15 @@ namespace Hp2LadyJizzMod
         public static void InitPostfix(ref int __result)
         {
             if (__result == 1
-                && Game.Persistence.playerData.unlockedCodes.Any(x => x.id == Constants.FemaleJizzToggleCodeID)) 
+                && Game.Persistence.playerData.unlockedCodes.Any(x => x.id == Constants.FemaleJizzToggleCodeID))
             {
-                __result = 2; 
+                __result = 2;
             }
         }
 
         public static void RefreshPrefix(UiWindowPhotos __instance)
         {
-            if (!Game.Persistence.playerData.uncensored 
+            if (!Game.Persistence.playerData.uncensored
                 || !Game.Persistence.playerData.unlockedCodes.Any(x => x.id == Constants.FemaleJizzToggleCodeID))
             {
                 return;

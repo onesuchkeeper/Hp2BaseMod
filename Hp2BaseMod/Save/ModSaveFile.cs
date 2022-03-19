@@ -9,7 +9,7 @@ namespace Hp2BaseMod.Save
     [Serializable]
     public class ModSaveFile
     {
-        private readonly int hotelRoomLocationID = 21; 
+        private readonly int hotelRoomLocationID = 21;
 
         public bool Started;
         public int FileIconGirlId;
@@ -126,7 +126,7 @@ namespace Hp2BaseMod.Save
                 FinderSlots = saveFile.finderSlots.ToList();
                 saveFile.finderSlots = saveFile.finderSlots.Where(x => IsDefaultPair(x.girlPairId) && IsDefaultFinderLocation(x.locationId)).ToList();
             }
-            
+
             if (saveFile.inventorySlots != null)
             {
                 InventorySlots = saveFile.inventorySlots.ToList();

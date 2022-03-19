@@ -5,16 +5,19 @@ using System.IO;
 using UnityEngine;
 using Hp2BaseMod.Utility;
 using Hp2BaseMod.ModLoader;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.AssetInfos
 {
     /// <summary>
     /// Serializable information to make an AudioClip
     /// </summary>
-    [Serializable]
     public class AudioClipInfo
     {
+        [UiSonTextEditUi]
         public string Path;
+
+        [UiSonCheckboxUi]
         public bool IsExternal;
 
         public AudioClipInfo() { }

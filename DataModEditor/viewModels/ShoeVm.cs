@@ -1,7 +1,7 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
 using DataModEditor.Data;
-using DataModEditor.Interfaces;
+using DataModEditor.Elements;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace DataModEditor
 {
-    public class ShoeVm : BaseVM
+    public class ShoeVm : NPCBase
     {
         public int Index
         {

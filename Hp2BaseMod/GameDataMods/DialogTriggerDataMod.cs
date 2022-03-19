@@ -6,13 +6,14 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataMods
 {
     /// <summary>
     /// Serializable information to make a DialogTriggerDefinition
     /// </summary>
-    [Serializable]
+    [UiSonClass]
     public class DialogTriggerDataMod : DataMod<DialogTriggerDefinition>
     {
         public EditorDialogTriggerTab? EditorTab;
@@ -24,15 +25,15 @@ namespace Hp2BaseMod.GameDataMods
         public DialogTriggerDataMod() { }
 
         public DialogTriggerDataMod(int id, bool isAdditive)
-            :base(id, isAdditive)
+            : base(id, isAdditive)
         {
         }
 
         public DialogTriggerDataMod(int id,
-                                    EditorDialogTriggerTab? editorTab, 
-                                    DialogTriggerForceType? forceType, 
-                                    int? responseTriggerDefinitionID, 
-                                    int? priority, 
+                                    EditorDialogTriggerTab? editorTab,
+                                    DialogTriggerForceType? forceType,
+                                    int? responseTriggerDefinitionID,
+                                    int? priority,
                                     List<DialogTriggerLineSetInfo> dialogLineSetInfos,
                                     bool isAdditive = false)
             : base(id, isAdditive)

@@ -1,64 +1,58 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
-using DataModEditor.Interfaces;
-using Hp2BaseMod.GameDataMods;
-using System.Linq;
+using DataModEditor.Elements;
+using Hp2BaseMod.AssetInfos;
+using System.Collections.Generic;
 
 namespace DataModEditor
 {
-    public class DollOutfitVm : BaseVM
+    public class DollOutfitVm : NPCBase
     {
-        public string Path { get; set; } = "null";
-        public string AltPath { get; set; } = "null";
-
-        //validate these as doubles
-        public string X { get; set; } = "null";
-        public string Y { get; set; } = "null";
+        public IEnumerable<DollPartVm> DollParts => _dollParts;
+        private DollPartVm[] _dollParts =
+        { new DollPartVm("Outfit Part"),
+        new DollPartVm("Alt Outfit Part")};
 
         public string Name { get; set; } = "null";
 
         public string Type => _type.ToString();
         private GirlStyleType _type;
 
-        // make another constructor for populate
         public DollOutfitVm(GirlStyleType type)
         {
             _type = type;
         }
 
-        public void Populate(GirlDataMod girlDataMod)
+        public void Populate(List<GirlPartInfo> parts, GirlOutfitSubDefinition outfit)
         {
-            //still needs offsets
-            var outfit = girlDataMod.Outfits.FirstOrDefault(x => x.pairHairstyleIndex == (int)_type);
-
             if (outfit == null)
             {
                 return;
             }
 
+            Name = outfit.outfitName;
+
+            var outfitPart = _dollParts[0];
+            var altOutfitPart = _dollParts[1];
+
             if (outfit.partIndexOutfit == -1)
             {
-                Path = AltPath = "null";
+                outfitPart.Populate();
+                altOutfitPart.Populate();
             }
             else
             {
-                var part = girlDataMod.Parts[outfit.partIndexOutfit];
+                var part = parts[outfit.partIndexOutfit];
 
-                Path = part.SpriteInfo?.IsExternal ?? false
-                    ? part.SpriteInfo.Path
-                    : "null";
+                outfitPart.Populate(part);
 
                 if (part.AltPartIndex == -1)
                 {
-                    AltPath = "null";
+                    altOutfitPart.Populate();
                 }
                 else
                 {
-                    var partAlt = girlDataMod.Parts[part.AltPartIndex];
-
-                    AltPath = partAlt.SpriteInfo?.IsExternal ?? false
-                        ? partAlt.SpriteInfo.Path
-                        : "null";
+                    altOutfitPart.Populate(parts[part.AltPartIndex]);
                 }
             }
         }

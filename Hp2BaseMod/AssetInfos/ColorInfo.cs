@@ -38,7 +38,7 @@ namespace Hp2BaseMod.AssetInfos
 
         public Color ToColor()
         {
-            return new Color(R,G,B,A);
+            return new Color(R, G, B, A);
         }
     }
 }

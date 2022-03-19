@@ -7,7 +7,7 @@ namespace Hp2BaseModTweaks
 {
     public class BaseModTweaksStarter : IHp2BaseModStarter
     {
-        public void Start(GameDataModder gameDataModder)
+        public void Start(ModInterface gameDataModder)
         {
             new Harmony("Hp2BaseMod.Hp2BaseModTweaks").PatchAll();
         }

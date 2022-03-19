@@ -1,75 +1,40 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
 using DataModEditor.Data;
+using DataModEditor.Elements;
 using DataModEditor.Interfaces;
+using DataModEditor.ModManagers;
 using Hp2BaseMod.GameDataMods;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
 
 namespace DataModEditor
 {
-    public class GirlVM : BaseVM
+    public class GirlVM : NPCBase, IModVM
     {
-        public IEnumerable<string> AffectionTypes => _affectionTypes;
-        private static List<string> _affectionTypes = new List<string>() {"Talent",
-                                                                                 "Flirtation",
-                                                                                 "Romance",
-                                                                                 "Sexuality",
-                                                                                 "null"};
+        public IEnumerable<string> AffectionTypes => Default.AffectionTypes;
 
-        public IEnumerable<string> NullableBoolOptions => _nullableBoolOptions;
-        private static List<string> _nullableBoolOptions = new List<string>() {"False",
-                                                                                      "True",
-                                                                                      "null"};
+        public IEnumerable<string> NullableBoolOptions => Default.NullableBoolOptions;
 
-        public IEnumerable<string> ShoeOptions => _shoeOptions;
-        private static List<string> _shoeOptions = new List<string>() {"Winter Boots",
-                                                                              "Peep Toes",
-                                                                              "Booties",
-                                                                              "Cyber Boots",
-                                                                              "Platforms",
-                                                                              "Flip Flops",
-                                                                              "Stripper Heels",
-                                                                              "Sneakers",
-                                                                              "Wedges",
-                                                                              "Gladiators",
-                                                                              "Flats",
-                                                                              "Pumps",
-                                                                              "null"};
+        public IEnumerable<string> ShoeOptions => Default.ShoeOptions;
 
+        public IEnumerable<string> UniqueItemOptions => Default.UniqueItemOptions;
+
+        public IEnumerable<string> SpecialEffectOptions => Default.SpecialEffectOptions;
+
+        public IEnumerable<string> CodeOptions => _codeModManager.Options;
+
+        /// <summary>
+        /// Favorites could potantially be expanded, so a Manager is needed
+        /// </summary>
         public IEnumerable<KeyValuePair<string, FavoriteVm>> FavoriteOptions =>
-            Default.FavoriteTopics.Select(x => new KeyValuePair<string, FavoriteVm> (x.Value, _favoriteVmManager[x.Key]));
+            Default.FavoriteTopics.Select(x => new KeyValuePair<string, FavoriteVm>(x.Value, _favoriteVmManager[x.Key]));
 
-        public IEnumerable<string> UniqueItemOptions => _uniqueItemOptions;
-        private static List<string> _uniqueItemOptions = new List<string>()
-        {"Tailoring",
-         "Alchohol",
-         "Occult",
-         "Spiritual",
-         "Weeaboo",
-         "Spa",
-         "Toddler Toys",
-         "Baby Boy",
-         "Handbags",
-         "Band",
-         "Kinky",
-         "Antiques",
-         "null"};
-
-        public IEnumerable<string> SpecialEffectOptions => _specialEffectOptions;
-        private static List<string> _specialEffectOptions = new List<string>()
-        {"FairyWingsKyu",
-         "GloWingsMoxie",
-         "GloWingsJewn",
-         "null"};
-
-        //WILL ALSO NEED SPECIAL PARTS, MAYBE, MAYBE JUST DITCH EM IDK. Need to change to dict for populate :/
+        //WILL ALSO NEED SPECIAL PARTS, MAYBE, MAYBE JUST DITCH EM IDK. Need to change to dict for populate :/, so I can look up the parts
         public IEnumerable<DollPartVm> DollParts => _dollParts;
-        private IEnumerable<DollPartVm> _dollParts = new List<DollPartVm>()
+        private DollPartVm[] _dollParts =
         {new DollPartVm("Body"),
          new DollPartVm("Nipples"),
          new DollPartVm("Blush Light"),
@@ -124,8 +89,8 @@ namespace DataModEditor
          new DollPartVm("Mouth Phonemes Teeth OQUW"),
          new DollPartVm("Mouth Phonemes Teeth FV"),
          new DollPartVm("Mouth Phonemes Teeth Other")};
- 
-        public IEnumerable<DollOutfitVm> DollOutfits => _dollOutfits.Select(x =>x.Value).ToList();
+
+        public IEnumerable<DollOutfitVm> DollOutfits => _dollOutfits.Select(x => x.Value).ToList();
         private Dictionary<GirlStyleType, DollOutfitVm> _dollOutfits = new Dictionary<GirlStyleType, DollOutfitVm>()
         { {GirlStyleType.RELAXING, new DollOutfitVm(GirlStyleType.RELAXING) },
           {GirlStyleType.ACTIVITY, new DollOutfitVm(GirlStyleType.ACTIVITY) },
@@ -150,6 +115,8 @@ namespace DataModEditor
         {GirlStyleType.BONUS2, new DollHairstyleVm(GirlStyleType.BONUS2) },
         {GirlStyleType.BONUS3, new DollHairstyleVm(GirlStyleType.BONUS3) },
         {GirlStyleType.BONUS4, new DollHairstyleVm(GirlStyleType.BONUS4) } };
+
+        public int DataId => _girlId;
 
         public string Title => $"{ModName} {(_unsavedEdits ? "*" : "")}";
 
@@ -187,15 +154,16 @@ namespace DataModEditor
             get => _girlId.ToString();
             set
             {
-                if (_girlId != value)
+                if (int.TryParse(value, out var asInt)
+                    && _girlId != asInt)
                 {
-                    _girlId = value;
+                    _girlId = asInt;
                     UnsavedEdits = true;
                     OnPropertyChanged();
                 }
             }
         }
-        private string _girlId = "10000";
+        private int _girlId;
 
         public string GirlName
         {
@@ -225,7 +193,7 @@ namespace DataModEditor
                 }
             }
         }
-        private string _girlNickName = "null" ;
+        private string _girlNickName = "null";
 
         public string GirlAge
         {
@@ -432,27 +400,55 @@ namespace DataModEditor
         private ObservableCollection<ShoeVm> _shoes = new ObservableCollection<ShoeVm>();
 
         public ObservableCollection<GirlQuestionVm> Questions => _questions;
+
         private ObservableCollection<GirlQuestionVm> _questions = new ObservableCollection<GirlQuestionVm>();
 
-        private FavoriteVmManager _favoriteVmManager;
-
-        /// <summary>
-        /// Base Constructor
-        /// </summary>
-        public GirlVM(FavoriteVmManager favoriteVmManager)
+        public int AltStyleCode
         {
-            _favoriteVmManager = favoriteVmManager ?? throw new ArgumentNullException(nameof(favoriteVmManager));
+            get
+            {
+                var t = _codeModManager.IdToOptionIndex(_altStyleCode);
+                return t;
+            }
+            set
+            {
+                value = _codeModManager.OptionIndexToId(value);
+
+                _altStyleCode = value;
+                OnPropertyChanged();
+            }
         }
+        private int _altStyleCode = -1;
+
+        public int UnlockStyleCode
+        {
+            get
+            {
+                var t = _codeModManager.IdToOptionIndex(_unlockStyleCode);
+                return t;
+            }
+            set
+            {
+                value = _codeModManager.OptionIndexToId(value);
+
+                _unlockStyleCode = value;
+                OnPropertyChanged();
+            }
+        }
+        private int _unlockStyleCode = -1;
+
+        private FavoriteVmManager _favoriteVmManager;
+        private CodeModManager _codeModManager;
 
         /// <summary>
-        /// Populating constructor
+        /// Constructor
         /// </summary>
-        /// <param name="girlDataMod">mod to populate from</param>
-        /// <param name="girlModManager"></param>
-        public GirlVM(FavoriteVmManager favoriteVmManager, GirlDataMod girlDataMod)
+        public GirlVM(FavoriteVmManager favoriteVmManager, CodeModManager codeModManager)
         {
             _favoriteVmManager = favoriteVmManager ?? throw new ArgumentNullException(nameof(favoriteVmManager));
-            Populate(girlDataMod);
+            _codeModManager = codeModManager ?? throw new ArgumentNullException(nameof(codeModManager));
+
+            _codeModManager.PropertyChanged += (s, e) => { OnPropertyChanged(nameof(CodeOptions)); };
         }
 
         /// <summary>
@@ -463,7 +459,7 @@ namespace DataModEditor
         {
             _modName = girlDataMod.ModName ?? "null";
 
-            _girlId = girlDataMod.Id.ToString();
+            _girlId = girlDataMod.Id;
             _girlName = girlDataMod.GirlName ?? "null";
             _girlNickName = girlDataMod.GirlNickName ?? "null";
             _girlAge = girlDataMod.GirlAge?.ToString() ?? "null";
@@ -474,10 +470,10 @@ namespace DataModEditor
 
             _favoriteAffection = girlDataMod.FavoriteAffectionType.HasValue
                 ? (int)girlDataMod.FavoriteAffectionType.Value
-                : _affectionTypes.Count-1;
+                : Default.AffectionTypes.Count - 1;
             _leastFavotireAffectionType = girlDataMod.LeastFavoriteAffectionType.HasValue
                 ? (int)girlDataMod.LeastFavoriteAffectionType.Value
-                : _affectionTypes.Count - 1;
+                : Default.AffectionTypes.Count - 1;
 
             _voiceVolume = girlDataMod.VoiceVolume?.ToString() ?? "null";
             _sexVoiceVolume = girlDataMod.SexVoiceVolume?.ToString() ?? "null";
@@ -508,14 +504,14 @@ namespace DataModEditor
             SpecialEffectPosX = girlDataMod.SpecialEffectOffset?.Xpos.ToString() ?? "null";
             SpecialEffectPosY = girlDataMod.SpecialEffectOffset?.Ypos.ToString() ?? "null";
 
-            SpecialEffect = _specialEffectOptions.Contains(girlDataMod.SpecialEffectName)
-                ? _specialEffectOptions.IndexOf(girlDataMod.SpecialEffectName)
-                : _specialEffectOptions.Count-1;
+            SpecialEffect = Default.SpecialEffectOptions.Contains(girlDataMod.SpecialEffectName)
+                ? Default.SpecialEffectOptions.IndexOf(girlDataMod.SpecialEffectName)
+                : Default.SpecialEffectOptions.Count - 1;
 
-            _shoesType = girlDataMod.ShoesType.HasValue ? (int)girlDataMod.ShoesType.Value : _shoeOptions.Count - 1;
+            _shoesType = girlDataMod.ShoesType.HasValue ? (int)girlDataMod.ShoesType.Value : Default.ShoeOptions.Count - 1;
             _shoesAdj = girlDataMod.ShoesAdj ?? "null";
 
-            _uniqueItemType = girlDataMod.UniqueType.HasValue ? (int)girlDataMod.UniqueType.Value : _uniqueItemOptions.Count - 1;
+            _uniqueItemType = girlDataMod.UniqueType.HasValue ? (int)girlDataMod.UniqueType.Value : Default.UniqueItemOptions.Count - 1;
             _itemAdj = girlDataMod.UniqueAdj ?? "null";
 
             foreach (var food in girlDataMod.BadFoodTypes)
@@ -528,7 +524,7 @@ namespace DataModEditor
                 var newBaggageVm = new BaggageVm(_baggage);
 
                 //VERY temp, fix when implimenting items manager
-                newBaggageVm.Index= Default.ItemsBaggage.ContainsKey(baggage)
+                newBaggageVm.Index = Default.ItemsBaggage.ContainsKey(baggage)
                     ? Default.ItemsBaggage.Select(x => x.Value).ToList().IndexOf(Default.ItemsBaggage[baggage])
                     : 0;
 
@@ -565,21 +561,27 @@ namespace DataModEditor
             //Default indexes
             foreach (var hairstyle in girlDataMod.Hairstyles)
             {
-                _dollHairstyles[(GirlStyleType)hairstyle.pairOutfitIndex].Populate(girlDataMod);
+                _dollHairstyles[(GirlStyleType)hairstyle.pairOutfitIndex].Populate(girlDataMod.Parts, hairstyle);
             }
 
             foreach (var outfit in girlDataMod.Outfits)
             {
-                _dollOutfits[(GirlStyleType)outfit.pairHairstyleIndex].Populate(girlDataMod);
+                _dollOutfits[(GirlStyleType)outfit.pairHairstyleIndex].Populate(girlDataMod.Parts, outfit);
             }
             //specialparts
-            foreach(var question in girlDataMod.HerQuestions)
+            foreach (var question in girlDataMod.HerQuestions)
             {
                 var newQuestion = new GirlQuestionVm(_questions);
 
                 newQuestion.Populate(question);
 
                 _questions.Add(newQuestion);
+            }
+            var i = 0;
+            foreach (var favorite in girlDataMod.FavAnswers)
+            {
+                _favoriteVmManager[i].Index = favorite;
+                i++;
             }
         }
 
@@ -601,6 +603,8 @@ namespace DataModEditor
             //_unsavedEdits = false;
             //OnPropertyChanged(nameof(Title));
         }
+
+        #region add data
 
         /// <summary>
         /// Adds a new baggage vm
@@ -637,5 +641,7 @@ namespace DataModEditor
             _questions.Add(new GirlQuestionVm(_questions));
             OnPropertyChanged(nameof(Questions));
         }
+
+        #endregion
     }
 }
