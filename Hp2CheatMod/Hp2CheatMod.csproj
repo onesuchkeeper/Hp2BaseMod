@@ -22,6 +22,6 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="Copy &quot;$(OutDir)\Hp2CheatMod.dll&quot; &quot;$(OutDir)\..&quot;" />
+    <Exec Command="Copy &quot;$(OutDir)\Hp2CheatMod.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2CheatMod&quot;" />
   </Target>
 </Project>

@@ -1,9 +1,0 @@
-{
-  "CodeHash": "92638CF24FADA7210EA12BD36CC8C224",
-  "CodeType": 0,
-  "Disabled": false,
-  "OffMessage": "Alpha mode is now re-enabled across all save files.",
-  "OnMessage": "Alpha mode is now disabled across all save files.",
-  "IsAdditive": false,
-  "Id": 15
-}

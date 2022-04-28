@@ -1,0 +1,48 @@
+﻿// Hp2BaseMod 2021, By OneSuchKeeper
+
+using Hp2BaseMod.GameDataInfo.Interface;
+using Hp2BaseMod.ModLoader;
+using Hp2BaseMod.Utility;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Hp2BaseMod.GameDataInfo
+{
+    public class DialogTriggerLineSetInfo : IGameDataInfo<DialogTriggerLineSet>
+    {
+        public List<DialogLineInfo> DialogLines;
+
+        public DialogTriggerLineSetInfo() { }
+
+        public DialogTriggerLineSetInfo(List<DialogLineInfo> dialogLines)
+        {
+            DialogLines = dialogLines;
+        }
+
+        public DialogTriggerLineSetInfo(DialogTriggerLineSet dialogTriggerLineSet, AssetProvider assetProvider)
+        {
+            if (dialogTriggerLineSet == null) { throw new ArgumentNullException(nameof(dialogTriggerLineSet)); }
+            if (assetProvider == null) { throw new ArgumentNullException(nameof(assetProvider)); }
+
+            if (dialogTriggerLineSet.dialogLines != null) { DialogLines = dialogTriggerLineSet.dialogLines.Select(x => new DialogLineInfo(x, assetProvider)).ToList(); }
+        }
+
+        /// <summary>
+        /// Writes to the game data definition this represents
+        /// </summary>
+        /// <param name="def">The target game data definition to write to.</param>
+        /// <param name="gameData">The game data.</param>
+        /// <param name="assetProvider">The asset provider.</param>
+        /// <param name="insertStyle">The insert style.</param>
+        public void SetData(ref DialogTriggerLineSet def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
+        {
+            if (def == null)
+            {
+                def = Activator.CreateInstance<DialogTriggerLineSet>();
+            }
+
+            ValidatedSet.SetListValue(ref def.dialogLines, DialogLines, insertStyle, gameDataProvider, assetProvider);
+        }
+    }
+}

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Hp2BaseMod.GameDataMods;
+using Hp2BaseMod.GameDataInfo;
 using Newtonsoft.Json;
 
 namespace Hp2BaseMod
@@ -20,9 +20,9 @@ namespace Hp2BaseMod
         public static ModInterface Instance;
 
         /// <summary>
-        /// Set true when mods have finished being loaded and an instance of huniepop 2 is running
+        /// True when mods have finished being loaded and an instance of huniepop 2 is running.
         /// </summary>
-        internal bool IsAtRuntime = false;
+        public bool IsAtRuntime { get; internal set; }
 
         /// <summary>
         /// Sets up instance
@@ -139,6 +139,11 @@ namespace Hp2BaseMod
         private TextWriter _tw;
 
         /// <summary>
+        /// Flags for referenceing at runtime cross mod
+        /// </summary>
+        private Dictionary<string, bool> Flags = new Dictionary<string, bool>();
+
+        /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="tw">loader log</param>
@@ -174,6 +179,12 @@ namespace Hp2BaseMod
         }
 
         /// <summary>
+        /// outputs a newline to the loader log
+        /// </summary>
+        /// <param name="line"></param>
+        public void LogNewLine() => _tw.WriteLine();
+
+        /// <summary>
         /// outputs to the loader log
         /// </summary>
         /// <param name="line"></param>
@@ -186,6 +197,18 @@ namespace Hp2BaseMod
             {
                 _tw.WriteLine(tab + l);
             }
+
+            _tw.Flush();
+        }
+
+        /// <summary>
+        /// outputs a formatted title to the loader log
+        /// </summary>
+        /// <param name="line"></param>
+        public void LogTitle(string line)
+        {
+            LogNewLine();
+            LogLine($"-----{line}-----");
         }
 
         /// <summary>
@@ -278,7 +301,7 @@ namespace Hp2BaseMod
         {
             if (IsAtRuntime)
             {
-                LogLine($"Ivalid attempt to add dataMod durring game runtime. {path}");
+                LogLine($"Inalid attempt to add dataMod durring game runtime. {path}");
                 return;
             }
 
@@ -329,6 +352,59 @@ namespace Hp2BaseMod
                 default:
                     throw new Exception("Unhandled GameDataType");
             }
+        }
+
+        /// <summary>
+        /// Sets a flag to a value. If the flag doesn't exsist one is created
+        /// </summary>
+        /// <param name="name">The name of the flag.</param>
+        /// <param name="value">The value to set the flag.</param>
+        public void SetFlag(string name, bool value)
+        {
+            if (!Flags.ContainsKey(name))
+            {
+                Flags.Add(name, value);
+            }
+            else
+            {
+                Flags[name] = value;
+            }
+        }
+
+        /// <summary>
+        /// Attemplts to toggle a flag.
+        /// </summary>
+        /// <param name="name">The name of the flag to toggle.</param>
+        /// <param name="result">The resulting value of the flag.</param>
+        /// <returns>True if the flag exists, false otherwise.</returns>
+        public bool TryToggleFlag(string name, out bool result)
+        {
+            if (!Flags.ContainsKey(name))
+            {
+                result = false;
+                return false;
+            }
+
+            result = Flags[name] = !Flags[name];
+            return true;
+        }
+
+        /// <summary>
+        /// Checks the value of a flag.
+        /// </summary>
+        /// <param name="name">The name of the flag to check.</param>
+        /// <param name="result">The value of the checked flag.</param>
+        /// <returns>True if the flag exists, false otherwise.</returns>
+        public bool TryCheckFlag(string name, out bool result)
+        {
+            if (!Flags.ContainsKey(name))
+            {
+                result = false;
+                return false;
+            }
+
+            result = Flags[name];
+            return true;
         }
 
         /// <summary>

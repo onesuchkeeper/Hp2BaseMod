@@ -8,4 +8,8 @@
     <ProjectReference Include="..\Hp2BaseMod\Hp2BaseMod.csproj" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="Copy &quot;$(OutDir)\Hp2SampleMod.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2SampleMod&quot;" />
+  </Target>
+
 </Project>

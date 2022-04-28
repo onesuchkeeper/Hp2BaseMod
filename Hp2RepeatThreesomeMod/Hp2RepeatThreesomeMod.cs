@@ -2,7 +2,7 @@
 
 using HarmonyLib;
 using Hp2BaseMod;
-using Hp2BaseMod.GameDataMods;
+using Hp2BaseMod.GameDataInfo;
 
 namespace Hp2RepeatThreesomeMod
 {

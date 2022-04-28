@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="Copy &quot;$(OutDir)\Hp2DataModLoader.dll&quot; &quot;$(OutDir)\..&quot;" />
+    <Exec Command="Copy &quot;$(OutDir)\Hp2DataModLoader.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2DataModLoader&quot;" />
   </Target>
 
 </Project>

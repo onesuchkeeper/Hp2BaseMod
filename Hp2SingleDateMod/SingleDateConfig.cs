@@ -1,8 +1,7 @@
 ﻿// Hp2Sample 2021, By OneSuchKeeper
 
 using Hp2BaseMod;
-using Hp2BaseMod.AssetInfos;
-using Hp2BaseMod.GameDataMods;
+using Hp2BaseMod.GameDataInfo;
 using System;
 using System.Collections.Generic;
 
@@ -36,7 +35,7 @@ namespace Hp2SingleDateMod
 
             int newPairId = Constants.EmptyGirlId + GirlId;
 
-            var newPairMod = new GirlPairDataMod(newPairId, false)
+            var newPairMod = new GirlPairDataMod(newPairId, InsertStyle.replace)
             {
                 FavQuestions = new List<GirlPairFavQuestionInfo>(),
                 GirlDefinitionOneID = GirlId,
@@ -62,7 +61,7 @@ namespace Hp2SingleDateMod
 
             gameDataModder.AddData(newPairMod);
 
-            var AddPairToGirlMod = new GirlDataMod(GirlId, true)
+            var AddPairToGirlMod = new GirlDataMod(GirlId, InsertStyle.replace)
             {
                 GirlPairDefIDs = new List<int>() { newPairId }
             };

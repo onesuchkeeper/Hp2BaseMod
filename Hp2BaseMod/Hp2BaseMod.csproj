@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,7 +20,7 @@
       <HintPath>..\lib\DOTween.dll</HintPath>
     </Reference>
     <Reference Include="UiSon.Attribute">
-      <HintPath>..\..\..\knackname\UiSon\UiSon.Attributes\bin\Debug\netcoreapp2.0\UiSon.Attribute.dll</HintPath>
+      <HintPath>..\..\..\knackname\UiSon\UiSon.Attribute\bin\Debug\netstandard2.0\UiSon.Attribute.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AudioModule">
       <HintPath>..\lib\UnityEngine.AudioModule.dll</HintPath>
@@ -31,5 +32,9 @@
       <HintPath>..\lib\UnityEngine.ImageConversionModule.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="Copy &quot;$(OutDir)\Hp2BaseMod.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\HuniePop 2 - Double Date_Data\Managed&quot;&#xD;&#xA;Copy &quot;$(OutDir)\UiSon.Attribute.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\HuniePop 2 - Double Date_Data\Managed&quot;&#xD;&#xA;Copy &quot;$(OutDir)\0Harmony.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\HuniePop 2 - Double Date_Data\Managed&quot;" />
+  </Target>
 
 </Project>

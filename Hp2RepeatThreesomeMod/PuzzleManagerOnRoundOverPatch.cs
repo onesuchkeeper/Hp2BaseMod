@@ -6,7 +6,6 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using Hp2BaseMod;
-using Hp2BaseMod.GameDataMods;
 
 namespace Hp2RepeatThreesomeMod
 {

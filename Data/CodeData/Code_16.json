@@ -1,9 +1,0 @@
-{
-  "CodeHash": "7210B13404877EA8054EDDE0547B9D3B",
-  "CodeType": 0,
-  "Disabled": true,
-  "OffMessage": "The screen will now display without a letterbox.",
-  "OnMessage": "The screen will now display with a letterbox.",
-  "IsAdditive": false,
-  "Id": 16
-}

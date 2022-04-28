@@ -4,8 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Hp2BaseMod;
-using Hp2BaseMod.AssetInfos;
-using Hp2BaseMod.GameDataMods;
+using Hp2BaseMod.GameDataInfo;
 using Newtonsoft.Json;
 
 namespace Hp2SingleDateMod
@@ -21,7 +20,7 @@ namespace Hp2SingleDateMod
             //AddEmptyGirl(gameDataModder, newPairs);
 
             //TEST
-            gameDataModder.AddData(new GirlDataMod(1, false)
+            gameDataModder.AddData(new GirlDataMod(1, InsertStyle.replace)
             {
                 BaggageItemDefIDs = new List<int>() { Constants.NoFocusBagadgeItemId, 94, 95 }
                 //BaggageItemDefIDs = new List<int>() { 106, 94, 95 }
@@ -88,7 +87,7 @@ namespace Hp2SingleDateMod
             int PHONEME_partid = (int)GirlPartType.PHONEMES;
             int PHONEMESTEETH_partid = (int)GirlPartType.PHONEMESTEETH;
 
-            var EmptyGirl = new GirlDataMod(Constants.EmptyGirlId, false)
+            var EmptyGirl = new GirlDataMod(Constants.EmptyGirlId, InsertStyle.replace)
             {
                 EditorTab = EditorGirlDefinitionTab.DEFAULT,
                 GirlName = "Nobody",
@@ -172,7 +171,7 @@ namespace Hp2SingleDateMod
 
         private void MakeNoFocus(ModInterface gameDataModder)
         {
-            var NoFocusBagadgeItem = new ItemDataMod(Constants.NoFocusBagadgeItemId, false)
+            var NoFocusBagadgeItem = new ItemDataMod(Constants.NoFocusBagadgeItemId, InsertStyle.replace)
             {
                 ItemName = "Unfocusable",
                 ItemType = ItemType.BAGGAGE,
@@ -203,7 +202,7 @@ namespace Hp2SingleDateMod
                 NotifierHeaderIndex = 0
             };
 
-            var NoFocusBagadgeAilment = new AilmentDataMod(Constants.NoFocusBagadgeAilmentId, false)
+            var NoFocusBagadgeAilment = new AilmentDataMod(Constants.NoFocusBagadgeAilmentId, InsertStyle.replace)
             {
                 ItemDefinitionID = Constants.NoFocusBagadgeItemId,
                 PersistentFlags = false,
