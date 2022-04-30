@@ -11,28 +11,67 @@ namespace Hp2BaseMod.GameDataInfo
     /// Serializable information to make a ItemDefinition
     /// </summary>
     [UiSonElement]
+    [UiSonGroup("Type")]
+    [UiSonGroup("Appearance")]
+    [UiSonGroup("Food")]
+    [UiSonGroup("Puzzle")]
+    [UiSonGroup("Store")]
+    [UiSonGroup("Ailment")]
     public class ItemDataMod : DataMod, IGameDataMod<ItemDefinition>
     {
-        [UiSonTextEditUi]
-        public string ItemName;
-
-        [UiSonSelectorUi(DefaultData.ItemTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.ItemTypeNullable_As_String, 0, "Type")]
         public ItemType? ItemType;
 
-        [UiSonTextEditUi]
+        [UiSonSelectorUi(DefaultData.ItemShoesTypeNullable_As_String, 0, "Type")]
+        public ItemShoesType? ShoesType;
+
+        [UiSonSelectorUi(DefaultData.ItemUniqueTypeNullable_As_String, 0, "Type")]
+        public ItemUniqueType? UniqueType;
+
+        [UiSonSelectorUi(DefaultData.ItemDateGiftTypeNullable_As_String, 0, "Type")]
+        public ItemDateGiftType? DateGiftType;
+
+        [UiSonSelectorUi(DefaultData.ItemFoodTypeNullable_As_String, 0, "Type")]
+        public ItemFoodType? FoodType;
+
+        [UiSonMemberElement(0, "Appearance")]
+        public SpriteInfo ItemSpriteInfo;
+
+        [UiSonTextEditUi(0, "Appearance")]
+        public string ItemName;
+
+        [UiSonTextEditUi(0, "Appearance")]
         public string ItemDescription;
+
+        [UiSonTextEditUi(0, "Appearance")]
+        public int? TooltipColorIndex;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Store")]
+        public bool? StoreSectionPreference;
+
+        [UiSonTextEditUi(0, "Store")]
+        public int? StoreCost;
+
+        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, "Ailment", "Id", DefaultData.DefaultCutsceneNames, DefaultData.DefaultCutsceneIds)]
+        public int? CutsceneDefinitionID;
+
+        [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, "Ailment", "Id", DefaultData.DefaultAilmentNames, DefaultData.DefaultAilmentIds)]
+        public int? AilmentDefinitionID;
+
+        [UiSonSelectorUi(DefaultData.EditorDialogTriggerTabNullable_As_String, 0, "Ailment")]
+        public EditorDialogTriggerTab? BaggageGirl;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        public bool? DifficultyExclusive;
+
+        [UiSonSelectorUi(DefaultData.SettingDifficultyNullable_As_String)]
+        public SettingDifficulty? Difficulty;
 
         [UiSonElementSelectorUi(nameof(EnergyDataMod), 0, null, "Id", DefaultData.DefaultEnergyNames, DefaultData.DefaultEnergyIds)]
         public int? EnergyDefinitionID;
 
-        [UiSonMemberElement]
-        public SpriteInfo ItemSpriteInfo;
-
-        [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable_As_String, 0, "Puzzle")]
         public PuzzleAffectionType? AffectionType;
-
-        [UiSonTextEditUi]
-        public int? TooltipColorIndex;
 
         [UiSonSelectorUi(DefaultData.ItemGiveConditionTypeNullable_As_String)]
         public ItemGiveConditionType? GiveConditionType;
@@ -41,49 +80,16 @@ namespace Hp2BaseMod.GameDataInfo
         public int? GirlDefinitionID;
 
         [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
-        public bool? DifficultyExclusive;
-
-        [UiSonSelectorUi(DefaultData.SettingDifficultyNullable_As_String)]
-        public SettingDifficulty? Difficulty;
-
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
-        public bool? StoreSectionPreference;
-
-        [UiSonTextEditUi]
-        public int? StoreCost;
-
-        [UiSonSelectorUi(DefaultData.ItemFoodTypeNullable_As_String)]
-        public ItemFoodType? FoodType;
-
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? NoStaminaCost;
-
-        [UiSonSelectorUi(DefaultData.ItemShoesTypeNullable_As_String)]
-        public ItemShoesType? ShoesType;
-
-        [UiSonSelectorUi(DefaultData.ItemUniqueTypeNullable_As_String)]
-        public ItemUniqueType? UniqueType;
-
-        [UiSonSelectorUi(DefaultData.ItemDateGiftTypeNullable_As_String)]
-        public ItemDateGiftType? DateGiftType;
 
         [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? DateGiftAilment;
 
-        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, null, "Id", DefaultData.DefaultAbilityNames, DefaultData.DefaultAbilityIds)]
+        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, "Puzzle", "Id", DefaultData.DefaultAbilityNames, DefaultData.DefaultAbilityIds)]
         public int? AbilityDefinitionID;
 
-        [UiSonTextEditUi]
+        [UiSonTextEditUi(0, "Puzzle")]
         public int? UseCost;
-
-        [UiSonSelectorUi(DefaultData.EditorDialogTriggerTabNullable_As_String)]
-        public EditorDialogTriggerTab? BaggageGirl;
-
-        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "Id", DefaultData.DefaultCutsceneNames, DefaultData.DefaultCutsceneIds)]
-        public int? CutsceneDefinitionID;
-
-        [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, null, "Id", DefaultData.DefaultAilmentNames, DefaultData.DefaultAilmentIds)]
-        public int? AilmentDefinitionID;
 
         [UiSonTextEditUi]
         public string CategoryDescription;

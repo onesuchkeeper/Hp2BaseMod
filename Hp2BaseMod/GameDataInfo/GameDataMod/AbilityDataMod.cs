@@ -13,16 +13,17 @@ namespace Hp2BaseMod.GameDataInfo
     /// Serializable information to make an AbilityDefinition
     /// </summary>
     [UiSonElement]
+    [UiSonGroup("Target", 1)]
     public class AbilityDataMod : DataMod, IGameDataMod<AbilityDefinition>
     {
-        [UiSonCheckboxUi]
+        [UiSonCheckboxUi(0, "Target")]
         public bool? SelectableTarget;
 
-        [UiSonMemberElement]
-        public TokenConditionSetInfo TargetConditionSetInfo;
-
-        [UiSonTextEditUi]
+        [UiSonTextEditUi(0, "Target")]
         public int? TargetMinimumCount;
+
+        [UiSonMemberElement(0, "Target")]
+        public TokenConditionSetInfo TargetConditionSetInfo;
 
         [UiSonMemberElement]
         public List<AbilityStepInfo> Steps;

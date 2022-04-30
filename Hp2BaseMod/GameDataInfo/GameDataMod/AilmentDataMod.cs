@@ -13,39 +13,41 @@ namespace Hp2BaseMod.GameDataInfo
     /// Serializable information to make an AilmentDefinition
     /// </summary>
     [UiSonElement]
+    [UiSonGroup("Enable", -1)]
+    [UiSonGroup("Disable", -2)]
     public class AilmentDataMod : DataMod, IGameDataMod<AilmentDefinition>
     {
-        [UiSonTextEditUi]
+        [UiSonElementSelectorUi(nameof(ItemDataMod), 1, null, "Id", DefaultData.DefaultItemNames, DefaultData.DefaultItemIds)]
         public int? ItemDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 1)]
         public bool? PersistentFlags;
 
-        [UiSonSelectorUi(DefaultData.AilmentEnableTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.AilmentEnableTypeNullable_As_String, 0, "Enable")]
         public AilmentEnableType? EnableType;
 
-        [UiSonTextEditUi]
-        public int? EnableTriggerIndex;
-
-        [UiSonTextEditUi]
-        public int? EnableTokenDefID;
-
-        [UiSonTextEditUi]
-        public int? EnableIntVal;
-
-        [UiSonTextEditUi]
-        public float? EnableFloatVal;
-
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
-        public bool? EnableBoolVal;
-
-        [UiSonTextEditUi]
-        public string EnableStringVal;
-
-        [UiSonTextEditUi]
+        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, "Enable", "Id", DefaultData.DefaultAbilityNames, DefaultData.DefaultAbilityIds)]
         public int? EnableAbilityDefID;
 
-        [UiSonTextEditUi]
+        [UiSonElementSelectorUi(nameof(DialogTriggerDataMod), 0, "Enable", "Id", DefaultData.DefaultDialogTriggerNames, DefaultData.DefaultDialogTriggerIds)]
+        public int? EnableTriggerIndex;
+
+        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, "Enable", "Id", DefaultData.DefaultTokenNames, DefaultData.DefaultTokenIds)]
+        public int? EnableTokenDefID;
+
+        [UiSonTextEditUi(0, "Enable")]
+        public int? EnableIntVal;
+
+        [UiSonTextEditUi(0, "Enable")]
+        public float? EnableFloatVal;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Enable")]
+        public bool? EnableBoolVal;
+
+        [UiSonTextEditUi(0, "Enable")]
+        public string EnableStringVal;
+
+        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, "Disable", "Id", DefaultData.DefaultAbilityNames, DefaultData.DefaultAbilityIds)]
         public int? DisableAbilityDefID;
 
         [UiSonMemberElement]

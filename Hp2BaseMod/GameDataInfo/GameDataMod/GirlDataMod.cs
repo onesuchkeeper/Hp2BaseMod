@@ -13,10 +13,15 @@ namespace Hp2BaseMod.GameDataInfo
     /// Serializable information to make a GirlDefinition
     /// </summary>
     [UiSonElement]
-    [UiSonGroup("Girl Info")]
-    [UiSonGroup("Items")]
-    [UiSonGroup("Questions")]
-    [UiSonGroup("Sprites")]
+    [UiSonGroup("Girl Info", 7)]
+    [UiSonGroup("Items", 6, DisplayMode.Horizontal)]
+    [UiSonGroup("Questions", 5)]
+    [UiSonGroup("Emmiters", 4, DisplayMode.Horizontal)]
+    [UiSonGroup("Special Effect", 3)]
+    [UiSonGroup("Style", 2)]
+    [UiSonGroup("Cellphone Sprites", 1)]
+    [UiSonGroup("Parts", 0)]
+    
     public class GirlDataMod : DataMod, IGameDataMod<GirlDefinition>
     {
         public EditorGirlDefinitionTab? EditorTab;
@@ -63,7 +68,6 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi(0, "Girl Info")]
         public float? SexVoiceVolume;
 
-        [UiSonCollection]
         [UiSonMultiChoiceUi(DefaultData.ItemFoodTypeNullable_As_String, 0, "Girl Info")]
         public List<ItemFoodType> BadFoodTypes;
 
@@ -75,17 +79,17 @@ namespace Hp2BaseMod.GameDataInfo
 
         #region Items
 
-        [UiSonCollection]
+        [UiSonCollection(false)]
         [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, "Items", "Id", DefaultData.DefaultItemNames, DefaultData.DefaultItemIds)]
-        public List<int> BaggageItemDefIDs;
+        public List<int> BaggageItemDefIDs = new List<int>() { -1,-1,-1};
 
-        [UiSonCollection]
+        [UiSonCollection(false)]
         [UiSonElementSelectorUi(nameof(ItemDataMod), 0, "Items", "Id", DefaultData.DefaultItemNames, DefaultData.DefaultItemIds)]
-        public List<int> UniqueItemDefIDs;
+        public List<int> UniqueItemDefIDs = new List<int>() { -1, -1, -1, -1, -1 };
 
-        [UiSonCollection]
+        [UiSonCollection(false)]
         [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, "Items", "Id", DefaultData.DefaultItemNames, DefaultData.DefaultItemIds)]
-        public List<int> ShoesItemDefIDs;
+        public List<int> ShoesItemDefIDs = new List<int>() { -1, -1, -1, -1, -1 };
 
         #endregion
 
@@ -101,90 +105,90 @@ namespace Hp2BaseMod.GameDataInfo
 
         #endregion
 
-        #region Sprites
-
-        [UiSonMemberElement(0, "Sprites")]
-        public SpriteInfo CellphonePortrait;
-
-        [UiSonMemberElement(0, "Sprites")]
-        public SpriteInfo CellphonePortraitAlt;
-
-        [UiSonMemberElement(0, "Sprites")]
-        public SpriteInfo CellphoneHead;
-
-        [UiSonMemberElement(0, "Sprites")]
-        public SpriteInfo CellphoneHeadAlt;
-
-        [UiSonMemberElement(0, "Sprites")]
-        public SpriteInfo CellphoneMiniHead;
-
-        [UiSonMemberElement(0, "Sprites")]
-        public SpriteInfo CellphoneMiniHeadAlt;
-
-        [UiSonMemberElement(0, "Sprites")]
-        public VectorInfo BreathEmitterPos;
-
-        [UiSonMemberElement(0, "Sprites")]
-        public VectorInfo UpsetEmitterPos;
-
-        [UiSonTextEditUi(0, "Sprites")]
+        [UiSonSelectorUi(DefaultData.UiDollSpecialEffectNames, 0, "Special Effect")]
         public string SpecialEffectName;
 
-        [UiSonMemberElement(0, "Sprites")]
+        [UiSonMemberElement(0, "Special Effect")]
         public VectorInfo SpecialEffectOffset;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Sprites")]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Style")]
         public bool? HasAltStyles;
 
-        [UiSonTextEditUi(0, "Sprites")]
+        [UiSonTextEditUi(0, "Style")]
         public string AltStylesFlagName;
 
-        [UiSonElementSelectorUi(nameof(CodeDataMod), 0, "Sprites", "Id")]
+        [UiSonElementSelectorUi(nameof(CodeDataMod), 0, "Style", "Id", DefaultData.DefaultCodeNames, DefaultData.DefaultCodeIds)]
         public int? AltStylesCodeDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(CodeDataMod), 0, "Sprites", "Id")]
+        [UiSonElementSelectorUi(nameof(CodeDataMod), 0, "Style", "Id", DefaultData.DefaultCodeNames, DefaultData.DefaultCodeIds)]
         public int? UnlockStyleCodeDefinitionID;
 
-        [UiSonTextEditUi(0, "Sprites")]
+        #region Sprites
+
+        [UiSonMemberElement(0, "Cellphone Sprites")]
+        public SpriteInfo CellphonePortrait;
+
+        [UiSonMemberElement(0, "Cellphone Sprites")]
+        public SpriteInfo CellphonePortraitAlt;
+
+        [UiSonMemberElement(0, "Cellphone Sprites")]
+        public SpriteInfo CellphoneHead;
+
+        [UiSonMemberElement(0, "Cellphone Sprites")]
+        public SpriteInfo CellphoneHeadAlt;
+
+        [UiSonMemberElement(0, "Cellphone Sprites")]
+        public SpriteInfo CellphoneMiniHead;
+
+        [UiSonMemberElement(0, "Cellphone Sprites")]
+        public SpriteInfo CellphoneMiniHeadAlt;
+
+        [UiSonMemberElement(0, "Emmiters")]
+        public VectorInfo BreathEmitterPos;
+
+        [UiSonMemberElement(0, "Emmiters")]
+        public VectorInfo UpsetEmitterPos;
+
+        [UiSonTextEditUi(1, "Parts")]
         public int? PartIndexBody;
 
-        [UiSonTextEditUi(0, "Sprites")]
+        [UiSonTextEditUi(1, "Parts")]
         public int? PartIndexNipples;
 
-        [UiSonTextEditUi(0, "Sprites")]
+        [UiSonTextEditUi(1, "Parts")]
         public int? PartIndexBlushLight;
 
-        [UiSonTextEditUi(0, "Sprites")]
+        [UiSonTextEditUi(1, "Parts")]
         public int? PartIndexBlushHeavy;
 
-        [UiSonTextEditUi(0, "Sprites")]
+        [UiSonTextEditUi(1, "Parts")]
         public int? PartIndexBlink;
 
-        [UiSonTextEditUi(0, "Sprites")]
+        [UiSonTextEditUi(1, "Parts")]
         public int? PartIndexMouthNeutral;
 
-        [UiSonTextEditUi(0, "Sprites")]
+        [UiSonTextEditUi(-1, "Parts")]
         public List<int> PartIndexesPhonemes;
 
+        [UiSonTextEditUi(1, "Parts")]
+        public int? DefaultExpressionIndex;
+
+        [UiSonTextEditUi(1, "Parts")]
+        public int? FailureExpressionIndex;
+
+        [UiSonTextEditUi(1, "Parts")]
+        public int? DefaultHairstyleIndex;
+
+        [UiSonTextEditUi(1, "Parts")]
+        public int? DefaultOutfitIndex;
+
         [UiSonCollection]
-        [UiSonTextEditUi]
+        [UiSonTextEditUi(-1, "Parts")]
         public List<int> PartIndexesPhonemesTeeth;
 
         [UiSonCollection]
-        [UiSonMemberElement]
+        [UiSonMemberElement(-1, "Parts")]
         public List<GirlPartInfo> Parts;
-
-        [UiSonTextEditUi(0, "Sprites")]
-        public int? DefaultExpressionIndex;
-
-        [UiSonTextEditUi(0, "Sprites")]
-        public int? FailureExpressionIndex;
-
-        [UiSonTextEditUi(0, "Sprites")]
-        public int? DefaultHairstyleIndex;
-
-        [UiSonTextEditUi(0, "Sprites")]
-        public int? DefaultOutfitIndex;
 
         [UiSonCollection]
         [UiSonMemberElement]

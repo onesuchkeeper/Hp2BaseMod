@@ -3,7 +3,6 @@
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UiSon.Attribute;
@@ -16,13 +15,13 @@ namespace Hp2BaseMod.GameDataInfo
     [UiSonElement]
     public class DialogTriggerDataMod : DataMod, IGameDataMod<DialogTriggerDefinition>
     {
-        [UiSonSelectorUi(DefaultData.EditorDialogTriggerTabNullable_As_String)]
+        // not used in game
         public EditorDialogTriggerTab? EditorTab;
 
         [UiSonSelectorUi(DefaultData.DialogTriggerForceTypeNullable_As_String)]
         public DialogTriggerForceType? ForceType;
 
-        [UiSonTextEditUi]
+        [UiSonElementSelectorUi(nameof(DialogTriggerDataMod), 0, null, "Id", DefaultData.DefaultDialogTriggerNames, DefaultData.DefaultDialogTriggerIds)]
         public int? ResponseTriggerDefinitionID;
 
         [UiSonTextEditUi]

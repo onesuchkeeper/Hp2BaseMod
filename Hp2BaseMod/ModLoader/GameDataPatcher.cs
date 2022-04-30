@@ -222,7 +222,7 @@ namespace Hp2BaseMod.ModLoader
 
         private static void SetData<T>(Dictionary<int, T> data, IEnumerable<IGameDataMod<T>> mods, GameDataProvider gameDataProvider, AssetProvider prefabProvider)
         {
-            foreach (var mod in mods.OrderBy(x => x.ModPriority))
+            foreach (var mod in mods.OrderBy(x => x.LoadPriority))
             {
                 mod.SetData(data[mod.Id], gameDataProvider, prefabProvider, mod.InsertStyle) ;
             }

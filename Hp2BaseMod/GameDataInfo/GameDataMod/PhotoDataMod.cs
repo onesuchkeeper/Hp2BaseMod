@@ -13,6 +13,7 @@ namespace Hp2BaseMod.GameDataInfo
     /// Serializable information to make a PhotoDefinition
     /// </summary>
     [UiSonElement]
+    [UiSonGroup("Alt")]
     public class PhotoDataMod : DataMod, IGameDataMod<PhotoDefinition>
     {
         [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, null, "Id", DefaultData.DefaultGirlPairNames, DefaultData.DefaultGirlPairIds)]
@@ -21,20 +22,20 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonElementSelectorUi(nameof(PhotoDataMod), 0, null, "Id", DefaultData.DefaultPhotoNames, DefaultData.DefaultPhotoIds)]
         public int? NextPhotoDefinitionID;
 
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Alt")]
+        public bool? HasAlts;
+
+        [UiSonTextEditUi(0, "Alt")]
+        public string AltFlagName;
+
+        [UiSonElementSelectorUi(nameof(CodeDataMod), 0, "Alt", "Id", DefaultData.DefaultCodeNames, DefaultData.DefaultCodeIds)]
+        public int? AltCodeDefinitionID;
+
         [UiSonMemberElement]
         public List<SpriteInfo> BigPhotoImages;
 
         [UiSonMemberElement]
         public List<SpriteInfo> ThumbnailImages;
-
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
-        public bool? HasAlts;
-
-        [UiSonTextEditUi]
-        public string AltFlagName;
-
-        [UiSonElementSelectorUi(nameof(CodeDataMod), 0, null, "Id", DefaultData.DefaultCodeNames, DefaultData.DefaultCodeIds)]
-        public int? AltCodeDefinitionID;
 
         public PhotoDataMod() { }
 

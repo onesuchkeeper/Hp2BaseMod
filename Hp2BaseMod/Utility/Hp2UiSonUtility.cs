@@ -34,6 +34,8 @@ namespace Hp2BaseMod.Utility
                 new List<string> { "null", "FairyWingsKyu","GloWingsMoxie","GloWingsJewn" }),
             new KeyValuePair<string, IEnumerable<string>>("TokenResourceNames",
                 new List<string> { "null", "Stamina", "Sentiment", "Move", "!?", "Passion"}),//almost the same as <cref="PuzzleResourceType">
+            new KeyValuePair<string, IEnumerable<string>>("DefaultFlagValues",
+                new List<string> { "null", "kyu_hole_selection", "wardrobe_girl_id", "GloWingsJewn", "notification_item_id", "tutorial_progress", "nymphojinn_failure", "pollys_junk", "alpha_mode", "store_filter_button", "photo_view_mode"}),
 
             new KeyValuePair<string, IEnumerable<string>>("DefaultMeetingLocationNames",
                 new List<string> { "null", "Tourist Plaza", "Boardwalk", "Surf Shack", "Courtyard", "Gift Shop", "Airport", "Hotel Lobby", "Marina" }),
@@ -47,6 +49,8 @@ namespace Hp2BaseMod.Utility
                                     "InOutFlash","INTERNAL_Zero","INTERNAL_Custom" }),
             new KeyValuePair<string, IEnumerable<string>>("EaseTypeIds",
                 new List<string> { "null", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37" }),
+        
+        
         };
 
         private static readonly List<KeyValuePair<string, string>> _enumStringArrays = new List<KeyValuePair<string, string>>()

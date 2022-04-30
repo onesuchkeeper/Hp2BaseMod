@@ -21,15 +21,6 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonSelectorUi(DefaultData.LocationTypeNullable_As_String)]
         public LocationType? LocationType;
 
-        [UiSonMemberElement]
-        public AudioKlipInfo BgMusic;
-
-        [UiSonTextEditUi]
-        public float? BgYOffset;
-
-        [UiSonMemberElement]
-        public SpriteInfo FinderLocationIcon;
-
         [UiSonSelectorUi(DefaultData.GirlStyleTypeNullable_As_String)]
         public GirlStyleType? DateGirlStyleType;
 
@@ -40,7 +31,16 @@ namespace Hp2BaseMod.GameDataInfo
         public List<LocationSpecialLabelSubDefinition> SpecialLabels;
 
         [UiSonMemberElement]
+        public AudioKlipInfo BgMusic;
+
+        [UiSonTextEditUi]
+        public float? BgYOffset;
+
+        [UiSonMemberElement]
         public List<SpriteInfo> Backgrounds;
+
+        [UiSonMemberElement]
+        public SpriteInfo FinderLocationIcon;
 
         [UiSonMemberElement]
         public List<LogicBundleInfo> ArriveBundleList;

@@ -14,20 +14,20 @@ namespace Hp2BaseMod.GameDataInfo
     [UiSonElement]
     public class CodeDataMod : DataMod, IGameDataMod<CodeDefinition>
     {
-        [UiSonTextEditUi]
-        public string CodeHash;
-
         [UiSonSelectorUi(DefaultData.CodeTypeNullable_As_String)]
         public CodeType? CodeType;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
-        public bool? Disabled;
+        [UiSonTextEditUi]
+        public string OnMessage;
 
         [UiSonTextEditUi]
         public string OffMessage;
 
         [UiSonTextEditUi]
-        public string OnMessage;
+        public string CodeHash;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        public bool? Disabled;
 
         public CodeDataMod() { }
 

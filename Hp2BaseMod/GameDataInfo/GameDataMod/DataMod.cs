@@ -19,7 +19,7 @@ namespace Hp2BaseMod.GameDataInfo
         public int Id { get; set; }
 
         [UiSonTextEditUi(0, "Mod Info")]
-        public int ModPriority { get; set; }
+        public int LoadPriority { get; set; }
 
         [UiSonSelectorUi(DefaultData.InsertStyle_As_String, 0, "Mod Info")]
         public InsertStyle InsertStyle { get; set; }

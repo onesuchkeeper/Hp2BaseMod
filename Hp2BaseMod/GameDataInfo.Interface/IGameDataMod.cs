@@ -8,7 +8,7 @@ namespace Hp2BaseMod.GameDataInfo.Interface
     {
         InsertStyle InsertStyle { get; }    
         int Id { get; }
-        int ModPriority { get; }
+        int LoadPriority { get; }
 
         /// <summary>
         /// Writes to the game data definition this represents

@@ -13,61 +13,62 @@ namespace Hp2BaseMod.GameDataInfo
     /// Serializable information to make a GirlPairDefinition
     /// </summary>
     [UiSonElement]
-    [UiSonGroup("Girl One", -100)]
-    [UiSonGroup("Girl Two", -99)]
+    [UiSonGroup("Meeting", 2)]
+    [UiSonGroup("Sex", 1)]
     public class GirlPairDataMod : DataMod, IGameDataMod<GirlPairDefinition>
     {
         [UiSonCollection(true, DisplayMode.Grid)]
-        [UiSonMemberElement(-98, null, DisplayMode.Grid)]
+        [UiSonMemberElement(0, null, DisplayMode.Grid)]
         public List<GirlPairFavQuestionInfo> FavQuestions;
 
-        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, "Girl One", "id", DefaultData.DefaultGirlNames, DefaultData.DefaultGirlIds)]
+        [UiSonElementSelectorUi(nameof(GirlDataMod), 10, null, "id", DefaultData.DefaultGirlNames, DefaultData.DefaultGirlIds)]
         public int? GirlDefinitionOneID;
 
-        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, "Girl Two", "id", DefaultData.DefaultGirlNames, DefaultData.DefaultGirlIds)]
+        [UiSonElementSelectorUi(nameof(GirlDataMod), 10, null, "id", DefaultData.DefaultGirlNames, DefaultData.DefaultGirlIds)]
         public int? GirlDefinitionTwoID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Girl One")]
-        public bool? HasMeetingStyleOne;
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 10)]
+        public bool? SpecialPair;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Girl Two")]
-        public bool? HasMeetingStyleTwo;
-
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
-        public bool? IntroductionPair;
-
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
-        public bool? IntroSidesFlipped;
-
-        [UiSonElementSelectorUi(nameof(LocationDataMod), 0, null, "id", DefaultData.DefaultMeetingLocationNames, DefaultData.DefaultMeetingLocationIds)]
-        public int? MeetingLocationDefinitionID;
-
-        [UiSonSelectorUi(DefaultData.GirlStyleTypeNullable_As_String, 0, "Girl One")]
-        public GirlStyleType? MeetingStyleTypeOne;
-
-        [UiSonSelectorUi(DefaultData.GirlStyleTypeNullable_As_String, 0, "Girl Two")]
-        public GirlStyleType? MeetingStyleTypeTwo;
-
-        [UiSonElementSelectorUi(nameof(PhotoDataMod), 0, null, "id", DefaultData.DefaultPhotoNames, DefaultData.DefaultPhotoIds)]
+        [UiSonElementSelectorUi(nameof(PhotoDataMod), 10, null, "id", DefaultData.DefaultPhotoNames, DefaultData.DefaultPhotoIds)]
         public int? PhotoDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(CutsceneDataMod), -97, null, "id", DefaultData.DefaultCutsceneNames, DefaultData.DefaultCutsceneIds)]
-        public List<int> RelationshipCutsceneDefinitionIDs;
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Meeting")]
+        public bool? IntroductionPair;
 
-        [UiSonSelectorUi(DefaultData.ClockDaytimeTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Meeting")]
+        public bool? IntroSidesFlipped;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Meeting")]
+        public bool? HasMeetingStyleOne;
+
+        [UiSonSelectorUi(DefaultData.GirlStyleTypeNullable_As_String, 0, "Meeting")]
+        public GirlStyleType? MeetingStyleTypeOne;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Meeting")]
+        public bool? HasMeetingStyleTwo;
+
+        [UiSonSelectorUi(DefaultData.GirlStyleTypeNullable_As_String, 0, "Meeting")]
+        public GirlStyleType? MeetingStyleTypeTwo;
+
+        [UiSonElementSelectorUi(nameof(LocationDataMod), 0, "Meeting", "id", DefaultData.DefaultLocationNames, DefaultData.DefaultLocationIds)]
+        public int? MeetingLocationDefinitionID;
+
+        [UiSonSelectorUi(DefaultData.ClockDaytimeTypeNullable_As_String, 0, "Sex")]
         public ClockDaytimeType? SexDayTime;
 
-        [UiSonElementSelectorUi(nameof(LocationDataMod), 0, null, "id", DefaultData.DefaultLocationNames, DefaultData.DefaultLocationIds)]
+        [UiSonElementSelectorUi(nameof(LocationDataMod), 0, "Sex", "id", DefaultData.DefaultLocationNames, DefaultData.DefaultLocationIds)]
         public int? SexLocationDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.GirlStyleTypeNullable_As_String, 0, "Girl One")]
+        [UiSonSelectorUi(DefaultData.GirlStyleTypeNullable_As_String, 0, "Sex")]
         public GirlStyleType? SexStyleTypeOne;
 
-        [UiSonSelectorUi(DefaultData.GirlStyleTypeNullable_As_String, 0, "Girl Two")]
+        [UiSonSelectorUi(DefaultData.GirlStyleTypeNullable_As_String, 0, "Sex")]
         public GirlStyleType? SexStyleTypeTwo;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
-        public bool? SpecialPair;
+        [UiSonCollection(false)]
+        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "id", DefaultData.DefaultCutsceneNames, DefaultData.DefaultCutsceneIds)]
+        public List<int> RelationshipCutsceneDefinitionIDs = new List<int>() { -1,-1,-1,-1};
 
         public GirlPairDataMod() { }
 

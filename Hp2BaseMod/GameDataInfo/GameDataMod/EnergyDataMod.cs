@@ -15,8 +15,42 @@ namespace Hp2BaseMod.GameDataInfo
     /// Serializable information to make an EnergyDefinition
     /// </summary>
     [UiSonElement]
+    [UiSonGroup("Text", 2)]
+    [UiSonGroup("Surge", 1)]
     public class EnergyDataMod : DataMod, IGameDataMod<EnergyDefinition>
     {
+        [UiSonSelectorUi(DefaultData.TextMaterialNames, 0, "Text")]
+        public string TextMaterialName;
+
+        [UiSonMemberElement(0, "Text")]
+        public ColorInfo TextColorInfo;
+
+        [UiSonMemberElement(0, "Text")]
+        public ColorInfo OutlineColorInfo;
+
+        [UiSonMemberElement(0, "Text")]
+        public ColorInfo ShadowColorInfo;
+
+        [UiSonMemberElement(0, "Surge")]
+        public ColorInfo SurgeColorInfo;
+
+        [UiSonSelectorUi(DefaultData.GirlExpressionTypeNullable_As_String, 0, "Surge")]
+        public GirlExpressionType? SurgeExpression;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Surge")]
+        public bool? SurgeEyesClosed;
+        public GirlExpressionType? NegSurgeExpression;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Surge")]
+        public bool? NegSurgeEyesClosed;
+        public GirlExpressionType? BossSurgeExpression;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Surge")]
+        public bool? BossSurgeEyesClosed;
+
+        [UiSonMemberElement(0, "Surge")]
+        public List<SpriteInfo> SurgeSprites;
+
         [UiSonMemberElement]
         public List<SpriteInfo> BurstSprites;
 
@@ -25,38 +59,6 @@ namespace Hp2BaseMod.GameDataInfo
 
         [UiSonMemberElement]
         public List<SpriteInfo> SplashSprites;
-
-        [UiSonMemberElement]
-        public List<SpriteInfo> SurgeSprites;
-
-        [UiSonSelectorUi(DefaultData.TextMaterialNames)]
-        public string TextMaterialName;
-
-        [UiSonMemberElement]
-        public ColorInfo TextColorInfo;
-
-        [UiSonMemberElement]
-        public ColorInfo OutlineColorInfo;
-
-        [UiSonMemberElement]
-        public ColorInfo ShadowColorInfo;
-
-        [UiSonMemberElement]
-        public ColorInfo SurgeColorInfo;
-
-        [UiSonSelectorUi(DefaultData.GirlExpressionTypeNullable_As_String)]
-        public GirlExpressionType? SurgeExpression;
-
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
-        public bool? SurgeEyesClosed;
-        public GirlExpressionType? NegSurgeExpression;
-
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
-        public bool? NegSurgeEyesClosed;
-        public GirlExpressionType? BossSurgeExpression;
-
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
-        public bool? BossSurgeEyesClosed;
 
         public EnergyDataMod() { }
 

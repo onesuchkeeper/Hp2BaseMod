@@ -11,6 +11,7 @@ namespace Hp2BaseMod.GameDataInfo
 	/// Serializable information to make a TokenDefinition
 	/// </summary>
 	[UiSonElement]
+	[UiSonGroup("Sprites", -1)]
 	public class TokenDataMod : DataMod, IGameDataMod<TokenDefinition>
 	{
 		[UiSonTextEditUi]
@@ -28,6 +29,9 @@ namespace Hp2BaseMod.GameDataInfo
 		[UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable_As_String)]
 		public PuzzleAffectionType? AffectionType;
 
+		[UiSonElementSelectorUi(nameof(EnergyDataMod), 0, null, "Id", DefaultData.DefaultEnergyNames, DefaultData.DefaultEnergyIds)]
+		public int? EnergyDefinitionID;
+
 		[UiSonTextEditUi]
 		public int? Weight;
 
@@ -40,26 +44,23 @@ namespace Hp2BaseMod.GameDataInfo
 		[UiSonSelectorUi(DefaultData.NullableBoolOptions)]
 		public bool? Negative;
 
-		[UiSonSelectorUi(DefaultData.NullableBoolOptions)]
-		public bool? AltBonusSprite;
-
-		[UiSonMemberElement]
-		public SpriteInfo TokenSpriteInfo;
-
-		[UiSonMemberElement]
-		public SpriteInfo OverSpriteInfo;
-
-		[UiSonMemberElement]
-		public SpriteInfo AltTokenSpriteInfo;
-
-		[UiSonMemberElement]
-		public SpriteInfo AltOverSpriteInfo;
-
-		[UiSonElementSelectorUi(nameof(EnergyDataMod), 0, null, "Id", DefaultData.DefaultEnergyNames, DefaultData.DefaultEnergyIds)]
-		public int? EnergyDefinitionID;
-
 		[UiSonMemberElement]
 		public AudioKlipInfo SfxMatchInfo;
+
+		[UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Sprites")]
+		public bool? AltBonusSprite;
+
+		[UiSonMemberElement(0, "Sprites")]
+		public SpriteInfo TokenSpriteInfo;
+
+		[UiSonMemberElement(0, "Sprites")]
+		public SpriteInfo OverSpriteInfo;
+
+		[UiSonMemberElement(0, "Sprites")]
+		public SpriteInfo AltTokenSpriteInfo;
+
+		[UiSonMemberElement(0, "Sprites")]
+		public SpriteInfo AltOverSpriteInfo;
 
 		public TokenDataMod() { }
 
