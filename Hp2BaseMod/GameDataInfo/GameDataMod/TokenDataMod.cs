@@ -13,21 +13,52 @@ namespace Hp2BaseMod.GameDataInfo
 	[UiSonElement]
 	public class TokenDataMod : DataMod, IGameDataMod<TokenDefinition>
 	{
+		[UiSonTextEditUi]
 		public string TokenName;
+
+		[UiSonSelectorUi(DefaultData.TokenResourceNames)]
 		public string ResourceName;
+
+		[UiSonTextEditUi]
 		public string ResourceSign;
+
+		[UiSonSelectorUi(DefaultData.PuzzleResourceTypeNullable_As_String)]
 		public PuzzleResourceType? ResourceType;
+
+		[UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable_As_String)]
 		public PuzzleAffectionType? AffectionType;
+
+		[UiSonTextEditUi]
 		public int? Weight;
+
+		[UiSonTextEditUi]
 		public int[] DifficultyWeightOffset;
+
+		[UiSonTextEditUi]
 		public int? BonusWeight;
+
+		[UiSonSelectorUi(DefaultData.NullableBoolOptions)]
 		public bool? Negative;
+
+		[UiSonSelectorUi(DefaultData.NullableBoolOptions)]
 		public bool? AltBonusSprite;
+
+		[UiSonMemberElement]
 		public SpriteInfo TokenSpriteInfo;
+
+		[UiSonMemberElement]
 		public SpriteInfo OverSpriteInfo;
+
+		[UiSonMemberElement]
 		public SpriteInfo AltTokenSpriteInfo;
+
+		[UiSonMemberElement]
 		public SpriteInfo AltOverSpriteInfo;
+
+		[UiSonElementSelectorUi(nameof(EnergyDataMod), 0, null, "Id", DefaultData.DefaultEnergyNames, DefaultData.DefaultEnergyIds)]
 		public int? EnergyDefinitionID;
+
+		[UiSonMemberElement]
 		public AudioKlipInfo SfxMatchInfo;
 
 		public TokenDataMod() { }

@@ -6,6 +6,7 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -14,22 +15,55 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class AilmentTriggerInfo : IGameDataInfo<AilmentTriggerSubDefinition>
     {
+        [UiSonSelectorUi(DefaultData.AilmentTriggerTypeNullable_As_String)]
         public AilmentTriggerType? TriggerType;
+
+        [UiSonSelectorUi(DefaultData.AilmentTriggerStepsProcessTypeNullable_As_String)]
         public AilmentTriggerStepsProcessType? StepsProcessType;
+
+        [UiSonSliderUi(0, 100, 3)]
         public float? PerentChance;
+
+        [UiSonTextEditUi]
         public int? ThresholdValue;
+
+        [UiSonTextEditUi]
         public int? ExecuteLimit;
+
+        [UiSonTextEditUi]
         public int? VerbalizedIndex;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? FocusMatters;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? OnUnfocused;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? ExhaustionMatters;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? OnExhausted;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? UpsetMatters;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? OnUpset;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? ThresholdPersistent;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? DefaultDisabled;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? Audibalized;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? Verbalized;
+
+        [UiSonMemberElement]
         public List<AilmentStepInfo> StepInfos;
 
         public AilmentTriggerInfo() { }

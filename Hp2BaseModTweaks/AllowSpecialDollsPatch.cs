@@ -16,7 +16,8 @@ namespace Hp2BaseModTweaks
 
             var _specialEffectAccess = AccessTools.Field(typeof(UiDoll), "_specialEffect");
 
-            if (_specialEffectAccess.GetValue(__instance) as UiDollSpecialEffect == null && __instance.soulGirlDefinition?.specialEffectPrefab != null)
+            if (_specialEffectAccess.GetValue(__instance) as UiDollSpecialEffect == null
+                && __instance.soulGirlDefinition?.specialEffectPrefab != null)
             {
                 var specialEffectInstance = UnityEngine.Object.Instantiate(__instance.soulGirlDefinition.specialEffectPrefab);
 

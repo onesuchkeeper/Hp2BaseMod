@@ -134,7 +134,7 @@ namespace Hp2BaseMod.ModLoader
 
                 modInterface.LogTitle("Applying Game Data Patch");
                 modInterface.IncreaseLogIndent();
-                GameDataPatcher.Patch(harmony);
+                GameDataPatcher.Patch(harmony, true);
                 modInterface.LogLine("Finished!");
                 modInterface.DecreaseLogIndent();
 

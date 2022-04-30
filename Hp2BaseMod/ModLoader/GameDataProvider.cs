@@ -18,7 +18,7 @@ namespace Hp2BaseMod.ModLoader
 
         public AbilityDefinition GetAbility(int? id)
         {
-            if (id.HasValue)
+            if (id.HasValue && id.Value != -1)
             {
                 var result = _decorated.Abilities.Get(id.Value);
 
@@ -32,7 +32,7 @@ namespace Hp2BaseMod.ModLoader
 
         public DlcDefinition GetDlc(int? id)
         {
-            if (id.HasValue)
+            if (id.HasValue && id.Value != -1)
             {
                 var result = _decorated.Dlcs.Get(id.Value);
 
@@ -46,7 +46,7 @@ namespace Hp2BaseMod.ModLoader
 
         public PauseDefinition GetPause(int? id)
         {
-            if (id.HasValue)
+            if (id.HasValue && id.Value != -1)
             {
                 var result = _decorated.Pause.Get(id.Value);
 
@@ -60,7 +60,7 @@ namespace Hp2BaseMod.ModLoader
 
         public LocationDefinition GetLocation(int? id)
         {
-            if (id.HasValue)
+            if (id.HasValue && id.Value != -1)
             {
                 var result = _decorated.Locations.Get(id.Value);
 
@@ -74,7 +74,7 @@ namespace Hp2BaseMod.ModLoader
 
         public GirlDefinition GetGirl(int? id)
         {
-            if (id.HasValue)
+            if (id.HasValue && id.Value != -1)
             {
                 var result = _decorated.Girls.Get(id.Value);
 
@@ -88,7 +88,7 @@ namespace Hp2BaseMod.ModLoader
 
         public GirlPairDefinition GetGirlPair(int? id)
         {
-            if (id.HasValue)
+            if (id.HasValue && id.Value != -1)
             {
                 var result = _decorated.GirlPairs.Get(id.Value);
 
@@ -102,7 +102,7 @@ namespace Hp2BaseMod.ModLoader
 
         public PhotoDefinition GetPhoto(int? id)
         {
-            if (id.HasValue)
+            if (id.HasValue && id.Value != -1)
             {
                 var result = _decorated.Photos.Get(id.Value);
 
@@ -116,7 +116,7 @@ namespace Hp2BaseMod.ModLoader
 
         public ItemDefinition GetItem(int? id)
         {
-            if (id.HasValue)
+            if (id.HasValue && id.Value != -1)
             {
                 var result = _decorated.Items.Get(id.Value);
 
@@ -130,7 +130,7 @@ namespace Hp2BaseMod.ModLoader
 
         public TokenDefinition GetToken(int? id)
         {
-            if (id.HasValue)
+            if (id.HasValue && id.Value != -1)
             {
                 var result = _decorated.Tokens.Get(id.Value);
 
@@ -144,7 +144,7 @@ namespace Hp2BaseMod.ModLoader
 
         public AilmentDefinition GetAilment(int? id)
         {
-            if (id.HasValue)
+            if (id.HasValue && id.Value != -1)
             {
                 var result = _decorated.Ailments.Get(id.Value);
 
@@ -158,7 +158,7 @@ namespace Hp2BaseMod.ModLoader
 
         public DialogTriggerDefinition GetDialogTrigger(int? id)
         {
-            if (id.HasValue)
+            if (id.HasValue && id.Value != -1)
             {
                 var result = _decorated.DialogTriggers.Get(id.Value);
 
@@ -172,7 +172,7 @@ namespace Hp2BaseMod.ModLoader
 
         public QuestionDefinition GetQuestion(int? id)
         {
-            if (id.HasValue)
+            if (id.HasValue && id.Value != -1)
             {
                 var result = _decorated.Questions.Get(id.Value);
 
@@ -186,7 +186,7 @@ namespace Hp2BaseMod.ModLoader
 
         public CutsceneDefinition GetCutscene(int? id)
         {
-            if (id.HasValue)
+            if (id.HasValue && id.Value != -1)
             {
                 var result = _decorated.Cutscenes.Get(id.Value);
 
@@ -200,7 +200,7 @@ namespace Hp2BaseMod.ModLoader
 
         public EnergyDefinition GetEnergy(int? id)
         {
-            if (id.HasValue)
+            if (id.HasValue && id.Value != -1)
             {
                 var result = _decorated.Energy.Get(id.Value);
 
@@ -214,7 +214,7 @@ namespace Hp2BaseMod.ModLoader
 
         public CodeDefinition GetCode(int? id)
         {
-            if (id.HasValue)
+            if (id.HasValue && id.Value != -1)
             {
                 var result = _decorated.Codes.Get(id.Value);
 

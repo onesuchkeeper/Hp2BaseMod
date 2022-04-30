@@ -81,10 +81,10 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public int? AilmentIndex;
 
-        [UiSonSelectorUi(DefaultData.DefaultAilmentNames, 0, null, DefaultData.DefaultAilmentIds)]
+        [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, null, "Id", DefaultData.DefaultAilmentNames, DefaultData.DefaultAilmentIds)]
         public int? AilmentDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.DefaultEnergyIds, 0, null, DefaultData.DefaultEnergyIds)]
+        [UiSonElementSelectorUi(nameof(EnergyDataMod), 0, null, "Id", DefaultData.DefaultEnergyIds, DefaultData.DefaultEnergyIds)]
         public int? EnergyDefinitionID;
 
         [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
@@ -117,7 +117,7 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public List<string> CombineValues;
 
-        [UiSonSelectorUi(DefaultData.DefaultTokenNames, 0, null, DefaultData.DefaultTokenIds)]
+        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "Id", DefaultData.DefaultTokenNames, DefaultData.DefaultTokenIds)]
         public List<int> TokenDefinitionIDs;
 
         /// <summary>

@@ -41,7 +41,7 @@ namespace Hp2BaseModTweaks
 
             var path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "hp2basemodtweaksprefabs");
 
-            if (!File.Exists(path)) { throw new Exception("File doesn't exist: " + path); }
+            if (!File.Exists(path)) { throw new Exception($"File doesn't exist: {path}"); }
 
             var bundle = AssetBundle.LoadFromFile(path);
 

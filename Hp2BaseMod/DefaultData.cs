@@ -1,17 +1,22 @@
 // Hp2BaseMod 2022, by OneSuchKeeper
-// This file was auto-generated on 4/28/2022 12:33:56 AM. Changes made manually may be overridden.
+// This file was auto-generated on 4/29/2022 7:54:49 PM. Changes made manually may be overridden.
 
 using UiSon.Attribute;
 using System;
 
 namespace Hp2BaseMod{
     [UiSonStringArray("NullableBoolOptions", new string [] { "null", "True", "False", })]
-    [UiSonStringArray("SpecialStepPrefabNames", new string [] { "null", "CutsceneStepForceShowAilments", "CutsceneStepPostRewards", "CutsceneStepRoundClear", })]
-    [UiSonStringArray("BannerTextPrefabNames", new string [] { "null", "BannerTextSuccess", "BannerTextFailure", "BannerTextBonusRound", "BannerTextRoundClear", "BannerTextCompatibility", "BannerTextAttraction", })]
-    [UiSonStringArray("WindowPrefabNames", new string [] { "null", "PhotosWindow", "ItemNotifierWindow", })]
+    [UiSonStringArray("SpecialStepNames", new string [] { "null", "CutsceneStepForceShowAilments", "CutsceneStepPostRewards", "CutsceneStepRoundClear", })]
+    [UiSonStringArray("BannerTextNames", new string [] { "null", "BannerTextFailure", "BannerTextBonusRound", "BannerTextSuccess", "BannerTextAttraction", "BannerTextRoundClear", "BannerTextCompatibility", })]
+    [UiSonStringArray("UiWindowNames", new string [] { "null", "PhotosWindow", "ItemNotifierWindow", "KyuButtWindow", })]
     [UiSonStringArray("TextMaterialNames", new string [] { "null", "stm_talent", "stm_flirtation", "stm_romance", "stm_sexuality", "stm_passion", "stm_broken", "stm_joy", "stm_sentiment", "stm_stamina", })]
+    [UiSonStringArray("EmitterNames", new string [] { "null", "EmitterSummon", })]
+    [UiSonStringArray("UiDollSpecialEffectNames", new string [] { "null", "FairyWingsKyu", "GloWingsMoxie", "GloWingsJewn", })]
+    [UiSonStringArray("TokenResourceNames", new string [] { "null", "Stamina", "Sentiment", "Move", "!?", "Passion", })]
     [UiSonStringArray("DefaultMeetingLocationNames", new string [] { "null", "Tourist Plaza", "Boardwalk", "Surf Shack", "Courtyard", "Gift Shop", "Airport", "Hotel Lobby", "Marina", })]
     [UiSonStringArray("DefaultMeetingLocationIds", new string [] { "null", "1", "2", "3", "4", "5", "6", "7", "8", })]
+    [UiSonStringArray("EaseTypeNames", new string [] { "null", "Unset", "Linear", "InSine", "OutSine", "InOutSine", "InQuad", "OutQuad", "InOutQuad", "InCubic", "OutCubic", "InOutCubic", "InQuart", "OutQuart", "InOutQuart", "InQuint", "OutQuint", "InOutQuint", "InExpo", "OutExpo", "InOutExpo", "InCirc", "OutCirc", "InOutCirc", "InElastic", "OutElastic", "InOutElastic", "InBack", "OutBack", "InOutBack", "InBounce", "OutBounce", "InOutBounce", "Flash", "InFlash", "OutFlash", "InOutFlash", "INTERNAL_Zero", "INTERNAL_Custom", })]
+    [UiSonStringArray("EaseTypeIds", new string [] { "null", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", })]
 
     [UiSonStringArray("InsertStyle_As_String", typeof(InsertStyle), typeof(String))]
     [UiSonStringArray("GirlStyleTypeNullable_As_String", typeof(GirlStyleType?), typeof(String))]
@@ -40,6 +45,33 @@ namespace Hp2BaseMod{
     [UiSonStringArray("AilmentStepTypeNullable_As_String", typeof(AilmentStepType?), typeof(String))]
     [UiSonStringArray("AilmentFlagTypeNullable_As_String", typeof(AilmentFlagType?), typeof(String))]
     [UiSonStringArray("NumberComparisonTypeNullable_As_String", typeof(NumberComparisonType?), typeof(String))]
+    [UiSonStringArray("ItemGiveConditionTypeNullable_As_String", typeof(ItemGiveConditionType?), typeof(String))]
+    [UiSonStringArray("SettingDifficultyNullable_As_String", typeof(SettingDifficulty?), typeof(String))]
+    [UiSonStringArray("ItemDateGiftTypeNullable_As_String", typeof(ItemDateGiftType?), typeof(String))]
+    [UiSonStringArray("LocationTypeNullable_As_String", typeof(LocationType?), typeof(String))]
+    [UiSonStringArray("AilmentTriggerTypeNullable_As_String", typeof(AilmentTriggerType?), typeof(String))]
+    [UiSonStringArray("AilmentTriggerStepsProcessTypeNullable_As_String", typeof(AilmentTriggerStepsProcessType?), typeof(String))]
+    [UiSonStringArray("CutsceneStepTypeNullable_As_String", typeof(CutsceneStepType?), typeof(String))]
+    [UiSonStringArray("CutsceneStepProceedTypeNullable_As_String", typeof(CutsceneStepProceedType?), typeof(String))]
+    [UiSonStringArray("CutsceneStepDollTargetTypeNullable_As_String", typeof(CutsceneStepDollTargetType?), typeof(String))]
+    [UiSonStringArray("DollOrientationTypeNullable_As_String", typeof(DollOrientationType?), typeof(String))]
+    [UiSonStringArray("DollPositionTypeNullable_As_String", typeof(DollPositionType?), typeof(String))]
+    [UiSonStringArray("CutsceneStepAnimationTypeNullable_As_String", typeof(CutsceneStepAnimationType?), typeof(String))]
+    [UiSonStringArray("CutsceneStepSubCutsceneTypeNullable_As_String", typeof(CutsceneStepSubCutsceneType?), typeof(String))]
+    [UiSonStringArray("CutsceneStepNotificationTypeNullable_As_String", typeof(CutsceneStepNotificationType?), typeof(String))]
+    [UiSonStringArray("GirlPairRelationshipTypeNullable_As_String", typeof(GirlPairRelationshipType?), typeof(String))]
+    [UiSonStringArray("GiftConditionTypeNullable_As_String", typeof(GiftConditionType?), typeof(String))]
+    [UiSonStringArray("GirlPartTypeNullable_As_String", typeof(GirlPartType?), typeof(String))]
+    [UiSonStringArray("LogicActionTypeNullable_As_String", typeof(LogicActionType?), typeof(String))]
+    [UiSonStringArray("PuzzleGameStateNullable_As_String", typeof(PuzzleGameState?), typeof(String))]
+    [UiSonStringArray("LogicConditionTypeNullable_As_String", typeof(LogicConditionType?), typeof(String))]
+    [UiSonStringArray("MatchConditionTypeNullable_As_String", typeof(MatchConditionType?), typeof(String))]
+    [UiSonStringArray("MoveConditionTypeNullable_As_String", typeof(MoveConditionType?), typeof(String))]
+    [UiSonStringArray("MoveConditionTokenTypeNullable_As_String", typeof(MoveConditionTokenType?), typeof(String))]
+    [UiSonStringArray("TokenConditionTypeNullable_As_String", typeof(TokenConditionType?), typeof(String))]
+    [UiSonStringArray("TokenConditionTokenTypeNullable_As_String", typeof(TokenConditionTokenType?), typeof(String))]
+    [UiSonStringArray("GirlConditionTypeNullable_As_String", typeof(GirlConditionType?), typeof(String))]
+    [UiSonStringArray("PuzzleStatusTypeNullable_As_String", typeof(PuzzleStatusType?), typeof(String))]
 
     [UiSonStringArray("DefaultAbilityNames", new string [] { "null", "Bag.01.Lola.BusySchedule", "Bag.03.Lola.MissIndependent", "Bag.04.Jessie.Depression", "Bag.04.Jessie.Depression2", "Bag.05.Jessie.Emphysema", "Bag.08.Lillian.Asthma", "Bag.12.Zoey.KindaCrazy", "Bag.19.Candace.IntellectuallyChallenged", "Bag.20.Candace.Hypersensitive", "Bag.20.Candace.Hypersensitive2", "Bag.21.Candace.Forgetful", "Bag.21.Candace.Forgetful2", "Bag.23.Nora.AbandonmentIssues", "Bag.24.Nora.Vindictive", "Bag.24.Nora.Vindictive2", "Bag.25.Brooke.GoldDigger", "Bag.29.Ashley.EasilyBored", "Bag.31.Abia.SelfEffacing", "Bag.32.Abia.OnePumpChump", "Bag.33.Abia.SexAddict", "Bag.34.Polly.Jealousy", "Bag.35.Polly.DramaQueen", "Bag.35.Polly.DramaQueen2", "Date.Cosmetics.01.ExfoliatingScrub", "Date.Cosmetics.03.EyelashKit", "Date.Cosmetics.04.PowderBrush", "Date.Cosmetics.05.MakeupPalette", "Date.Cosmetics.06.Lipstick", "Date.Cosmetics.07.Moisturizer", "Date.Hygiene.01.SanitaryPad", "Date.Hygiene.01.SanitaryPad2", "Date.Hygiene.02.Tampon", "Date.Hygiene.02.Tampon2", "Date.Hygiene.03.FeminineWash", "Date.Hygiene.03.FeminineWash2", "Date.Hygiene.04.FeminineCream", "Date.Hygiene.04.FeminineCream2", "Date.Hygiene.05.FeminineWipes", "Date.Hygiene.05.FeminineWipes2", "Date.Hygiene.06.Douche", "Date.Hygiene.06.Douche2", "Date.Hygiene.06.Douche3", "Date.Hygiene.06.Douche4", "Auto.BonusConvertPassionTokens", "Auto.BonusConvertSentimentTokens", "Auto.DestroyBottomRow", "Auto.DestroyBottomTwoRows", "Auto.DestroyBrokenHeartTokens", "Auto.DestroyNonBonusTokens", "Auto.DowngradeAllPowerTokens", "Gift.Cosmetics.08.HairBrush", "Gift.Cosmetics.09.Foundation", "Gift.Cosmetics.10.BlowDryer", "Gift.Flower.01.BlueOrchid", "Gift.Flower.02.GreenClover", "Gift.Flower.03.OrangeDaisy", "Gift.Flower.04.RedRose", "Gift.Flower.05.PinkCosmos", "Gift.Flower.06.VioletPansy", "Gift.Flower.07.TurquoiseTulip", "Gift.Flower.08.YellowNarcissus", "Gift.Flower.09.WhiteLily", "Gift.Hygiene.01.SanitaryPad", "Gift.Hygiene.01.SanitaryPad-ALT", "Gift.Hygiene.02.Tampon", "Gift.Hygiene.02.Tampon-ALT", "Gift.Hygiene.03.FeminineWash", "Gift.Hygiene.04.FeminineCream", "Gift.Hygiene.05.FeminineWipes", "Gift.Hygiene.06.Douche", "Gift.Hygiene.06.Douche-ALT", "Gift.Jewelry.01.SapphireRing", "Gift.Jewelry.02.EmeraldBracelet", "Gift.Jewelry.03.CitrineBracelet", "Gift.Jewelry.04.RubyRing", "Gift.Jewelry.05.SpinelNecklace", "Gift.Jewelry.06.AmethystNecklace", "Gift.Jewelry.07.AquamarineEarrings", "Gift.Jewelry.08.TopazEarrings", "Gift.Jewelry.09.DiamondTiara", "Gift.Plushies.01.PeacockPlush", "Gift.Plushies.02.FrogPlush", "Gift.Plushies.03.GoldfishPlush", "Gift.Plushies.04.LadybugPlush", "Gift.Plushies.05.PigPlush", "Gift.Plushies.06.OctopusPlush", "Gift.Plushies.07.ElephantPlush", "Gift.Plushies.08.ChickPlush", "Gift.Plushies.09.BunnyPlush", "Gift.Plushies.10.FoxPlush", "Gift.Plushies.11.CowPlush", "Gift.SexToys.01.MagicWand", "Gift.SexToys.04.AnalBeads", "Gift.SexToys.05.Lube", "Gift.Souvenirs.01.BeachBall", "Gift.Souvenirs.02.InnerTube", "Gift.Souvenirs.03.TikiHeadCharm", "Gift.Souvenirs.04.Surfboard", "Gift.Souvenirs.05.SnorkelMask", "Gift.Souvenirs.06.Flippers", "Gift.Souvenirs.07.SuntanLotion", "Gift.Souvenirs.08.BeachTowel", "Gift.Souvenirs.09.TropicalLei", "Gift.Souvenirs.10.CeramicFish", "Gift.Souvenirs.11.Pinwheel", "Gift.Souvenirs.12.HempBracelet", "Gift.Souvenirs.13.GlassDolphin", "Gift.Souvenirs.14.Postcard", "Gift.Souvenirs.15.SnowGlobe", "Food.American.01.FriedChicken", "Food.American.02.HotDog", "Food.American.03.Hamburger", "Food.American.04.CornOnTheCob", "Food.Candy.01.CandyNecklace", "Food.Candy.02.CottonCandy", "Food.Candy.03.ChocolateDrops", "Food.Candy.04.FudgeTruffles", "Food.Desserts.01.Cupcake", "Food.Desserts.02.CinnamonBun", "Food.Desserts.03.SliceOfPie", "Food.Desserts.04.ShavedIce", "Food.French.01.Croissant", "Food.French.02.Crepe", "Food.French.03.Baguette", "Food.French.04.Quiche", "Food.Italian.01.Pizza", "Food.Italian.02.Bruschetta", "Food.Italian.03.Lasagna", "Food.Italian.04.Ravioli", "Food.Japanese.01.Sushi", "Food.Japanese.02.RiceBall", "Food.Japanese.03.BentoBox", "Food.Japanese.04.Ramen", "Food.Mexican.01.Taco", "Food.Mexican.02.Nachos", "Food.Mexican.03.Burrito", "Food.Mexican.04.Guacamole", "Food.Seafood.01.Shrimp", "Food.Seafood.02.GrilledSalmon", "Food.Seafood.03.Mussels", "Food.Seafood.04.LobsterTail", })]
     [UiSonStringArray("DefaultAbilityIds", new string [] { "null", "74", "75", "76", "142", "77", "78", "126", "143", "79", "144", "81", "80", "84", "82", "83", "85", "86", "148", "90", "87", "91", "92", "145", "128", "129", "134", "131", "130", "127", "94", "95", "96", "97", "103", "104", "107", "108", "105", "106", "138", "139", "140", "141", "31", "32", "147", "30", "146", "29", "33", "133", "135", "132", "1", "2", "3", "4", "5", "6", "7", "8", "9", "98", "89", "99", "93", "100", "102", "101", "137", "88", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "149", "125", "136", "124", "109", "110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "120", "121", "122", "123", "35", "36", "37", "38", "39", "42", "40", "41", "44", "45", "46", "48", "49", "53", "50", "51", "54", "56", "58", "57", "59", "60", "61", "62", "68", "67", "64", "66", "69", "72", "71", "73", })]
@@ -71,12 +103,17 @@ namespace Hp2BaseMod{
     [UiSonStringArray("DefaultTokenIds", new string [] { "null", "1", "2", "3", "4", "5", "6", "7", "8", "9", })]
    public static class DefaultData{
        public const string NullableBoolOptions = "NullableBoolOptions";
-       public const string SpecialStepPrefabNames = "SpecialStepPrefabNames";
-       public const string BannerTextPrefabNames = "BannerTextPrefabNames";
-       public const string WindowPrefabNames = "WindowPrefabNames";
+       public const string SpecialStepNames = "SpecialStepNames";
+       public const string BannerTextNames = "BannerTextNames";
+       public const string UiWindowNames = "UiWindowNames";
        public const string TextMaterialNames = "TextMaterialNames";
+       public const string EmitterNames = "EmitterNames";
+       public const string UiDollSpecialEffectNames = "UiDollSpecialEffectNames";
+       public const string TokenResourceNames = "TokenResourceNames";
        public const string DefaultMeetingLocationNames = "DefaultMeetingLocationNames";
        public const string DefaultMeetingLocationIds = "DefaultMeetingLocationIds";
+       public const string EaseTypeNames = "EaseTypeNames";
+       public const string EaseTypeIds = "EaseTypeIds";
 
        public const string InsertStyle_As_String = "InsertStyle_As_String";
        public const string GirlStyleTypeNullable_As_String = "GirlStyleTypeNullable_As_String";
@@ -105,6 +142,33 @@ namespace Hp2BaseMod{
        public const string AilmentStepTypeNullable_As_String = "AilmentStepTypeNullable_As_String";
        public const string AilmentFlagTypeNullable_As_String = "AilmentFlagTypeNullable_As_String";
        public const string NumberComparisonTypeNullable_As_String = "NumberComparisonTypeNullable_As_String";
+       public const string ItemGiveConditionTypeNullable_As_String = "ItemGiveConditionTypeNullable_As_String";
+       public const string SettingDifficultyNullable_As_String = "SettingDifficultyNullable_As_String";
+       public const string ItemDateGiftTypeNullable_As_String = "ItemDateGiftTypeNullable_As_String";
+       public const string LocationTypeNullable_As_String = "LocationTypeNullable_As_String";
+       public const string AilmentTriggerTypeNullable_As_String = "AilmentTriggerTypeNullable_As_String";
+       public const string AilmentTriggerStepsProcessTypeNullable_As_String = "AilmentTriggerStepsProcessTypeNullable_As_String";
+       public const string CutsceneStepTypeNullable_As_String = "CutsceneStepTypeNullable_As_String";
+       public const string CutsceneStepProceedTypeNullable_As_String = "CutsceneStepProceedTypeNullable_As_String";
+       public const string CutsceneStepDollTargetTypeNullable_As_String = "CutsceneStepDollTargetTypeNullable_As_String";
+       public const string DollOrientationTypeNullable_As_String = "DollOrientationTypeNullable_As_String";
+       public const string DollPositionTypeNullable_As_String = "DollPositionTypeNullable_As_String";
+       public const string CutsceneStepAnimationTypeNullable_As_String = "CutsceneStepAnimationTypeNullable_As_String";
+       public const string CutsceneStepSubCutsceneTypeNullable_As_String = "CutsceneStepSubCutsceneTypeNullable_As_String";
+       public const string CutsceneStepNotificationTypeNullable_As_String = "CutsceneStepNotificationTypeNullable_As_String";
+       public const string GirlPairRelationshipTypeNullable_As_String = "GirlPairRelationshipTypeNullable_As_String";
+       public const string GiftConditionTypeNullable_As_String = "GiftConditionTypeNullable_As_String";
+       public const string GirlPartTypeNullable_As_String = "GirlPartTypeNullable_As_String";
+       public const string LogicActionTypeNullable_As_String = "LogicActionTypeNullable_As_String";
+       public const string PuzzleGameStateNullable_As_String = "PuzzleGameStateNullable_As_String";
+       public const string LogicConditionTypeNullable_As_String = "LogicConditionTypeNullable_As_String";
+       public const string MatchConditionTypeNullable_As_String = "MatchConditionTypeNullable_As_String";
+       public const string MoveConditionTypeNullable_As_String = "MoveConditionTypeNullable_As_String";
+       public const string MoveConditionTokenTypeNullable_As_String = "MoveConditionTokenTypeNullable_As_String";
+       public const string TokenConditionTypeNullable_As_String = "TokenConditionTypeNullable_As_String";
+       public const string TokenConditionTokenTypeNullable_As_String = "TokenConditionTokenTypeNullable_As_String";
+       public const string GirlConditionTypeNullable_As_String = "GirlConditionTypeNullable_As_String";
+       public const string PuzzleStatusTypeNullable_As_String = "PuzzleStatusTypeNullable_As_String";
 
        public const string DefaultAbilityNames = "DefaultAbilityNames";
        public const string DefaultAbilityIds = "DefaultAbilityIds";

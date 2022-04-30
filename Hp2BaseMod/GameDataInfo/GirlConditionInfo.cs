@@ -4,6 +4,7 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -12,9 +13,16 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class GirlConditionInfo : IGameDataInfo<GirlCondition>
     {
+        [UiSonSelectorUi(DefaultData.GirlConditionTypeNullable_As_String)]
         public GirlConditionType? Type;
+
+        [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, null, "Id", DefaultData.DefaultAilmentNames, DefaultData.DefaultAilmentIds)]
         public int? AilmentDefinitionID;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? OtherGirl;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? Inverse;
 
         public GirlConditionInfo() { }

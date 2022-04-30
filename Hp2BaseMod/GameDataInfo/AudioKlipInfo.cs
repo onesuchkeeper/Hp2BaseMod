@@ -4,6 +4,7 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -12,7 +13,10 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class AudioKlipInfo : IGameDataInfo<AudioKlip>
     {
+        [UiSonMemberElement]
         public AudioClipInfo AudioClipInfo;
+
+        [UiSonSliderUi(0, 1, 3)]
         public float? Volume;
 
         public AudioKlipInfo() { }

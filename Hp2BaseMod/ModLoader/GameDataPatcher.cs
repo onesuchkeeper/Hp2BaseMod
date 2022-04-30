@@ -2,14 +2,13 @@
 
 using HarmonyLib;
 using Hp2BaseMod.GameDataInfo;
+using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.Utility;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
 using System.Linq;
-using Hp2BaseMod.GameDataInfo.Interface;
 
 namespace Hp2BaseMod.ModLoader
 {
@@ -19,12 +18,14 @@ namespace Hp2BaseMod.ModLoader
     internal static class GameDataPatcher
     {
         private static readonly string _defaultDataDir = @"mods\DefaultData";
-        private static bool _devMode = false;
+        private static bool _isDevMode = false;
 
-        public static void Patch(Harmony harmony)
+        public static void Patch(Harmony harmony, bool isDevMode)
         {
             try
             {
+                _isDevMode = isDevMode;
+
                 var mOrigional = AccessTools.Constructor(typeof(GameData));
                 var mPostfix = SymbolExtensions.GetMethodInfo(() => AddRemoveData(null));
 
@@ -35,12 +36,14 @@ namespace Hp2BaseMod.ModLoader
                 ModInterface.Instance.LogLine("EXCEPTION GameDataPatcher: " + e.Message);
             }
         }
+
         private static void AddRemoveData(GameData __instance)
         {
             ModInterface.Instance.LogTitle("Modifying GameData");
             ModInterface.Instance.IncreaseLogIndent();
 
-            //Hp2UiSonUtility.MakeDefaultDataDotCs(__instance);
+            Hp2UiSonUtility.MakeDefaultDataDotCs(__instance);
+            return;
 
             //grab dicts
             var abilityDataDict = GetDataDict<AbilityDefinition>(__instance, typeof(AbilityData), "_abilityData");
@@ -63,7 +66,7 @@ namespace Hp2BaseMod.ModLoader
             assetProvider.AddAsset("None", null);
             var gameDataProvider = new GameDataProvider(__instance);
 
-            if (_devMode)
+            if (_isDevMode)
             {
                 ModInterface.Instance.LogLine("Generating Dev Files");
                 ModInterface.Instance.IncreaseLogIndent();
@@ -82,6 +85,12 @@ namespace Hp2BaseMod.ModLoader
                 SaveDataMods(codeDataDict.Select(x => new CodeDataMod(x.Value)), nameof(CodeDataMod));
                 SaveDataMods(dlcDataDict.Select(x => new DlcDataMod(x.Value)), nameof(DlcDataMod));
                 ModInterface.Instance.LogLine("done");
+                ModInterface.Instance.DecreaseLogIndent();
+
+                ModInterface.Instance.LogLine("Generating Prefabs File");
+                ModInterface.Instance.IncreaseLogIndent();
+                assetProvider.SaveToFolder(Path.Combine(_defaultDataDir, "InternalData"));
+                ModInterface.Instance.LogLine("Done");
                 ModInterface.Instance.DecreaseLogIndent();
             }
             else

@@ -5,6 +5,7 @@ using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -13,13 +14,28 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class DialogLineInfo : IGameDataInfo<DialogLine>
     {
+        [UiSonTextEditUi]
         public string DialogText;
+
+        [UiSonTextEditUi]
         public string YuriDialogText;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? Yuri;
+
+        [UiSonMemberElement]
         public AudioClipInfo YuriAudioClipInfo;
+
+        [UiSonMemberElement]
         public AudioClipInfo AudioClipInfo;
+
+        [UiSonMemberElement]
         public DialogLineExpression StartExpression;
+
+        [UiSonMemberElement]
         public DialogLineExpression EndExpression;
+
+        [UiSonMemberElement]
         public List<DialogLineExpression> Expressions;
 
         public DialogLineInfo() { }

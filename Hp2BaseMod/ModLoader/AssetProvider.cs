@@ -1,6 +1,9 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEngine;
 
 namespace Hp2BaseMod.ModLoader
@@ -10,14 +13,14 @@ namespace Hp2BaseMod.ModLoader
     /// </summary>
     public class AssetProvider
     {
-        private Dictionary<string, Object> Assets;
+        private Dictionary<string, UnityEngine.Object> Assets;
 
-        public AssetProvider(Dictionary<string, Object> assets)
+        public AssetProvider(Dictionary<string, UnityEngine.Object> assets)
         {
             Assets = assets;
         }
 
-        public void AddAsset(string identifier, Object asset)
+        public void AddAsset(string identifier, UnityEngine.Object asset)
         {
             if (identifier == null) { return; }
             if (!Assets.ContainsKey(identifier))
@@ -31,17 +34,17 @@ namespace Hp2BaseMod.ModLoader
             if (identifier == null) { return null; }
             if (Assets.ContainsKey(identifier))
             {
-                ModInterface.Instance.LogLine($"Loaded internal asset { identifier }");
+                ModInterface.Instance.LogLine($"Found internal asset { identifier }");
                 return Assets[identifier];
             }
             else
             {
-                ModInterface.Instance.LogLine($"Failed to load internal asset { identifier ?? "null"}");
+                ModInterface.Instance.LogLine($"Failed to find internal asset { identifier ?? "null"}");
             }
             return null;
         }
 
-        public void NameAndAddAsset(ref string target, Object unityObj)
+        public void NameAndAddAsset(ref string target, UnityEngine.Object unityObj)
         {
             if (unityObj != null)
             {
@@ -154,5 +157,29 @@ namespace Hp2BaseMod.ModLoader
         }
 
         #endregion Load
+
+        internal void SaveToFolder(string folderPath)
+        {
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            foreach (var group in Assets.Where(x => x.Value != null).GroupBy(x => x.Value.GetType()))
+            {
+                var result = string.Empty;
+
+                foreach (var asset in group)
+                {
+                    result += $"\"{asset.Key}\",";
+                }
+
+                var filePath = Path.Combine(folderPath, $"{group.Key.Name}.csv");
+
+                ModInterface.Instance.LogLine($"Dev: Saving asset file {filePath}");
+
+                File.WriteAllText(filePath, result);
+            }
+        }
     }
 }

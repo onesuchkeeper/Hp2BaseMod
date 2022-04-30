@@ -7,6 +7,7 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -15,45 +16,122 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class CutsceneStepInfo : IGameDataInfo<CutsceneStepSubDefinition>
     {
+        [UiSonSelectorUi(DefaultData.CutsceneStepTypeNullable_As_String)]
         public CutsceneStepType? StepType;
+
+        [UiSonSelectorUi(DefaultData.CutsceneStepProceedTypeNullable_As_String)]
         public CutsceneStepProceedType? ProceedType;
+
+        [UiSonSelectorUi(DefaultData.CutsceneStepDollTargetTypeNullable_As_String)]
         public CutsceneStepDollTargetType? DollTargetType;
+
+        [UiSonSelectorUi(DefaultData.DollOrientationTypeNullable_As_String)]
         public DollOrientationType? TargetDollOrientation;
+
+        [UiSonSelectorUi(DefaultData.GirlExpressionTypeNullable_As_String)]
         public GirlExpressionType? ExpressionType;
+
+        [UiSonSelectorUi(DefaultData.DollPositionTypeNullable_As_String)]
         public DollPositionType? DollPositionType;
+
+        [UiSonSelectorUi(DefaultData.CutsceneStepAnimationTypeNullable_As_String)]
         public CutsceneStepAnimationType? AnimationType;
+
+        [UiSonSelectorUi(DefaultData.CutsceneStepSubCutsceneTypeNullable_As_String)]
         public CutsceneStepSubCutsceneType? SubCutsceneType;
+
+        [UiSonSelectorUi(DefaultData.CutsceneStepNotificationTypeNullable_As_String)]
         public CutsceneStepNotificationType? NotificationType;
+
+        [UiSonSelectorUi(DefaultData.GirlPairRelationshipTypeNullable_As_String)]
         public GirlPairRelationshipType? GirlPairRelationshipType;
+
+        [UiSonSelectorUi(DefaultData.SpecialStepNames)]
         public string SpecialStepPrefabName;
+
+        [UiSonSelectorUi(DefaultData.BannerTextNames)]
         public string BannerTextPrefabName;
+
+        [UiSonSelectorUi(DefaultData.UiWindowNames)]
         public string WindowPrefabName;
+
+        [UiSonSelectorUi(DefaultData.EmitterNames)]
         public string EmitterBehaviorName;
+
+        [UiSonTextEditUi]
         public string StringValue;
+
+        [UiSonTextEditUi]
         public float? FloatValue;
+
+        [UiSonTextEditUi]
         public float? ProceedFloat;
+
+        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "Id", DefaultData.DefaultGirlNames, DefaultData.DefaultGirlIds)]
         public int? TargetGirlDefinitionID;
+
+        [UiSonTextEditUi]
         public int? IntValue;
+
+        [UiSonSelectorUi(DefaultData.EaseTypeNames, 0, null, DefaultData.EaseTypeIds)]
         public int? EaseType;
-        public int? EditorSelectedBranchIndex;
+
+        [UiSonElementSelectorUi(nameof(DialogTriggerDataMod), 0, null, "Id", DefaultData.DefaultDialogTriggerNames, DefaultData.DefaultDialogTriggerIds)]
         public int? DialogTriggerDefinitionID;
-        public int? EditorSelectedOptionIndex;
+
+        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "Id", DefaultData.DefaultGirlNames, DefaultData.DefaultGirlIds)]
         public int? GirlDefinitionID;
+
+        [UiSonTextEditUi]
         public int? ExpressionIndex;
+
+        [UiSonTextEditUi]
         public int? HairstyleIndex;
+
+        [UiSonTextEditUi]
         public int? OutfitIndex;
+
+        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "Id", DefaultData.DefaultCutsceneNames, DefaultData.DefaultCutsceneIds)]
         public int? SubCutsceneDefinitionID;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? SkipStep;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? TargetAlt;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? BoolValue;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? SetMood;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? ProceedBool;
+
+        [UiSonMemberElement]
         public VectorInfo PositionInfo;
+
+        [UiSonMemberElement]
         public AudioKlipInfo AudioKlipInfo;
+
+        [UiSonMemberElement]
         public LogicActionInfo LogicActionInfo;
+
+        [UiSonMemberElement]
         public DialogLineInfo DialogLineInfo;
+
+        [UiSonMemberElement]
         public List<CutsceneDialogOptionInfo> DialogOptionInfos;
+
+        [UiSonMemberElement]
         public List<CutsceneBranchInfo> BranchInfos;
+
+        //not used in game, probably for huniedevs editing interface
+        public int? EditorSelectedOptionIndex;
+
+        //not used in game, probably for huniedevs editing interface
+        public int? EditorSelectedBranchIndex;
 
         public CutsceneStepInfo() { }
 

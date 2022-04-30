@@ -21,6 +21,7 @@
     </Reference>
     <Reference Include="UiSon.Attribute">
       <HintPath>..\..\..\knackname\UiSon\UiSon.Attribute\bin\Debug\netstandard2.0\UiSon.Attribute.dll</HintPath>
+      <CopyLocal>True</CopyLocal>
     </Reference>
     <Reference Include="UnityEngine.AudioModule">
       <HintPath>..\lib\UnityEngine.AudioModule.dll</HintPath>

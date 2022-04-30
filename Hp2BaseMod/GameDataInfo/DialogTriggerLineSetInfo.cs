@@ -6,11 +6,13 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
     public class DialogTriggerLineSetInfo : IGameDataInfo<DialogTriggerLineSet>
     {
+        [UiSonMemberElement]
         public List<DialogLineInfo> DialogLines;
 
         public DialogTriggerLineSetInfo() { }

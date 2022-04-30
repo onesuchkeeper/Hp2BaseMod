@@ -3,7 +3,6 @@
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
-using System;
 using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
@@ -14,32 +13,85 @@ namespace Hp2BaseMod.GameDataInfo
     [UiSonElement]
     public class ItemDataMod : DataMod, IGameDataMod<ItemDefinition>
     {
+        [UiSonTextEditUi]
         public string ItemName;
+
+        [UiSonSelectorUi(DefaultData.ItemTypeNullable_As_String)]
         public ItemType? ItemType;
+
+        [UiSonTextEditUi]
         public string ItemDescription;
+
+        [UiSonElementSelectorUi(nameof(EnergyDataMod), 0, null, "Id", DefaultData.DefaultEnergyNames, DefaultData.DefaultEnergyIds)]
         public int? EnergyDefinitionID;
+
+        [UiSonMemberElement]
         public SpriteInfo ItemSpriteInfo;
+
+        [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable_As_String)]
         public PuzzleAffectionType? AffectionType;
+
+        [UiSonTextEditUi]
         public int? TooltipColorIndex;
+
+        [UiSonSelectorUi(DefaultData.ItemGiveConditionTypeNullable_As_String)]
         public ItemGiveConditionType? GiveConditionType;
+
+        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "Id", DefaultData.DefaultGirlNames, DefaultData.DefaultGirlIds)]
         public int? GirlDefinitionID;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? DifficultyExclusive;
+
+        [UiSonSelectorUi(DefaultData.SettingDifficultyNullable_As_String)]
         public SettingDifficulty? Difficulty;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? StoreSectionPreference;
+
+        [UiSonTextEditUi]
         public int? StoreCost;
+
+        [UiSonSelectorUi(DefaultData.ItemFoodTypeNullable_As_String)]
         public ItemFoodType? FoodType;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? NoStaminaCost;
+
+        [UiSonSelectorUi(DefaultData.ItemShoesTypeNullable_As_String)]
         public ItemShoesType? ShoesType;
+
+        [UiSonSelectorUi(DefaultData.ItemUniqueTypeNullable_As_String)]
         public ItemUniqueType? UniqueType;
+
+        [UiSonSelectorUi(DefaultData.ItemDateGiftTypeNullable_As_String)]
         public ItemDateGiftType? DateGiftType;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? DateGiftAilment;
+
+        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, null, "Id", DefaultData.DefaultAbilityNames, DefaultData.DefaultAbilityIds)]
         public int? AbilityDefinitionID;
+
+        [UiSonTextEditUi]
         public int? UseCost;
+
+        [UiSonSelectorUi(DefaultData.EditorDialogTriggerTabNullable_As_String)]
         public EditorDialogTriggerTab? BaggageGirl;
+
+        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "Id", DefaultData.DefaultCutsceneNames, DefaultData.DefaultCutsceneIds)]
         public int? CutsceneDefinitionID;
+
+        [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, null, "Id", DefaultData.DefaultAilmentNames, DefaultData.DefaultAilmentIds)]
         public int? AilmentDefinitionID;
+
+        [UiSonTextEditUi]
         public string CategoryDescription;
+
+        [UiSonTextEditUi]
         public string CostDescription;
+
+        [UiSonTextEditUi]
         public int? NotifierHeaderIndex;
 
         public ItemDataMod() { }

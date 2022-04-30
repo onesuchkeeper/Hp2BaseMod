@@ -15,12 +15,25 @@ namespace Hp2BaseMod.GameDataInfo
     [UiSonElement]
     public class PhotoDataMod : DataMod, IGameDataMod<PhotoDefinition>
     {
+        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, null, "Id", DefaultData.DefaultGirlPairNames, DefaultData.DefaultGirlPairIds)]
         public int? GirlPairDefinitionID;
+
+        [UiSonElementSelectorUi(nameof(PhotoDataMod), 0, null, "Id", DefaultData.DefaultPhotoNames, DefaultData.DefaultPhotoIds)]
         public int? NextPhotoDefinitionID;
+
+        [UiSonMemberElement]
         public List<SpriteInfo> BigPhotoImages;
+
+        [UiSonMemberElement]
         public List<SpriteInfo> ThumbnailImages;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? HasAlts;
+
+        [UiSonTextEditUi]
         public string AltFlagName;
+
+        [UiSonElementSelectorUi(nameof(CodeDataMod), 0, null, "Id", DefaultData.DefaultCodeNames, DefaultData.DefaultCodeIds)]
         public int? AltCodeDefinitionID;
 
         public PhotoDataMod() { }

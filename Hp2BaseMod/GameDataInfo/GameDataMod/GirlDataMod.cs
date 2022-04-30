@@ -67,25 +67,24 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonMultiChoiceUi(DefaultData.ItemFoodTypeNullable_As_String, 0, "Girl Info")]
         public List<ItemFoodType> BadFoodTypes;
 
+        [UiSonCollection]
+        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, null, "Id", DefaultData.DefaultGirlPairNames, DefaultData.DefaultGirlPairIds)]
+        public List<int> GirlPairDefIDs;
+
         #endregion
 
         #region Items
-        //I'll have to add in all the extra options
 
         [UiSonCollection]
-        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, "Items", "Id")]
-        public List<int> GirlPairDefIDs;
-
-        [UiSonCollection]
-        [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, "Items", "Id")]
+        [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, "Items", "Id", DefaultData.DefaultItemNames, DefaultData.DefaultItemIds)]
         public List<int> BaggageItemDefIDs;
 
         [UiSonCollection]
-        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, "Items", "Id")]
+        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, "Items", "Id", DefaultData.DefaultItemNames, DefaultData.DefaultItemIds)]
         public List<int> UniqueItemDefIDs;
 
         [UiSonCollection]
-        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, "Items", "Id")]
+        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, "Items", "Id", DefaultData.DefaultItemNames, DefaultData.DefaultItemIds)]
         public List<int> ShoesItemDefIDs;
 
         #endregion

@@ -14,8 +14,13 @@ namespace Hp2BaseMod.GameDataInfo
     [UiSonElement]
     public class QuestionDataMod : DataMod, IGameDataMod<QuestionDefinition>
     {
+        [UiSonTextEditUi]
         public string QuestionName;
+
+        [UiSonTextEditUi]
         public string QuestionText;
+
+        [UiSonTextEditUi]
         public List<string> QuestionAnswers;
 
         public QuestionDataMod() { }

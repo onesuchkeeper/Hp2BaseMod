@@ -4,6 +4,7 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -13,19 +14,46 @@ namespace Hp2BaseMod.GameDataInfo
     [Serializable]
     public class LogicActionInfo : IGameDataInfo<LogicAction>
     {
+        [UiSonSelectorUi(DefaultData.LogicActionTypeNullable_As_String)]
         public LogicActionType? Type;
+
+        [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable_As_String)]
         public PuzzleAffectionType? AffectionType;
+
+        [UiSonSelectorUi(DefaultData.PuzzleResourceTypeNullable_As_String)]
         public PuzzleResourceType? ResourceType;
+
+        [UiSonSelectorUi(DefaultData.PuzzleGameStateNullable_As_String)]
         public PuzzleGameState? PuzzleState;
+
+        [UiSonTextEditUi]
         public string StringValue;
+
+        [UiSonTextEditUi]
         public float? FloatValue;
+
+        [UiSonTextEditUi]
         public int? IntValue;
+
+        [UiSonElementSelectorUi(nameof(LocationDataMod), 0, null, "Id", DefaultData.DefaultLocationNames, DefaultData.DefaultLocationIds)]
         public int? LocationDefinitionID;
+
+        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, null, "Id", DefaultData.DefaultGirlPairNames, DefaultData.DefaultGirlPairIds)]
         public int? GirlPairDefinitionID;
+
+        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "Id", DefaultData.DefaultCutsceneNames, DefaultData.DefaultCutsceneIds)]
         public int? CutsceneDefinitionID;
+
+        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, null, "Id", DefaultData.DefaultItemNames, DefaultData.DefaultItemIds)]
         public int? ItemDefinitionID;
+
+        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "Id", DefaultData.DefaultGirlNames, DefaultData.DefaultGirlIds)]
         public int? GirlDefinitionID;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? BoolValue;
+
+        [UiSonMemberElement]
         public AudioKlipInfo BackgroundMusic;
 
         public LogicActionInfo() { }

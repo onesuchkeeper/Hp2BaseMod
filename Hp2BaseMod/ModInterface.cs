@@ -11,13 +11,14 @@ namespace Hp2BaseMod
 {
     /// <summary>
     /// Class to add data mods and look up them and their tags at runtime.
+    /// A static instance of this class, ModInterface.Instance, will be available at Hp2 runtime
     /// </summary>
     public class ModInterface
     {
         /// <summary>
         /// Instance of the mod interface for use at runtime
         /// </summary>
-        public static ModInterface Instance;
+        public static ModInterface Instance { get; private set; }
 
         /// <summary>
         /// True when mods have finished being loaded and an instance of huniepop 2 is running.

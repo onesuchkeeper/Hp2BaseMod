@@ -6,6 +6,7 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -14,7 +15,10 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class LogicBundleInfo : IGameDataInfo<LogicBundle>
     {
+        [UiSonMemberElement]
         public List<LogicConditionInfo> Conditions;
+
+        [UiSonMemberElement]
         public List<LogicActionInfo> Actions;
 
         public LogicBundleInfo() { }

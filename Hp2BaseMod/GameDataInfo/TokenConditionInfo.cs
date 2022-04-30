@@ -4,6 +4,7 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -12,18 +13,25 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class TokenConditionInfo : IGameDataInfo<TokenCondition>
     {
+        [UiSonSelectorUi(DefaultData.TokenConditionTypeNullable_As_String)]
         public TokenConditionType? Type;
 
+        [UiSonSelectorUi(DefaultData.TokenConditionTokenTypeNullable_As_String)]
         public TokenConditionTokenType? TokenType;
 
+        [UiSonSelectorUi(DefaultData.NumberComparisonTypeNullable_As_String)]
         public NumberComparisonType? Comparison;
 
+        [UiSonTextEditUi]
         public string Val;
 
+        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "Id", DefaultData.DefaultTokenNames, DefaultData.DefaultTokenIds)]
         public int? TokenDefinitionID;
 
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? OppositeGirl;
 
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? Inverse;
 
         public TokenConditionInfo() { }

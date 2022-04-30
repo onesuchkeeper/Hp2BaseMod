@@ -4,6 +4,7 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
+using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -12,21 +13,52 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class LogicConditionInfo : IGameDataInfo<LogicCondition>
     {
+        [UiSonSelectorUi(DefaultData.LogicConditionTypeNullable_As_String)]
         public LogicConditionType? Type;
+
+        [UiSonSelectorUi(DefaultData.NumberComparisonTypeNullable_As_String)]
         public NumberComparisonType? ComparisonType;
+
+        [UiSonSelectorUi(DefaultData.ClockDaytimeTypeNullable_As_String)]
         public ClockDaytimeType? DaytimeType;
+
+        [UiSonSelectorUi(DefaultData.DollOrientationTypeNullable_As_String)]
         public DollOrientationType? DollOrientation;
+
+        [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable_As_String)]
         public PuzzleAffectionType? AffectionType;
+
+        [UiSonSelectorUi(DefaultData.PuzzleResourceTypeNullable_As_String)]
         public PuzzleResourceType? ResourceType;
+
+        [UiSonSelectorUi(DefaultData.SettingDifficultyNullable_As_String)]
         public SettingDifficulty? SettingDifficulty;
+
+        [UiSonSelectorUi(DefaultData.PuzzleStatusTypeNullable_As_String)]
         public PuzzleStatusType? DateType;
+
+        [UiSonTextEditUi]
         public string StringValue;
+
+        [UiSonTextEditUi]
         public int? IntValue;
+
+        [UiSonElementSelectorUi(nameof(LocationDataMod), 0, null, "Id", DefaultData.DefaultLocationNames, DefaultData.DefaultLocationIds)]
         public int? LocationDefinitionID;
+
+        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, null, "Id", DefaultData.DefaultGirlPairNames, DefaultData.DefaultGirlPairIds)]
         public int? GirlPairDefinitionID;
+
+        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "Id", DefaultData.DefaultGirlNames, DefaultData.DefaultGirlIds)]
         public int? GirlDefinitionID;
+
+        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, null, "Id", DefaultData.DefaultItemNames, DefaultData.DefaultItemIds)]
         public int? ItemDefinitionID;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? Inverse;
+
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
         public bool? BoolValue;
 
         public LogicConditionInfo() { }

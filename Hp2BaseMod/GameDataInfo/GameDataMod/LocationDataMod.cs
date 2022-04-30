@@ -15,16 +15,37 @@ namespace Hp2BaseMod.GameDataInfo
     [UiSonElement]
     public class LocationDataMod : DataMod, IGameDataMod<LocationDefinition>
     {
+        [UiSonTextEditUi]
         public string LocationName;
+
+        [UiSonSelectorUi(DefaultData.LocationTypeNullable_As_String)]
         public LocationType? LocationType;
+
+        [UiSonMemberElement]
         public AudioKlipInfo BgMusic;
+
+        [UiSonTextEditUi]
         public float? BgYOffset;
+
+        [UiSonMemberElement]
         public SpriteInfo FinderLocationIcon;
+
+        [UiSonSelectorUi(DefaultData.GirlStyleTypeNullable_As_String)]
         public GirlStyleType? DateGirlStyleType;
+
+        [UiSonTextEditUi]
         public string NonStopOptionText;
+
+        [UiSonMemberElement]
         public List<LocationSpecialLabelSubDefinition> SpecialLabels;
+
+        [UiSonMemberElement]
         public List<SpriteInfo> Backgrounds;
+
+        [UiSonMemberElement]
         public List<LogicBundleInfo> ArriveBundleList;
+
+        [UiSonMemberElement]
         public List<LogicBundleInfo> DepartBundleList;
 
         public LocationDataMod() { }
