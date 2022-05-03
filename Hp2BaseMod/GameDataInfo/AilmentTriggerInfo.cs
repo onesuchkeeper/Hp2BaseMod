@@ -136,6 +136,9 @@ namespace Hp2BaseMod.GameDataInfo
         /// <param name="insertStyle">The insert style.</param>
         public void SetData(ref AilmentTriggerSubDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for an ailment trigger");
+            ModInterface.Instance.IncreaseLogIndent();
+
             if (def == null)
             {
                 def = Activator.CreateInstance<AilmentTriggerSubDefinition>();
@@ -159,6 +162,9 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.stepsProcessType, StepsProcessType);
 
             ValidatedSet.SetListValue(ref def.steps, StepInfos, insertStyle, gameDataProvider, assetProvider);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

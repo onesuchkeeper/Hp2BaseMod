@@ -5,7 +5,6 @@ using Hp2BaseMod.ModLoader;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 namespace Hp2BaseMod.Utility
 {
@@ -48,6 +47,51 @@ namespace Hp2BaseMod.Utility
             }
         }
 
+        public static void SetListValue<T>(ref List<T> target, IEnumerable<Nullable<T>> value, InsertStyle style)
+            where T : struct
+        {
+            if (target == null || style == InsertStyle.assignNull)
+            {
+                target = value?.Select(x => x.HasValue ? x.Value : default(T)).ToList();
+            }
+            else if (value != null)
+            {
+                switch (style)
+                {
+                    case InsertStyle.append:
+                        target = target.Concat(value?.Select(x => x.HasValue ? x.Value : default(T))).ToList();
+                        break;
+                    case InsertStyle.prepend:
+                        target = value?.Select(x => x.HasValue ? x.Value : default(T)).Concat(target).ToList();
+                        break;
+                    case InsertStyle.replace:
+                        var valueIt = value.GetEnumerator();
+                        var targetIt = target.GetEnumerator();
+                        var result = new List<T>();
+
+                        while (targetIt.MoveNext())
+                        {
+                            if (valueIt.MoveNext() && valueIt.Current.HasValue)
+                            {
+                                result.Add(valueIt.Current.Value);
+                            }
+                            else
+                            {
+                                result.Add(targetIt.Current);
+                            }
+                        }
+
+                        while (valueIt.MoveNext())
+                        {
+                            result.Add(valueIt.Current.HasValue ? valueIt.Current.Value : default(T));
+                        }
+
+                        target = result;
+                        break;
+                }
+            }
+        }
+
         public static void SetListValue<T>(ref List<T> target, IEnumerable<T> value, InsertStyle style)
         {
             if (target == null || style == InsertStyle.assignNull)
@@ -68,7 +112,7 @@ namespace Hp2BaseMod.Utility
                         var valueIt = value.GetEnumerator();
                         var targetIt = target.GetEnumerator();
                         var result = new List<T>();
-                        
+
                         while (targetIt.MoveNext())
                         {
                             if (valueIt.MoveNext() && valueIt.Current != null)
@@ -96,10 +140,11 @@ namespace Hp2BaseMod.Utility
         {
             var converted = value?.Select(x =>
             {
-                var newEntry = Activator.CreateInstance<T>();
+                var newEntry = default(T);
                 x.SetData(ref newEntry, gameData, assetProvider, style);
                 return newEntry;
             });
+
             SetListValue(ref target, converted, style);
         }
     }

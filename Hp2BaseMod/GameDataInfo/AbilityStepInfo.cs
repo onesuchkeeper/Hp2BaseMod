@@ -118,7 +118,7 @@ namespace Hp2BaseMod.GameDataInfo
         public List<string> CombineValues;
 
         [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "Id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
-        public List<int> TokenDefinitionIDs;
+        public List<int?> TokenDefinitionIDs;
 
         /// <summary>
         /// Parameterless constructor
@@ -161,7 +161,7 @@ namespace Hp2BaseMod.GameDataInfo
                                bool weighted,
                                TokenConditionSetInfo tokenConditionSetInfo,
                                AudioKlipInfo audioKlipInfo,
-                               List<int> tokenDefinitionIDs,
+                               List<int?> tokenDefinitionIDs,
                                List<string> combineValues)
         {
             StepType = stepType;
@@ -249,7 +249,7 @@ namespace Hp2BaseMod.GameDataInfo
             if (def.audioKlip != null) { AudioKlipInfo = new AudioKlipInfo(def.audioKlip, assetProvider); }
             if (def.tokenConditionSet != null) { TokenConditionSetInfo = new TokenConditionSetInfo(def.tokenConditionSet); }
 
-            if (def.tokenDefinitions != null) { TokenDefinitionIDs = def.tokenDefinitions.Select(x => x.id).ToList(); }
+            if (def.tokenDefinitions != null) { TokenDefinitionIDs = def.tokenDefinitions.Select(x => x?.id).ToList(); }
         }
 
         /// <summary>
@@ -261,6 +261,9 @@ namespace Hp2BaseMod.GameDataInfo
         /// <param name="insertStyle">The insert style.</param>
         public void SetData(ref AbilityStepSubDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for an ability step");
+            ModInterface.Instance.IncreaseLogIndent();
+
             if (def == null)
             {
                 def = Activator.CreateInstance<AbilityStepSubDefinition>();
@@ -302,8 +305,11 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.audioKlip, AudioKlipInfo, insertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetValue(ref def.tokenConditionSet, TokenConditionSetInfo, insertStyle, gameDataProvider, assetProvider);
 
-            ValidatedSet.SetListValue(ref def.tokenDefinitions, TokenDefinitionIDs?.Select(x => gameDataProvider.GetToken(x)), insertStyle);
+            ValidatedSet.SetListValue(ref def.tokenDefinitions, TokenDefinitionIDs?.Select(x => gameDataProvider.GetToken(x)).ToList(), insertStyle);
             ValidatedSet.SetListValue(ref def.combineValues, CombineValues, insertStyle);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

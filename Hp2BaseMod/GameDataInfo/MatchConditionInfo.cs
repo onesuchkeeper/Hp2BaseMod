@@ -82,6 +82,9 @@ namespace Hp2BaseMod.GameDataInfo
         /// <param name="insertStyle">The insert style.</param>
         public void SetData(ref MatchCondition def, GameDataProvider gameDataProvider, AssetProvider _, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for a match condition");
+            ModInterface.Instance.IncreaseLogIndent();
+
             if (def == null)
             {
                 def = Activator.CreateInstance<MatchCondition>();
@@ -96,6 +99,9 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.inverse, Inverse);
 
             ValidatedSet.SetValue(ref def.tokenDefinition, gameDataProvider.GetToken(TokenDefinitionID), insertStyle);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

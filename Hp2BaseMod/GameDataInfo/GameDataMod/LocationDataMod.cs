@@ -101,6 +101,9 @@ namespace Hp2BaseMod.GameDataInfo
 
         public void SetData(LocationDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for a location");
+            ModInterface.Instance.IncreaseLogIndent();
+
             def.id = Id;
 
             ValidatedSet.SetValue(ref def.dateGirlStyleType, DateGirlStyleType);
@@ -117,6 +120,9 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetListValue(ref def.backgrounds, Backgrounds, insertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetListValue(ref def.arriveBundleList, ArriveBundleList, insertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetListValue(ref def.departBundleList, DepartBundleList, insertStyle, gameDataProvider, assetProvider);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

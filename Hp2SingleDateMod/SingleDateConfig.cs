@@ -24,51 +24,51 @@ namespace Hp2SingleDateMod
         public CutsceneDataMod PreSexCutscene;
         public CutsceneDataMod PostSexCutscene;
 
-        public int AddMods(ModInterface gameDataModder)
-        {
-            gameDataModder.AddData(Photo);
+        //public int AddMods(ModInterface gameDataModder)
+        //{
+        //    gameDataModder.AddData(Photo);
 
-            gameDataModder.AddData(MeetingCutscene);
-            gameDataModder.AddData(AttractedCutscene);
-            gameDataModder.AddData(PreSexCutscene);
-            gameDataModder.AddData(PostSexCutscene);
+        //    gameDataModder.AddData(MeetingCutscene);
+        //    gameDataModder.AddData(AttractedCutscene);
+        //    gameDataModder.AddData(PreSexCutscene);
+        //    gameDataModder.AddData(PostSexCutscene);
 
-            int newPairId = Constants.EmptyGirlId + GirlId;
+        //    int newPairId = Constants.EmptyGirlId + GirlId;
 
-            var newPairMod = new GirlPairDataMod(newPairId, InsertStyle.replace)
-            {
-                FavQuestions = new List<GirlPairFavQuestionInfo>(),
-                GirlDefinitionOneID = GirlId,
-                GirlDefinitionTwoID = Constants.EmptyGirlId,
-                HasMeetingStyleOne = HasMeetingStyle,
-                HasMeetingStyleTwo = false,
-                IntroductionPair = false,
-                IntroSidesFlipped = IntroSidesFlipped,
-                MeetingLocationDefinitionID = MeetingLocationId,
-                MeetingStyleTypeOne = MeetingStyle,
-                MeetingStyleTypeTwo = GirlStyleType.RELAXING,
-                PhotoDefinitionID = Photo.Id,
-                RelationshipCutsceneDefinitionIDs = new List<int>() { MeetingCutscene.Id,
-                                                                      AttractedCutscene.Id,
-                                                                      PreSexCutscene.Id,
-                                                                      PostSexCutscene.Id},
-                SexDayTime = this.SexDayTime,
-                SexLocationDefinitionID = this.SexLocationDefinitionID,
-                SexStyleTypeOne = SexStyle,
-                SexStyleTypeTwo = GirlStyleType.RELAXING,
-                SpecialPair = false
-            };
+        //    var newPairMod = new GirlPairDataMod(newPairId, InsertStyle.replace)
+        //    {
+        //        FavQuestions = new List<GirlPairFavQuestionInfo>(),
+        //        GirlDefinitionOneID = GirlId,
+        //        GirlDefinitionTwoID = Constants.EmptyGirlId,
+        //        HasMeetingStyleOne = HasMeetingStyle,
+        //        HasMeetingStyleTwo = false,
+        //        IntroductionPair = false,
+        //        IntroSidesFlipped = IntroSidesFlipped,
+        //        MeetingLocationDefinitionID = MeetingLocationId,
+        //        MeetingStyleTypeOne = MeetingStyle,
+        //        MeetingStyleTypeTwo = GirlStyleType.RELAXING,
+        //        PhotoDefinitionID = Photo.Id,
+        //        RelationshipCutsceneDefinitionIDs = new List<int>() { MeetingCutscene.Id,
+        //                                                              AttractedCutscene.Id,
+        //                                                              PreSexCutscene.Id,
+        //                                                              PostSexCutscene.Id},
+        //        SexDayTime = this.SexDayTime,
+        //        SexLocationDefinitionID = this.SexLocationDefinitionID,
+        //        SexStyleTypeOne = SexStyle,
+        //        SexStyleTypeTwo = GirlStyleType.RELAXING,
+        //        SpecialPair = false
+        //    };
 
-            gameDataModder.AddData(newPairMod);
+        //    gameDataModder.AddData(newPairMod);
 
-            var AddPairToGirlMod = new GirlDataMod(GirlId, InsertStyle.replace)
-            {
-                GirlPairDefIDs = new List<int>() { newPairId }
-            };
+        //    var AddPairToGirlMod = new GirlDataMod(GirlId, InsertStyle.replace)
+        //    {
+        //        GirlPairDefIDs = new List<int>() { newPairId }
+        //    };
 
-            gameDataModder.AddData(AddPairToGirlMod);
+        //    gameDataModder.AddData(AddPairToGirlMod);
 
-            return newPairId;
-        }
+        //    return newPairId;
+        //}
     }
 }

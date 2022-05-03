@@ -112,7 +112,7 @@ namespace Hp2BaseMod.ModLoader
 
         public void Load(GirlPartSubDefinition def, int? girlId)
         {
-            if (def?.sprite != null && girlId != null)
+            if (def?.sprite != null && girlId.HasValue)
             {
                 AddAsset($"{girlId.Value}_{(def.sprite.name)}", def?.sprite);
             }

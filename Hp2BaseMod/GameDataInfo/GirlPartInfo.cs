@@ -82,6 +82,9 @@ namespace Hp2BaseMod.GameDataInfo
         /// <param name="insertStyle">The insert style.</param>
         public void SetData(ref GirlPartSubDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for a girl part");
+            ModInterface.Instance.IncreaseLogIndent();
+
             if (def == null)
             {
                 def = Activator.CreateInstance<GirlPartSubDefinition>();
@@ -95,6 +98,9 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.altPartIndex, AltPartIndex);
 
             ValidatedSet.SetValue(ref def.sprite, SpriteInfo, insertStyle, gameDataProvider, assetProvider);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

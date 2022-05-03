@@ -58,6 +58,9 @@ namespace Hp2BaseMod.GameDataInfo
         /// <param name="insertStyle">The insert style.</param>
         public void SetData(ref GirlCondition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for a girl condition");
+            ModInterface.Instance.IncreaseLogIndent();
+
             if (def == null)
             {
                 def = Activator.CreateInstance<GirlCondition>();
@@ -67,6 +70,9 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.inverse, Inverse);
 
             ValidatedSet.SetValue(ref def.ailmentDefinition, gameDataProvider.GetAilment(AilmentDefinitionID), insertStyle);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

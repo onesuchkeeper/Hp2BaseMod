@@ -80,11 +80,14 @@ namespace Hp2BaseMod.GameDataInfo
 
         public void SetData(PhotoDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for an photo");
+            ModInterface.Instance.IncreaseLogIndent();
+
             def.id = Id;
 
             ValidatedSet.SetValue(ref def.hasAlts, HasAlts);
 
-            ValidatedSet.SetValue(ref def.girlPairDefinition, gameDataProvider.GetGirlPair(GirlPairDefinitionID), insertStyle);
+            ValidatedSet.SetValue(ref def.girlPairDefinition, gameDataProvider.GetGirlPair(GirlPairDefinitionID) , insertStyle);
             ValidatedSet.SetValue(ref def.nextPhotoDefinition, gameDataProvider.GetPhoto(NextPhotoDefinitionID), insertStyle);
             ValidatedSet.SetValue(ref def.altCodeDefinition, gameDataProvider.GetCode(AltCodeDefinitionID), insertStyle);
 
@@ -92,6 +95,9 @@ namespace Hp2BaseMod.GameDataInfo
 
             ValidatedSet.SetListValue(ref def.bigPhotoImages, BigPhotoImages, insertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetListValue(ref def.thumbnailImages, ThumbnailImages, insertStyle, gameDataProvider, assetProvider);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

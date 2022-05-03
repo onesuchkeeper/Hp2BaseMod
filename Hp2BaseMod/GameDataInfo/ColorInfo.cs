@@ -55,6 +55,9 @@ namespace Hp2BaseMod.GameDataInfo
         /// <param name="insertStyle">The insert style.</param>
         public void SetData(ref Color def, GameDataProvider _, AssetProvider __, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for a color");
+            ModInterface.Instance.IncreaseLogIndent();
+
             if (def == null)
             {
                 def = Activator.CreateInstance<Color>();
@@ -64,6 +67,9 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.g, G);
             ValidatedSet.SetValue(ref def.b, B);
             ValidatedSet.SetValue(ref def.a, A);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

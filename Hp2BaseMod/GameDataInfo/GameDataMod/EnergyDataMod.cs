@@ -126,6 +126,9 @@ namespace Hp2BaseMod.GameDataInfo
 
         public void SetData(EnergyDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for an energy");
+            ModInterface.Instance.IncreaseLogIndent();
+
             def.id = Id;
 
             ValidatedSet.SetValue(ref def.surgeExpression, SurgeExpression);
@@ -145,6 +148,9 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetListValue(ref def.trailSprites, TrailSprites, InsertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetListValue(ref def.splashSprites, SplashSprites, InsertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetListValue(ref def.surgeSprites, SurgeSprites, InsertStyle, gameDataProvider, assetProvider);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

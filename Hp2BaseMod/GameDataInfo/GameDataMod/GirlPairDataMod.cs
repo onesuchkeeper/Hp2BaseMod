@@ -68,7 +68,7 @@ namespace Hp2BaseMod.GameDataInfo
 
         [UiSonCollection(false)]
         [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
-        public List<int> RelationshipCutsceneDefinitionIDs = new List<int>() { -1,-1,-1,-1};
+        public List<int?> RelationshipCutsceneDefinitionIDs = new List<int?>() { -1,-1,-1,-1};
 
         public GirlPairDataMod() { }
 
@@ -89,7 +89,7 @@ namespace Hp2BaseMod.GameDataInfo
                                GirlStyleType? meetingStyleTypeOne,
                                GirlStyleType? meetingStyleTypeTwo,
                                int? photoDefinitionID,
-                               List<int> relationshipCutsceneDefinitionIDs,
+                               List<int?> relationshipCutsceneDefinitionIDs,
                                ClockDaytimeType? sexDayTime,
                                int? sexLocationDefinitionID,
                                GirlStyleType? sexStyleTypeOne,
@@ -132,7 +132,7 @@ namespace Hp2BaseMod.GameDataInfo
             MeetingStyleTypeOne = def.meetingStyleTypeOne;
             MeetingStyleTypeTwo = def.meetingStyleTypeTwo;
             PhotoDefinitionID = def.photoDefinition?.id ?? -1;
-            RelationshipCutsceneDefinitionIDs = def.relationshipCutsceneDefinitions?.Select(x => x?.id ?? -1).ToList();
+            RelationshipCutsceneDefinitionIDs = def.relationshipCutsceneDefinitions?.Select(x => x?.id).ToList();
             SexDayTime = def.sexDaytime;
             SexLocationDefinitionID = def.sexLocationDefinition?.id ?? -1;
             SexStyleTypeOne = def.sexStyleTypeOne;
@@ -142,6 +142,9 @@ namespace Hp2BaseMod.GameDataInfo
 
         public void SetData(GirlPairDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for a girl pair");
+            ModInterface.Instance.IncreaseLogIndent();
+
             def.id = Id;
             def.active = true;
 
@@ -163,7 +166,11 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.sexLocationDefinition, gameDataProvider.GetLocation(SexLocationDefinitionID), insertStyle);
 
             ValidatedSet.SetListValue(ref def.favQuestions, FavQuestions, insertStyle, gameDataProvider, assetProvider);
-            ValidatedSet.SetListValue(ref def.relationshipCutsceneDefinitions, RelationshipCutsceneDefinitionIDs?.Select(x => gameDataProvider.GetCutscene(x)), insertStyle);
+            ValidatedSet.SetListValue(ref def.relationshipCutsceneDefinitions,
+                                      RelationshipCutsceneDefinitionIDs?.Select(x => gameDataProvider.GetCutscene(x)), insertStyle);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

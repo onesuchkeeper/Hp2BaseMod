@@ -34,9 +34,15 @@ namespace Hp2BaseMod.GameDataInfo
 
         public void SetData(DlcDefinition def, GameDataProvider _, AssetProvider __, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for a dlc");
+            ModInterface.Instance.IncreaseLogIndent();
+
             def.id = Id;
 
             ValidatedSet.SetValue(ref def.dlcName, DlcName, InsertStyle);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

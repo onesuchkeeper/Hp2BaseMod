@@ -48,11 +48,17 @@ namespace Hp2BaseMod.GameDataInfo
 
         public void SetData(CutsceneDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for a code");
+            ModInterface.Instance.IncreaseLogIndent();
+
             def.id = Id;
 
             ValidatedSet.SetValue(ref def.cleanUpType, CleanUpType);
 
             ValidatedSet.SetListValue(ref def.steps, Steps, InsertStyle, gameDataProvider, assetProvider);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

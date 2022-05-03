@@ -132,6 +132,9 @@ namespace Hp2BaseMod.GameDataInfo
 
 		public void SetData(TokenDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
 		{
+			ModInterface.Instance.LogLine("Setting data for an token");
+			ModInterface.Instance.IncreaseLogIndent();
+
 			def.id = Id;
 
 			ValidatedSet.SetValue(ref def.resourceType, ResourceType);
@@ -152,6 +155,9 @@ namespace Hp2BaseMod.GameDataInfo
 			ValidatedSet.SetValue(ref def.altTokenSprite, AltTokenSpriteInfo, insertStyle, gameDataProvider, assetProvider);
 			ValidatedSet.SetValue(ref def.altOverSprite, AltOverSpriteInfo, insertStyle, gameDataProvider, assetProvider);
 			ValidatedSet.SetValue(ref def.sfxMatch, SfxMatchInfo, insertStyle, gameDataProvider, assetProvider);
+
+			ModInterface.Instance.LogLine("done");
+			ModInterface.Instance.DecreaseLogIndent();
 		}
 	}
 }

@@ -112,6 +112,9 @@ namespace Hp2BaseMod.GameDataInfo
         /// <param name="insertStyle">The insert style.</param>
         public void SetData(ref MatchModifier def, GameDataProvider gameDataProvider, AssetProvider _, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for a match modifier");
+            ModInterface.Instance.IncreaseLogIndent();
+
             if (def == null)
             {
                 def = Activator.CreateInstance<MatchModifier>();
@@ -131,6 +134,9 @@ namespace Hp2BaseMod.GameDataInfo
 
             ValidatedSet.SetValue(ref def.tokenDefinition, gameDataProvider.GetToken(TokenDefinitionID), insertStyle);
             ValidatedSet.SetValue(ref def.replaceDefinition, gameDataProvider.GetToken(ReplaceDefinitionID), insertStyle);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

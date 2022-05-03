@@ -52,6 +52,9 @@ namespace Hp2BaseMod.GameDataInfo
         /// <param name="insertStyle">The insert style.</param>
         public void SetData(ref GirlPairFavQuestionSubDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for a girl pair fav question");
+            ModInterface.Instance.IncreaseLogIndent();
+
             if (def == null)
             {
                 def = Activator.CreateInstance<GirlPairFavQuestionSubDefinition>();
@@ -61,6 +64,9 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.girlResponseIndexTwo, GirlResponceIndexTwo);
 
             ValidatedSet.SetValue(ref def.questionDefinition, gameDataProvider.GetQuestion(QuestionDefinitionID), insertStyle);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

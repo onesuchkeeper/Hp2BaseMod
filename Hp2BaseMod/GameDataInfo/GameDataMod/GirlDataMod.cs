@@ -69,24 +69,24 @@ namespace Hp2BaseMod.GameDataInfo
         public float? SexVoiceVolume;
 
         [UiSonMultiChoiceUi(DefaultData.ItemFoodTypeNullable_As_String, 0, "Girl Info")]
-        public List<ItemFoodType> BadFoodTypes;
+        public List<ItemFoodType?> BadFoodTypes;
 
         [UiSonCollection]
         [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, null, "Id", DefaultData.DefaultGirlPairNames_Name, DefaultData.DefaultGirlPairIds_Name)]
-        public List<int> GirlPairDefIDs;
+        public List<int?> GirlPairDefIDs;
 
         #endregion
 
         #region Items
 
         [UiSonElementSelectorUi(nameof(ItemDataMod), 0, "Items", "Id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
-        public List<int> BaggageItemDefIDs;
+        public List<int?> BaggageItemDefIDs;
 
         [UiSonElementSelectorUi(nameof(ItemDataMod), 0, "Items", "Id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
-        public List<int> UniqueItemDefIDs;
+        public List<int?> UniqueItemDefIDs;
 
         [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, "Items", "Id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
-        public List<int> ShoesItemDefIDs;
+        public List<int?> ShoesItemDefIDs;
 
         #endregion
 
@@ -165,7 +165,7 @@ namespace Hp2BaseMod.GameDataInfo
         public int? PartIndexMouthNeutral;
 
         [UiSonTextEditUi(-1, "Parts")]
-        public List<int> PartIndexesPhonemes;
+        public List<int?> PartIndexesPhonemes;
 
         [UiSonTextEditUi(1, "Parts")]
         public int? DefaultExpressionIndex;
@@ -181,7 +181,7 @@ namespace Hp2BaseMod.GameDataInfo
 
         [UiSonCollection]
         [UiSonTextEditUi(-1, "Parts")]
-        public List<int> PartIndexesPhonemesTeeth;
+        public List<int?> PartIndexesPhonemesTeeth;
 
         [UiSonCollection]
         [UiSonMemberElement(-1, "Parts")]
@@ -238,11 +238,11 @@ namespace Hp2BaseMod.GameDataInfo
                            string shoesAdj,
                            ItemUniqueType? uniqueType,
                            string uniqueAdj,
-                           List<ItemFoodType> badFoodTypes,
-                           List<int> girlPairDefIDs,
-                           List<int> baggageItemDefIDs,
-                           List<int> uniqueItemDefIDs,
-                           List<int> shoesItemDefIDs,
+                           List<ItemFoodType?> badFoodTypes,
+                           List<int?> girlPairDefIDs,
+                           List<int?> baggageItemDefIDs,
+                           List<int?> uniqueItemDefIDs,
+                           List<int?> shoesItemDefIDs,
                            bool? hasAltStyles,
                            string altStylesFlagName,
                            int? altStylesCodeDefinitionID,
@@ -253,8 +253,8 @@ namespace Hp2BaseMod.GameDataInfo
                            int? partIndexBlushHeavy,
                            int? partIndexBlink,
                            int? partIndexMouthNeutral,
-                           List<int> partIndexesPhonemes,
-                           List<int> partIndexesPhonemesTeeth,
+                           List<int?> partIndexesPhonemes,
+                           List<int?> partIndexesPhonemesTeeth,
                            List<GirlPartInfo> parts,
                            int? defaultExpressionIndex,
                            int? failureExpressionIndex,
@@ -343,11 +343,11 @@ namespace Hp2BaseMod.GameDataInfo
             ShoesAdj = def.shoesAdj;
             UniqueType = def.uniqueType;
             UniqueAdj = def.uniqueAdj;
-            BadFoodTypes = def.badFoodTypes;
-            GirlPairDefIDs = def.girlPairDefs?.Select(x => x.id).ToList();
-            BaggageItemDefIDs = def.baggageItemDefs?.Select(x => x.id).ToList();
-            UniqueItemDefIDs = def.uniqueItemDefs?.Select(x => x.id).ToList();
-            ShoesItemDefIDs = def.shoesItemDefs?.Select(x => x.id).ToList();
+            BadFoodTypes = def.badFoodTypes.Select(x => x as ItemFoodType?).ToList();
+            GirlPairDefIDs = def.girlPairDefs?.Select(x => x.id as int?).ToList();
+            BaggageItemDefIDs = def.baggageItemDefs?.Select(x => x.id as int?).ToList();
+            UniqueItemDefIDs = def.uniqueItemDefs?.Select(x => x.id as int?).ToList();
+            ShoesItemDefIDs = def.shoesItemDefs?.Select(x => x.id as int?).ToList();
             HasAltStyles = def.hasAltStyles;
             AltStylesFlagName = def.altStylesFlagName;
             AltStylesCodeDefinitionID = def.altStylesCodeDefinition?.id ?? -1;
@@ -358,8 +358,8 @@ namespace Hp2BaseMod.GameDataInfo
             PartIndexBlushHeavy = def.partIndexBlushHeavy;
             PartIndexBlink = def.partIndexBlink;
             PartIndexMouthNeutral = def.partIndexMouthNeutral;
-            PartIndexesPhonemes = def.partIndexesPhonemes;
-            PartIndexesPhonemesTeeth = def.partIndexesPhonemesTeeth;
+            PartIndexesPhonemes = def.partIndexesPhonemes?.Select(x => x as int?).ToList();
+            PartIndexesPhonemesTeeth = def.partIndexesPhonemesTeeth?.Select(x => x as int?).ToList();
             DefaultExpressionIndex = def.defaultExpressionIndex;
             FailureExpressionIndex = def.failureExpressionIndex;
             DefaultHairstyleIndex = def.defaultHairstyleIndex;
@@ -385,8 +385,10 @@ namespace Hp2BaseMod.GameDataInfo
 
         public void SetData(GirlDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
-            def.id = Id;
+            ModInterface.Instance.LogLine("Setting data for a girl");
+            ModInterface.Instance.IncreaseLogIndent();
 
+            def.id = Id;
 
             ValidatedSet.SetValue(ref def.editorTab, EditorTab);
             ValidatedSet.SetValue(ref def.girlAge, GirlAge);
@@ -425,9 +427,9 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.altStylesFlagName, AltStylesFlagName, InsertStyle);
             ValidatedSet.SetListValue(ref def.partIndexesPhonemes, PartIndexesPhonemes, InsertStyle);
             ValidatedSet.SetListValue(ref def.partIndexesPhonemesTeeth, PartIndexesPhonemesTeeth, InsertStyle);
+            ValidatedSet.SetListValue(ref def.badFoodTypes, BadFoodTypes, InsertStyle);
             ValidatedSet.SetValue(ref def.shoesAdj, ShoesAdj, InsertStyle);
             ValidatedSet.SetValue(ref def.uniqueAdj, UniqueAdj, InsertStyle);
-            ValidatedSet.SetValue(ref def.badFoodTypes, BadFoodTypes, InsertStyle);
 
             ValidatedSet.SetValue(ref def.cellphonePortrait, CellphonePortrait, InsertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetValue(ref def.cellphonePortraitAlt, CellphonePortraitAlt, InsertStyle, gameDataProvider, assetProvider);
@@ -447,6 +449,9 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetListValue(ref def.uniqueItemDefs, UniqueItemDefIDs?.Select(x => gameDataProvider.GetItem(x)), InsertStyle);
             ValidatedSet.SetListValue(ref def.shoesItemDefs, ShoesItemDefIDs?.Select(x => gameDataProvider.GetItem(x)), InsertStyle);
             ValidatedSet.SetListValue(ref def.parts, Parts, InsertStyle, gameDataProvider, assetProvider);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

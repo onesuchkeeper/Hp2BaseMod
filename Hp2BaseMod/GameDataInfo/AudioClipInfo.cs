@@ -49,6 +49,9 @@ namespace Hp2BaseMod.GameDataInfo
         /// <param name="insertStyle">The insert style.</param>
         public void SetData(ref AudioClip def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for an audio clip");
+            ModInterface.Instance.IncreaseLogIndent();
+
             if (Path == null)
             {
                 if (insertStyle == InsertStyle.assignNull)
@@ -77,6 +80,9 @@ namespace Hp2BaseMod.GameDataInfo
                     def = (AudioClip)assetProvider.GetAsset(Path);
                 }
             }
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

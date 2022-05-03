@@ -65,15 +65,27 @@ namespace Hp2BaseMod.GameDataInfo
 
         public void SetData(DialogTriggerDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for a dialog trigger");
+            ModInterface.Instance.IncreaseLogIndent();
+
             def.id = Id;
 
             ValidatedSet.SetValue(ref def.editorTab, EditorTab);
             ValidatedSet.SetValue(ref def.forceType, ForceType);
             ValidatedSet.SetValue(ref def.priority, Priority);
 
-            ValidatedSet.SetValue(ref def.responseTriggerDefinition, gameDataProvider.GetDialogTrigger(ResponseTriggerDefinitionID), InsertStyle);
+            ValidatedSet.SetValue(ref def.responseTriggerDefinition,
+                                  gameDataProvider.GetDialogTrigger(ResponseTriggerDefinitionID),
+                                  InsertStyle);
             
-            ValidatedSet.SetListValue(ref def.dialogLineSets, DialogLineSetInfos, InsertStyle, gameDataProvider, assetProvider);
+            ValidatedSet.SetListValue(ref def.dialogLineSets,
+                                      DialogLineSetInfos,
+                                      InsertStyle,
+                                      gameDataProvider,
+                                      assetProvider);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

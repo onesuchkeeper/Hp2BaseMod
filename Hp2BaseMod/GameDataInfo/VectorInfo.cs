@@ -45,6 +45,9 @@ namespace Hp2BaseMod.GameDataInfo
         /// <param name="insertStyle">The insert style.</param>
         public void SetData(ref Vector2 def, GameDataProvider _, AssetProvider __, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for a vector");
+            ModInterface.Instance.IncreaseLogIndent();
+
             if (def == null)
             {
                 def = Activator.CreateInstance<Vector2>();
@@ -52,6 +55,9 @@ namespace Hp2BaseMod.GameDataInfo
 
             ValidatedSet.SetValue(ref def.x, Xpos);
             ValidatedSet.SetValue(ref def.y, Ypos);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

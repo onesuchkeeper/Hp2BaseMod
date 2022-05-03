@@ -54,11 +54,17 @@ namespace Hp2BaseMod.GameDataInfo
 
         public void SetData(QuestionDefinition def, GameDataProvider _, AssetProvider __, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for an question");
+            ModInterface.Instance.IncreaseLogIndent();
+
             def.id = Id;
 
             ValidatedSet.SetValue(ref def.questionName, QuestionName, insertStyle);
             ValidatedSet.SetValue(ref def.questionText, QuestionText, insertStyle);
             ValidatedSet.SetListValue(ref def.questionAnswers, QuestionAnswers, insertStyle);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

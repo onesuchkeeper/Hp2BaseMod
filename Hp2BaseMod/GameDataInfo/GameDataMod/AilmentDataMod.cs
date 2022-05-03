@@ -3,6 +3,7 @@
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UiSon.Attribute;
@@ -117,7 +118,9 @@ namespace Hp2BaseMod.GameDataInfo
 
         public void SetData(AilmentDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
-            ModInterface.Instance.LogLine("staret ailmentmod");
+            ModInterface.Instance.LogLine("Setting data for an ailment");
+            ModInterface.Instance.IncreaseLogIndent();
+
             def.id = Id;
 
             ValidatedSet.SetValue(ref def.persistentFlags, PersistentFlags);
@@ -126,17 +129,29 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.enableIntVal, EnableIntVal);
             ValidatedSet.SetValue(ref def.enableFloatVal, EnableFloatVal);
             ValidatedSet.SetValue(ref def.enableBoolVal, EnableBoolVal);
+            
+            ValidatedSet.SetValue(ref def.itemDefinition,
+                                  gameDataProvider.GetItem(ItemDefinitionID),
+                                  InsertStyle);
 
-            ValidatedSet.SetValue(ref def.itemDefinition, gameDataProvider.GetItem(ItemDefinitionID.Value), InsertStyle);
-            ValidatedSet.SetValue(ref def.enableTokenDef, gameDataProvider.GetToken(EnableTokenDefID.Value), InsertStyle);
-            ValidatedSet.SetValue(ref def.enableAbilityDef, gameDataProvider.GetAbility(EnableAbilityDefID.Value), InsertStyle);
-            ValidatedSet.SetValue(ref def.disableAbilityDef, gameDataProvider.GetAbility(DisableAbilityDefID.Value), InsertStyle);
+            ValidatedSet.SetValue(ref def.enableTokenDef,
+                                  gameDataProvider.GetToken(EnableTokenDefID),
+                                  InsertStyle);
+
+            ValidatedSet.SetValue(ref def.enableAbilityDef,
+                                  gameDataProvider.GetAbility(EnableAbilityDefID),
+                                  InsertStyle);
+
+            ValidatedSet.SetValue(ref def.disableAbilityDef,
+                                  gameDataProvider.GetAbility(DisableAbilityDefID),
+                                  InsertStyle);
 
             ValidatedSet.SetValue(ref def.enableStringVal, EnableStringVal, InsertStyle);
             ValidatedSet.SetListValue(ref def.hints, Hints, InsertStyle);
-
             ValidatedSet.SetListValue(ref def.triggers, Triggers, InsertStyle, gameDataProvider, assetProvider);
-            ModInterface.Instance.LogLine("End of ailmentl mod");
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

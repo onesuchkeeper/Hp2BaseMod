@@ -22,12 +22,12 @@ namespace Hp2SingleDateMod
             //TEST
             gameDataModder.AddData(new GirlDataMod(1, InsertStyle.replace)
             {
-                BaggageItemDefIDs = new List<int>() { Constants.NoFocusBagadgeItemId, 94, 95 }
+                BaggageItemDefIDs = new List<int?>() { Constants.NoFocusBagadgeItemId, 94, 95 }
                 //BaggageItemDefIDs = new List<int>() { 106, 94, 95 }
             });
         }
 
-        private void AddEmptyGirl(ModInterface gameDataModder, List<int> newPairs)
+        private void AddEmptyGirl(ModInterface gameDataModder, List<int?> newPairs)
         {
             var emptySprite = new SpriteInfo(Constants.EmptyImagePath, true);
 
@@ -114,13 +114,13 @@ namespace Hp2SingleDateMod
                 ShoesAdj = string.Empty,
                 UniqueType = ItemUniqueType.TAILORING,// Ditto
                 UniqueAdj = string.Empty,
-                BadFoodTypes = new List<ItemFoodType>(),
+                BadFoodTypes = new List<ItemFoodType?>(),
                 GirlPairDefIDs = newPairs,
-                BaggageItemDefIDs = new List<int>() { Constants.NoFocusBagadgeItemId,
+                BaggageItemDefIDs = new List<int?>() { Constants.NoFocusBagadgeItemId,
                                                       115,
                                                       106},
-                UniqueItemDefIDs = new List<int>(),
-                ShoesItemDefIDs = new List<int>(),
+                UniqueItemDefIDs = new List<int?>(),
+                ShoesItemDefIDs = new List<int?>(),
                 HasAltStyles = false,
                 AltStylesFlagName = string.Empty,
                 AltStylesCodeDefinitionID = -1,
@@ -131,8 +131,8 @@ namespace Hp2SingleDateMod
                 PartIndexBlushHeavy = 0,
                 PartIndexBlink = 0,
                 PartIndexMouthNeutral = 0,
-                PartIndexesPhonemes = new List<int>() { PHONEME_partid, PHONEME_partid, PHONEME_partid, PHONEME_partid, PHONEME_partid },
-                PartIndexesPhonemesTeeth = new List<int>() { PHONEMESTEETH_partid, PHONEMESTEETH_partid, PHONEMESTEETH_partid, PHONEMESTEETH_partid, PHONEMESTEETH_partid },
+                PartIndexesPhonemes = new List<int?>() { PHONEME_partid, PHONEME_partid, PHONEME_partid, PHONEME_partid, PHONEME_partid },
+                PartIndexesPhonemesTeeth = new List<int?>() { PHONEMESTEETH_partid, PHONEMESTEETH_partid, PHONEMESTEETH_partid, PHONEMESTEETH_partid, PHONEMESTEETH_partid },
                 Parts = emptyPartList,
                 DefaultExpressionIndex = 0,
                 FailureExpressionIndex = 0,
@@ -164,7 +164,7 @@ namespace Hp2SingleDateMod
                 }
             }
 
-            configs.ForEach(x => newPairIds.Add(x.AddMods(gameDataModder)));
+            //configs.ForEach(x => newPairIds.Add(x.AddMods(gameDataModder)));
 
             return newPairIds;
         }

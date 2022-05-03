@@ -116,15 +116,17 @@ namespace Hp2BaseMod.ModLoader
 
         public ItemDefinition GetItem(int? id)
         {
+            ModInterface.Instance.LogLine($"starting get item, id: {id}");
             if (id.HasValue && id.Value != -1)
             {
+                ModInterface.Instance.LogLine("getting");
                 var result = _decorated.Items.Get(id.Value);
-
+                ModInterface.Instance.LogLine("got");
                 ModInterface.Instance.LogLine($"{(result == null ? "Failed to find" : "Found")} {nameof(ItemDefinition)} {id} {result?.name}");
 
                 return result;
             }
-
+            ModInterface.Instance.LogLine("null");
             return null;
         }
 

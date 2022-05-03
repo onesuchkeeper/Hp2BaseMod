@@ -47,6 +47,9 @@ namespace Hp2BaseMod.GameDataInfo
         /// <param name="insertStyle">The insert style.</param>
         public void SetData(ref Sprite def, GameDataProvider _, AssetProvider assetProvider, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for a sprite");
+            ModInterface.Instance.IncreaseLogIndent();
+
             if (Path == null)
             {
                 if (insertStyle == InsertStyle.assignNull)
@@ -75,6 +78,9 @@ namespace Hp2BaseMod.GameDataInfo
                     def = (Sprite)assetProvider.GetAsset(Path);
                 }
             }
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

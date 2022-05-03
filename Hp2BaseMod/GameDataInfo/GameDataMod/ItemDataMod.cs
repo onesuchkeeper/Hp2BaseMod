@@ -203,7 +203,9 @@ namespace Hp2BaseMod.GameDataInfo
 
         public void SetData(ItemDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
-            ModInterface.Instance.LogLine("stasrt of iyerm mod");
+            ModInterface.Instance.LogLine("Setting data for an item");
+            ModInterface.Instance.IncreaseLogIndent();
+
             def.id = Id;
 
             ValidatedSet.SetValue(ref def.notifierHeaderIndex, NotifierHeaderIndex);
@@ -236,7 +238,8 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.costDescription, CostDescription, insertStyle);
             ValidatedSet.SetValue(ref def.itemSprite, ItemSpriteInfo, insertStyle, gameDataProvider, assetProvider);
 
-            ModInterface.Instance.LogLine("End of item mod");
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

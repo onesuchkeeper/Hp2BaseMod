@@ -63,6 +63,9 @@ namespace Hp2BaseMod.GameDataInfo
 
         public void SetData(CodeDefinition def, GameDataProvider _, AssetProvider __, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("Setting data for a code");
+            ModInterface.Instance.IncreaseLogIndent();
+
             def.id = Id;
 
             ValidatedSet.SetValue(ref def.codeType, CodeType);
@@ -71,6 +74,9 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.offMessage, OffMessage, insertStyle);
             ValidatedSet.SetValue(ref def.onMessage, OnMessage, insertStyle);
             ValidatedSet.SetValue(ref def.codeHash, CodeHash, insertStyle);
+
+            ModInterface.Instance.LogLine("done");
+            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }
