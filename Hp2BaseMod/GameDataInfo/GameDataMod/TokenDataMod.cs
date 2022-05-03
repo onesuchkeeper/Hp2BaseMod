@@ -17,7 +17,7 @@ namespace Hp2BaseMod.GameDataInfo
 		[UiSonTextEditUi]
 		public string TokenName;
 
-		[UiSonSelectorUi(DefaultData.TokenResourceNames)]
+		[UiSonSelectorUi(DefaultData.TokenResourceNames_Name)]
 		public string ResourceName;
 
 		[UiSonTextEditUi]
@@ -29,7 +29,7 @@ namespace Hp2BaseMod.GameDataInfo
 		[UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable_As_String)]
 		public PuzzleAffectionType? AffectionType;
 
-		[UiSonElementSelectorUi(nameof(EnergyDataMod), 0, null, "Id", DefaultData.DefaultEnergyNames, DefaultData.DefaultEnergyIds)]
+		[UiSonElementSelectorUi(nameof(EnergyDataMod), 0, null, "Id", DefaultData.DefaultEnergyNames_Name, DefaultData.DefaultEnergyIds_Name)]
 		public int? EnergyDefinitionID;
 
 		[UiSonTextEditUi]
@@ -41,13 +41,13 @@ namespace Hp2BaseMod.GameDataInfo
 		[UiSonTextEditUi]
 		public int? BonusWeight;
 
-		[UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+		[UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
 		public bool? Negative;
 
 		[UiSonMemberElement]
 		public AudioKlipInfo SfxMatchInfo;
 
-		[UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Sprites")]
+		[UiSonSelectorUi(DefaultData.NullableBoolOptions_Name, 0, "Sprites")]
 		public bool? AltBonusSprite;
 
 		[UiSonMemberElement(0, "Sprites")]

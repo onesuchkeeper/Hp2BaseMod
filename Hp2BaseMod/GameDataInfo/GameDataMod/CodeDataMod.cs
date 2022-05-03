@@ -3,7 +3,6 @@
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
-using System;
 using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
@@ -26,7 +25,7 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public string CodeHash;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? Disabled;
 
         public CodeDataMod() { }
@@ -69,9 +68,9 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.codeType, CodeType);
             ValidatedSet.SetValue(ref def.disabled, Disabled);
 
-            ValidatedSet.SetValue(ref def.offMessage, OffMessage, InsertStyle);
-            ValidatedSet.SetValue(ref def.onMessage, OnMessage, InsertStyle);
-            ValidatedSet.SetValue(ref def.codeHash, CodeHash, InsertStyle);
+            ValidatedSet.SetValue(ref def.offMessage, OffMessage, insertStyle);
+            ValidatedSet.SetValue(ref def.onMessage, OnMessage, insertStyle);
+            ValidatedSet.SetValue(ref def.codeHash, CodeHash, insertStyle);
         }
     }
 }

@@ -63,7 +63,7 @@ namespace Hp2BaseMod.GameDataInfo
                     if (File.Exists(Path))
                     {
                         byte[] fileBytes = File.ReadAllBytes(Path);
-                        def =  WAV.LoadAudioClip(fileBytes, 0);
+                        def =  WAVUtility.LoadAudioClip(fileBytes, 0);
 
                         ModInterface.Instance.LogLine($"{(def == null ? "Failed to load" : "Loaded")} external {nameof(AudioClip)} { Path ?? null}");
                     }

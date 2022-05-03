@@ -2,6 +2,7 @@
 
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
+using Hp2BaseMod.Utility;
 using System;
 using System.IO;
 using UiSon.Attribute;
@@ -59,10 +60,7 @@ namespace Hp2BaseMod.GameDataInfo
                 {
                     if (File.Exists(Path))
                     {
-                        var fileData = File.ReadAllBytes(Path);
-                        var texture = new Texture2D(0, 0, TextureFormat.ARGB32, false);
-                        texture.LoadImage(fileData);
-
+                        var texture = TextureUtility.LoadFromPath(Path);
                         def = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
 
                         ModInterface.Instance.LogLine($"{(def == null ? "Failed to load" : "Loaded")} external {nameof(Sprite)} { Path ?? null}");

@@ -21,7 +21,7 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public string YuriDialogOptionText;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? Yuri;
 
         [UiSonMemberElement]

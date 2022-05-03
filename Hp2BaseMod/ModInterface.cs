@@ -189,7 +189,8 @@ namespace Hp2BaseMod
         /// outputs to the loader log
         /// </summary>
         /// <param name="line"></param>
-        public void LogLine(string line)
+        
+        public void LogLine([System.Runtime.CompilerServices.CallerMemberName] string line = "")
         {
             var lines = line.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
             var tab = new string(' ', _logIndent * 2);

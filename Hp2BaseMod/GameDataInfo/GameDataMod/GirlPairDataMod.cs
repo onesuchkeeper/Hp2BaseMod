@@ -21,43 +21,43 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonMemberElement(0, null, DisplayMode.Grid)]
         public List<GirlPairFavQuestionInfo> FavQuestions;
 
-        [UiSonElementSelectorUi(nameof(GirlDataMod), 10, null, "id", DefaultData.DefaultGirlNames, DefaultData.DefaultGirlIds)]
+        [UiSonElementSelectorUi(nameof(GirlDataMod), 10, null, "id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
         public int? GirlDefinitionOneID;
 
-        [UiSonElementSelectorUi(nameof(GirlDataMod), 10, null, "id", DefaultData.DefaultGirlNames, DefaultData.DefaultGirlIds)]
+        [UiSonElementSelectorUi(nameof(GirlDataMod), 10, null, "id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
         public int? GirlDefinitionTwoID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 10)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name, 10)]
         public bool? SpecialPair;
 
-        [UiSonElementSelectorUi(nameof(PhotoDataMod), 10, null, "id", DefaultData.DefaultPhotoNames, DefaultData.DefaultPhotoIds)]
+        [UiSonElementSelectorUi(nameof(PhotoDataMod), 10, null, "id", DefaultData.DefaultPhotoNames_Name, DefaultData.DefaultPhotoIds_Name)]
         public int? PhotoDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Meeting")]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name, 0, "Meeting")]
         public bool? IntroductionPair;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Meeting")]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name, 0, "Meeting")]
         public bool? IntroSidesFlipped;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Meeting")]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name, 0, "Meeting")]
         public bool? HasMeetingStyleOne;
 
         [UiSonSelectorUi(DefaultData.GirlStyleTypeNullable_As_String, 0, "Meeting")]
         public GirlStyleType? MeetingStyleTypeOne;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Meeting")]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name, 0, "Meeting")]
         public bool? HasMeetingStyleTwo;
 
         [UiSonSelectorUi(DefaultData.GirlStyleTypeNullable_As_String, 0, "Meeting")]
         public GirlStyleType? MeetingStyleTypeTwo;
 
-        [UiSonElementSelectorUi(nameof(LocationDataMod), 0, "Meeting", "id", DefaultData.DefaultLocationNames, DefaultData.DefaultLocationIds)]
+        [UiSonElementSelectorUi(nameof(LocationDataMod), 0, "Meeting", "id", DefaultData.DefaultLocationNames_Name, DefaultData.DefaultLocationIds_Name)]
         public int? MeetingLocationDefinitionID;
 
         [UiSonSelectorUi(DefaultData.ClockDaytimeTypeNullable_As_String, 0, "Sex")]
         public ClockDaytimeType? SexDayTime;
 
-        [UiSonElementSelectorUi(nameof(LocationDataMod), 0, "Sex", "id", DefaultData.DefaultLocationNames, DefaultData.DefaultLocationIds)]
+        [UiSonElementSelectorUi(nameof(LocationDataMod), 0, "Sex", "id", DefaultData.DefaultLocationNames_Name, DefaultData.DefaultLocationIds_Name)]
         public int? SexLocationDefinitionID;
 
         [UiSonSelectorUi(DefaultData.GirlStyleTypeNullable_As_String, 0, "Sex")]
@@ -67,7 +67,7 @@ namespace Hp2BaseMod.GameDataInfo
         public GirlStyleType? SexStyleTypeTwo;
 
         [UiSonCollection(false)]
-        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "id", DefaultData.DefaultCutsceneNames, DefaultData.DefaultCutsceneIds)]
+        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
         public List<int> RelationshipCutsceneDefinitionIDs = new List<int>() { -1,-1,-1,-1};
 
         public GirlPairDataMod() { }

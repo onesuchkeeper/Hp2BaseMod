@@ -46,28 +46,28 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi(0, "Appearance")]
         public int? TooltipColorIndex;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Store")]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name, 0, "Store")]
         public bool? StoreSectionPreference;
 
         [UiSonTextEditUi(0, "Store")]
         public int? StoreCost;
 
-        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, "Ailment", "Id", DefaultData.DefaultCutsceneNames, DefaultData.DefaultCutsceneIds)]
+        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, "Ailment", "Id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
         public int? CutsceneDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, "Ailment", "Id", DefaultData.DefaultAilmentNames, DefaultData.DefaultAilmentIds)]
+        [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, "Ailment", "Id", DefaultData.DefaultAilmentNames_Name, DefaultData.DefaultAilmentIds_Name)]
         public int? AilmentDefinitionID;
 
         [UiSonSelectorUi(DefaultData.EditorDialogTriggerTabNullable_As_String, 0, "Ailment")]
         public EditorDialogTriggerTab? BaggageGirl;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? DifficultyExclusive;
 
         [UiSonSelectorUi(DefaultData.SettingDifficultyNullable_As_String)]
         public SettingDifficulty? Difficulty;
 
-        [UiSonElementSelectorUi(nameof(EnergyDataMod), 0, null, "Id", DefaultData.DefaultEnergyNames, DefaultData.DefaultEnergyIds)]
+        [UiSonElementSelectorUi(nameof(EnergyDataMod), 0, null, "Id", DefaultData.DefaultEnergyNames_Name, DefaultData.DefaultEnergyIds_Name)]
         public int? EnergyDefinitionID;
 
         [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable_As_String, 0, "Puzzle")]
@@ -76,16 +76,16 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonSelectorUi(DefaultData.ItemGiveConditionTypeNullable_As_String)]
         public ItemGiveConditionType? GiveConditionType;
 
-        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "Id", DefaultData.DefaultGirlNames, DefaultData.DefaultGirlIds)]
+        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "Id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
         public int? GirlDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? NoStaminaCost;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? DateGiftAilment;
 
-        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, "Puzzle", "Id", DefaultData.DefaultAbilityNames, DefaultData.DefaultAbilityIds)]
+        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, "Puzzle", "Id", DefaultData.DefaultAbilityNames_Name, DefaultData.DefaultAbilityIds_Name)]
         public int? AbilityDefinitionID;
 
         [UiSonTextEditUi(0, "Puzzle")]
@@ -203,6 +203,7 @@ namespace Hp2BaseMod.GameDataInfo
 
         public void SetData(ItemDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("stasrt of iyerm mod");
             def.id = Id;
 
             ValidatedSet.SetValue(ref def.notifierHeaderIndex, NotifierHeaderIndex);
@@ -234,6 +235,8 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.categoryDescription, CategoryDescription, insertStyle);
             ValidatedSet.SetValue(ref def.costDescription, CostDescription, insertStyle);
             ValidatedSet.SetValue(ref def.itemSprite, ItemSpriteInfo, insertStyle, gameDataProvider, assetProvider);
+
+            ModInterface.Instance.LogLine("End of item mod");
         }
     }
 }

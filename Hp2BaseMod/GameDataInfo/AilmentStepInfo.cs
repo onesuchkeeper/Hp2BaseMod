@@ -30,10 +30,10 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public int? IntValue;
 
-        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, null, "Id", DefaultData.DefaultAbilityNames, DefaultData.DefaultAbilityIds)]
+        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, null, "Id", DefaultData.DefaultAbilityNames_Name, DefaultData.DefaultAbilityIds_Name)]
         public int? AbilityDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? BoolValue;
 
         [UiSonMemberElement]

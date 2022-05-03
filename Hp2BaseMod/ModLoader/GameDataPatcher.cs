@@ -18,7 +18,7 @@ namespace Hp2BaseMod.ModLoader
     internal static class GameDataPatcher
     {
         private static readonly string _defaultDataDir = @"mods\DefaultData";
-        private static bool _isDevMode = false;
+        private static bool _isDevMode;
 
         public static void Patch(Harmony harmony, bool isDevMode)
         {
@@ -41,9 +41,6 @@ namespace Hp2BaseMod.ModLoader
         {
             ModInterface.Instance.LogTitle("Modifying GameData");
             ModInterface.Instance.IncreaseLogIndent();
-
-            Hp2UiSonUtility.MakeDefaultDataDotCs(__instance);
-            return;
 
             //grab dicts
             var abilityDataDict = GetDataDict<AbilityDefinition>(__instance, typeof(AbilityData), "_abilityData");
@@ -68,6 +65,12 @@ namespace Hp2BaseMod.ModLoader
 
             if (_isDevMode)
             {
+                ModInterface.Instance.LogLine("Generating DefaultData.cs");
+                ModInterface.Instance.IncreaseLogIndent();
+                Hp2UiSonUtility.MakeDefaultDataDotCs(__instance);
+                ModInterface.Instance.LogLine("Done");
+                ModInterface.Instance.DecreaseLogIndent();
+
                 ModInterface.Instance.LogLine("Generating Dev Files");
                 ModInterface.Instance.IncreaseLogIndent();
                 SaveDataMods(abilityDataDict.Select(x => new AbilityDataMod(x.Value, assetProvider)), nameof(AbilityDataMod));

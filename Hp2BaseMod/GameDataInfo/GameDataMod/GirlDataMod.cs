@@ -38,10 +38,10 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi(0, "Girl Info")]
         public int? GirlAge;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Girl Info")]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name, 0, "Girl Info")]
         public bool? SpecialCharacter;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Girl Info")]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name, 0, "Girl Info")]
         public bool? BossCharacter;
 
         [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable_As_String, 0, "Girl Info")]
@@ -72,24 +72,21 @@ namespace Hp2BaseMod.GameDataInfo
         public List<ItemFoodType> BadFoodTypes;
 
         [UiSonCollection]
-        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, null, "Id", DefaultData.DefaultGirlPairNames, DefaultData.DefaultGirlPairIds)]
+        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, null, "Id", DefaultData.DefaultGirlPairNames_Name, DefaultData.DefaultGirlPairIds_Name)]
         public List<int> GirlPairDefIDs;
 
         #endregion
 
         #region Items
 
-        [UiSonCollection(false)]
-        [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, "Items", "Id", DefaultData.DefaultItemNames, DefaultData.DefaultItemIds)]
-        public List<int> BaggageItemDefIDs = new List<int>() { -1,-1,-1};
+        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, "Items", "Id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
+        public List<int> BaggageItemDefIDs;
 
-        [UiSonCollection(false)]
-        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, "Items", "Id", DefaultData.DefaultItemNames, DefaultData.DefaultItemIds)]
-        public List<int> UniqueItemDefIDs = new List<int>() { -1, -1, -1, -1, -1 };
+        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, "Items", "Id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
+        public List<int> UniqueItemDefIDs;
 
-        [UiSonCollection(false)]
-        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, "Items", "Id", DefaultData.DefaultItemNames, DefaultData.DefaultItemIds)]
-        public List<int> ShoesItemDefIDs = new List<int>() { -1, -1, -1, -1, -1 };
+        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, "Items", "Id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
+        public List<int> ShoesItemDefIDs;
 
         #endregion
 
@@ -105,22 +102,22 @@ namespace Hp2BaseMod.GameDataInfo
 
         #endregion
 
-        [UiSonSelectorUi(DefaultData.UiDollSpecialEffectNames, 0, "Special Effect")]
+        [UiSonSelectorUi(DefaultData.UiDollSpecialEffectNames_Name, 0, "Special Effect")]
         public string SpecialEffectName;
 
         [UiSonMemberElement(0, "Special Effect")]
         public VectorInfo SpecialEffectOffset;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Style")]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name, 0, "Style")]
         public bool? HasAltStyles;
 
         [UiSonTextEditUi(0, "Style")]
         public string AltStylesFlagName;
 
-        [UiSonElementSelectorUi(nameof(CodeDataMod), 0, "Style", "Id", DefaultData.DefaultCodeNames, DefaultData.DefaultCodeIds)]
+        [UiSonElementSelectorUi(nameof(CodeDataMod), 0, "Style", "Id", DefaultData.DefaultCodeNames_Name, DefaultData.DefaultCodeIds_Name)]
         public int? AltStylesCodeDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(CodeDataMod), 0, "Style", "Id", DefaultData.DefaultCodeNames, DefaultData.DefaultCodeIds)]
+        [UiSonElementSelectorUi(nameof(CodeDataMod), 0, "Style", "Id", DefaultData.DefaultCodeNames_Name, DefaultData.DefaultCodeIds_Name)]
         public int? UnlockStyleCodeDefinitionID;
 
         #region Sprites
@@ -390,6 +387,7 @@ namespace Hp2BaseMod.GameDataInfo
         {
             def.id = Id;
 
+
             ValidatedSet.SetValue(ref def.editorTab, EditorTab);
             ValidatedSet.SetValue(ref def.girlAge, GirlAge);
             ValidatedSet.SetValue(ref def.dialogTriggerTab, DialogTriggerTab);
@@ -444,10 +442,10 @@ namespace Hp2BaseMod.GameDataInfo
 
             ValidatedSet.SetValue(ref def.specialEffectPrefab, (UiDollSpecialEffect)assetProvider.GetAsset(SpecialEffectName), insertStyle);
 
-            ValidatedSet.SetListValue(ref def.girlPairDefs, GirlPairDefIDs.Select(x => gameDataProvider.GetGirlPair(x)), InsertStyle);
-            ValidatedSet.SetListValue(ref def.baggageItemDefs, BaggageItemDefIDs.Select(x => gameDataProvider.GetItem(x)), InsertStyle);
-            ValidatedSet.SetListValue(ref def.uniqueItemDefs, UniqueItemDefIDs.Select(x => gameDataProvider.GetItem(x)), InsertStyle);
-            ValidatedSet.SetListValue(ref def.shoesItemDefs, ShoesItemDefIDs.Select(x => gameDataProvider.GetItem(x)), InsertStyle);
+            ValidatedSet.SetListValue(ref def.girlPairDefs, GirlPairDefIDs?.Select(x => gameDataProvider.GetGirlPair(x)), InsertStyle);
+            ValidatedSet.SetListValue(ref def.baggageItemDefs, BaggageItemDefIDs?.Select(x => gameDataProvider.GetItem(x)), InsertStyle);
+            ValidatedSet.SetListValue(ref def.uniqueItemDefs, UniqueItemDefIDs?.Select(x => gameDataProvider.GetItem(x)), InsertStyle);
+            ValidatedSet.SetListValue(ref def.shoesItemDefs, ShoesItemDefIDs?.Select(x => gameDataProvider.GetItem(x)), InsertStyle);
             ValidatedSet.SetListValue(ref def.parts, Parts, InsertStyle, gameDataProvider, assetProvider);
         }
     }

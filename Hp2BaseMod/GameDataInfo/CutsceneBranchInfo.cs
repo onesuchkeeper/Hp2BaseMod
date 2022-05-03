@@ -15,7 +15,7 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class CutsceneBranchInfo : IGameDataInfo<CutsceneBranchSubDefinition>
     {
-        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "Id", DefaultData.DefaultCutsceneNames, DefaultData.DefaultCutsceneIds)]
+        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "Id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
         public int? CutsceneDefinitionID;
 
         [UiSonMemberElement]

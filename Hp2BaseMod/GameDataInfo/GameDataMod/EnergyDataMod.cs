@@ -19,7 +19,7 @@ namespace Hp2BaseMod.GameDataInfo
     [UiSonGroup("Surge", 1)]
     public class EnergyDataMod : DataMod, IGameDataMod<EnergyDefinition>
     {
-        [UiSonSelectorUi(DefaultData.TextMaterialNames, 0, "Text")]
+        [UiSonSelectorUi(DefaultData.TextMaterialNames_Name, 0, "Text")]
         public string TextMaterialName;
 
         [UiSonMemberElement(0, "Text")]
@@ -37,15 +37,15 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonSelectorUi(DefaultData.GirlExpressionTypeNullable_As_String, 0, "Surge")]
         public GirlExpressionType? SurgeExpression;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Surge")]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name, 0, "Surge")]
         public bool? SurgeEyesClosed;
         public GirlExpressionType? NegSurgeExpression;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Surge")]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name, 0, "Surge")]
         public bool? NegSurgeEyesClosed;
         public GirlExpressionType? BossSurgeExpression;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Surge")]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name, 0, "Surge")]
         public bool? BossSurgeEyesClosed;
 
         [UiSonMemberElement(0, "Surge")]

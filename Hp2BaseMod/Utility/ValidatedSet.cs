@@ -56,7 +56,7 @@ namespace Hp2BaseMod.Utility
             }
             else if (value != null)
             {
-                switch(style)
+                switch (style)
                 {
                     case InsertStyle.append:
                         target = target.Concat(value).ToList();

@@ -81,31 +81,31 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public int? AilmentIndex;
 
-        [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, null, "Id", DefaultData.DefaultAilmentNames, DefaultData.DefaultAilmentIds)]
+        [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, null, "Id", DefaultData.DefaultAilmentNames_Name, DefaultData.DefaultAilmentIds_Name)]
         public int? AilmentDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(EnergyDataMod), 0, null, "Id", DefaultData.DefaultEnergyIds, DefaultData.DefaultEnergyIds)]
+        [UiSonElementSelectorUi(nameof(EnergyDataMod), 0, null, "Id", DefaultData.DefaultEnergyIds_Name, DefaultData.DefaultEnergyIds_Name)]
         public int? EnergyDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? Negative;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? OppositeGirl;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? ResourceMaxValue;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? Merged;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? FlatMerge;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? OrCheck;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? Weighted;
 
         [UiSonMemberElement]
@@ -117,7 +117,7 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public List<string> CombineValues;
 
-        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "Id", DefaultData.DefaultTokenNames, DefaultData.DefaultTokenIds)]
+        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "Id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
         public List<int> TokenDefinitionIDs;
 
         /// <summary>

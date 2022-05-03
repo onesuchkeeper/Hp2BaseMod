@@ -46,16 +46,16 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonSelectorUi(DefaultData.GirlPairRelationshipTypeNullable_As_String)]
         public GirlPairRelationshipType? GirlPairRelationshipType;
 
-        [UiSonSelectorUi(DefaultData.SpecialStepNames)]
+        [UiSonSelectorUi(DefaultData.SpecialStepNames_Name)]
         public string SpecialStepPrefabName;
 
-        [UiSonSelectorUi(DefaultData.BannerTextNames)]
+        [UiSonSelectorUi(DefaultData.BannerTextNames_Name)]
         public string BannerTextPrefabName;
 
-        [UiSonSelectorUi(DefaultData.UiWindowNames)]
+        [UiSonSelectorUi(DefaultData.UiWindowNames_Name)]
         public string WindowPrefabName;
 
-        [UiSonSelectorUi(DefaultData.EmitterNames)]
+        [UiSonSelectorUi(DefaultData.EmitterNames_Name)]
         public string EmitterBehaviorName;
 
         [UiSonTextEditUi]
@@ -67,19 +67,19 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public float? ProceedFloat;
 
-        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "Id", DefaultData.DefaultGirlNames, DefaultData.DefaultGirlIds)]
+        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "Id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
         public int? TargetGirlDefinitionID;
 
         [UiSonTextEditUi]
         public int? IntValue;
 
-        [UiSonSelectorUi(DefaultData.EaseTypeNames, 0, null, DefaultData.EaseTypeIds)]
+        [UiSonSelectorUi(DefaultData.EaseTypeNames_Name, 0, null, DefaultData.EaseTypeIds_Name)]
         public int? EaseType;
 
-        [UiSonElementSelectorUi(nameof(DialogTriggerDataMod), 0, null, "Id", DefaultData.DefaultDialogTriggerNames, DefaultData.DefaultDialogTriggerIds)]
+        [UiSonElementSelectorUi(nameof(DialogTriggerDataMod), 0, null, "Id", DefaultData.DefaultDialogTriggerNames_Name, DefaultData.DefaultDialogTriggerIds_Name)]
         public int? DialogTriggerDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "Id", DefaultData.DefaultGirlNames, DefaultData.DefaultGirlIds)]
+        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "Id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
         public int? GirlDefinitionID;
 
         [UiSonTextEditUi]
@@ -91,22 +91,22 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public int? OutfitIndex;
 
-        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "Id", DefaultData.DefaultCutsceneNames, DefaultData.DefaultCutsceneIds)]
+        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "Id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
         public int? SubCutsceneDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? SkipStep;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? TargetAlt;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? BoolValue;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? SetMood;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? ProceedBool;
 
         [UiSonMemberElement]

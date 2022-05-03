@@ -17,22 +17,22 @@ namespace Hp2BaseMod.GameDataInfo
     [UiSonGroup("Disable", -2)]
     public class AilmentDataMod : DataMod, IGameDataMod<AilmentDefinition>
     {
-        [UiSonElementSelectorUi(nameof(ItemDataMod), 1, null, "Id", DefaultData.DefaultItemNames, DefaultData.DefaultItemIds)]
+        [UiSonElementSelectorUi(nameof(ItemDataMod), 1, null, "Id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
         public int? ItemDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 1)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name, 1)]
         public bool? PersistentFlags;
 
         [UiSonSelectorUi(DefaultData.AilmentEnableTypeNullable_As_String, 0, "Enable")]
         public AilmentEnableType? EnableType;
 
-        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, "Enable", "Id", DefaultData.DefaultAbilityNames, DefaultData.DefaultAbilityIds)]
+        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, "Enable", "Id", DefaultData.DefaultAbilityNames_Name, DefaultData.DefaultAbilityIds_Name)]
         public int? EnableAbilityDefID;
 
-        [UiSonElementSelectorUi(nameof(DialogTriggerDataMod), 0, "Enable", "Id", DefaultData.DefaultDialogTriggerNames, DefaultData.DefaultDialogTriggerIds)]
+        [UiSonElementSelectorUi(nameof(DialogTriggerDataMod), 0, "Enable", "Id", DefaultData.DefaultDialogTriggerNames_Name, DefaultData.DefaultDialogTriggerIds_Name)]
         public int? EnableTriggerIndex;
 
-        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, "Enable", "Id", DefaultData.DefaultTokenNames, DefaultData.DefaultTokenIds)]
+        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, "Enable", "Id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
         public int? EnableTokenDefID;
 
         [UiSonTextEditUi(0, "Enable")]
@@ -41,13 +41,13 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi(0, "Enable")]
         public float? EnableFloatVal;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions, 0, "Enable")]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name, 0, "Enable")]
         public bool? EnableBoolVal;
 
         [UiSonTextEditUi(0, "Enable")]
         public string EnableStringVal;
 
-        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, "Disable", "Id", DefaultData.DefaultAbilityNames, DefaultData.DefaultAbilityIds)]
+        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, "Disable", "Id", DefaultData.DefaultAbilityNames_Name, DefaultData.DefaultAbilityIds_Name)]
         public int? DisableAbilityDefID;
 
         [UiSonMemberElement]
@@ -117,6 +117,7 @@ namespace Hp2BaseMod.GameDataInfo
 
         public void SetData(AilmentDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
+            ModInterface.Instance.LogLine("staret ailmentmod");
             def.id = Id;
 
             ValidatedSet.SetValue(ref def.persistentFlags, PersistentFlags);
@@ -135,6 +136,7 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetListValue(ref def.hints, Hints, InsertStyle);
 
             ValidatedSet.SetListValue(ref def.triggers, Triggers, InsertStyle, gameDataProvider, assetProvider);
+            ModInterface.Instance.LogLine("End of ailmentl mod");
         }
     }
 }

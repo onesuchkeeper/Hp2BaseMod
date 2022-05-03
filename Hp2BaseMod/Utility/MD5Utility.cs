@@ -8,7 +8,7 @@ namespace Hp2BaseMod.Utility
     /// <summary>
     /// Static MD5 utilities
     /// </summary>
-    public static class MD5
+    public static class MD5Utility
     {
         /// <summary>
         /// Encrypts the input strig via MD5, same method unity uses

@@ -216,6 +216,7 @@ namespace Hp2RepeatThreesomeMod
     /// </summary>
     public class PuzzleManagerEvents
     {
+        private static string nudeUnlock = "\"Nude\" Outfit Unlocked!";
         PuzzleManager _puzzleManager;
         public PuzzleManagerEvents(PuzzleManager puzzleManager)
         {
@@ -236,16 +237,49 @@ namespace Hp2RepeatThreesomeMod
 
             if (nudeCode && newRoundCutsceneValue == _puzzleManager.cutsceneNewroundBonus)
             {
-                Game.Session.gameCanvas.dollLeft.ChangeOutfit(-69);
-                Game.Session.gameCanvas.dollRight.ChangeOutfit(-69);
+                ChangeToNudeOutfit();
             }
 
             AccessTools.Method(typeof(PuzzleManager), "OnRoundOverCutsceneComplete").Invoke(_puzzleManager, null);
 
             if (nudeCode && newRoundCutsceneValue == _puzzleManager.cutsceneNewroundBossBonus)
             {
-                Game.Session.gameCanvas.dollLeft.ChangeOutfit(-69);
-                Game.Session.gameCanvas.dollRight.ChangeOutfit(-69);
+                ChangeToNudeOutfit();
+            }
+        }
+
+        private void ChangeToNudeOutfit()
+        {
+            var leftFileGirl = _puzzleManager.puzzleStatus.girlStatusLeft.playerFileGirl;
+            var rightFileGirl = _puzzleManager.puzzleStatus.girlStatusRight.playerFileGirl;
+
+            var girlLeftOutfitIndex = leftFileGirl.girlDefinition
+                                                   .outfits
+                                                   .IndexOf(leftFileGirl.girlDefinition
+                                                                        .outfits
+                                                                        .FirstOrDefault(x => x.outfitName == Constants.NudeOutfitName));
+            var girlRightOutfitIndex = rightFileGirl.girlDefinition
+                                                    .outfits
+                                                    .IndexOf(rightFileGirl.girlDefinition
+                                                                          .outfits
+                                                                          .FirstOrDefault(x => x.outfitName == Constants.NudeOutfitName));
+
+            Game.Session.gameCanvas.dollLeft.ChangeOutfit(girlLeftOutfitIndex);
+            Game.Session.gameCanvas.dollRight.ChangeOutfit(girlRightOutfitIndex);
+
+            var silent = false;
+
+            if (!leftFileGirl.IsOutfitUnlocked(girlLeftOutfitIndex))
+            {
+                Game.Session.gameCanvas.dollLeft.notificationBox.Show(nudeUnlock, 4f, silent);
+                leftFileGirl.UnlockOutfit(girlLeftOutfitIndex);
+                silent = true;
+            }
+
+            if (!rightFileGirl.IsOutfitUnlocked(girlRightOutfitIndex))
+            {
+                Game.Session.gameCanvas.dollRight.notificationBox.Show(nudeUnlock, 4f, silent);
+                rightFileGirl.UnlockOutfit(girlRightOutfitIndex);
             }
         }
     }

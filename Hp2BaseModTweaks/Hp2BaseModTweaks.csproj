@@ -18,6 +18,9 @@
     <Reference Include="DOTween">
       <HintPath>..\lib\DOTween.dll</HintPath>
     </Reference>
+    <Reference Include="DOTweenPro">
+      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\HuniePop 2 - Double Date_Data\Managed\DOTweenPro.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\lib\Newtonsoft.Json.dll</HintPath>
     </Reference>

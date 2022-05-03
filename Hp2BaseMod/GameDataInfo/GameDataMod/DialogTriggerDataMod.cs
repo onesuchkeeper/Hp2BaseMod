@@ -21,7 +21,7 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonSelectorUi(DefaultData.DialogTriggerForceTypeNullable_As_String)]
         public DialogTriggerForceType? ForceType;
 
-        [UiSonElementSelectorUi(nameof(DialogTriggerDataMod), 0, null, "Id", DefaultData.DefaultDialogTriggerNames, DefaultData.DefaultDialogTriggerIds)]
+        [UiSonElementSelectorUi(nameof(DialogTriggerDataMod), 0, null, "Id", DefaultData.DefaultDialogTriggerNames_Name, DefaultData.DefaultDialogTriggerIds_Name)]
         public int? ResponseTriggerDefinitionID;
 
         [UiSonTextEditUi]

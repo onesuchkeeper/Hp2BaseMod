@@ -3,6 +3,8 @@
 using HarmonyLib;
 using Hp2BaseMod;
 using Hp2BaseMod.GameDataInfo;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Hp2RepeatThreesomeMod
 {
@@ -23,6 +25,26 @@ namespace Hp2RepeatThreesomeMod
                                            false,
                                            "Nudity durring bonus rounds off.",
                                            "Nudity durring bonus rounds on."));
+
+            // add nude outfits
+            foreach (var girlId in DefaultData.DefaultGirlIds.Concat(modInterface.GirlMods.Select(x => x.Id)).Distinct())
+            {
+                modInterface.AddData(new GirlDataMod(girlId, InsertStyle.append) 
+                {
+                    Outfits = new List<GirlOutfitSubDefinition> 
+                    { 
+                        new GirlOutfitSubDefinition()
+                        {
+                            outfitName = Constants.NudeOutfitName,
+                            partIndexOutfit = -1,
+                            pairHairstyleIndex = -1,
+                            tightlyPaired = false,
+                            hideNipples = false,
+                            editorExpanded = true
+                        }
+                    }
+                });
+            }
 
             new Harmony("Hp2BaseMod.Hp2RepeatThreesomeMod").PatchAll();
         }

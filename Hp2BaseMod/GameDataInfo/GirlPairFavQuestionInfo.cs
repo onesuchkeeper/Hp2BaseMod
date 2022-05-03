@@ -13,7 +13,7 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class GirlPairFavQuestionInfo : IGameDataInfo<GirlPairFavQuestionSubDefinition>
     {
-        [UiSonElementSelectorUi(nameof(QuestionDataMod), 0, null, "Id", DefaultData.DefaultQuestionNames, DefaultData.DefaultQuestionIds)]
+        [UiSonElementSelectorUi(nameof(QuestionDataMod), 0, null, "Id", DefaultData.DefaultQuestionNames_Name, DefaultData.DefaultQuestionIds_Name)]
         public int? QuestionDefinitionID;
 
         [UiSonTextEditUi]

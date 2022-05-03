@@ -6,5 +6,6 @@ namespace Hp2RepeatThreesomeMod
     {
         public static int LocalCodeId = 10003;
         public static int NudeCodeId = 10004;
+        public static string NudeOutfitName = "Nude";
     }
 }

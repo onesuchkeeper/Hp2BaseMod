@@ -19,10 +19,10 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonSelectorUi(DefaultData.ItemDateGiftTypeNullable_As_String)]
         public ItemDateGiftType? DateGiftType;
 
-        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, null, "Id", DefaultData.DefaultItemNames, DefaultData.DefaultItemIds)]
+        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, null, "Id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
         public int? ItemDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? Inverse;
 
         public GiftConditionInfo() { }

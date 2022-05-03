@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿// Hp2BaseMod 2022, By OneSuchKeeper
+
+using UnityEngine;
 using System;
 
 namespace Hp2BaseMod.Utility
 {
-    public static class WAV
+    public static class WAVUtility
     {
         public static AudioClip LoadAudioClip(byte[] fileBytes, int offsetSamples = 0, string name = "wav")
         {

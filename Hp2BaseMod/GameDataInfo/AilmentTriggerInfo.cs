@@ -21,7 +21,7 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonSelectorUi(DefaultData.AilmentTriggerStepsProcessTypeNullable_As_String)]
         public AilmentTriggerStepsProcessType? StepsProcessType;
 
-        [UiSonSliderUi(0, 100, 3)]
+        [UiSonSliderUi(0, 1, 3)]
         public float? PerentChance;
 
         [UiSonTextEditUi]
@@ -33,34 +33,34 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public int? VerbalizedIndex;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? FocusMatters;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? OnUnfocused;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? ExhaustionMatters;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? OnExhausted;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? UpsetMatters;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? OnUpset;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? ThresholdPersistent;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? DefaultDisabled;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? Audibalized;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions)]
+        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
         public bool? Verbalized;
 
         [UiSonMemberElement]
