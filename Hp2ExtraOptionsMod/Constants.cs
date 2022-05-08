@@ -5,6 +5,6 @@ namespace Hp2ExtraOptionsMod
     public static class Constants
     {
         public const int FemaleJizzToggleCodeID = 10001;
-        public const int NudityToggleCodeID = 10002;
+        public const int SlowAffectionDrainToggleCodeID = 10002;
     }
 }

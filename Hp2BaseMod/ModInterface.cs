@@ -179,6 +179,14 @@ namespace Hp2BaseMod
             }
         }
 
+        #region log
+
+        /// <summary>
+        /// outputs a newline to the loader log
+        /// </summary>
+        /// <param name="line"></param>
+        public void LogNullCheck(object target, string name = null) => _tw.WriteLine($"Is {name} null? {target == null}");
+
         /// <summary>
         /// outputs a newline to the loader log
         /// </summary>
@@ -189,7 +197,7 @@ namespace Hp2BaseMod
         /// outputs to the loader log
         /// </summary>
         /// <param name="line"></param>
-        
+
         public void LogLine([System.Runtime.CompilerServices.CallerMemberName] string line = "")
         {
             var lines = line.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
@@ -212,6 +220,10 @@ namespace Hp2BaseMod
             LogNewLine();
             LogLine($"-----{line}-----");
         }
+
+        #endregion log
+
+
 
         /// <summary>
         /// Adds a mod

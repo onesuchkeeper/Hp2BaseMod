@@ -10,7 +10,7 @@ namespace Hp2BaseMod
         {
             var rand = new Random();
 
-            switch (rand.Next(0,14))
+            switch (rand.Next(0,12))
             {
                 case 0:
                     return Aiko;
@@ -19,8 +19,6 @@ namespace Hp2BaseMod
                 case 2:
                     return Beli;
                 case 3:
-                case 12:
-                case 13:
                     return Celeste;
                 case 4:
                     return Jessie;

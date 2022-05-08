@@ -114,7 +114,7 @@ namespace Hp2SingleDateMod
                 ShoesAdj = string.Empty,
                 UniqueType = ItemUniqueType.TAILORING,// Ditto
                 UniqueAdj = string.Empty,
-                BadFoodTypes = new List<ItemFoodType?>(),
+                BadFoodTypes = new List<ItemFoodType>(),
                 GirlPairDefIDs = newPairs,
                 BaggageItemDefIDs = new List<int?>() { Constants.NoFocusBagadgeItemId,
                                                       115,

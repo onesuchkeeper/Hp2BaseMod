@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31025.194
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hp2BaseMod", "Hp2BaseMod\Hp2BaseMod.csproj", "{E5B85167-85AA-4AB4-A63B-FDD5A0FC9607}"
 EndProject
@@ -18,8 +18,13 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hp2BaseModTweaks", "Hp2BaseModTweaks\Hp2BaseModTweaks.csproj", "{EFEDC8D8-A926-4935-AF19-B2390BF1B139}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mods", "Mods", "{A9B075E7-4968-48D1-9EFA-BC1D68A36FD3}"
+	ProjectSection(SolutionItems) = preProject
+		Claimed Ids.txt = Claimed Ids.txt
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hp2ExtraOptionsMod", "Hp2ExtraOptionsMod\Hp2ExtraOptionsMod.csproj", "{F4D58F03-D1C2-403D-97AE-956ADB9261FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hp2ExtraOptionsMod", "Hp2ExtraOptionsMod\Hp2ExtraOptionsMod.csproj", "{F4D58F03-D1C2-403D-97AE-956ADB9261FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hp2LTT", "Hp2LTT\Hp2LTT.csproj", "{D0B418A4-8C05-4CD4-B1A5-BAE8EC0D0827}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +64,10 @@ Global
 		{F4D58F03-D1C2-403D-97AE-956ADB9261FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4D58F03-D1C2-403D-97AE-956ADB9261FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4D58F03-D1C2-403D-97AE-956ADB9261FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0B418A4-8C05-4CD4-B1A5-BAE8EC0D0827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0B418A4-8C05-4CD4-B1A5-BAE8EC0D0827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0B418A4-8C05-4CD4-B1A5-BAE8EC0D0827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0B418A4-8C05-4CD4-B1A5-BAE8EC0D0827}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +81,7 @@ Global
 		{40EA195A-60A6-4A6B-A7D9-6347334F11B8} = {A9B075E7-4968-48D1-9EFA-BC1D68A36FD3}
 		{EFEDC8D8-A926-4935-AF19-B2390BF1B139} = {A9B075E7-4968-48D1-9EFA-BC1D68A36FD3}
 		{F4D58F03-D1C2-403D-97AE-956ADB9261FE} = {A9B075E7-4968-48D1-9EFA-BC1D68A36FD3}
+		{D0B418A4-8C05-4CD4-B1A5-BAE8EC0D0827} = {A9B075E7-4968-48D1-9EFA-BC1D68A36FD3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F81D337B-EA2A-4737-AB6C-1756E97B151C}

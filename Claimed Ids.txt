@@ -1,0 +1,17 @@
+Abilities:
+Ailments:
+Codes:
+        FemaleJizzToggleCodeID = 10001, Hp2ExtraOptionsMod
+        SlowAffectionDrainToggleCodeID = 10002, Hp2ExtraOptionsMod
+
+        LocalCodeId = 20001, Hp2RepeatThreesomeMod
+        NudeCodeId = 20002, Hp2RepeatThreesomeMod
+DialogTriggers:
+Dlcs:
+Energy:
+Girls:
+Items:
+Locations:
+Photos:
+Questions:
+Tokens:

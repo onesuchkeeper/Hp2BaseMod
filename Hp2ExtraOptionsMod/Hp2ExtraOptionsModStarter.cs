@@ -3,7 +3,6 @@
 using HarmonyLib;
 using Hp2BaseMod;
 using Hp2BaseMod.GameDataInfo;
-using Hp2BaseMod.Utility;
 
 namespace Hp2ExtraOptionsMod
 {
@@ -18,14 +17,7 @@ namespace Hp2ExtraOptionsMod
                                                 "Female jizz off.",
                                                 "Female jizz on."));
 
-            modInterface.AddData(new CodeDataMod(Constants.NudityToggleCodeID,
-                                                "B257CA0175FE0E66A9D3FF3F005D9EE4",
-                                                CodeType.TOGGLE,
-                                                false,
-                                                "Constant Nudity off.",
-                                                "Constant Nudity on."));
-
-            // add toggle for slow drain on bonus round
+            // add toggle for slow drain on bonus round TODO
 
             new Harmony("Hp2BaseMod.Hp2BaseModTweaks").PatchAll();
         }

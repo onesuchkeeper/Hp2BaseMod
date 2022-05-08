@@ -113,8 +113,6 @@ namespace Hp2BaseMod.ModLoader
                 ModInterface.Instance.DecreaseLogIndent();
             }
 
-
-
             //mods
             ModInterface.Instance.LogLine("reading data mods");
             ModInterface.Instance.IncreaseLogIndent();
@@ -178,9 +176,10 @@ namespace Hp2BaseMod.ModLoader
             ModInterface.Instance.DecreaseLogIndent();
         }
 
-        private static Dictionary<int, T> GetDataDict<T>(GameData gameData, Type dataType, string dataName) => AccessTools.DeclaredField(dataType, "_definitions")
-                                                                                                                          .GetValue(AccessTools.DeclaredField(typeof(GameData), dataName)
-                                                                                                                          .GetValue(gameData)) as Dictionary<int, T>;
+        private static Dictionary<int, T> GetDataDict<T>(GameData gameData, Type dataType, string dataName)
+            => AccessTools.DeclaredField(dataType, "_definitions")
+                          .GetValue(AccessTools.DeclaredField(typeof(GameData), dataName)
+                          .GetValue(gameData)) as Dictionary<int, T>;
         #region Dev
 
         private static void SaveDataMods(IEnumerable<DataMod> mods, string name)
@@ -223,7 +222,10 @@ namespace Hp2BaseMod.ModLoader
             return dict;
         }
 
-        private static void SetData<T>(Dictionary<int, T> data, IEnumerable<IGameDataMod<T>> mods, GameDataProvider gameDataProvider, AssetProvider prefabProvider)
+        private static void SetData<T>(Dictionary<int, T> data,
+                                       IEnumerable<IGameDataMod<T>> mods,
+                                       GameDataProvider gameDataProvider,
+                                       AssetProvider prefabProvider)
         {
             foreach (var mod in mods.OrderBy(x => x.LoadPriority))
             {

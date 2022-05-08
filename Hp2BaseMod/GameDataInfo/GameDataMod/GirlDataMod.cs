@@ -68,8 +68,8 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi(0, "Girl Info")]
         public float? SexVoiceVolume;
 
-        [UiSonMultiChoiceUi(DefaultData.ItemFoodTypeNullable_As_String, 0, "Girl Info")]
-        public List<ItemFoodType?> BadFoodTypes;
+        [UiSonMultiChoiceUi(DefaultData.ItemFoodType_As_String, 0, "Girl Info")]
+        public List<ItemFoodType> BadFoodTypes;
 
         [UiSonCollection]
         [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, null, "Id", DefaultData.DefaultGirlPairNames_Name, DefaultData.DefaultGirlPairIds_Name)]
@@ -85,7 +85,7 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonElementSelectorUi(nameof(ItemDataMod), 0, "Items", "Id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
         public List<int?> UniqueItemDefIDs;
 
-        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, "Items", "Id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
+        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, "Items", "Id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
         public List<int?> ShoesItemDefIDs;
 
         #endregion
@@ -238,7 +238,7 @@ namespace Hp2BaseMod.GameDataInfo
                            string shoesAdj,
                            ItemUniqueType? uniqueType,
                            string uniqueAdj,
-                           List<ItemFoodType?> badFoodTypes,
+                           List<ItemFoodType> badFoodTypes,
                            List<int?> girlPairDefIDs,
                            List<int?> baggageItemDefIDs,
                            List<int?> uniqueItemDefIDs,
@@ -343,7 +343,7 @@ namespace Hp2BaseMod.GameDataInfo
             ShoesAdj = def.shoesAdj;
             UniqueType = def.uniqueType;
             UniqueAdj = def.uniqueAdj;
-            BadFoodTypes = def.badFoodTypes.Select(x => x as ItemFoodType?).ToList();
+            BadFoodTypes = def.badFoodTypes;
             GirlPairDefIDs = def.girlPairDefs?.Select(x => x.id as int?).ToList();
             BaggageItemDefIDs = def.baggageItemDefs?.Select(x => x.id as int?).ToList();
             UniqueItemDefIDs = def.uniqueItemDefs?.Select(x => x.id as int?).ToList();

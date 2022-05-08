@@ -3,7 +3,6 @@
 using DG.Tweening;
 using HarmonyLib;
 using Hp2BaseMod.Utility;
-using UnityEngine;
 using UnityEngine.UI;
 
 namespace Hp2BaseModTweaks
@@ -17,12 +16,12 @@ namespace Hp2BaseModTweaks
 
             var oldLogoImage = coverArt.rectTransform.GetChild(5).GetComponent<Image>();
 
-            var newLogoTexture = TextureUtility.LoadFromPath("mods/Hp2BaseModTweaks/logo.png");
+            oldLogoImage.sprite = TextureUtility.SpriteFromPath("mods/Hp2BaseModTweaks/Images/logo.png");
 
-            oldLogoImage.sprite = Sprite.Create(newLogoTexture, oldLogoImage.sprite.rect, oldLogoImage.sprite.pivot);
-
-            var rotateTweener = oldLogoImage.rectTransform.DOSpiral(0.7f, null, SpiralMode.Expand, 5).Play();
+            oldLogoImage.rectTransform.DOSpiral(0.7f, null, SpiralMode.Expand, 5).Play();
             oldLogoImage.rectTransform.DOShakeAnchorPos(0.7f, 40, 15, 100).Play();
+
+            //Game.Manager.Audio.Play(AudioCategory.SOUND, AssetHolder.Instance.AudioClips["sfx_puzzle_stamp_success"]);
 
             Game.Manager.Audio.Play(AudioCategory.SOUND, Game.Data.Tokens.Get(9).sfxMatch);
             Game.Manager.Audio.Play(AudioCategory.SOUND, Game.Data.Tokens.Get(7).sfxMatch);

@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace Hp2BaseMod.Utility
 {
@@ -13,10 +12,8 @@ namespace Hp2BaseMod.Utility
         private static readonly string _defaultDataPath = @"C:\Git\onesuchkeeper\Hp2BaseMod\Hp2BaseMod\DefaultData.cs";
         private static readonly string _addQoutesFormat = '"' + "{0}" + '"';
 
-        private static readonly List<string> _nullList = new List<string>() { "null" };
-
-        private static string MakeEnumName(string enumName, string castAsTypeName)
-            => (enumName.EndsWith("?") ? enumName.Substring(0, enumName.Length - 1) + "Nullable" : enumName) + "_As_" + castAsTypeName;
+        private static readonly IEnumerable<string> _nullListStr = new List<string>() { null };
+        private static readonly IEnumerable<object> _nullListIntNullable = new List<object>() { null };
 
         private static readonly List<KeyValuePair<string, IEnumerable<string>>> _staticStringArrays = new List<KeyValuePair<string, IEnumerable<string>>>()
         {
@@ -49,16 +46,16 @@ namespace Hp2BaseMod.Utility
                                     "InOutFlash","INTERNAL_Zero","INTERNAL_Custom" }),
         };
 
-        private static readonly List<KeyValuePair<string, IEnumerable<string>>> _staticIdArrays = new List<KeyValuePair<string, IEnumerable<string>>>()
+        private static readonly List<KeyValuePair<string, IEnumerable<object>>> _staticIdArrays = new List<KeyValuePair<string, IEnumerable<object>>>()
         {
-            new KeyValuePair<string, IEnumerable<string>>("DefaultMeetingLocationIds",
-                new List<string> { "null", "1", "2", "3", "4", "5", "6", "7", "8" }),
+            new KeyValuePair<string, IEnumerable<object>>("DefaultMeetingLocationIds",
+                new List<object> { null, 1, 2, 3, 4, 5, 6, 7, 8 }),
 
-            new KeyValuePair<string, IEnumerable<string>>("EaseTypeIds",
-                new List<string> { "null", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37" }),
+            new KeyValuePair<string, IEnumerable<object>>("EaseTypeIds",
+                new List<object> { null, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37 }),
         };
 
-        private static readonly List<KeyValuePair<string, string>> _enumStringArrays = new List<KeyValuePair<string, string>>()
+        private static readonly List<KeyValuePair<string, string>> _enumArrays = new List<KeyValuePair<string, string>>()
         { 
             new KeyValuePair<string, string>(nameof(InsertStyle), nameof(String)),
             new KeyValuePair<string, string>(nameof(GirlStyleType) + '?', nameof(String)),
@@ -67,6 +64,7 @@ namespace Hp2BaseMod.Utility
             new KeyValuePair<string, string>(nameof(ItemShoesType) + '?', nameof(String)),
             new KeyValuePair<string, string>(nameof(ItemUniqueType) + '?', nameof(String)),
             new KeyValuePair<string, string>(nameof(ItemFoodType) + '?', nameof(String)),
+            new KeyValuePair<string, string>(nameof(ItemFoodType), nameof(String)),
             new KeyValuePair<string, string>(nameof(AilmentEnableType) + '?', nameof(String)),
             new KeyValuePair<string, string>(nameof(CodeType) + '?', nameof(String)),
             new KeyValuePair<string, string>(nameof(CutsceneCleanUpType) + '?', nameof(String)),
@@ -116,90 +114,75 @@ namespace Hp2BaseMod.Utility
             new KeyValuePair<string, string>(nameof(PuzzleStatusType) + '?', nameof(String)),
         };
 
-        private static readonly List<KeyValuePair<string, Func<GameData, IEnumerable<string>>>> _gameDataStringNameArrays = new List<KeyValuePair<string, Func<GameData, IEnumerable<string>>>>()
+        private static readonly List<KeyValuePair<string, Func<GameData, IEnumerable<string>>>> _gameDataNameArrays = new List<KeyValuePair<string, Func<GameData, IEnumerable<string>>>>()
         { 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultAbilityNames", (gameData) => _nullList.Concat(gameData.Abilities.GetAll().Select(x => x.name))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultAbilityNames", (gameData) => _nullListStr.Concat(gameData.Abilities.GetAll().Select(x => x.name))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultAilmentNames", (gameData) => _nullList.Concat(gameData.Ailments.GetAll().Select(x => x.name))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultAilmentNames", (gameData) => _nullListStr.Concat(gameData.Ailments.GetAll().Select(x => x.name))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultCodeNames", (gameData) => _nullList.Concat(gameData.Codes.GetAll().Select(x => x.name))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultCodeNames", (gameData) => _nullListStr.Concat(gameData.Codes.GetAll().Select(x => x.name))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultCutsceneNames", (gameData) => _nullList.Concat(gameData.Cutscenes.GetAll().Select(x => x.name))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultCutsceneNames", (gameData) => _nullListStr.Concat(gameData.Cutscenes.GetAll().Select(x => x.name))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultDialogTriggerNames", (gameData) => _nullList.Concat(gameData.DialogTriggers.GetAll().Select(x => x.name))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultDialogTriggerNames", (gameData) => _nullListStr.Concat(gameData.DialogTriggers.GetAll().Select(x => x.name))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultDlcNames", (gameData) => _nullList.Concat(gameData.Dlcs.GetAll().Select(x => x.name))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultDlcNames", (gameData) => _nullListStr.Concat(gameData.Dlcs.GetAll().Select(x => x.name))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultEnergyNames", (gameData) => _nullList.Concat(gameData.Energy.GetAll().Select(x => x.name))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultEnergyNames", (gameData) => _nullListStr.Concat(gameData.Energy.GetAll().Select(x => x.name))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultGirlNames", (gameData) => _nullList.Concat(gameData.Girls.GetAll().Select(x => x.name))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultGirlNames", (gameData) => _nullListStr.Concat(gameData.Girls.GetAll().Select(x => x.name))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultGirlPairNames", (gameData) => _nullList.Concat(gameData.GirlPairs.GetAll().Select(x => x.name))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultGirlPairNames", (gameData) => _nullListStr.Concat(gameData.GirlPairs.GetAll().Select(x => x.name))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultItemNames", (gameData) => _nullList.Concat(gameData.Items.GetAll().Select(x => x.name))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultItemNames", (gameData) => _nullListStr.Concat(gameData.Items.GetAll().Select(x => x.name))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultLocationNames", (gameData) => _nullList.Concat(gameData.Locations.GetAll().Select(x => x.name))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultLocationNames", (gameData) => _nullListStr.Concat(gameData.Locations.GetAll().Select(x => x.name))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultPhotoNames", (gameData) => _nullList.Concat(gameData.Photos.GetAll().Select(x => x.name))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultPhotoNames", (gameData) => _nullListStr.Concat(gameData.Photos.GetAll().Select(x => x.name))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultQuestionNames", (gameData) => _nullList.Concat(gameData.Questions.GetAll().Select(x => x.name))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultQuestionNames", (gameData) => _nullListStr.Concat(gameData.Questions.GetAll().Select(x => x.name))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultTokenNames", (gameData) => _nullList.Concat(gameData.Tokens.GetAll().Select(x => x.name)))
+            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultTokenNames", (gameData) => _nullListStr.Concat(gameData.Tokens.GetAll().Select(x => x.name)))
         };
 
-        private static readonly List<KeyValuePair<string, Func<GameData, IEnumerable<string>>>> _gameDataStringIdArrays = new List<KeyValuePair<string, Func<GameData, IEnumerable<string>>>>()
+        private static readonly List<KeyValuePair<string, Func<GameData, IEnumerable<object>>>> _gameDataIdArrays = new List<KeyValuePair<string, Func<GameData, IEnumerable<object>>>>()
         {
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultAbilityIds", (gameData) => _nullList.Concat(gameData.Abilities.GetAll().Select(x => x.id.ToString()))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<object>>>("DefaultAbilityIds", (gameData) => _nullListIntNullable.Concat(gameData.Abilities.GetAll().Select(x => x?.id as object))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultAilmentIds", (gameData) => _nullList.Concat(gameData.Ailments.GetAll().Select(x => x.id.ToString()))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<object>>>("DefaultAilmentIds", (gameData) => _nullListIntNullable.Concat(gameData.Ailments.GetAll().Select(x => x?.id as object))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultCodeIds", (gameData) => _nullList.Concat(gameData.Codes.GetAll().Select(x => x.id.ToString()))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<object>>>("DefaultCodeIds", (gameData) => _nullListIntNullable.Concat(gameData.Codes.GetAll().Select(x => x?.id as object))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultCutsceneIds", (gameData) => _nullList.Concat(gameData.Cutscenes.GetAll().Select(x => x.id.ToString()))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<object>>>("DefaultCutsceneIds", (gameData) => _nullListIntNullable.Concat(gameData.Cutscenes.GetAll().Select(x => x?.id as object))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultDialogTriggerIds", (gameData) => _nullList.Concat(gameData.DialogTriggers.GetAll().Select(x => x.id.ToString()))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<object>>>("DefaultDialogTriggerIds", (gameData) => _nullListIntNullable.Concat(gameData.DialogTriggers.GetAll().Select(x => x?.id as object))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultDlcIds", (gameData) => _nullList.Concat(gameData.Dlcs.GetAll().Select(x => x.id.ToString()))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<object>>>("DefaultDlcIds", (gameData) => _nullListIntNullable.Concat(gameData.Dlcs.GetAll().Select(x => x?.id as object))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultEnergyIds", (gameData) => _nullList.Concat(gameData.Energy.GetAll().Select(x => x.id.ToString()))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<object>>>("DefaultEnergyIds", (gameData) => _nullListIntNullable.Concat(gameData.Energy.GetAll().Select(x => x?.id as object))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultGirlIds", (gameData) => _nullList.Concat(gameData.Girls.GetAll().Select(x => x.id.ToString()))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<object>>>("DefaultGirlIds", (gameData) => _nullListIntNullable.Concat(gameData.Girls.GetAll().Select(x => x?.id as object))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultGirlPairIds", (gameData) => _nullList.Concat(gameData.GirlPairs.GetAll().Select(x => x.id.ToString()))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<object>>>("DefaultGirlPairIds", (gameData) => _nullListIntNullable.Concat(gameData.GirlPairs.GetAll().Select(x => x?.id as object))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultItemIds", (gameData) => _nullList.Concat(gameData.Items.GetAll().Select(x => x.id.ToString()))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<object>>>("DefaultItemIds", (gameData) => _nullListIntNullable.Concat(gameData.Items.GetAll().Select(x => x?.id as object))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultLocationIds", (gameData) => _nullList.Concat(gameData.Locations.GetAll().Select(x => x.id.ToString()))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<object>>>("DefaultLocationIds", (gameData) => _nullListIntNullable.Concat(gameData.Locations.GetAll().Select(x => x?.id as object))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultPhotoIds", (gameData) => _nullList.Concat(gameData.Photos.GetAll().Select(x => x.id.ToString()))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<object>>>("DefaultPhotoIds", (gameData) => _nullListIntNullable.Concat(gameData.Photos.GetAll().Select(x => x?.id as object))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultQuestionIds", (gameData) => _nullList.Concat(gameData.Questions.GetAll().Select(x => x.id.ToString()))),
+            new KeyValuePair<string, Func<GameData, IEnumerable<object>>>("DefaultQuestionIds", (gameData) => _nullListIntNullable.Concat(gameData.Questions.GetAll().Select(x => x?.id as object))),
 
-            new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultTokenIds", (gameData) => _nullList.Concat(gameData.Tokens.GetAll().Select(x => x.id.ToString())))
+            new KeyValuePair<string, Func<GameData, IEnumerable<object>>>("DefaultTokenIds", (gameData) => _nullListIntNullable.Concat(gameData.Tokens.GetAll().Select(x => x?.id as object)))
         };
 
-        private static string MakeStringArrayAttribute(string name, IEnumerable<string> entries)
-        {
-            if (name == null) { throw new ArgumentNullException(nameof(name)); }
+        private static string MakeEnumName(string enumName, string castAsTypeName)
+            => (enumName.EndsWith("?") ? enumName.Substring(0, enumName.Length - 1) + "Nullable" : enumName) + "_As_" + castAsTypeName;
 
-            var result = $"[UiSonStringArray(\"{name}\", new string [] " + "{";
+        private static string MakeArrayAttribute(string name, IEnumerable<object> entries, string formatString = "{0}")
+            => $"[UiSonArray(\"{name}\", new object [] {{{ToCsv(entries, formatString)}}})]";
 
-            if (entries != null)
-            {
-                foreach (var entry in entries)
-                {
-                    result += $" \"{entry}\",";
-                }
-            }
-
-            result.TrimEnd(',');
-
-            result += " })]";
-
-            return result;
-        }
-
-        private static string ToCsv(IEnumerable<string> items, string formatString = "{0}") => string.Join(",", items.Select(x => string.Format(formatString,x)));
+        private static string ToCsv(IEnumerable<object> items, string formatString = "{0}") => string.Join(",", items.Select(x => string.Format(formatString,x ?? "null")));
 
         internal static void MakeDefaultDataDotCs(GameData gameData)
         {
@@ -217,25 +200,25 @@ namespace Hp2BaseMod.Utility
                 file.WriteLine(@"namespace Hp2BaseMod{");
                     foreach (var entry in _staticStringArrays)
                     {
-                        file.WriteLine("    " + MakeStringArrayAttribute(entry.Key, entry.Value));
+                        file.WriteLine("    " + MakeArrayAttribute(entry.Key, entry.Value, _addQoutesFormat));
                     }
                     foreach (var entry in _staticIdArrays)
                     {
-                        file.WriteLine("    " + MakeStringArrayAttribute(entry.Key, entry.Value));
+                        file.WriteLine("    " + MakeArrayAttribute(entry.Key, entry.Value));
                     }
                     file.WriteLine(String.Empty);
-                    foreach (var entry in _enumStringArrays)
+                    foreach (var entry in _enumArrays)
                     {
-                        file.WriteLine($"    [UiSonStringArray(\"{MakeEnumName(entry.Key, entry.Value)}\", typeof({entry.Key}), typeof({entry.Value}))]");
+                        file.WriteLine($"    [UiSonArray(\"{MakeEnumName(entry.Key, entry.Value)}\", typeof({entry.Key}), typeof({entry.Value}))]");
                     }
                     file.WriteLine(String.Empty);
-                    foreach (var entry in _gameDataStringNameArrays)
+                    foreach (var entry in _gameDataNameArrays)
                     {
-                        file.WriteLine("    " + MakeStringArrayAttribute(entry.Key, entry.Value.Invoke(gameData)));
+                        file.WriteLine("    " + MakeArrayAttribute(entry.Key, entry.Value.Invoke(gameData), _addQoutesFormat));
                     }
-                    foreach (var entry in _gameDataStringIdArrays)
+                    foreach (var entry in _gameDataIdArrays)
                     {
-                        file.WriteLine("    " + MakeStringArrayAttribute(entry.Key, entry.Value.Invoke(gameData)));
+                        file.WriteLine("    " + MakeArrayAttribute(entry.Key, entry.Value.Invoke(gameData)));
                     }
                     file.WriteLine(@"   public class DefaultData{");
                         foreach (var entry in _staticStringArrays)
@@ -249,19 +232,19 @@ namespace Hp2BaseMod.Utility
                             file.WriteLine($"       public static readonly IEnumerable<int> {entry.Key} = new int[] {{{ToCsv(entry.Value.Skip(1))}}};");
                         }
                         file.WriteLine(String.Empty);
-                        foreach (var entry in _enumStringArrays)
+                        foreach (var entry in _enumArrays)
                         {
                             var name = MakeEnumName(entry.Key, entry.Value);
                             file.WriteLine($"       internal const string {name} = \"{name}\";");
                         }
                         file.WriteLine(String.Empty);
-                        foreach (var entry in _gameDataStringNameArrays)
+                        foreach (var entry in _gameDataNameArrays)
                         {
                             file.WriteLine($"       internal const string {entry.Key}_Name = \"{entry.Key}\";");
                             file.WriteLine($"       public static readonly IEnumerable<string> {entry.Key} = new string[] {{{ToCsv(entry.Value.Invoke(gameData).Skip(1), _addQoutesFormat)}}};");
                         }
                         file.WriteLine(String.Empty);
-                        foreach (var entry in _gameDataStringIdArrays)
+                        foreach (var entry in _gameDataIdArrays)
                         {
                             file.WriteLine($"       internal const string {entry.Key}_Name = \"{entry.Key}\";");
                             file.WriteLine($"       public static readonly IEnumerable<int> {entry.Key} = new int[] {{{ToCsv(entry.Value.Invoke(gameData).Skip(1))}}};");
