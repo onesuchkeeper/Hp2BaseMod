@@ -19,86 +19,83 @@ namespace Hp2BaseMod.GameDataInfo
     [UiSonGroup("Ailment")]
     public class ItemDataMod : DataMod, IGameDataMod<ItemDefinition>
     {
+        // these three are only used to generate the category descryption,
+        // which we're doing manually for the expansion
+        public EditorDialogTriggerTab? baggageGirl;
+        public ItemShoesType? shoesType;
+        public ItemUniqueType? uniqueType;
+
         [UiSonSelectorUi(DefaultData.ItemTypeNullable_As_String, 0, "Type")]
-        public ItemType? ItemType;
-
-        [UiSonSelectorUi(DefaultData.ItemShoesTypeNullable_As_String, 0, "Type")]
-        public ItemShoesType? ShoesType;
-
-        [UiSonSelectorUi(DefaultData.ItemUniqueTypeNullable_As_String, 0, "Type")]
-        public ItemUniqueType? UniqueType;
+        public ItemType? itemType;
 
         [UiSonSelectorUi(DefaultData.ItemDateGiftTypeNullable_As_String, 0, "Type")]
-        public ItemDateGiftType? DateGiftType;
+        public ItemDateGiftType? dateGiftType;
 
         [UiSonSelectorUi(DefaultData.ItemFoodTypeNullable_As_String, 0, "Type")]
-        public ItemFoodType? FoodType;
+        public ItemFoodType? foodType;
 
         [UiSonMemberElement(0, "Appearance")]
         public SpriteInfo ItemSpriteInfo;
 
         [UiSonTextEditUi(0, "Appearance")]
-        public string ItemName;
+        public string itemName;
 
         [UiSonTextEditUi(0, "Appearance")]
-        public string ItemDescription;
+        public string itemDescription;
 
         [UiSonTextEditUi(0, "Appearance")]
-        public int? TooltipColorIndex;
+        public int? tooltipColorIndex;
 
         [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name, 0, "Store")]
-        public bool? StoreSectionPreference;
+        public bool? storeSectionPreference;
 
         [UiSonTextEditUi(0, "Store")]
-        public int? StoreCost;
+        public int? storeCost;
 
         [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, "Ailment", "Id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
-        public int? CutsceneDefinitionID;
+        public int? cutsceneDefinitionID;
 
         [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, "Ailment", "Id", DefaultData.DefaultAilmentNames_Name, DefaultData.DefaultAilmentIds_Name)]
-        public int? AilmentDefinitionID;
-
-        [UiSonSelectorUi(DefaultData.EditorDialogTriggerTabNullable_As_String, 0, "Ailment")]
-        public EditorDialogTriggerTab? BaggageGirl;
+        public int? ailmentDefinitionID;
 
         [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
-        public bool? DifficultyExclusive;
+        public bool? difficultyExclusive;
 
         [UiSonSelectorUi(DefaultData.SettingDifficultyNullable_As_String)]
-        public SettingDifficulty? Difficulty;
+        public SettingDifficulty? difficulty;
 
         [UiSonElementSelectorUi(nameof(EnergyDataMod), 0, null, "Id", DefaultData.DefaultEnergyNames_Name, DefaultData.DefaultEnergyIds_Name)]
-        public int? EnergyDefinitionID;
+        public int? energyDefinitionID;
 
         [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable_As_String, 0, "Puzzle")]
-        public PuzzleAffectionType? AffectionType;
+        public PuzzleAffectionType? affectionType;
 
         [UiSonSelectorUi(DefaultData.ItemGiveConditionTypeNullable_As_String)]
-        public ItemGiveConditionType? GiveConditionType;
+        public ItemGiveConditionType? giveConditionType;
 
         [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "Id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
-        public int? GirlDefinitionID;
+        public int? girlDefinitionID;
 
         [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
-        public bool? NoStaminaCost;
+        public bool? noStaminaCost;
 
         [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
-        public bool? DateGiftAilment;
+        public bool? dateGiftAilment;
 
         [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, "Puzzle", "Id", DefaultData.DefaultAbilityNames_Name, DefaultData.DefaultAbilityIds_Name)]
-        public int? AbilityDefinitionID;
+        public int? abilityDefinitionID;
 
         [UiSonTextEditUi(0, "Puzzle")]
-        public int? UseCost;
+        public int? useCost;
 
         [UiSonTextEditUi]
-        public string CategoryDescription;
+        public string categoryDescription;
 
         [UiSonTextEditUi]
-        public string CostDescription;
+        public string costDescription;
 
         [UiSonTextEditUi]
-        public int? NotifierHeaderIndex;
+        public int? notifierHeaderIndex;
 
         public ItemDataMod() { }
 
@@ -138,65 +135,91 @@ namespace Hp2BaseMod.GameDataInfo
                            InsertStyle insertStyle = InsertStyle.replace)
             : base(id, insertStyle)
         {
-            ItemName = itemName;
-            ItemType = itemType;
-            ItemDescription = itemDescription;
-            EnergyDefinitionID = energyDefinitionID;
+            this.itemName = itemName;
+            this.itemType = itemType;
+            this.itemDescription = itemDescription;
+            this.energyDefinitionID = energyDefinitionID;
             ItemSpriteInfo = itemSpriteInfo;
-            AffectionType = affectionType;
-            TooltipColorIndex = tooltipColorIndex;
-            GiveConditionType = giveConditionType;
-            GirlDefinitionID = girlDefinitionID;
-            DifficultyExclusive = difficultyExclusive;
-            Difficulty = difficulty;
-            StoreSectionPreference = storeSectionPreference;
-            StoreCost = storeCost;
-            FoodType = foodType;
-            NoStaminaCost = noStaminaCost;
-            ShoesType = shoesType;
-            UniqueType = uniqueType;
-            DateGiftType = dateGiftType;
-            DateGiftAilment = dateGiftAilment;
-            AbilityDefinitionID = abilityDefinitionID;
-            UseCost = useCost;
-            BaggageGirl = baggageGirl;
-            CutsceneDefinitionID = cutsceneDefinitionID;
-            AilmentDefinitionID = ailmentDefinitionID;
-            CategoryDescription = categoryDescription;
-            CostDescription = costDescription;
-            NotifierHeaderIndex = notifierHeaderIndex;
+            this.affectionType = affectionType;
+            this.tooltipColorIndex = tooltipColorIndex;
+            this.giveConditionType = giveConditionType;
+            this.girlDefinitionID = girlDefinitionID;
+            this.difficultyExclusive = difficultyExclusive;
+            this.difficulty = difficulty;
+            this.storeSectionPreference = storeSectionPreference;
+            this.storeCost = storeCost;
+            this.foodType = foodType;
+            this.noStaminaCost = noStaminaCost;
+            this.shoesType = shoesType;
+            this.uniqueType = uniqueType;
+            this.dateGiftType = dateGiftType;
+            this.dateGiftAilment = dateGiftAilment;
+            this.abilityDefinitionID = abilityDefinitionID;
+            this.useCost = useCost;
+            this.baggageGirl = baggageGirl;
+            this.cutsceneDefinitionID = cutsceneDefinitionID;
+            this.ailmentDefinitionID = ailmentDefinitionID;
+            this.categoryDescription = categoryDescription;
+            this.costDescription = costDescription;
+            this.notifierHeaderIndex = notifierHeaderIndex;
         }
 
         public ItemDataMod(ItemDefinition def, AssetProvider assetProvider)
             : base(def.id, InsertStyle.replace, def.name)
         {
-            ItemName = def.itemName;
-            ItemType = def.itemType;
-            ItemDescription = def.itemDescription;
-            AffectionType = def.affectionType;
-            TooltipColorIndex = def.tooltipColorIndex;
-            GiveConditionType = def.giveConditionType;
-            DifficultyExclusive = def.difficultyExclusive;
-            Difficulty = def.difficulty;
-            StoreSectionPreference = def.storeSectionPreference;
-            StoreCost = def.storeCost;
-            FoodType = def.foodType;
-            NoStaminaCost = def.noStaminaCost;
-            ShoesType = def.shoesType;
-            UniqueType = def.uniqueType;
-            DateGiftType = def.dateGiftType;
-            DateGiftAilment = def.dateGiftAilment;
-            UseCost = def.useCost;
-            BaggageGirl = def.baggageGirl;
-            CategoryDescription = def.categoryDescription;
-            CostDescription = def.costDescription;
-            NotifierHeaderIndex = def.notifierHeaderIndex;
+            itemName = def.itemName;
+            itemType = def.itemType;
+            itemDescription = def.itemDescription;
+            affectionType = def.affectionType;
+            tooltipColorIndex = def.tooltipColorIndex;
+            giveConditionType = def.giveConditionType;
+            difficultyExclusive = def.difficultyExclusive;
+            difficulty = def.difficulty;
+            storeSectionPreference = def.storeSectionPreference;
+            storeCost = def.storeCost;
+            foodType = def.foodType;
+            noStaminaCost = def.noStaminaCost;
+            shoesType = def.shoesType;
+            uniqueType = def.uniqueType;
+            dateGiftType = def.dateGiftType;
+            dateGiftAilment = def.dateGiftAilment;
+            useCost = def.useCost;
+            baggageGirl = def.baggageGirl;
+            costDescription = def.costDescription;
+            notifierHeaderIndex = def.notifierHeaderIndex;
 
-            EnergyDefinitionID = def.energyDefinition?.id ?? -1;
-            GirlDefinitionID = def.girlDefinition?.id ?? -1;
-            AbilityDefinitionID = def.abilityDefinition?.id ?? -1;
-            CutsceneDefinitionID = def.cutsceneDefinition?.id ?? -1;
-            AilmentDefinitionID = def.ailmentDefinition?.id ?? -1;
+            // category descryption will now be prioritized, so I'm setting it in the defaults to emphisize
+            switch (def.itemType)
+            {
+                case ItemType.FRUIT:
+                case ItemType.SMOOTHIE:
+                    categoryDescription = StringUtils.Titleize(def.affectionType.ToString());
+                    break;
+                case ItemType.FOOD:
+                    categoryDescription = StringUtils.Titleize(def.foodType.ToString());
+                    break;
+                case ItemType.SHOES:
+                    categoryDescription = StringUtils.Titleize(def.shoesType.ToString());
+                    break;
+                case ItemType.UNIQUE_GIFT:
+                    categoryDescription = StringUtils.Titleize(def.uniqueType.ToString());
+                    break;
+                case ItemType.DATE_GIFT:
+                    categoryDescription = StringUtils.Titleize(def.dateGiftType.ToString());
+                    break;
+                case ItemType.BAGGAGE:
+                    categoryDescription = StringUtils.Titleize(def.baggageGirl.ToString());
+                    break;
+                case ItemType.MISC:
+                    categoryDescription = def.categoryDescription;
+                    break;
+            }
+
+            energyDefinitionID = def.energyDefinition?.id ?? -1;
+            girlDefinitionID = def.girlDefinition?.id ?? -1;
+            abilityDefinitionID = def.abilityDefinition?.id ?? -1;
+            cutsceneDefinitionID = def.cutsceneDefinition?.id ?? -1;
+            ailmentDefinitionID = def.ailmentDefinition?.id ?? -1;
 
             if (def.itemSprite != null) { ItemSpriteInfo = new SpriteInfo(def.itemSprite, assetProvider); }
         }
@@ -208,35 +231,34 @@ namespace Hp2BaseMod.GameDataInfo
 
             def.id = Id;
 
-            ValidatedSet.SetValue(ref def.notifierHeaderIndex, NotifierHeaderIndex);
-            ValidatedSet.SetValue(ref def.itemType, ItemType);
-            ValidatedSet.SetValue(ref def.affectionType, AffectionType);
-            ValidatedSet.SetValue(ref def.tooltipColorIndex, TooltipColorIndex);
-            ValidatedSet.SetValue(ref def.giveConditionType, GiveConditionType);
-            ValidatedSet.SetValue(ref def.difficultyExclusive, DifficultyExclusive);
-            ValidatedSet.SetValue(ref def.difficulty, Difficulty);
-            ValidatedSet.SetValue(ref def.storeSectionPreference, StoreSectionPreference);
-            ValidatedSet.SetValue(ref def.storeCost, StoreCost);
-            ValidatedSet.SetValue(ref def.foodType, FoodType);
-            ValidatedSet.SetValue(ref def.noStaminaCost, NoStaminaCost);
-            ValidatedSet.SetValue(ref def.shoesType, ShoesType);
-            ValidatedSet.SetValue(ref def.uniqueType, UniqueType);
-            ValidatedSet.SetValue(ref def.dateGiftType, DateGiftType);
-            ValidatedSet.SetValue(ref def.dateGiftAilment, DateGiftAilment);
-            ValidatedSet.SetValue(ref def.useCost, UseCost);
-            ValidatedSet.SetValue(ref def.baggageGirl, BaggageGirl);
-            ValidatedSet.SetValue(ref def.cutsceneDefinition, gameDataProvider.GetCutscene(CutsceneDefinitionID), insertStyle);
-            ValidatedSet.SetValue(ref def.ailmentDefinition, gameDataProvider.GetAilment(AilmentDefinitionID), insertStyle);
-            ValidatedSet.SetValue(ref def.energyDefinition, gameDataProvider.GetEnergy(EnergyDefinitionID), insertStyle);
-            ValidatedSet.SetValue(ref def.girlDefinition, gameDataProvider.GetGirl(GirlDefinitionID), insertStyle);
-            ValidatedSet.SetValue(ref def.abilityDefinition, gameDataProvider.GetAbility(AbilityDefinitionID), insertStyle);
+            ValidatedSet.SetValue(ref def.notifierHeaderIndex, notifierHeaderIndex);
+            ValidatedSet.SetValue(ref def.itemType, itemType);
+            ValidatedSet.SetValue(ref def.affectionType, affectionType);
+            ValidatedSet.SetValue(ref def.tooltipColorIndex, tooltipColorIndex);
+            ValidatedSet.SetValue(ref def.giveConditionType, giveConditionType);
+            ValidatedSet.SetValue(ref def.difficultyExclusive, difficultyExclusive);
+            ValidatedSet.SetValue(ref def.difficulty, difficulty);
+            ValidatedSet.SetValue(ref def.storeSectionPreference, storeSectionPreference);
+            ValidatedSet.SetValue(ref def.storeCost, storeCost);
+            ValidatedSet.SetValue(ref def.foodType, foodType);
+            ValidatedSet.SetValue(ref def.noStaminaCost, noStaminaCost);
+            ValidatedSet.SetValue(ref def.shoesType, shoesType);
+            ValidatedSet.SetValue(ref def.uniqueType, uniqueType);
+            ValidatedSet.SetValue(ref def.dateGiftType, dateGiftType);
+            ValidatedSet.SetValue(ref def.dateGiftAilment, dateGiftAilment);
+            ValidatedSet.SetValue(ref def.useCost, useCost);
+            ValidatedSet.SetValue(ref def.baggageGirl, baggageGirl);
+            ValidatedSet.SetValue(ref def.cutsceneDefinition, gameDataProvider.GetCutscene(cutsceneDefinitionID), insertStyle);
+            ValidatedSet.SetValue(ref def.ailmentDefinition, gameDataProvider.GetAilment(ailmentDefinitionID), insertStyle);
+            ValidatedSet.SetValue(ref def.energyDefinition, gameDataProvider.GetEnergy(energyDefinitionID), insertStyle);
+            ValidatedSet.SetValue(ref def.girlDefinition, gameDataProvider.GetGirl(girlDefinitionID), insertStyle);
+            ValidatedSet.SetValue(ref def.abilityDefinition, gameDataProvider.GetAbility(abilityDefinitionID), insertStyle);
 
-
-            ValidatedSet.SetValue(ref def.itemName, ItemName, insertStyle);
-            ValidatedSet.SetValue(ref def.itemDescription, ItemDescription, insertStyle);
-            ValidatedSet.SetValue(ref def.categoryDescription, CategoryDescription, insertStyle);
-            ValidatedSet.SetValue(ref def.costDescription, CostDescription, insertStyle);
+            ValidatedSet.SetValue(ref def.itemName, itemName, insertStyle);
+            ValidatedSet.SetValue(ref def.itemDescription, itemDescription, insertStyle);
+            ValidatedSet.SetValue(ref def.costDescription, costDescription, insertStyle);
             ValidatedSet.SetValue(ref def.itemSprite, ItemSpriteInfo, insertStyle, gameDataProvider, assetProvider);
+            ValidatedSet.SetValue(ref def.categoryDescription, categoryDescription, insertStyle);
 
             ModInterface.Instance.LogLine("done");
             ModInterface.Instance.DecreaseLogIndent();

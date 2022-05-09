@@ -1,5 +1,6 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
+using Hp2BaseMod.EnumExpansion;
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
@@ -21,8 +22,8 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonSelectorUi(DefaultData.LocationTypeNullable_As_String)]
         public LocationType? LocationType;
 
-        [UiSonSelectorUi(DefaultData.GirlStyleTypeNullable_As_String)]
-        public GirlStyleType? DateGirlStyleType;
+        [UiSonMemberElement]
+        public Dictionary<int, StyleInfo> GirlIdToStyleInfo;
 
         [UiSonTextEditUi]
         public string NonStopOptionText;
@@ -61,7 +62,7 @@ namespace Hp2BaseMod.GameDataInfo
                                AudioKlipInfo bgMusic,
                                float? bgYOffset,
                                SpriteInfo finderLocationIcon,
-                               GirlStyleType? dateGirlStyleType,
+                               Dictionary<int, StyleInfo> girlIdToStyleInfo,
                                string nonStopOptionText,
                                List<LocationSpecialLabelSubDefinition> specialLabels,
                                List<SpriteInfo> backgrounds,
@@ -75,7 +76,7 @@ namespace Hp2BaseMod.GameDataInfo
             BgMusic = bgMusic;
             BgYOffset = bgYOffset;
             FinderLocationIcon = finderLocationIcon;
-            DateGirlStyleType = dateGirlStyleType;
+            GirlIdToStyleInfo = girlIdToStyleInfo;
             NonStopOptionText = nonStopOptionText;
             SpecialLabels = specialLabels;
             Backgrounds = backgrounds;
@@ -83,7 +84,7 @@ namespace Hp2BaseMod.GameDataInfo
             DepartBundleList = departBundleList;
         }
 
-        public LocationDataMod(LocationDefinition def, AssetProvider assetProvider)
+        public LocationDataMod(LocationDefinition def, IEnumerable<GirlDefinition> girls, AssetProvider assetProvider)
             : base(def.id, InsertStyle.replace, def.name)
         {
             LocationName = def.locationName;
@@ -91,12 +92,14 @@ namespace Hp2BaseMod.GameDataInfo
             BgMusic = new AudioKlipInfo(def.bgMusic, assetProvider);
             BgYOffset = def.bgYOffset;
             FinderLocationIcon = new SpriteInfo(def.finderLocationIcon, assetProvider);
-            DateGirlStyleType = def.dateGirlStyleType;
             NonStopOptionText = def.nonStopOptionText;
             SpecialLabels = def.specialLabels;
             Backgrounds = def.backgrounds.Select(x => new SpriteInfo(x, assetProvider)).ToList();
             ArriveBundleList = def.arriveBundleList.Select(x => new LogicBundleInfo(x, assetProvider)).ToList();
             DepartBundleList = def.departBundleList.Select(x => new LogicBundleInfo(x, assetProvider)).ToList();
+
+            EnumLookups.AddLocationInfo(def, girls);
+            GirlIdToStyleInfo = EnumLookups.GetLocationStyleInfo(def.id);
         }
 
         public void SetData(LocationDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
@@ -106,7 +109,9 @@ namespace Hp2BaseMod.GameDataInfo
 
             def.id = Id;
 
-            ValidatedSet.SetValue(ref def.dateGirlStyleType, DateGirlStyleType);
+            // Styles will be looked up, so there's no need to actually set them
+            EnumLookups.AddLocationInfo(Id, GirlIdToStyleInfo);
+
             ValidatedSet.SetValue(ref def.bgYOffset, BgYOffset);
             ValidatedSet.SetValue(ref def.locationType, LocationType);
 

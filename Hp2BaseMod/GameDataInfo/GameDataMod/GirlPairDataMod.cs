@@ -1,5 +1,6 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
+using Hp2BaseMod.EnumExpansion;
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
@@ -42,14 +43,8 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name, 0, "Meeting")]
         public bool? HasMeetingStyleOne;
 
-        [UiSonSelectorUi(DefaultData.GirlStyleTypeNullable_As_String, 0, "Meeting")]
-        public GirlStyleType? MeetingStyleTypeOne;
-
         [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name, 0, "Meeting")]
         public bool? HasMeetingStyleTwo;
-
-        [UiSonSelectorUi(DefaultData.GirlStyleTypeNullable_As_String, 0, "Meeting")]
-        public GirlStyleType? MeetingStyleTypeTwo;
 
         [UiSonElementSelectorUi(nameof(LocationDataMod), 0, "Meeting", "id", DefaultData.DefaultLocationNames_Name, DefaultData.DefaultLocationIds_Name)]
         public int? MeetingLocationDefinitionID;
@@ -57,14 +52,11 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonSelectorUi(DefaultData.ClockDaytimeTypeNullable_As_String, 0, "Sex")]
         public ClockDaytimeType? SexDayTime;
 
+        [UiSonMemberElement]
+        public PairStyleInfo Styles;
+
         [UiSonElementSelectorUi(nameof(LocationDataMod), 0, "Sex", "id", DefaultData.DefaultLocationNames_Name, DefaultData.DefaultLocationIds_Name)]
         public int? SexLocationDefinitionID;
-
-        [UiSonSelectorUi(DefaultData.GirlStyleTypeNullable_As_String, 0, "Sex")]
-        public GirlStyleType? SexStyleTypeOne;
-
-        [UiSonSelectorUi(DefaultData.GirlStyleTypeNullable_As_String, 0, "Sex")]
-        public GirlStyleType? SexStyleTypeTwo;
 
         [UiSonCollection(false)]
         [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
@@ -86,15 +78,12 @@ namespace Hp2BaseMod.GameDataInfo
                                bool? introductionPair,
                                bool? introSidesFlipped,
                                int? meetingLocationDefinitionID,
-                               GirlStyleType? meetingStyleTypeOne,
-                               GirlStyleType? meetingStyleTypeTwo,
                                int? photoDefinitionID,
                                List<int?> relationshipCutsceneDefinitionIDs,
                                ClockDaytimeType? sexDayTime,
                                int? sexLocationDefinitionID,
-                               GirlStyleType? sexStyleTypeOne,
-                               GirlStyleType? sexStyleTypeTwo,
                                bool? specialPair,
+                               PairStyleInfo styles,
                                InsertStyle insertStyle = InsertStyle.replace)
             : base(id, insertStyle)
         {
@@ -106,15 +95,12 @@ namespace Hp2BaseMod.GameDataInfo
             IntroductionPair = introductionPair;
             IntroSidesFlipped = introSidesFlipped;
             MeetingLocationDefinitionID = meetingLocationDefinitionID;
-            MeetingStyleTypeOne = meetingStyleTypeOne;
-            MeetingStyleTypeTwo = meetingStyleTypeTwo;
             PhotoDefinitionID = photoDefinitionID;
             RelationshipCutsceneDefinitionIDs = relationshipCutsceneDefinitionIDs;
             SexDayTime = sexDayTime;
             SexLocationDefinitionID = sexLocationDefinitionID;
-            SexStyleTypeOne = sexStyleTypeOne;
-            SexStyleTypeTwo = sexStyleTypeTwo;
             SpecialPair = specialPair;
+            Styles = styles;
         }
 
         public GirlPairDataMod(GirlPairDefinition def)
@@ -129,15 +115,16 @@ namespace Hp2BaseMod.GameDataInfo
             IntroductionPair = def.introductionPair;
             IntroSidesFlipped = def.introSidesFlipped;
             MeetingLocationDefinitionID = def.meetingLocationDefinition?.id ?? -1;
-            MeetingStyleTypeOne = def.meetingStyleTypeOne;
-            MeetingStyleTypeTwo = def.meetingStyleTypeTwo;
+
             PhotoDefinitionID = def.photoDefinition?.id ?? -1;
             RelationshipCutsceneDefinitionIDs = def.relationshipCutsceneDefinitions?.Select(x => x?.id).ToList();
             SexDayTime = def.sexDaytime;
             SexLocationDefinitionID = def.sexLocationDefinition?.id ?? -1;
-            SexStyleTypeOne = def.sexStyleTypeOne;
-            SexStyleTypeTwo = def.sexStyleTypeTwo;
+
             SpecialPair = def.specialPair;
+
+            EnumLookups.AddPairInfo(def);
+            Styles = EnumLookups.GetPairStyleInfo(def.id);
         }
 
         public void SetData(GirlPairDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
@@ -148,13 +135,12 @@ namespace Hp2BaseMod.GameDataInfo
             def.id = Id;
             def.active = true;
 
-            ValidatedSet.SetValue(ref def.meetingStyleTypeOne, MeetingStyleTypeOne);
-            ValidatedSet.SetValue(ref def.meetingStyleTypeTwo, MeetingStyleTypeTwo);
+            // Styles will be looked up, so there's no need to actually set them
+            EnumLookups.AddPairInfo(Id, Styles);
+
             ValidatedSet.SetValue(ref def.introductionPair, IntroductionPair);
             ValidatedSet.SetValue(ref def.introSidesFlipped, IntroSidesFlipped);
             ValidatedSet.SetValue(ref def.sexDaytime, SexDayTime);
-            ValidatedSet.SetValue(ref def.sexStyleTypeOne, SexStyleTypeOne);
-            ValidatedSet.SetValue(ref def.sexStyleTypeTwo, SexStyleTypeTwo);
             ValidatedSet.SetValue(ref def.specialPair, SpecialPair);
             ValidatedSet.SetValue(ref def.hasMeetingStyleOne, HasMeetingStyleOne);
             ValidatedSet.SetValue(ref def.hasMeetingStyleTwo, HasMeetingStyleTwo);

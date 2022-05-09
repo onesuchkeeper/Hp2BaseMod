@@ -130,18 +130,9 @@ namespace Hp2BaseMod.ModLoader
                 modInterface.DecreaseLogIndent();
 
                 // Game Data Modifications
-                var harmony = new Harmony("Hp2BaseMod.Hp2BaseModLoader");
-
-                modInterface.LogTitle("Applying Game Data Patch");
+                modInterface.LogTitle("Applying Patches");
                 modInterface.IncreaseLogIndent();
-                GameDataPatcher.Patch(harmony, false);
-                modInterface.LogLine("Finished!");
-                modInterface.DecreaseLogIndent();
-
-                // Save file diff
-                modInterface.LogTitle("Setting Up Data Mod Savefile");
-                modInterface.IncreaseLogIndent();
-                SaveLoadPatcher.Patch(harmony);
+                new Harmony("Hp2BaseMod.Hp2BaseModLoader").PatchAll();
                 modInterface.LogLine("Finished!");
                 modInterface.DecreaseLogIndent();
             }

@@ -1,6 +1,7 @@
 ﻿// Hp2BaseMododLoader 2021, by OneSuchKeeper
 
 using HarmonyLib;
+using Hp2BaseMod.EnumExpansion;
 using Hp2BaseMod.GameDataInfo;
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.Utility;
@@ -15,29 +16,13 @@ namespace Hp2BaseMod.ModLoader
     /// <summary>
     /// Patches in game data
     /// </summary>
-    internal static class GameDataPatcher
+    [HarmonyPatch(typeof(GameData), MethodType.Constructor)]
+    internal static class GameDataPatch
     {
         private static readonly string _defaultDataDir = @"mods\DefaultData";
-        private static bool _isDevMode;
+        private static bool _isDevMode = false;
 
-        public static void Patch(Harmony harmony, bool isDevMode)
-        {
-            try
-            {
-                _isDevMode = isDevMode;
-
-                var mOrigional = AccessTools.Constructor(typeof(GameData));
-                var mPostfix = SymbolExtensions.GetMethodInfo(() => AddRemoveData(null));
-
-                harmony.Patch(mOrigional, null, new HarmonyMethod(mPostfix));
-            }
-            catch (Exception e)
-            {
-                ModInterface.Instance.LogLine("EXCEPTION GameDataPatcher: " + e.Message);
-            }
-        }
-
-        private static void AddRemoveData(GameData __instance)
+        private static void Postfix(GameData __instance)
         {
             ModInterface.Instance.LogTitle("Modifying GameData");
             ModInterface.Instance.IncreaseLogIndent();
@@ -63,6 +48,7 @@ namespace Hp2BaseMod.ModLoader
             assetProvider.AddAsset("None", null);
             var gameDataProvider = new GameDataProvider(__instance);
 
+            var defaultgirlDefs = girlDataDict.Select(x => x.Value).ToList();
             if (_isDevMode)
             {
                 ModInterface.Instance.LogLine("Generating DefaultData.cs");
@@ -79,7 +65,7 @@ namespace Hp2BaseMod.ModLoader
                 SaveDataMods(energyDataDict.Select(x => new EnergyDataMod(x.Value, assetProvider)), nameof(EnergyDataMod));
                 SaveDataMods(girlDataDict.Select(x => new GirlDataMod(x.Value, assetProvider)), nameof(GirlDataMod));
                 SaveDataMods(itemDataDict.Select(x => new ItemDataMod(x.Value, assetProvider)), nameof(ItemDataMod));
-                SaveDataMods(locationDataDict.Select(x => new LocationDataMod(x.Value, assetProvider)), nameof(LocationDataMod));
+                SaveDataMods(locationDataDict.Select(x => new LocationDataMod(x.Value, defaultgirlDefs, assetProvider)), nameof(LocationDataMod));
                 SaveDataMods(photoDataDict.Select(x => new PhotoDataMod(x.Value, assetProvider)), nameof(PhotoDataMod));
                 SaveDataMods(tokenDataDict.Select(x => new TokenDataMod(x.Value, assetProvider)), nameof(TokenDataMod));
                 SaveDataMods(questionDataDict.Select(x => new QuestionDataMod(x.Value)), nameof(QuestionDataMod));
@@ -109,6 +95,22 @@ namespace Hp2BaseMod.ModLoader
                 foreach (var entry in locationDataDict) { assetProvider.Load(entry.Value); }
                 foreach (var entry in photoDataDict) { assetProvider.Load(entry.Value); }
                 foreach (var entry in tokenDataDict) { assetProvider.Load(entry.Value); }
+                ModInterface.Instance.LogLine("done");
+                ModInterface.Instance.DecreaseLogIndent();
+
+                ModInterface.Instance.LogLine("Loading enum values");
+                ModInterface.Instance.IncreaseLogIndent();
+
+                foreach (var pair in girlPairDataDict)
+                {
+                    EnumLookups.AddPairInfo(pair.Value);
+                }
+
+                foreach (var location in locationDataDict)
+                {
+                    EnumLookups.AddLocationInfo(location.Value, defaultgirlDefs);
+                }
+
                 ModInterface.Instance.LogLine("done");
                 ModInterface.Instance.DecreaseLogIndent();
             }
@@ -152,6 +154,12 @@ namespace Hp2BaseMod.ModLoader
             var tokens = CreateEmpties(tokenDataDict, tokenDataMods);
             ModInterface.Instance.LogLine("done");
             ModInterface.Instance.DecreaseLogIndent();
+
+            var orderedGirls = girls.Select(x => x.Value).OrderBy(x => x.id).ToList();
+            foreach(var girl in girls)
+            {
+                EnumLookups.AddGirlDialogTrigger(girl.Value.id, orderedGirls.IndexOf(girl.Value) + 1);
+            }
 
             //setup defs
             ModInterface.Instance.LogLine("applying mod data to game data");

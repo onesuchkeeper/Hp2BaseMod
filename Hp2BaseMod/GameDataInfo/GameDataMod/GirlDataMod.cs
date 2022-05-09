@@ -24,7 +24,9 @@ namespace Hp2BaseMod.GameDataInfo
     
     public class GirlDataMod : DataMod, IGameDataMod<GirlDefinition>
     {
+        // editor tab isn't used in game
         public EditorGirlDefinitionTab? EditorTab;
+        // dialog trigger tab replaced with the girl's index in girls collection orderd by giorl id
         public EditorDialogTriggerTab? DialogTriggerTab;
 
         #region Girl Info
