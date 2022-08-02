@@ -6,8 +6,7 @@ namespace Hp2BaseMod.GameDataInfo.Interface
 {
     public interface IGameDataMod<T>
     {
-        InsertStyle InsertStyle { get; }    
-        int Id { get; }
+        RelativeId Id { get; }
         int LoadPriority { get; }
 
         /// <summary>
@@ -16,7 +15,6 @@ namespace Hp2BaseMod.GameDataInfo.Interface
         /// <param name="def">The target game date definition to write to.</param>
         /// <param name="gameData">The game data.</param>
         /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        void SetData(T def, GameDataProvider gameData, AssetProvider assetProvider, InsertStyle insertStyle);
+        void SetData(T def, GameDefinitionProvider gameData, AssetProvider assetProvider);
     }
 }

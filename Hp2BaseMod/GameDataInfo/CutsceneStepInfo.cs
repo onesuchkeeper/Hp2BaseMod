@@ -14,36 +14,36 @@ namespace Hp2BaseMod.GameDataInfo
     /// <summary>
     /// Serializable information to make an AudioKlip
     /// </summary>
-    public class CutsceneStepInfo : IGameDataInfo<CutsceneStepSubDefinition>
+    public class CutsceneStepInfo : IGameDefinitionInfo<CutsceneStepSubDefinition>
     {
-        [UiSonSelectorUi(DefaultData.CutsceneStepTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.CutsceneStepTypeNullable)]
         public CutsceneStepType? StepType;
 
-        [UiSonSelectorUi(DefaultData.CutsceneStepProceedTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.CutsceneStepProceedTypeNullable)]
         public CutsceneStepProceedType? ProceedType;
 
-        [UiSonSelectorUi(DefaultData.CutsceneStepDollTargetTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.CutsceneStepDollTargetTypeNullable)]
         public CutsceneStepDollTargetType? DollTargetType;
 
-        [UiSonSelectorUi(DefaultData.DollOrientationTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.DollOrientationTypeNullable)]
         public DollOrientationType? TargetDollOrientation;
 
-        [UiSonSelectorUi(DefaultData.GirlExpressionTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.GirlExpressionTypeNullable)]
         public GirlExpressionType? ExpressionType;
 
-        [UiSonSelectorUi(DefaultData.DollPositionTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.DollPositionTypeNullable)]
         public DollPositionType? DollPositionType;
 
-        [UiSonSelectorUi(DefaultData.CutsceneStepAnimationTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.CutsceneStepAnimationTypeNullable)]
         public CutsceneStepAnimationType? AnimationType;
 
-        [UiSonSelectorUi(DefaultData.CutsceneStepSubCutsceneTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.CutsceneStepSubCutsceneTypeNullable)]
         public CutsceneStepSubCutsceneType? SubCutsceneType;
 
-        [UiSonSelectorUi(DefaultData.CutsceneStepNotificationTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.CutsceneStepNotificationTypeNullable)]
         public CutsceneStepNotificationType? NotificationType;
 
-        [UiSonSelectorUi(DefaultData.GirlPairRelationshipTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.GirlPairRelationshipTypeNullable)]
         public GirlPairRelationshipType? GirlPairRelationshipType;
 
         [UiSonSelectorUi(DefaultData.SpecialStepNames_Name)]
@@ -67,8 +67,8 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public float? ProceedFloat;
 
-        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "Id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
-        public int? TargetGirlDefinitionID;
+        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
+        public RelativeId? TargetGirlDefinitionID;
 
         [UiSonTextEditUi]
         public int? IntValue;
@@ -76,55 +76,55 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonSelectorUi(DefaultData.EaseTypeNames_Name, 0, null, DefaultData.EaseTypeIds_Name)]
         public int? EaseType;
 
-        [UiSonElementSelectorUi(nameof(DialogTriggerDataMod), 0, null, "Id", DefaultData.DefaultDialogTriggerNames_Name, DefaultData.DefaultDialogTriggerIds_Name)]
-        public int? DialogTriggerDefinitionID;
+        [UiSonElementSelectorUi(nameof(DialogTriggerDataMod), 0, null, "id", DefaultData.DefaultDialogTriggerNames_Name, DefaultData.DefaultDialogTriggerIds_Name)]
+        public RelativeId? DialogTriggerDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "Id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
-        public int? GirlDefinitionID;
+        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
+        public RelativeId? GirlDefinitionID;
 
         [UiSonTextEditUi]
         public int? ExpressionIndex;
 
-        [UiSonTextEditUi]
-        public int? HairstyleIndex;
+        [UiSonEncapsulatingUi]
+        public RelativeId? HairstyleId;
 
-        [UiSonTextEditUi]
-        public int? OutfitIndex;
+        [UiSonEncapsulatingUi]
+        public RelativeId? OutfitId;
 
-        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "Id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
-        public int? SubCutsceneDefinitionID;
+        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
+        public RelativeId? SubCutsceneDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? SkipStep;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? TargetAlt;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? BoolValue;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? SetMood;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? ProceedBool;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public VectorInfo PositionInfo;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public AudioKlipInfo AudioKlipInfo;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public LogicActionInfo LogicActionInfo;
 
-        [UiSonMemberElement]
-        public DialogLineInfo DialogLineInfo;
+        [UiSonEncapsulatingUi]
+        public RelativeId? DialogLineId;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public List<CutsceneDialogOptionInfo> DialogOptionInfos;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public List<CutsceneBranchInfo> BranchInfos;
 
         //not used in game, probably for huniedevs editing interface
@@ -133,151 +133,84 @@ namespace Hp2BaseMod.GameDataInfo
         //not used in game, probably for huniedevs editing interface
         public int? EditorSelectedBranchIndex;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public CutsceneStepInfo() { }
 
-        public CutsceneStepInfo(CutsceneStepType stepType,
-                                CutsceneStepProceedType proceedType,
-                                CutsceneStepDollTargetType dollTargetType,
-                                GirlExpressionType expressionType,
-                                DollOrientationType targetDollOrientation,
-                                DollPositionType dollPositionType,
-                                CutsceneStepAnimationType animationType,
-                                CutsceneStepSubCutsceneType subCutsceneType,
-                                GirlPairRelationshipType girlPairRelationshipType,
-                                CutsceneStepNotificationType notificationType,
-                                string specialStepPrefabName,
-                                string bannerTextPrefabName,
-                                string windowPrefabName,
-                                string emitterBehaviorName,
-                                string stringValue,
-                                float floatValue,
-                                float proceedFloat,
-                                int targetGirlDefinitionID,
-                                int girlDefinitionID,
-                                int expressionIndex,
-                                int hairstyleIndex,
-                                int outfitIndex,
-                                int intValue,
-                                int easeType,
-                                int editorSelectedBranchIndex,
-                                int dialogTriggerDefinitionID,
-                                int editorSelectedOptionIndex,
-                                int subCutsceneDefinitionID,
-                                bool skipStep,
-                                bool targetAlt,
-                                bool boolValue,
-                                bool setMood,
-                                bool proceedBool,
-                                LogicActionInfo logicActionInfo,
-                                DialogLineInfo dialogLineInfo,
-                                AudioKlipInfo audioKlipInfo,
-                                VectorInfo positionInfo,
-                                List<CutsceneDialogOptionInfo> dialogOptionInfos,
-                                List<CutsceneBranchInfo> branchInfos)
+        /// <summary>
+        /// Constructor from a definition instance.
+        /// </summary>
+        /// <param name="def">The definition.</param>
+        /// <param name="assetProvider">Asset provider containing the assest referenced by the definition.</param>
+        public CutsceneStepInfo(CutsceneStepSubDefinition def, AssetProvider assetProvider)
         {
-            SkipStep = skipStep;
-            StepType = stepType;
-            ProceedType = proceedType;
-            DollTargetType = dollTargetType;
-            TargetGirlDefinitionID = targetGirlDefinitionID;
-            TargetDollOrientation = targetDollOrientation;
-            TargetAlt = targetAlt;
-            BoolValue = boolValue;
-            IntValue = intValue;
-            FloatValue = floatValue;
-            StringValue = stringValue;
-            EaseType = easeType;
-            EditorSelectedBranchIndex = editorSelectedBranchIndex;
-            BranchInfos = branchInfos;
-            LogicActionInfo = logicActionInfo;
-            SpecialStepPrefabName = specialStepPrefabName;
-            ExpressionType = expressionType;
-            SetMood = setMood;
-            DialogLineInfo = dialogLineInfo;
-            DialogTriggerDefinitionID = dialogTriggerDefinitionID;
-            EditorSelectedOptionIndex = editorSelectedOptionIndex;
-            DialogOptionInfos = dialogOptionInfos;
-            DollPositionType = dollPositionType;
-            GirlDefinitionID = girlDefinitionID;
-            ExpressionIndex = expressionIndex;
-            HairstyleIndex = hairstyleIndex;
-            OutfitIndex = outfitIndex;
-            BannerTextPrefabName = bannerTextPrefabName;
-            AnimationType = animationType;
-            SubCutsceneType = subCutsceneType;
-            SubCutsceneDefinitionID = subCutsceneDefinitionID;
-            GirlPairRelationshipType = girlPairRelationshipType;
-            WindowPrefabName = windowPrefabName;
-            AudioKlipInfo = audioKlipInfo;
-            EmitterBehaviorName = emitterBehaviorName;
-            PositionInfo = positionInfo;
-            NotificationType = notificationType;
-            ProceedBool = proceedBool;
-            ProceedFloat = proceedFloat;
-        }
-
-        public CutsceneStepInfo(CutsceneStepSubDefinition cutsceneStep, AssetProvider assetProvider)
-        {
-            if (cutsceneStep == null) { throw new ArgumentNullException(nameof(cutsceneStep)); }
+            if (def == null) { throw new ArgumentNullException(nameof(def)); }
             if (assetProvider == null) { throw new ArgumentNullException(nameof(assetProvider)); }
 
-            SkipStep = cutsceneStep.skipStep;
-            StepType = cutsceneStep.stepType;
-            ProceedType = cutsceneStep.proceedType;
-            DollTargetType = cutsceneStep.dollTargetType;
-            TargetDollOrientation = cutsceneStep.targetDollOrientation;
-            TargetAlt = cutsceneStep.targetAlt;
-            BoolValue = cutsceneStep.boolValue;
-            IntValue = cutsceneStep.intValue;
-            FloatValue = cutsceneStep.floatValue;
-            StringValue = cutsceneStep.stringValue;
-            EaseType = (int)cutsceneStep.easeType;
-            EditorSelectedBranchIndex = cutsceneStep.editorSelectedBranchIndex;
-            ExpressionType = cutsceneStep.expressionType;
-            SetMood = cutsceneStep.setMood;
-            EditorSelectedOptionIndex = cutsceneStep.editorSelectedOptionIndex;
-            DollPositionType = cutsceneStep.dollPositionType;
-            ExpressionIndex = cutsceneStep.expressionIndex;
-            HairstyleIndex = cutsceneStep.hairstyleIndex;
-            OutfitIndex = cutsceneStep.outfitIndex;
-            AnimationType = cutsceneStep.animationType;
-            SubCutsceneType = cutsceneStep.subCutsceneType;
-            GirlPairRelationshipType = cutsceneStep.girlPairRelationshipType;
-            NotificationType = cutsceneStep.notificationType;
-            ProceedBool = cutsceneStep.proceedBool;
-            ProceedFloat = cutsceneStep.proceedFloat;
+            SkipStep = def.skipStep;
+            StepType = def.stepType;
+            ProceedType = def.proceedType;
+            DollTargetType = def.dollTargetType;
+            TargetDollOrientation = def.targetDollOrientation;
+            TargetAlt = def.targetAlt;
+            BoolValue = def.boolValue;
+            IntValue = def.intValue;
+            FloatValue = def.floatValue;
+            StringValue = def.stringValue;
+            EaseType = (int)def.easeType;
+            EditorSelectedBranchIndex = def.editorSelectedBranchIndex;
+            ExpressionType = def.expressionType;
+            SetMood = def.setMood;
+            EditorSelectedOptionIndex = def.editorSelectedOptionIndex;
+            DollPositionType = def.dollPositionType;
+            ExpressionIndex = def.expressionIndex;
+            HairstyleId = new RelativeId(-1, def.hairstyleIndex);
+            OutfitId = new RelativeId(-1, def.outfitIndex);
+            AnimationType = def.animationType;
+            SubCutsceneType = def.subCutsceneType;
+            GirlPairRelationshipType = def.girlPairRelationshipType;
+            NotificationType = def.notificationType;
+            ProceedBool = def.proceedBool;
+            ProceedFloat = def.proceedFloat;
 
-            SubCutsceneDefinitionID = cutsceneStep.subCutsceneDefinition?.id ?? -1;
-            DialogTriggerDefinitionID = cutsceneStep.dialogTriggerDefinition?.id ?? -1;
-            GirlDefinitionID = cutsceneStep.girlDefinition?.id ?? -1;
-            TargetGirlDefinitionID = cutsceneStep.targetGirlDefinition?.id ?? -1;
+            SubCutsceneDefinitionID = new RelativeId(def.subCutsceneDefinition);
+            DialogTriggerDefinitionID = new RelativeId(def.dialogTriggerDefinition);
+            GirlDefinitionID = new RelativeId(def.girlDefinition);
+            TargetGirlDefinitionID = new RelativeId(def.targetGirlDefinition);
 
-            assetProvider.NameAndAddAsset(ref SpecialStepPrefabName, cutsceneStep.specialStepPrefab);
-            assetProvider.NameAndAddAsset(ref WindowPrefabName, cutsceneStep.windowPrefab);
-            assetProvider.NameAndAddAsset(ref EmitterBehaviorName, cutsceneStep.emitterBehavior);
-            assetProvider.NameAndAddAsset(ref BannerTextPrefabName, cutsceneStep.bannerTextPrefab);
+            assetProvider.NameAndAddAsset(ref SpecialStepPrefabName, def.specialStepPrefab);
+            assetProvider.NameAndAddAsset(ref WindowPrefabName, def.windowPrefab);
+            assetProvider.NameAndAddAsset(ref EmitterBehaviorName, def.emitterBehavior);
+            assetProvider.NameAndAddAsset(ref BannerTextPrefabName, def.bannerTextPrefab);
 
-            if (cutsceneStep.audioKlip != null) { AudioKlipInfo = new AudioKlipInfo(cutsceneStep.audioKlip, assetProvider); }
-            if (cutsceneStep.position != null) { PositionInfo = new VectorInfo(cutsceneStep.position); }
-            if (cutsceneStep.dialogLine != null) { DialogLineInfo = new DialogLineInfo(cutsceneStep.dialogLine, assetProvider); }
-            if (cutsceneStep.logicAction != null) { LogicActionInfo = new LogicActionInfo(cutsceneStep.logicAction, assetProvider); }
+            if (def.audioKlip != null) { AudioKlipInfo = new AudioKlipInfo(def.audioKlip, assetProvider); }
+            if (def.position != null) { PositionInfo = new VectorInfo(def.position); }
 
-            if (cutsceneStep.dialogOptions != null) { DialogOptionInfos = cutsceneStep.dialogOptions.Select(x => new CutsceneDialogOptionInfo(x, assetProvider)).ToList(); }
-            if (cutsceneStep.branches != null) { BranchInfos = cutsceneStep.branches.Select(x => new CutsceneBranchInfo(x, assetProvider)).ToList(); }
+            if (def.dialogTriggerDefinition != null
+                && def.girlDefinition != null
+                && def.dialogLine != null)
+            {
+                DialogLineId = ModInterface.Data.GetLineId(new RelativeId(def.dialogTriggerDefinition),
+                                                           new RelativeId(def.girlDefinition),
+                                                           def.dialogTriggerDefinition.GetLineSetByGirl(def.girlDefinition).dialogLines.IndexOf(def.dialogLine));
+            }
+
+            if (def.logicAction != null) { LogicActionInfo = new LogicActionInfo(def.logicAction, assetProvider); }
+
+            if (def.dialogOptions != null) { DialogOptionInfos = def.dialogOptions.Select(x => new CutsceneDialogOptionInfo(x, assetProvider)).ToList(); }
+            if (def.branches != null) { BranchInfos = def.branches.Select(x => new CutsceneBranchInfo(x, assetProvider)).ToList(); }
         }
 
         /// <summary>
         /// Writes to the game data definition this represents
         /// </summary>
         /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
+        /// <param name="gameDataProvider">The game data.</param>
         /// <param name="assetProvider">The asset provider.</param>
         /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref CutsceneStepSubDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
+        public void SetData(ref CutsceneStepSubDefinition def, GameDefinitionProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
-            ModInterface.Instance.LogLine("Setting data for a cutscene step");
-            ModInterface.Instance.IncreaseLogIndent();
-
             if (def == null)
             {
                 def = Activator.CreateInstance<CutsceneStepSubDefinition>();
@@ -300,8 +233,8 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.editorSelectedOptionIndex, EditorSelectedOptionIndex);
             ValidatedSet.SetValue(ref def.dollPositionType, DollPositionType);
             ValidatedSet.SetValue(ref def.expressionIndex, ExpressionIndex);
-            ValidatedSet.SetValue(ref def.hairstyleIndex, HairstyleIndex);
-            ValidatedSet.SetValue(ref def.outfitIndex, OutfitIndex);
+            ValidatedSet.SetValue(ref def.hairstyleIndex, ModInterface.Data.GetHairstyleIndex(GirlDefinitionID, HairstyleId));
+            ValidatedSet.SetValue(ref def.outfitIndex, ModInterface.Data.GetOutfitIndex(GirlDefinitionID, OutfitId));
             ValidatedSet.SetValue(ref def.animationType, AnimationType);
             ValidatedSet.SetValue(ref def.subCutsceneType, SubCutsceneType);
             ValidatedSet.SetValue(ref def.girlPairRelationshipType, GirlPairRelationshipType);
@@ -313,20 +246,28 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.girlDefinition, gameDataProvider.GetGirl(GirlDefinitionID), insertStyle);
             ValidatedSet.SetValue(ref def.dialogTriggerDefinition, gameDataProvider.GetDialogTrigger(DialogTriggerDefinitionID), insertStyle);
             ValidatedSet.SetValue(ref def.subCutsceneDefinition, gameDataProvider.GetCutscene(SubCutsceneDefinitionID), insertStyle);
+
             ValidatedSet.SetValue(ref def.windowPrefab, (UiWindow)assetProvider.GetAsset(WindowPrefabName), insertStyle);
             ValidatedSet.SetValue(ref def.emitterBehavior, (EmitterBehavior)assetProvider.GetAsset(EmitterBehaviorName), insertStyle);
             ValidatedSet.SetValue(ref def.specialStepPrefab, (CutsceneStepSpecial)assetProvider.GetAsset(SpecialStepPrefabName), insertStyle);
             ValidatedSet.SetValue(ref def.bannerTextPrefab, (BannerTextBehavior)assetProvider.GetAsset(BannerTextPrefabName), insertStyle);
 
-            ValidatedSet.SetValue(ref def.dialogLine, DialogLineInfo, insertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetValue(ref def.logicAction, LogicActionInfo, insertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetValue(ref def.audioKlip, AudioKlipInfo, insertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetValue(ref def.position, PositionInfo, insertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetListValue(ref def.branches, BranchInfos, insertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetListValue(ref def.dialogOptions, DialogOptionInfos, insertStyle, gameDataProvider, assetProvider);
 
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
+            if (DialogLineId.HasValue
+                && def.dialogTriggerDefinition != null
+                && def.girlDefinition != null)
+            {
+                var dtId = ModInterface.Data.GetDataId(GameDataType.DialogTrigger, def.dialogTriggerDefinition.id);
+                var girlId = ModInterface.Data.GetDataId(GameDataType.Girl, def.girlDefinition.id);
+
+                def.dialogLine = def.dialogTriggerDefinition
+                                    .GetLineSetByGirl(def.girlDefinition).dialogLines[ModInterface.Data.GetLineIndex(dtId, girlId, DialogLineId.Value)];
+            }
         }
     }
 }

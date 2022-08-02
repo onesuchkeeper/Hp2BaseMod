@@ -11,13 +11,13 @@ namespace Hp2BaseModTweaks
     [HarmonyPatch(typeof(GameData), MethodType.Constructor)]
     public static class AwakenAssetHolderPatch
     {
-        public static void Postfix(GameData __instance)
+        public static void Postfix()
         {
-            ModInterface.Instance.LogTitle("Awaking Asset Holder");
-            ModInterface.Instance.IncreaseLogIndent();
-            new AssetHolder().Awake();
-            ModInterface.Instance.LogLine("Done");
-            ModInterface.Instance.DecreaseLogIndent();
+            ModInterface.Log.LogTitle("Awaking Hp2BaseModTweaks Asset Holder");
+            using (ModInterface.Log.MakeIndent())
+            {
+                new AssetHolder().Awake();
+            }
         }
     }
 }

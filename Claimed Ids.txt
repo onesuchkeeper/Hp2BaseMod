@@ -3,9 +3,13 @@ Ailments:
 Codes:
         FemaleJizzToggleCodeID = 10001, Hp2ExtraOptionsMod
         SlowAffectionDrainToggleCodeID = 10002, Hp2ExtraOptionsMod
+        RandomStylesCodeId = 10005, Hp2ExtraOptionsMod
+
+        HubStyleChangeRateUpCodeId = 10003, Hp2BaseMod / Hp2ExtraOptionsMod
+        UnpairStylesCodeId = 10004, Hp2BaseMod / Hp2ExtraOptionsMod
 
         LocalCodeId = 20001, Hp2RepeatThreesomeMod
-        NudeCodeId = 20002, Hp2RepeatThreesomeMod
+        NudeCodeId = 20002, Hp2RepeatThreesomeMod        
 DialogTriggers:
 Dlcs:
 Energy:

@@ -1,0 +1,37 @@
+﻿{
+  "Identifier": {
+    "Name": "Hp2DependentSampleMod",
+    "Version": "1.0"
+  },
+  "Dependencies": [
+    {
+      "AssumedId": "0",
+      "SourceIdentifier": {
+        "Name": "Hp2SampleMod",
+        "Version": "1.0"
+      }
+    }
+  ],
+  "Assemblies": [
+    {
+      "Path": "mods/Hp2DependentSampleMod/Hp2DependentSampleMod.dll",
+      "Stage": 0,
+      "Priority": 0
+    }
+  ],
+  "Tags": [],
+  "AbilityDataModPaths": [],
+  "AilmentDataModPaths": [],
+  "CodeDataModPaths": [],
+  "CutsceneDataModPaths": [],
+  "DialogTriggerDataModPaths": [],
+  "DlcDataModPaths": [],
+  "EnergyDataModPaths": [],
+  "GirlDataModPaths": [],
+  "GirlPairDataModPaths": [],
+  "ItemDataModPaths": [],
+  "LocationDataModPaths": [],
+  "PhotoDataModPaths": [],
+  "QuestionDataModPaths": [],
+  "TokenDataModPaths": []
+}

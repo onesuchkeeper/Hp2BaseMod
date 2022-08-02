@@ -1,4 +1,4 @@
-﻿// Hp2BaseMod 2021, By OneSuchKeeper
+﻿// Hp2BaseMododLoader 2022, by OneSuchKeeper
 
 namespace Hp2BaseMod
 {

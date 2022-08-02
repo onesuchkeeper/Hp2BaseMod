@@ -9,24 +9,21 @@ namespace Hp2BaseMod.Utility
     {
         public static AudioClip LoadAudioClip(byte[] fileBytes, int offsetSamples = 0, string name = "wav")
         {
-            //string riff = Encoding.ASCII.GetString (fileBytes, 0, 4);
-            //string wave = Encoding.ASCII.GetString (fileBytes, 8, 4);
-            int subchunk1 = BitConverter.ToInt32(fileBytes, 16);
-            UInt16 audioFormat = BitConverter.ToUInt16(fileBytes, 20);
+            var subchunk1 = BitConverter.ToInt32(fileBytes, 16);
+            var audioFormat = BitConverter.ToUInt16(fileBytes, 20);
 
             // NB: Only uncompressed PCM wav files are supported.
             string formatCode = FormatCode(audioFormat);
             Debug.AssertFormat(audioFormat == 1 || audioFormat == 65534, "Detected format code '{0}' {1}, but only PCM and WaveFormatExtensable uncompressed formats are currently supported.", audioFormat, formatCode);
 
-            UInt16 channels = BitConverter.ToUInt16(fileBytes, 22);
-            int sampleRate = BitConverter.ToInt32(fileBytes, 24);
-            //int byteRate = BitConverter.ToInt32 (fileBytes, 28);
-            //UInt16 blockAlign = BitConverter.ToUInt16 (fileBytes, 32);
-            UInt16 bitDepth = BitConverter.ToUInt16(fileBytes, 34);
+            var channels = BitConverter.ToUInt16(fileBytes, 22);
 
-            int headerOffset = 16 + 4 + subchunk1 + 4;
-            int subchunk2 = BitConverter.ToInt32(fileBytes, headerOffset);
-            //Debug.LogFormat ("riff={0} wave={1} subchunk1={2} format={3} channels={4} sampleRate={5} byteRate={6} blockAlign={7} bitDepth={8} headerOffset={9} subchunk2={10} filesize={11}", riff, wave, subchunk1, formatCode, channels, sampleRate, byteRate, blockAlign, bitDepth, headerOffset, subchunk2, fileBytes.Length);
+            var sampleRate = BitConverter.ToInt32(fileBytes, 24);
+
+            var bitDepth = BitConverter.ToUInt16(fileBytes, 34);
+
+            var headerOffset = 16 + 4 + subchunk1 + 4;
+            var subchunk2 = BitConverter.ToInt32(fileBytes, headerOffset);
 
             float[] data;
             switch (bitDepth)
@@ -62,12 +59,10 @@ namespace Hp2BaseMod.Utility
 
             float[] data = new float[wavSize];
 
-            sbyte maxValue = sbyte.MaxValue;
-
             int i = 0;
             while (i < wavSize)
             {
-                data[i] = (float)source[i] / maxValue;
+                data[i] = (float)source[i] / sbyte.MaxValue;
                 ++i;
             }
 
@@ -85,14 +80,12 @@ namespace Hp2BaseMod.Utility
 
             float[] data = new float[convertedSize];
 
-            Int16 maxValue = Int16.MaxValue;
-
             int offset = 0;
             int i = 0;
             while (i < convertedSize)
             {
                 offset = i * x + headerOffset;
-                data[i] = (float)BitConverter.ToInt16(source, offset) / maxValue;
+                data[i] = (float)BitConverter.ToInt16(source, offset) / short.MaxValue;
                 ++i;
             }
 
@@ -140,8 +133,6 @@ namespace Hp2BaseMod.Utility
             int x = sizeof(float); //  block size = 4
             int convertedSize = wavSize / x;
 
-            Int32 maxValue = Int32.MaxValue;
-
             float[] data = new float[convertedSize];
 
             int offset = 0;
@@ -149,7 +140,7 @@ namespace Hp2BaseMod.Utility
             while (i < convertedSize)
             {
                 offset = i * x + headerOffset;
-                data[i] = (float)BitConverter.ToInt32(source, offset) / maxValue;
+                data[i] = (float)BitConverter.ToInt32(source, offset) / int.MaxValue;
                 ++i;
             }
 
@@ -160,7 +151,7 @@ namespace Hp2BaseMod.Utility
 
         #endregion
 
-        private static string FormatCode(UInt16 code)
+        private static string FormatCode(ushort code)
         {
             switch (code)
             {

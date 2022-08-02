@@ -1,7 +1,6 @@
 ﻿// Hp2BaseModTweaks 2022, By OneSuchKeeper
 
 using HarmonyLib;
-using Hp2BaseMod;
 
 namespace Hp2BaseModTweaks
 {

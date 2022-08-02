@@ -13,44 +13,36 @@ namespace Hp2BaseMod.GameDataInfo
     /// <summary>
     /// Serializable information to make an LogicBundle
     /// </summary>
-    public class LogicBundleInfo : IGameDataInfo<LogicBundle>
+    public class LogicBundleInfo : IGameDefinitionInfo<LogicBundle>
     {
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public List<LogicConditionInfo> Conditions;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public List<LogicActionInfo> Actions;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public LogicBundleInfo() { }
 
-        public LogicBundleInfo(List<LogicConditionInfo> conditions,
-                               List<LogicActionInfo> actions)
+        /// <summary>
+        /// Constructor from a definition instance.
+        /// </summary>
+        /// <param name="def">The definition.</param>
+        /// <param name="assetProvider">Asset provider containing the assest referenced by the definition.</param>
+        public LogicBundleInfo(LogicBundle def, AssetProvider assetProvider)
         {
-            Conditions = conditions;
-            Actions = actions;
-        }
-
-        public LogicBundleInfo(LogicBundle logicBundle, AssetProvider assetProvider)
-        {
-            if (logicBundle == null) { throw new ArgumentNullException(nameof(logicBundle)); }
+            if (def == null) { throw new ArgumentNullException(nameof(def)); }
             if (assetProvider == null) { throw new ArgumentNullException(nameof(assetProvider)); }
 
-            if (logicBundle.conditions != null) { Conditions = logicBundle.conditions.Select(x => new LogicConditionInfo(x)).ToList(); }
-            if (logicBundle.actions != null) { Actions = logicBundle.actions.Select(x => new LogicActionInfo(x, assetProvider)).ToList(); }
+            if (def.conditions != null) { Conditions = def.conditions.Select(x => new LogicConditionInfo(x)).ToList(); }
+            if (def.actions != null) { Actions = def.actions.Select(x => new LogicActionInfo(x, assetProvider)).ToList(); }
         }
 
-        /// <summary>
-        /// Writes to the game data definition this represents
-        /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref LogicBundle def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
+        /// <inheritdoc/>
+        public void SetData(ref LogicBundle def, GameDefinitionProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
-            ModInterface.Instance.LogLine("Setting data for a logic bundle");
-            ModInterface.Instance.IncreaseLogIndent();
-
             if (def == null)
             {
                 def = Activator.CreateInstance<LogicBundle>();
@@ -58,9 +50,6 @@ namespace Hp2BaseMod.GameDataInfo
 
             ValidatedSet.SetListValue(ref def.conditions, Conditions, insertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetListValue(ref def.actions, Actions, insertStyle, gameDataProvider, assetProvider);
-
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

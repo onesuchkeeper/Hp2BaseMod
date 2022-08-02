@@ -11,10 +11,10 @@ namespace Hp2BaseMod.GameDataInfo
     /// <summary>
     /// Serializable information to make a GirlPairFavQuestionSubDefinition
     /// </summary>
-    public class GirlPairFavQuestionInfo : IGameDataInfo<GirlPairFavQuestionSubDefinition>
+    public class GirlPairFavQuestionInfo : IGameDefinitionInfo<GirlPairFavQuestionSubDefinition>
     {
-        [UiSonElementSelectorUi(nameof(QuestionDataMod), 0, null, "Id", DefaultData.DefaultQuestionNames_Name, DefaultData.DefaultQuestionIds_Name)]
-        public int? QuestionDefinitionID;
+        [UiSonElementSelectorUi(nameof(QuestionDataMod), 0, null, "id", DefaultData.DefaultQuestionNames_Name, DefaultData.DefaultQuestionIds_Name)]
+        public RelativeId? QuestionDefinitionID;
 
         [UiSonTextEditUi]
         public int? GirlResponceIndexOne;
@@ -22,39 +22,28 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public int? GirlResponceIndexTwo;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public GirlPairFavQuestionInfo() { }
 
-        public GirlPairFavQuestionInfo(int questionDefinitionID,
-                                       int girlResponceIndexOne,
-                                       int girlResponceIndexTwo)
-        {
-            QuestionDefinitionID = questionDefinitionID;
-            GirlResponceIndexOne = girlResponceIndexOne;
-            GirlResponceIndexTwo = girlResponceIndexTwo;
-        }
-
-        public GirlPairFavQuestionInfo(GirlPairFavQuestionSubDefinition girlPairFavQuestion)
-        {
-            if (girlPairFavQuestion == null) { throw new ArgumentNullException(nameof(girlPairFavQuestion)); }
-
-            GirlResponceIndexOne = girlPairFavQuestion.girlResponseIndexOne;
-            GirlResponceIndexTwo = girlPairFavQuestion.girlResponseIndexTwo;
-
-            QuestionDefinitionID = girlPairFavQuestion.questionDefinition?.id ?? -1;
-        }
-
         /// <summary>
-        /// Writes to the game data definition this represents
+        /// Constructor from a definition instance.
         /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref GirlPairFavQuestionSubDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
+        /// <param name="def">The definition.</param>
+        public GirlPairFavQuestionInfo(GirlPairFavQuestionSubDefinition def)
         {
-            ModInterface.Instance.LogLine("Setting data for a girl pair fav question");
-            ModInterface.Instance.IncreaseLogIndent();
+            if (def == null) { throw new ArgumentNullException(nameof(def)); }
 
+            GirlResponceIndexOne = def.girlResponseIndexOne;
+            GirlResponceIndexTwo = def.girlResponseIndexTwo;
+
+            QuestionDefinitionID = new RelativeId(def.questionDefinition);
+        }
+
+        /// <inheritdoc/>
+        public void SetData(ref GirlPairFavQuestionSubDefinition def, GameDefinitionProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
+        {
             if (def == null)
             {
                 def = Activator.CreateInstance<GirlPairFavQuestionSubDefinition>();
@@ -64,9 +53,6 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.girlResponseIndexTwo, GirlResponceIndexTwo);
 
             ValidatedSet.SetValue(ref def.questionDefinition, gameDataProvider.GetQuestion(QuestionDefinitionID), insertStyle);
-
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

@@ -2,7 +2,6 @@
 
 using HarmonyLib;
 using Hp2BaseMod;
-using Hp2BaseMod.Utility;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -68,8 +67,8 @@ namespace Hp2BaseModTweaks
 
         public static void OnWindowShow()
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             Init();
 
@@ -97,20 +96,24 @@ namespace Hp2BaseModTweaks
 
             SetupCurrentWindow(true);
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         public static void OnWindowHide()
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             _windowPageIndex = 0;
-            shownWindows.Pop();
-            _leftButton.Hide();
-            _rightButton.Hide();
 
-            ModInterface.Instance.DecreaseLogIndent();
+            if (shownWindows.Any())
+            {
+                shownWindows.Pop();
+                _leftButton.Hide();
+                _rightButton.Hide();
+            }
+
+            //ModInterface.Log.DecreaseIndent();
         }
 
         public static void OnWindowManagerConstructor()
@@ -132,8 +135,8 @@ namespace Hp2BaseModTweaks
 
         private static void SetupCurrentWindow(bool buttonsOnly = false)
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             bool isPastTutorial = Game.Persistence.playerFile.storyProgress >= 7;
 
@@ -180,13 +183,13 @@ namespace Hp2BaseModTweaks
                 }
             }
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         private static void SetupPhotosWindow(UiWindowPhotos photosWindow, PhotoDefinition[] photosArray)
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             var photoIndex = _windowPageIndex * Constants.PhotosPerPage;
             var photoDefinitionAccess = AccessTools.Field(typeof(UiPhotoSlot), "_photoDefinition");
@@ -212,7 +215,7 @@ namespace Hp2BaseModTweaks
                 slot.thumbnailImage.sprite = _emptyPhotoSlot;
             }
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         #endregion setup window

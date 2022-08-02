@@ -1,0 +1,29 @@
+﻿{
+  "Identifier": {
+    "Name": "Hp2RepeatThreesomeMod",
+    "Version": "1.1"
+  },
+  "Dependencies": [],
+  "Assemblies": [
+    {
+      "Path": "mods/Hp2RepeatThreesomeMod/Hp2RepeatThreesomeMod.dll",
+      "Stage": 4,
+      "Priority": 0
+    }
+  ],
+  "Tags": [],
+  "AbilityDataModPaths": [],
+  "AilmentDataModPaths": [],
+  "CodeDataModPaths": [],
+  "CutsceneDataModPaths": [],
+  "DialogTriggerDataModPaths": [],
+  "DlcDataModPaths": [],
+  "EnergyDataModPaths": [],
+  "GirlDataModPaths": [],
+  "GirlPairDataModPaths": [],
+  "ItemDataModPaths": [],
+  "LocationDataModPaths": [],
+  "PhotoDataModPaths": [],
+  "QuestionDataModPaths": [],
+  "TokenDataModPaths": []
+}

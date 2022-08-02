@@ -2,6 +2,7 @@
 
 using HarmonyLib;
 using Hp2BaseMod;
+using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +35,8 @@ namespace Hp2BaseModTweaks
 
         public static void OnCellphoneOpen()
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             if (_isFirstCellphoneOpen && _hasInit)
             {
@@ -47,13 +48,13 @@ namespace Hp2BaseModTweaks
                 _rightStyleButton.Hide();
             }
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         public static void OnCellphoneOpened()
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             if (!_isSecondCellphoneOpen)
             {
@@ -89,13 +90,13 @@ namespace Hp2BaseModTweaks
                 }
             }
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         public static void OnCellphoneClose()
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             if (_isSecondCellphoneOpen)
             {
@@ -112,7 +113,7 @@ namespace Hp2BaseModTweaks
                 _rightStyleButton.Hide();
             }
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         // when the game restarts it doesn't call the cellphone close event, 
@@ -129,28 +130,28 @@ namespace Hp2BaseModTweaks
 
         public static void PostCellphoneButtonPressed()
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             _appPageIndex = 0;
             SetupCurrentApp(true);
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         public static void UiCellphoneAppGirls_PostGirlSlotPressed()
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             SetupCurrentApp();
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         public static void UiCellphoneAppWardrobe_PreListItemSelected(UiAppStyleSelectList list)
         {
-            ModInterface.Instance.LogLine();
+            //ModInterface.Log.LogLine();
 
             var playerFileGirl = AccessTools.Field(typeof(UiAppStyleSelectList), "_playerFileGirl")
                                             .GetValue(list)
@@ -171,19 +172,19 @@ namespace Hp2BaseModTweaks
         public static void UiCellphoneAppWardrobe_PreFileIconSlotSelected(UiCellphoneAppWardrobe appWardrobe,
                                                                           UiAppFileIconSlot fileIconSlot)
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             Game.Persistence.playerFile.SetFlagValue("wardrobe_girl_id", fileIconSlot.girlDefinition.id);
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         public static void UiCellphoneAppWardrobe_PostFileIconSlotSelected(UiCellphoneAppWardrobe appWardrobe,
                                                                            UiAppFileIconSlot fileIconSlot)
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             var girlDef = Game.Data.Girls.Get(Game.Persistence.playerFile.GetFlagValue("wardrobe_girl_id"));
             var playerFileGirl = Game.Persistence.playerFile.GetPlayerFileGirl(girlDef);
@@ -191,17 +192,17 @@ namespace Hp2BaseModTweaks
             _stylePageIndex = playerFileGirl.outfitIndex / Constants.WarbrobeStylesPerPage;
             SetupWardrobeStyles(appWardrobe, playerFileGirl);
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         public static void UiCellphoneAppWardrobe_PostWardrobeRefresh(UiCellphoneAppWardrobe appWardrobe)
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             var girlDef = Game.Data.Girls.Get(Game.Persistence.playerFile.GetFlagValue("wardrobe_girl_id"));
 
-            ModInterface.Instance.LogLine($"refreshing {girlDef.girlName}");
+            //ModInterface.Log.LogLine($"refreshing {girlDef.girlName}");
 
             var playerFileGirl = Game.Persistence.playerFile.GetPlayerFileGirl(girlDef);
             var wardrobeDoll = AccessTools.Field(typeof(UiCellphoneAppWardrobe), "_wardrobeDoll").GetValue(appWardrobe) as UiDoll;
@@ -218,7 +219,7 @@ namespace Hp2BaseModTweaks
                 appWardrobe.wearOnDatesCheckBox.Populate(playerFileGirl.stylesOnDates);
             }
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         #region setup app
@@ -237,7 +238,7 @@ namespace Hp2BaseModTweaks
             
             if (!_hasInit && parent != null)
             {
-                ModInterface.Instance.LogLine();
+                //ModInterface.Log.LogLine();
                 _hasInit = true;
                 _appPageIndex = 0;
                 _stylePageIndex = 0;
@@ -317,8 +318,8 @@ namespace Hp2BaseModTweaks
 
         private static void SetupApp(UiCellphoneApp app, bool buttonsOnly)
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             bool isPastTutorial = Game.Persistence.playerFile.storyProgress >= 7;
 
@@ -444,9 +445,9 @@ namespace Hp2BaseModTweaks
                             {
                                 SetupFinderApp(appFinder, simLocations, settled);
                             }
-                            catch (Exception ex)
+                            catch (Exception e)
                             {
-                                ModInterface.Instance.LogLine(ex.Message);
+                                ModInterface.Log.LogLine(e.ToString());
                             }
                         }
                     }
@@ -503,6 +504,11 @@ namespace Hp2BaseModTweaks
                             SetupProfileApp(appProfile, pairsList, questions, profileGirl);
                         }
                     }
+                    else if (app is UiCellphoneAppCredits appCredits)
+                    {
+                        ModInterface.Log.LogLine("Credits app loaded!!!!!!!!!!");
+                        UnityExplorationUtility.LogHierarchy(appCredits.gameObject);
+                    }
 
                     // setup buttons
                     if (appPageMax > 0)
@@ -518,13 +524,13 @@ namespace Hp2BaseModTweaks
                 }
             }
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         private static void SetupFinderApp(UiCellphoneAppFinder appFinder, LocationDefinition[] simLocations, bool settled)
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             var locationIndex = _appPageIndex * Constants.FinderLocationsPerPage;
             var playerFileFinderSlotAccess = AccessTools.Field(typeof(UiAppFinderSlot), "_playerFileFinderSlot");
@@ -652,13 +658,13 @@ namespace Hp2BaseModTweaks
                 slot.canvasGroup.blocksRaycasts = false;
             }
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         private static void SetupPairsApp(UiCellphoneAppPairs appPairs, GirlPairDefinition[] pairs)
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             var renderCount = 0;
 
@@ -680,13 +686,13 @@ namespace Hp2BaseModTweaks
             appPairs.pairSlotsContainer.anchoredPosition += new Vector2(Mathf.Min(renderCount - 1, 3) * -128f,
                                                                     Mathf.Max(Mathf.CeilToInt((float)renderCount / 4f) - 1, 0) * 45f);
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         private static void SetupWardrobeGirls(UiCellphoneAppWardrobe appWardrobe, PlayerFileGirl[] girlsArray)
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             UiAppFileIconSlot selectedFileIconSlot = null;
             var iconIndex = _appPageIndex * Constants.GirlsPerPage;
@@ -743,7 +749,7 @@ namespace Hp2BaseModTweaks
 
             AccessTools.Field(typeof(UiCellphoneAppWardrobe), "_selectedFileIconSlot").SetValue(appWardrobe, selectedFileIconSlot);
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         private static void SetupWardrobeStyles() => SetupWardrobeStyles(AccessTools.Field(typeof(UiCellphone), "_currentApp")
@@ -759,19 +765,19 @@ namespace Hp2BaseModTweaks
 
         private static void SetupWardrobeStyles(UiCellphoneAppWardrobe appWardrobe, PlayerFileGirl playerFileGirl)
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             SetupSelectList(appWardrobe.selectListOutfit, playerFileGirl, playerFileGirl.girlDefinition.outfits.Count);
             SetupSelectList(appWardrobe.selectListHairstyle, playerFileGirl, playerFileGirl.girlDefinition.hairstyles.Count);
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         private static void SetupGirlsApp(UiCellphoneAppGirls appGirls, PlayerFileGirl[] playerfileGirls)
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             var girlIndex = _appPageIndex * Constants.GirlsPerPage;
             int renderedCount = 0;
@@ -804,7 +810,7 @@ namespace Hp2BaseModTweaks
             appGirls.girlSlotsContainer.anchoredPosition += new Vector2((float)Mathf.Min(renderedCount - 1, 5) * -86f,
                                                                         (float)Mathf.Max(Mathf.CeilToInt((float)renderedCount / 6f) - 1, 0) * 136f);
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         private static void SetupProfileApp(UiCellphoneAppProfile appProfile,
@@ -812,8 +818,8 @@ namespace Hp2BaseModTweaks
                                             QuestionDefinition[] questions,
                                             GirlDefinition girlDefinition)
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             SetupEnumerable(_appPageIndex, pairs.Count, Constants.ProfilePairsPerPage, appProfile.pairSlots,
                 (slot, index) =>
@@ -831,13 +837,13 @@ namespace Hp2BaseModTweaks
                 (slot, index) => { _favQuestionDefField.SetValue(slot, questions[index]); slot.Populate(playerFileGirl); },
                 (slot) => slot.textLabel.text = string.Empty);
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         private static void SetupSelectList(UiAppStyleSelectList list, PlayerFileGirl playerFileGirl, int total)
         {
-            ModInterface.Instance.LogLine();
-            ModInterface.Instance.IncreaseLogIndent();
+            //ModInterface.Log.LogLine();
+            //ModInterface.Log.IncreaseIndent();
 
             AccessTools.Field(typeof(UiAppStyleSelectList), "_playerFileGirl").SetValue(list, playerFileGirl);
             UiAppSelectListItem purchaseListItem = null;
@@ -950,7 +956,7 @@ namespace Hp2BaseModTweaks
             AccessTools.Field(typeof(UiAppStyleSelectList), "_purchaseListItem").SetValue(list, purchaseListItem);
             AccessTools.Field(typeof(UiAppStyleSelectList), "_selectedListItem").SetValue(list, selectedListItem);
 
-            ModInterface.Instance.DecreaseLogIndent();
+            //ModInterface.Log.DecreaseIndent();
         }
 
         private static void SetupEnumerable<T>(int startIndex,

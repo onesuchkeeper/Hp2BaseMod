@@ -6,10 +6,9 @@ using UnityEngine;
 
 namespace Hp2BaseMod.Utility
 {
+    // For dev work, easy log calls to print info about unity structures to the log
     public static class UnityExplorationUtility
     {
-        //RectTransform
-
         public static void LogHierarchy(Transform target)
         {
             for (int i = 0; i < target.childCount; i++)
@@ -17,10 +16,10 @@ namespace Hp2BaseMod.Utility
                 var child = target.GetChild(i);
                 if (child != null)
                 {
-                    ModInterface.Instance.LogLine(child.name);
-                    ModInterface.Instance.IncreaseLogIndent();
+                    ModInterface.Log.LogLine(child.name);
+                    ModInterface.Log.IncreaseIndent();
                     LogHierarchy(child);
-                    ModInterface.Instance.DecreaseLogIndent();
+                    ModInterface.Log.DecreaseIndent();
                 }
             }
         }
@@ -33,15 +32,15 @@ namespace Hp2BaseMod.Utility
 
             if (components.Length == 0)
             {
-                ModInterface.Instance.LogLine($"No Components");
+                ModInterface.Log.LogLine($"No Components");
             }
             else
             {
                 foreach (var component in components)
                 {
-                    ModInterface.Instance.LogLine($"Type: {component.GetType().Name}, Name: {component.name}");
+                    ModInterface.Log.LogLine($"Type: {component.GetType().Name}, Name: {component.name}");
 
-                    ModInterface.Instance.IncreaseLogIndent();
+                    ModInterface.Log.IncreaseIndent();
                     if (!excluded.Contains(component))
                     {
                         excluded.Add(component);
@@ -49,9 +48,9 @@ namespace Hp2BaseMod.Utility
                     }
                     else
                     {
-                        ModInterface.Instance.LogLine("Has already been logged, avoiding recursion");
+                        ModInterface.Log.LogLine("Has already been logged, avoiding recursion");
                     }
-                    ModInterface.Instance.DecreaseLogIndent();
+                    ModInterface.Log.DecreaseIndent();
                 }
             }
         }

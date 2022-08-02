@@ -11,12 +11,12 @@ namespace Hp2BaseMod.GameDataInfo
     /// <summary>
     /// Serializable information to make a MatchModifier
     /// </summary>
-    public class MatchModifierInfo : IGameDataInfo<MatchModifier>
+    public class MatchModifierInfo : IGameDefinitionInfo<MatchModifier>
     {
-        [UiSonSelectorUi(DefaultData.NumberCombineOperationNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.NumberCombineOperationNullable)]
         public NumberCombineOperation? PointsOperation;
 
-        [UiSonSelectorUi(DefaultData.NumberCombineOperationNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.NumberCombineOperationNullable)]
         public NumberCombineOperation? PointsOperation2;
 
         [UiSonTextEditUi]
@@ -25,96 +25,65 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public float? PointsFactor2;
 
-        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "Id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
-        public int? TokenDefinitionID;
+        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
+        public RelativeId? TokenDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "Id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
-        public int? ReplaceDefinitionID;
+        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
+        public RelativeId? ReplaceDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Absorb;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? AbsorbAltGirl;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? ReplacePriority;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? SkipMostFavFactor;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? SkipLeastFavFactor;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? PointsOp;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? PointsOp2;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public MatchModifierInfo() { }
 
-        public MatchModifierInfo(NumberCombineOperation pointsOperation,
-                                 NumberCombineOperation pointsOperation2,
-                                 float pointsFactor,
-                                 float pointsFactor2,
-                                 int tokenDefinitionID,
-                                 int replaceDefinitionID,
-                                 bool absorb,
-                                 bool absorbAltGirl,
-                                 bool replacePriority,
-                                 bool skipMostFavFactor,
-                                 bool skipLeastFavFactor,
-                                 bool pointsOp,
-                                 bool pointsOp2)
-        {
-            Absorb = absorb;
-            AbsorbAltGirl = absorbAltGirl;
-            TokenDefinitionID = tokenDefinitionID;
-            ReplaceDefinitionID = replaceDefinitionID;
-            ReplacePriority = replacePriority;
-            SkipMostFavFactor = skipMostFavFactor;
-            SkipLeastFavFactor = skipLeastFavFactor;
-            PointsOp = pointsOp;
-            PointsOperation = pointsOperation;
-            PointsFactor = pointsFactor;
-            PointsOp2 = pointsOp2;
-            PointsOperation2 = pointsOperation2;
-            PointsFactor2 = pointsFactor2;
-        }
-
-        public MatchModifierInfo(MatchModifier matchModifier)
-        {
-            if (matchModifier == null) { return; }
-
-            Absorb = matchModifier.absorb;
-            AbsorbAltGirl = matchModifier.absorbAltGirl;
-            ReplacePriority = matchModifier.replacePriority;
-            SkipMostFavFactor = matchModifier.skipMostFavFactor;
-            SkipLeastFavFactor = matchModifier.skipLeastFavFactor;
-            PointsOp = matchModifier.pointsOp;
-            PointsOperation = matchModifier.pointsOperation;
-            PointsFactor = matchModifier.pointsFactor;
-            PointsOp2 = matchModifier.pointsOp2;
-            PointsOperation2 = matchModifier.pointsOperation2;
-            PointsFactor2 = matchModifier.pointsFactor2;
-
-            TokenDefinitionID = matchModifier.tokenDefinition?.id ?? -1;
-            ReplaceDefinitionID = matchModifier.replaceDefinition?.id ?? -1;
-        }
-
         /// <summary>
-        /// Writes to the game data definition this represents
+        /// Constructor from a definition instance.
         /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref MatchModifier def, GameDataProvider gameDataProvider, AssetProvider _, InsertStyle insertStyle)
+        /// <param name="def">The definition.</param>
+        public MatchModifierInfo(MatchModifier def)
         {
-            ModInterface.Instance.LogLine("Setting data for a match modifier");
-            ModInterface.Instance.IncreaseLogIndent();
+            if (def == null) { return; }
 
+            Absorb = def.absorb;
+            AbsorbAltGirl = def.absorbAltGirl;
+            ReplacePriority = def.replacePriority;
+            SkipMostFavFactor = def.skipMostFavFactor;
+            SkipLeastFavFactor = def.skipLeastFavFactor;
+            PointsOp = def.pointsOp;
+            PointsOperation = def.pointsOperation;
+            PointsFactor = def.pointsFactor;
+            PointsOp2 = def.pointsOp2;
+            PointsOperation2 = def.pointsOperation2;
+            PointsFactor2 = def.pointsFactor2;
+
+            TokenDefinitionID = new RelativeId(def.tokenDefinition);
+            ReplaceDefinitionID = new RelativeId(def.replaceDefinition);
+        }
+
+        /// <inheritdoc/>
+        public void SetData(ref MatchModifier def, GameDefinitionProvider gameDataProvider, AssetProvider _, InsertStyle insertStyle)
+        {
             if (def == null)
             {
                 def = Activator.CreateInstance<MatchModifier>();
@@ -134,9 +103,6 @@ namespace Hp2BaseMod.GameDataInfo
 
             ValidatedSet.SetValue(ref def.tokenDefinition, gameDataProvider.GetToken(TokenDefinitionID), insertStyle);
             ValidatedSet.SetValue(ref def.replaceDefinition, gameDataProvider.GetToken(ReplaceDefinitionID), insertStyle);
-
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

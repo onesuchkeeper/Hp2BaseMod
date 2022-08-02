@@ -24,8 +24,14 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Hp2ModConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="Copy &quot;$(OutDir)\Hp2RepeatThreesomeMod.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2RepeatThreesomeMod&quot;" />
+    <Exec Command="md &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2RepeatThreesomeMod&quot;&#xD;&#xA;Copy &quot;$(OutDir)\Hp2RepeatThreesomeMod.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2RepeatThreesomeMod&quot;&#xD;&#xA;Copy &quot;$(OutDir)\Hp2ModConfig.json&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2RepeatThreesomeMod&quot;&#xD;&#xA;md &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2RepeatThreesomeMod\Images&quot;&#xD;&#xA;Copy &quot;C:\Users\camer\Desktop\hpdev\Images\RepeatThreesome&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2RepeatThreesomeMod\Images&quot;" />
   </Target>
 
 </Project>

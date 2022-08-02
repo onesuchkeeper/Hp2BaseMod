@@ -11,74 +11,55 @@ namespace Hp2BaseMod.GameDataInfo
     /// <summary>
     /// Serializable information to make a TokenCondition
     /// </summary>
-    public class TokenConditionInfo : IGameDataInfo<TokenCondition>
+    public class TokenConditionInfo : IGameDefinitionInfo<TokenCondition>
     {
-        [UiSonSelectorUi(DefaultData.TokenConditionTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.TokenConditionTypeNullable)]
         public TokenConditionType? Type;
 
-        [UiSonSelectorUi(DefaultData.TokenConditionTokenTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.TokenConditionTokenTypeNullable)]
         public TokenConditionTokenType? TokenType;
 
-        [UiSonSelectorUi(DefaultData.NumberComparisonTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.NumberComparisonTypeNullable)]
         public NumberComparisonType? Comparison;
 
         [UiSonTextEditUi]
         public string Val;
 
-        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "Id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
-        public int? TokenDefinitionID;
+        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
+        public RelativeId? TokenDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? OppositeGirl;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Inverse;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public TokenConditionInfo() { }
 
-        public TokenConditionInfo(TokenConditionType type,
-                                  TokenConditionTokenType tokenType,
-                                  NumberComparisonType comparison,
-                                  string val,
-                                  int tokenDefinitionID,
-                                  bool oppositeGirl,
-                                  bool inverse)
-        {
-            Type = type;
-            TokenType = tokenType;
-            TokenDefinitionID = tokenDefinitionID;
-            OppositeGirl = oppositeGirl;
-            Comparison = comparison;
-            Val = val;
-            Inverse = inverse;
-        }
-
-        public TokenConditionInfo(TokenCondition tokenCondition)
-        {
-            if (tokenCondition == null) { throw new ArgumentNullException(nameof(tokenCondition)); }
-
-            Type = tokenCondition.type;
-            TokenType = tokenCondition.tokenType;
-            OppositeGirl = tokenCondition.oppositeGirl;
-            Comparison = tokenCondition.comparison;
-            Val = tokenCondition.val;
-            Inverse = tokenCondition.inverse;
-
-            TokenDefinitionID = tokenCondition.tokenDefinition?.id ?? -1;
-        }
-
         /// <summary>
-        /// Writes to the game data definition this represents
+        /// Constructor from a definition instance.
         /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref TokenCondition def, GameDataProvider gameDataProvider, AssetProvider _, InsertStyle insertStyle)
+        /// <param name="def">The definition.</param>
+        public TokenConditionInfo(TokenCondition def)
         {
-            ModInterface.Instance.LogLine("Setting data for a token condition");
-            ModInterface.Instance.IncreaseLogIndent();
+            if (def == null) { throw new ArgumentNullException(nameof(def)); }
 
+            Type = def.type;
+            TokenType = def.tokenType;
+            OppositeGirl = def.oppositeGirl;
+            Comparison = def.comparison;
+            Val = def.val;
+            Inverse = def.inverse;
+
+            TokenDefinitionID = new RelativeId(def.tokenDefinition);
+        }
+
+        /// <inheritdoc/>
+        public void SetData(ref TokenCondition def, GameDefinitionProvider gameDataProvider, AssetProvider _, InsertStyle insertStyle)
+        {
             if (def == null)
             {
                 def = Activator.CreateInstance<TokenCondition>();
@@ -92,9 +73,6 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.inverse, Inverse);
 
             ValidatedSet.SetValue(ref def.tokenDefinition, gameDataProvider.GetToken(TokenDefinitionID), insertStyle);
-
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

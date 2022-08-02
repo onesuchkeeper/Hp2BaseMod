@@ -11,53 +11,42 @@ namespace Hp2BaseMod.GameDataInfo
     /// <summary>
     /// Serializable information to make an AudioKlip
     /// </summary>
-    public class AudioKlipInfo : IGameDataInfo<AudioKlip>
+    public class AudioKlipInfo : IGameDefinitionInfo<AudioKlip>
     {
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public AudioClipInfo AudioClipInfo;
 
         [UiSonSliderUi(0, 1, 3)]
         public float? Volume;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public AudioKlipInfo() { }
 
-        public AudioKlipInfo(AudioClipInfo audioClipInfo,
-                             float volume)
+        /// <summary>
+        /// Constructor from a definition instance.
+        /// </summary>
+        /// <param name="def">The definition.</param>
+        /// <param name="assetProvider">Asset provider containing the assest referenced by the definition.</param>
+        public AudioKlipInfo(AudioKlip def, AssetProvider assetProvider)
         {
-            AudioClipInfo = audioClipInfo;
-            Volume = volume;
-        }
-
-        public AudioKlipInfo(AudioKlip audioKlip, AssetProvider assetProvider)
-        {
-            if (audioKlip == null) { throw new ArgumentNullException(nameof(audioKlip)); }
+            if (def == null) { throw new ArgumentNullException(nameof(def)); }
             if (assetProvider == null) { throw new ArgumentNullException(nameof(assetProvider)); }
 
-            Volume = audioKlip.volume;
-            if (audioKlip.clip != null) { AudioClipInfo = new AudioClipInfo(audioKlip.clip, assetProvider); }
+            Volume = def.volume;
+            if (def.clip != null) { AudioClipInfo = new AudioClipInfo(def.clip, assetProvider); }
         }
 
-        /// <summary>
-        /// Writes to the game data definition this represents
-        /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref AudioKlip def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
+        /// <inheritdoc/>
+        public void SetData(ref AudioKlip def, GameDefinitionProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
-            ModInterface.Instance.LogLine("Setting data for an audio klip");
-            ModInterface.Instance.IncreaseLogIndent();
-
             if (def == null)
             {
                 def = Activator.CreateInstance<AudioKlip>();
             }
             ValidatedSet.SetValue(ref def.volume, Volume);
             ValidatedSet.SetValue(ref def.clip, AudioClipInfo, insertStyle, gameDataProvider, assetProvider);
-
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

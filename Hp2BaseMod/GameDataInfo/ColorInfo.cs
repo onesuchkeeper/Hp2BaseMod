@@ -12,22 +12,32 @@ namespace Hp2BaseMod.GameDataInfo
     /// <summary>
     /// Serializable information to make a Color
     /// </summary>
-    public class ColorInfo : IGameDataInfo<Color>
+    public class ColorInfo : IGameDefinitionInfo<Color>
     {
-        [UiSonSliderUi(0, 255, 0)]
+        [UiSonSliderUi(0, 1, 5)]
         public float? R;
 
-        [UiSonSliderUi(0, 255, 0)]
+        [UiSonSliderUi(0, 1, 5)]
         public float? G;
 
-        [UiSonSliderUi(0, 255, 0)]
+        [UiSonSliderUi(0, 1, 5)]
         public float? B;
 
-        [UiSonSliderUi(0, 255, 0)]
+        [UiSonSliderUi(0, 1, 5)]
         public float? A;
 
+        /// <summary>
+        /// Parameterless Constructor
+        /// </summary>
         public ColorInfo() { }
 
+        /// <summary>
+        /// Constructor with rgba parameters
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="g"></param>
+        /// <param name="b"></param>
+        /// <param name="a"></param>
         public ColorInfo(float r, float g, float b, float a)
         {
             R = r;
@@ -36,6 +46,10 @@ namespace Hp2BaseMod.GameDataInfo
             A = a;
         }
 
+        /// <summary>
+        /// Constructor from a definition instance.
+        /// </summary>
+        /// <param name="def">The definition.</param>
         public ColorInfo(Color color)
         {
             if (color == null) { throw new ArgumentNullException(nameof(color)); }
@@ -46,18 +60,9 @@ namespace Hp2BaseMod.GameDataInfo
             A = color.a;
         }
 
-        /// <summary>
-        /// Writes to the game data definition this represents
-        /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref Color def, GameDataProvider _, AssetProvider __, InsertStyle insertStyle)
+        /// <inheritdoc/>
+        public void SetData(ref Color def, GameDefinitionProvider _, AssetProvider __, InsertStyle ___)
         {
-            ModInterface.Instance.LogLine("Setting data for a color");
-            ModInterface.Instance.IncreaseLogIndent();
-
             if (def == null)
             {
                 def = Activator.CreateInstance<Color>();
@@ -67,9 +72,6 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.g, G);
             ValidatedSet.SetValue(ref def.b, B);
             ValidatedSet.SetValue(ref def.a, A);
-
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

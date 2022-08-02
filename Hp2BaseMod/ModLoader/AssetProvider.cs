@@ -34,12 +34,11 @@ namespace Hp2BaseMod.ModLoader
             if (identifier == null) { return null; }
             if (Assets.ContainsKey(identifier))
             {
-                ModInterface.Instance.LogLine($"Found internal asset { identifier }");
                 return Assets[identifier];
             }
             else
             {
-                ModInterface.Instance.LogLine($"Failed to find internal asset { identifier ?? "null"}");
+                ModInterface.Log.LogLine($"Failed to find internal asset { identifier ?? "null"}");
             }
             return null;
         }
@@ -176,7 +175,7 @@ namespace Hp2BaseMod.ModLoader
 
                 var filePath = Path.Combine(folderPath, $"{group.Key.Name}.csv");
 
-                ModInterface.Instance.LogLine($"Dev: Saving asset file {filePath}");
+                ModInterface.Log.LogLine($"Dev: Saving asset file {filePath}");
 
                 File.WriteAllText(filePath, result);
             }

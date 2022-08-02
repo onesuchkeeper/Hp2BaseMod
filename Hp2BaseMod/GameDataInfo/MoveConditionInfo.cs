@@ -11,80 +11,59 @@ namespace Hp2BaseMod.GameDataInfo
     /// <summary>
     /// Serializable information to make a MoveCondition
     /// </summary>
-    public class MoveConditionInfo : IGameDataInfo<MoveCondition>
+    public class MoveConditionInfo : IGameDefinitionInfo<MoveCondition>
     {
-        [UiSonSelectorUi(DefaultData.MoveConditionTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.MoveConditionTypeNullable)]
         public MoveConditionType? Type;
 
-        [UiSonSelectorUi(DefaultData.MoveConditionTokenTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.MoveConditionTokenTypeNullable)]
         public MoveConditionTokenType? TokenType;
 
-        [UiSonSelectorUi(DefaultData.PuzzleResourceTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.PuzzleResourceTypeNullable)]
         public PuzzleResourceType? ResourceType;
 
-        [UiSonSelectorUi(DefaultData.NumberComparisonTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.NumberComparisonTypeNullable)]
         public NumberComparisonType? Comparison;
 
-        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "Id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
-        public int? TokenDefinitionID;
+        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
+        public RelativeId? TokenDefinitionID;
 
         [UiSonTextEditUi]
         public int? Val;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? BoolValue;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Inverse;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public MoveConditionInfo() { }
 
-        public MoveConditionInfo(MoveConditionType type,
-                                 MoveConditionTokenType tokenType,
-                                 PuzzleResourceType resourceType,
-                                 NumberComparisonType comparison,
-                                 int tokenDefinitionID,
-                                 int val,
-                                 bool boolValue,
-                                 bool inverse)
-        {
-            Type = type;
-            TokenType = tokenType;
-            TokenDefinitionID = tokenDefinitionID;
-            BoolValue = boolValue;
-            ResourceType = resourceType;
-            Comparison = comparison;
-            Val = val;
-            Inverse = inverse;
-        }
-
-        public MoveConditionInfo(MoveCondition moveCondition)
-        {
-            if (moveCondition == null) { throw new ArgumentNullException(nameof(moveCondition)); }
-
-            Type = moveCondition.type;
-            TokenType = moveCondition.tokenType;
-            BoolValue = moveCondition.boolValue;
-            ResourceType = moveCondition.resourceType;
-            Comparison = moveCondition.comparison;
-            Val = moveCondition.val;
-            Inverse = moveCondition.inverse;
-
-            TokenDefinitionID = moveCondition.tokenDefinition?.id ?? -1;
-        }
-
         /// <summary>
-        /// Writes to the game data definition this represents
+        /// Constructor from a definition instance.
         /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref MoveCondition def, GameDataProvider gameDataProvider, AssetProvider _, InsertStyle insertStyle)
+        /// <param name="def">The definition.</param>
+        public MoveConditionInfo(MoveCondition def)
         {
-            ModInterface.Instance.LogLine("Setting data for a move condition");
-            ModInterface.Instance.IncreaseLogIndent();
+            if (def == null) { throw new ArgumentNullException(nameof(def)); }
 
+            Type = def.type;
+            TokenType = def.tokenType;
+            BoolValue = def.boolValue;
+            ResourceType = def.resourceType;
+            Comparison = def.comparison;
+            Val = def.val;
+            Inverse = def.inverse;
+
+            TokenDefinitionID = new RelativeId(def.tokenDefinition);
+        }
+
+        /// <inheritdoc/>
+        public void SetData(ref MoveCondition def, GameDefinitionProvider gameDataProvider, AssetProvider _, InsertStyle insertStyle)
+        {
             if (def == null)
             {
                 def = Activator.CreateInstance<MoveCondition>();
@@ -98,9 +77,6 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.val, Val);
             ValidatedSet.SetValue(ref def.inverse, Inverse);
             ValidatedSet.SetValue(ref def.tokenDefinition, gameDataProvider.GetToken(TokenDefinitionID), insertStyle);
-
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

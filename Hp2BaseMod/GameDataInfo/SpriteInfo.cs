@@ -3,7 +3,6 @@
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
-using System;
 using System.IO;
 using UiSon.Attribute;
 using UnityEngine;
@@ -13,7 +12,7 @@ namespace Hp2BaseMod.GameDataInfo
     /// <summary>
     /// Serializable information to make a sprite
     /// </summary>
-    public class SpriteInfo : IGameDataInfo<Sprite>
+    public class SpriteInfo : IGameDefinitionInfo<Sprite>
     {
         [UiSonTextEditUi]
         public string Path;
@@ -21,35 +20,27 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonCheckboxUi]
         public bool IsExternal;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public SpriteInfo() { }
 
-        public SpriteInfo(string path,
-                          bool isExternal)
+        /// <summary>
+        /// Constructor from a definition instance.
+        /// </summary>
+        /// <param name="def">The definition.</param>
+        /// <param name="assetProvider">Asset provider containing the assest referenced by the definition.</param>
+        public SpriteInfo(Sprite def, AssetProvider assetProvider)
         {
-            Path = path;
-            IsExternal = isExternal;
-        }
+            if (def == null) { return; }
 
-        public SpriteInfo(Sprite sprite, AssetProvider assetProvider)
-        {
-            if (sprite == null) { return; }
-
-            assetProvider.NameAndAddAsset(ref Path, sprite);
+            assetProvider.NameAndAddAsset(ref Path, def);
             IsExternal = false;
         }
 
-        /// <summary>
-        /// Writes to the game data definition this represents
-        /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref Sprite def, GameDataProvider _, AssetProvider assetProvider, InsertStyle insertStyle)
+        /// <inheritdoc/>
+        public void SetData(ref Sprite def, GameDefinitionProvider _, AssetProvider assetProvider, InsertStyle insertStyle)
         {
-            ModInterface.Instance.LogLine("Setting data for a sprite");
-            ModInterface.Instance.IncreaseLogIndent();
-
             if (Path == null)
             {
                 if (insertStyle == InsertStyle.assignNull)
@@ -66,11 +57,11 @@ namespace Hp2BaseMod.GameDataInfo
                         var texture = TextureUtility.LoadFromPath(Path);
                         def = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
 
-                        ModInterface.Instance.LogLine($"{(def == null ? "Failed to load" : "Loaded")} external {nameof(Sprite)} { Path ?? null}");
+                        ModInterface.Log.LogLine($"{(def == null ? "Failed to load" : "Loaded")} external {nameof(Sprite)} { Path ?? null}");
                     }
                     else
                     {
-                        ModInterface.Instance.LogLine($"Could not find {Path} to load {nameof(Sprite)} from");
+                        ModInterface.Log.LogLine($"Could not find {Path} to load {nameof(Sprite)} from");
                     }
                 }
                 else
@@ -78,9 +69,6 @@ namespace Hp2BaseMod.GameDataInfo
                     def = (Sprite)assetProvider.GetAsset(Path);
                 }
             }
-
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

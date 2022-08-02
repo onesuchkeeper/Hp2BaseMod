@@ -13,7 +13,7 @@ namespace Hp2BaseMod.GameDataInfo
     /// <summary>
     /// Serializable information to make a CutsceneDialogOptionSubDefinition
     /// </summary>
-    public class CutsceneDialogOptionInfo : IGameDataInfo<CutsceneDialogOptionSubDefinition>
+    public class CutsceneDialogOptionInfo : IGameDefinitionInfo<CutsceneDialogOptionSubDefinition>
     {
         [UiSonTextEditUi]
         public string DialogOptionText;
@@ -21,25 +21,22 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public string YuriDialogOptionText;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Yuri;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public List<CutsceneStepInfo> Steps;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public CutsceneDialogOptionInfo() { }
 
-        public CutsceneDialogOptionInfo(string dialogOptionText,
-                                        string yuriDialogOptionText,
-                                        bool yuri,
-                                        List<CutsceneStepInfo> steps)
-        {
-            DialogOptionText = dialogOptionText;
-            Yuri = yuri;
-            YuriDialogOptionText = yuriDialogOptionText;
-            Steps = steps;
-        }
-
+        /// <summary>
+        /// Constructor from a definition instance.
+        /// </summary>
+        /// <param name="def">The definition.</param>
+        /// <param name="assetProvider">Asset provider containing the assest referenced by the definition.</param>
         public CutsceneDialogOptionInfo(CutsceneDialogOptionSubDefinition def, AssetProvider assetProvider)
         {
             if (def == null) { throw new ArgumentNullException(nameof(def)); }
@@ -52,18 +49,9 @@ namespace Hp2BaseMod.GameDataInfo
             if (def.steps != null) { Steps = def.steps.Select(x => new CutsceneStepInfo(x, assetProvider)).ToList(); }
         }
 
-        /// <summary>
-        /// Writes to the game data definition this represents
-        /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref CutsceneDialogOptionSubDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
+        /// <inheritdoc/>
+        public void SetData(ref CutsceneDialogOptionSubDefinition def, GameDefinitionProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
-            ModInterface.Instance.LogLine("Setting data for a cutscene dialog option");
-            ModInterface.Instance.IncreaseLogIndent();
-
             if (def == null)
             {
                 def = Activator.CreateInstance<CutsceneDialogOptionSubDefinition>();
@@ -73,9 +61,6 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.yuri, Yuri);
             ValidatedSet.SetValue(ref def.yuriDialogOptionText, YuriDialogOptionText, insertStyle);
             ValidatedSet.SetListValue(ref def.steps, Steps, insertStyle, gameDataProvider, assetProvider);
-
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

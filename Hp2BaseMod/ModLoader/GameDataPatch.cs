@@ -1,7 +1,6 @@
 ﻿// Hp2BaseMododLoader 2021, by OneSuchKeeper
 
 using HarmonyLib;
-using Hp2BaseMod.EnumExpansion;
 using Hp2BaseMod.GameDataInfo;
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.Utility;
@@ -10,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using UnityEngine;
 
 namespace Hp2BaseMod.ModLoader
 {
@@ -20,179 +20,541 @@ namespace Hp2BaseMod.ModLoader
     internal static class GameDataPatch
     {
         private static readonly string _defaultDataDir = @"mods\DefaultData";
-        private static bool _isDevMode = false;
+        private static readonly bool _isDevMode = true;
+        private static bool _hasRun = false;
 
         private static void Postfix(GameData __instance)
         {
-            ModInterface.Instance.LogTitle("Modifying GameData");
-            ModInterface.Instance.IncreaseLogIndent();
-
-            //grab dicts
-            var abilityDataDict = GetDataDict<AbilityDefinition>(__instance, typeof(AbilityData), "_abilityData");
-            var ailmentDataDict = GetDataDict<AilmentDefinition>(__instance, typeof(AilmentData), "_ailmentData");
-            var codeDataDict = GetDataDict<CodeDefinition>(__instance, typeof(CodeData), "_codeData");
-            var cutsceneDataDict = GetDataDict<CutsceneDefinition>(__instance, typeof(CutsceneData), "_cutsceneData");
-            var dialogTriggerDataDict = GetDataDict<DialogTriggerDefinition>(__instance, typeof(DialogTriggerData), "_dialogTriggerData");
-            var dlcDataDict = GetDataDict<DlcDefinition>(__instance, typeof(DlcData), "_dlcData");
-            var energyDataDict = GetDataDict<EnergyDefinition>(__instance, typeof(EnergyData), "_energyData");
-            var girlDataDict = GetDataDict<GirlDefinition>(__instance, typeof(GirlData), "_girlData");
-            var girlPairDataDict = GetDataDict<GirlPairDefinition>(__instance, typeof(GirlPairData), "_girlPairData");
-            var itemDataDict = GetDataDict<ItemDefinition>(__instance, typeof(ItemData), "_itemData");
-            var locationDataDict = GetDataDict<LocationDefinition>(__instance, typeof(LocationData), "_locationData");
-            var photoDataDict = GetDataDict<PhotoDefinition>(__instance, typeof(PhotoData), "_photoData");
-            var questionDataDict = GetDataDict<QuestionDefinition>(__instance, typeof(QuestionData), "_questionData");
-            var tokenDataDict = GetDataDict<TokenDefinition>(__instance, typeof(TokenData), "_tokenData");
-
-            // providers
-            var assetProvider = new AssetProvider(new Dictionary<string, UnityEngine.Object>());
-            assetProvider.AddAsset("None", null);
-            var gameDataProvider = new GameDataProvider(__instance);
-
-            var defaultgirlDefs = girlDataDict.Select(x => x.Value).ToList();
-            if (_isDevMode)
+            // if the gamedata is accessed from here this method will be called again, shouldn't happen if
+            // it's coded right but just as a failsafe
+            if (_hasRun)
             {
-                ModInterface.Instance.LogLine("Generating DefaultData.cs");
-                ModInterface.Instance.IncreaseLogIndent();
-                Hp2UiSonUtility.MakeDefaultDataDotCs(__instance);
-                ModInterface.Instance.LogLine("Done");
-                ModInterface.Instance.DecreaseLogIndent();
-
-                ModInterface.Instance.LogLine("Generating Dev Files");
-                ModInterface.Instance.IncreaseLogIndent();
-                SaveDataMods(abilityDataDict.Select(x => new AbilityDataMod(x.Value, assetProvider)), nameof(AbilityDataMod));
-                SaveDataMods(cutsceneDataDict.Select(x => new CutsceneDataMod(x.Value, assetProvider)), nameof(CutsceneDataMod));
-                SaveDataMods(dialogTriggerDataDict.Select(x => new DialogTriggerDataMod(x.Value, assetProvider)), nameof(DialogTriggerDataMod));
-                SaveDataMods(energyDataDict.Select(x => new EnergyDataMod(x.Value, assetProvider)), nameof(EnergyDataMod));
-                SaveDataMods(girlDataDict.Select(x => new GirlDataMod(x.Value, assetProvider)), nameof(GirlDataMod));
-                SaveDataMods(itemDataDict.Select(x => new ItemDataMod(x.Value, assetProvider)), nameof(ItemDataMod));
-                SaveDataMods(locationDataDict.Select(x => new LocationDataMod(x.Value, defaultgirlDefs, assetProvider)), nameof(LocationDataMod));
-                SaveDataMods(photoDataDict.Select(x => new PhotoDataMod(x.Value, assetProvider)), nameof(PhotoDataMod));
-                SaveDataMods(tokenDataDict.Select(x => new TokenDataMod(x.Value, assetProvider)), nameof(TokenDataMod));
-                SaveDataMods(questionDataDict.Select(x => new QuestionDataMod(x.Value)), nameof(QuestionDataMod));
-                SaveDataMods(girlPairDataDict.Select(x => new GirlPairDataMod(x.Value)), nameof(GirlPairDataMod));
-                SaveDataMods(ailmentDataDict.Select(x => new AilmentDataMod(x.Value)), nameof(AilmentDataMod));
-                SaveDataMods(codeDataDict.Select(x => new CodeDataMod(x.Value)), nameof(CodeDataMod));
-                SaveDataMods(dlcDataDict.Select(x => new DlcDataMod(x.Value)), nameof(DlcDataMod));
-                ModInterface.Instance.LogLine("done");
-                ModInterface.Instance.DecreaseLogIndent();
-
-                ModInterface.Instance.LogLine("Generating Prefabs File");
-                ModInterface.Instance.IncreaseLogIndent();
-                assetProvider.SaveToFolder(Path.Combine(_defaultDataDir, "InternalData"));
-                ModInterface.Instance.LogLine("Done");
-                ModInterface.Instance.DecreaseLogIndent();
+                ModInterface.Log.LogTitle("WHY ARE YOU RUNNING?");
+                return;
             }
-            else
+            _hasRun = true;
+
+            //okay, here's the plan
+            //1) get all of the default data
+            //2) register all the default data
+            //3) if in dev mode, make mods for and save daefault data
+            //4) get all the mods and create empties and register
+            //5) get sub mods create empties and register
+            //6) apply mods
+            try
             {
-                ModInterface.Instance.LogLine("Loading internal assets");
-                ModInterface.Instance.IncreaseLogIndent();
-                foreach (var entry in abilityDataDict) { assetProvider.Load(entry.Value); }
-                foreach (var entry in cutsceneDataDict) { assetProvider.Load(entry.Value); }
-                foreach (var entry in dialogTriggerDataDict) { assetProvider.Load(entry.Value); }
-                foreach (var entry in energyDataDict) { assetProvider.Load(entry.Value); }
-                foreach (var entry in girlDataDict) { assetProvider.Load(entry.Value); }
-                foreach (var entry in itemDataDict) { assetProvider.Load(entry.Value); }
-                foreach (var entry in locationDataDict) { assetProvider.Load(entry.Value); }
-                foreach (var entry in photoDataDict) { assetProvider.Load(entry.Value); }
-                foreach (var entry in tokenDataDict) { assetProvider.Load(entry.Value); }
-                ModInterface.Instance.LogLine("done");
-                ModInterface.Instance.DecreaseLogIndent();
-
-                ModInterface.Instance.LogLine("Loading enum values");
-                ModInterface.Instance.IncreaseLogIndent();
-
-                foreach (var pair in girlPairDataDict)
+                ModInterface.Log.LogTitle("Modifying GameData");
+                using (ModInterface.Log.MakeIndent())
                 {
-                    EnumLookups.AddPairInfo(pair.Value);
-                }
+                    //grab dicts
+                    var abilityDataDict = GetDataDict<AbilityDefinition>(__instance, typeof(AbilityData), "_abilityData");
+                    var ailmentDataDict = GetDataDict<AilmentDefinition>(__instance, typeof(AilmentData), "_ailmentData");
+                    var codeDataDict = GetDataDict<CodeDefinition>(__instance, typeof(CodeData), "_codeData");
+                    var cutsceneDataDict = GetDataDict<CutsceneDefinition>(__instance, typeof(CutsceneData), "_cutsceneData");
+                    var dialogTriggerDataDict = GetDataDict<DialogTriggerDefinition>(__instance, typeof(DialogTriggerData), "_dialogTriggerData");
+                    var dlcDataDict = GetDataDict<DlcDefinition>(__instance, typeof(DlcData), "_dlcData");
+                    var energyDataDict = GetDataDict<EnergyDefinition>(__instance, typeof(EnergyData), "_energyData");
+                    var girlDataDict = GetDataDict<GirlDefinition>(__instance, typeof(GirlData), "_girlData");
+                    var girlPairDataDict = GetDataDict<GirlPairDefinition>(__instance, typeof(GirlPairData), "_girlPairData");
+                    var itemDataDict = GetDataDict<ItemDefinition>(__instance, typeof(ItemData), "_itemData");
+                    var locationDataDict = GetDataDict<LocationDefinition>(__instance, typeof(LocationData), "_locationData");
+                    var photoDataDict = GetDataDict<PhotoDefinition>(__instance, typeof(PhotoData), "_photoData");
+                    var questionDataDict = GetDataDict<QuestionDefinition>(__instance, typeof(QuestionData), "_questionData");
+                    var tokenDataDict = GetDataDict<TokenDefinition>(__instance, typeof(TokenData), "_tokenData");
 
-                foreach (var location in locationDataDict)
-                {
-                    EnumLookups.AddLocationInfo(location.Value, defaultgirlDefs);
-                }
+                    // register default sub data
+                    ModInterface.Log.LogLine("registering default sub data");
+                    using (ModInterface.Log.MakeIndent())
+                    {
+                        foreach (var dt in dialogTriggerDataDict.Values)
+                        {
+                            var id = new RelativeId(-1, dt.id);
 
-                ModInterface.Instance.LogLine("done");
-                ModInterface.Instance.DecreaseLogIndent();
+                            // lines are looked up by trigger id and girl id.
+                            var girlIndex = 0;
+                            foreach (var lineSet in dt.dialogLineSets)
+                            {
+                                var lineIndex = 0;
+                                foreach (var line in lineSet.dialogLines)
+                                {
+                                    ModInterface.Data.TryRegisterLine(id, new RelativeId(-1, girlIndex), lineIndex, new RelativeId(-1, lineIndex));
+
+                                    lineIndex++;
+                                }
+
+                                girlIndex++;
+                            }
+                        }
+                        foreach (var girl in girlDataDict.Values)
+                        {
+                            var id = new RelativeId(-1, girl.id);
+                            ModInterface.Data.TryRegisterGirlDialogTrigger(id, girl.id);
+
+                            for (var i = 0; i < girl.parts.Count; i++)
+                            {
+                                ModInterface.Data.TryRegisterPart(id, i, new RelativeId(-1, i));
+                            }
+
+                            for (var i = 0; i < girl.hairstyles.Count; i++)
+                            {
+                                ModInterface.Data.TryRegisterHairstyle(id, i, new RelativeId(-1, i));
+                            }
+
+                            for (var i = 0; i < girl.outfits.Count; i++)
+                            {
+                                ModInterface.Data.TryRegisterOutfit(id, i, new RelativeId(-1, i));
+                            }
+                        }
+                        foreach (var def in girlPairDataDict.Values)
+                        {
+                            var id = new RelativeId(-1, def.id);
+                            ModInterface.Data.RegisterPairStyle(id, new PairStyleInfo()
+                            {
+                                MeetingGirlOne = new GirlStyleInfo() { HairstyleId = new RelativeId(-1, (int)def.meetingStyleTypeOne), OutfitId = new RelativeId(-1, (int)def.meetingStyleTypeOne) },
+                                MeetingGirlTwo = new GirlStyleInfo() { HairstyleId = new RelativeId(-1, (int)def.meetingStyleTypeTwo), OutfitId = new RelativeId(-1, (int)def.meetingStyleTypeTwo) },
+                                SexGirlOne = new GirlStyleInfo() { HairstyleId = new RelativeId(-1, (int)def.sexStyleTypeOne), OutfitId = new RelativeId(-1, (int)def.sexStyleTypeOne) },
+                                SexGirlTwo = new GirlStyleInfo() { HairstyleId = new RelativeId(-1, (int)def.sexStyleTypeTwo), OutfitId = new RelativeId(-1, (int)def.sexStyleTypeTwo) }
+                            });
+                        }
+                        foreach (var def in locationDataDict.Values)
+                        {
+                            var id = new RelativeId(-1, def.id);
+
+                            var girlStyles = new Dictionary<RelativeId, GirlStyleInfo>();
+
+                            foreach (var girl in girlDataDict.Values)
+                            {
+                                var girlId = new RelativeId(-1, girl.id);
+                                girlStyles.Add(girlId, new GirlStyleInfo()
+                                {
+                                    HairstyleId = new RelativeId(-1, (int)def.dateGirlStyleType),
+                                    OutfitId = new RelativeId(-1, (int)def.dateGirlStyleType)
+                                });
+                            }
+                            ModInterface.Data.RegisterLocationStyles(id, girlStyles);
+                        }
+                    }
+
+                    // asset provider
+                    var assetProvider = new AssetProvider(new Dictionary<string, UnityEngine.Object>());
+                    assetProvider.AddAsset("None", null);
+                    var emptyTexture = TextureUtility.Empty();
+                    assetProvider.AddAsset("EmptySprite", Sprite.Create(emptyTexture, new Rect(0, 0, emptyTexture.width, emptyTexture.height), Vector2.zero));
+                    var gameDataProvider = new GameDefinitionProvider(__instance);
+
+                    ModInterface.Log.LogLine("loading internal assets");
+                    ModInterface.Log.IncreaseIndent();
+                    foreach (var entry in abilityDataDict) { assetProvider.Load(entry.Value); }
+                    foreach (var entry in cutsceneDataDict) { assetProvider.Load(entry.Value); }
+                    foreach (var entry in dialogTriggerDataDict) { assetProvider.Load(entry.Value); }
+                    foreach (var entry in energyDataDict) { assetProvider.Load(entry.Value); }
+                    foreach (var entry in girlDataDict) { assetProvider.Load(entry.Value); }
+                    foreach (var entry in itemDataDict) { assetProvider.Load(entry.Value); }
+                    foreach (var entry in locationDataDict) { assetProvider.Load(entry.Value); }
+                    foreach (var entry in photoDataDict) { assetProvider.Load(entry.Value); }
+                    foreach (var entry in tokenDataDict) { assetProvider.Load(entry.Value); }
+                    ModInterface.Log.DecreaseIndent();
+
+                    // dev output default mods
+                    if (_isDevMode)
+                    {
+                        try
+                        {
+                            ModInterface.Log.LogLine("Generating DefaultData.cs");
+                            ModInterface.Log.IncreaseIndent();
+                            Hp2UiSonUtility.MakeDefaultDataDotCs(__instance);
+                            ModInterface.Log.DecreaseIndent();
+
+                            ModInterface.Log.LogLine("Generating Dev Files");
+                            ModInterface.Log.IncreaseIndent();
+                            SaveDataMods(abilityDataDict.Select(x => new KeyValuePair<string, DataMod>(x.Value.name, new AbilityDataMod(x.Value, assetProvider))), nameof(AbilityDataMod));
+                            SaveDataMods(ailmentDataDict.Select(x => new KeyValuePair<string, DataMod>(x.Value.name, new AilmentDataMod(x.Value))), nameof(AilmentDataMod));
+                            SaveDataMods(codeDataDict.Select(x => new KeyValuePair<string, DataMod>(x.Value.name, new CodeDataMod(x.Value))), nameof(CodeDataMod));
+                            SaveDataMods(cutsceneDataDict.Select(x => new KeyValuePair<string, DataMod>(x.Value.name, new CutsceneDataMod(x.Value, assetProvider))), nameof(CutsceneDataMod));
+                            SaveDataMods(dialogTriggerDataDict.Select(x => new KeyValuePair<string, DataMod>(x.Value.name, new DialogTriggerDataMod(x.Value, assetProvider))), nameof(DialogTriggerDataMod));
+                            SaveDataMods(dlcDataDict.Select(x => new KeyValuePair<string, DataMod>(x.Value.name, new DlcDataMod(x.Value))), nameof(DlcDataMod));
+                            SaveDataMods(energyDataDict.Select(x => new KeyValuePair<string, DataMod>(x.Value.name, new EnergyDataMod(x.Value, assetProvider))), nameof(EnergyDataMod));
+
+                            var girlDts = dialogTriggerDataDict.Values.Where(x => IsGirlDialogTrigger(x));
+                            SaveDataMods(girlDataDict.Select(x => new KeyValuePair<string, DataMod>(x.Value.name, new GirlDataMod(x.Value, assetProvider, girlDts))), nameof(GirlDataMod));
+
+                            SaveDataMods(girlPairDataDict.Select(x => new KeyValuePair<string, DataMod>(x.Value.name, new GirlPairDataMod(x.Value))), nameof(GirlPairDataMod));
+                            SaveDataMods(itemDataDict.Select(x => new KeyValuePair<string, DataMod>(x.Value.name, new ItemDataMod(x.Value, assetProvider))), nameof(ItemDataMod));
+                            SaveDataMods(locationDataDict.Select(x => new KeyValuePair<string, DataMod>(x.Value.name, new LocationDataMod(x.Value, girlDataDict.Values, assetProvider))), nameof(LocationDataMod));
+                            SaveDataMods(photoDataDict.Select(x => new KeyValuePair<string, DataMod>(x.Value.name, new PhotoDataMod(x.Value, assetProvider))), nameof(PhotoDataMod));
+                            SaveDataMods(questionDataDict.Select(x => new KeyValuePair<string, DataMod>(x.Value.name, new QuestionDataMod(x.Value))), nameof(QuestionDataMod));
+                            SaveDataMods(tokenDataDict.Select(x => new KeyValuePair<string, DataMod>(x.Value.name, new TokenDataMod(x.Value, assetProvider))), nameof(TokenDataMod));
+                            ModInterface.Log.DecreaseIndent();
+
+                            ModInterface.Log.LogLine("Generating Prefabs File");
+                            ModInterface.Log.IncreaseIndent();
+                            assetProvider.SaveToFolder(Path.Combine(_defaultDataDir, "InternalData"));
+                            ModInterface.Log.DecreaseIndent();
+                        }
+                        catch (Exception e)
+                        {
+                            ModInterface.Log.LogLine($"Failed generating dev data: {e}");
+                        }
+                    }
+
+                    // grab data mods
+                    ModInterface.Log.LogLine("grabbing data mods from the mod interface");
+                    ModInterface.Log.IncreaseIndent();
+
+                    var abilityDataMods = ModInterface.Mods.SelectMany(x => x.AbilityDataMods);
+                    var ailmentDataMods = ModInterface.Mods.SelectMany(x => x.AilmentDataMods);
+                    var codeDataMods = ModInterface.Mods.SelectMany(x => x.CodeDataMods);
+                    var cutsceneDataMods = ModInterface.Mods.SelectMany(x => x.CutsceneDataMods);
+                    var dialogTriggerDataMods = ModInterface.Mods.SelectMany(x => x.DialogTriggerDataMods);
+                    var dlcDataMods = ModInterface.Mods.SelectMany(x => x.DlcDataMods);
+                    var energyDataMods = ModInterface.Mods.SelectMany(x => x.EnergyDataMods);
+                    var girlDataMods = ModInterface.Mods.SelectMany(x => x.GirlDataMods);
+                    var girlPairDataMods = ModInterface.Mods.SelectMany(x => x.GirlPairDataMods);
+                    var itemDataMods = ModInterface.Mods.SelectMany(x => x.ItemDataMods);
+                    var locationDataMods = ModInterface.Mods.SelectMany(x => x.LocationDataMods);
+                    var photoDataMods = ModInterface.Mods.SelectMany(x => x.PhotoDataMods);
+                    var questionDataMods = ModInterface.Mods.SelectMany(x => x.QuestionDataMods);
+                    var tokenDataMods = ModInterface.Mods.SelectMany(x => x.TokenDataMods);
+
+                    var partModsByIdByGirl = new Dictionary<RelativeId, Dictionary<RelativeId, List<IGirlSubDataMod<GirlPartSubDefinition>>>>();
+                    var outfitModsByIdByGirl = new Dictionary<RelativeId, Dictionary<RelativeId, List<IGirlSubDataMod<ExpandedOutfitDefinition>>>>();
+                    var hairstyleModsByIdByGirl = new Dictionary<RelativeId, Dictionary<RelativeId, List<IGirlSubDataMod<ExpandedHairstyleDefinition>>>>();
+                    var dialogLineModsByIdByDialogTriggerByGirlId = new Dictionary<RelativeId, Dictionary<RelativeId, Dictionary<RelativeId, List<IGirlSubDataMod<DialogLine>>>>>();
+
+                    foreach (var girlMod in girlDataMods)
+                    {
+                        AddGirlSubMods(girlMod.Id, girlMod.GetPartMods(), partModsByIdByGirl);
+                        AddGirlSubMods(girlMod.Id, girlMod.GetOutfits(), outfitModsByIdByGirl);
+                        AddGirlSubMods(girlMod.Id, girlMod.GetHairstyles(), hairstyleModsByIdByGirl);
+
+                        var linesByDialogTriggerId = girlMod.GetLinesByDialogTriggerId();
+
+                        if (linesByDialogTriggerId != null)
+                        {
+                            if (!dialogLineModsByIdByDialogTriggerByGirlId.ContainsKey(girlMod.Id))
+                            {
+                                dialogLineModsByIdByDialogTriggerByGirlId.Add(girlMod.Id, new Dictionary<RelativeId, Dictionary<RelativeId, List<IGirlSubDataMod<DialogLine>>>>());
+                            }
+
+                            foreach (var dtIdToLines in linesByDialogTriggerId)
+                            {
+                                if (!dialogLineModsByIdByDialogTriggerByGirlId[girlMod.Id].ContainsKey(dtIdToLines.Item1))
+                                {
+                                    dialogLineModsByIdByDialogTriggerByGirlId[girlMod.Id].Add(dtIdToLines.Item1, new Dictionary<RelativeId, List<IGirlSubDataMod<DialogLine>>>());
+                                }
+
+                                foreach (var lineMod in dtIdToLines.Item2)
+                                {
+                                    if (!dialogLineModsByIdByDialogTriggerByGirlId[girlMod.Id][dtIdToLines.Item1].ContainsKey(lineMod.Id))
+                                    {
+                                        dialogLineModsByIdByDialogTriggerByGirlId[girlMod.Id][dtIdToLines.Item1].Add(lineMod.Id, new List<IGirlSubDataMod<DialogLine>>());
+                                    }
+
+                                    dialogLineModsByIdByDialogTriggerByGirlId[girlMod.Id][dtIdToLines.Item1][lineMod.Id].Add(lineMod);
+                                }
+                            }
+                        }
+                    }
+
+                    ModInterface.Log.DecreaseIndent();
+
+                    // create and register missing empty mods for used ids, all need to exist before any are setup because they reference one another
+                    ModInterface.Log.LogLine("creating data for new ids");
+                    ModInterface.Log.IncreaseIndent();
+                    CreateEmpties(abilityDataDict, abilityDataMods, GameDataType.Ability);
+                    CreateEmpties(ailmentDataDict, ailmentDataMods, GameDataType.Ailment);
+                    CreateEmpties(codeDataDict, codeDataMods, GameDataType.Code);
+                    CreateEmpties(cutsceneDataDict, cutsceneDataMods, GameDataType.Cutscene);
+                    CreateEmpties(dialogTriggerDataDict, dialogTriggerDataMods, GameDataType.DialogTrigger);
+                    CreateEmpties(dlcDataDict, dlcDataMods, GameDataType.Dlc);
+                    CreateEmpties(energyDataDict, energyDataMods, GameDataType.Energy);
+                    CreateEmpties(girlDataDict, girlDataMods, GameDataType.Girl);
+                    CreateEmpties(girlPairDataDict, girlPairDataMods, GameDataType.GirlPair);
+                    CreateEmpties(itemDataDict, itemDataMods, GameDataType.Item);
+                    CreateEmpties(locationDataDict, locationDataMods, GameDataType.Location);
+                    CreateEmpties(photoDataDict, photoDataMods, GameDataType.Photo);
+                    CreateEmpties(questionDataDict, questionDataMods, GameDataType.Question);
+                    CreateEmpties(tokenDataDict, tokenDataMods, GameDataType.Token);
+
+                    // for these sub mods we can create empties and load them, because they don't reference one another
+                    ModInterface.Log.LogLine("creating and registering data for new ids for sub mods");
+                    using (ModInterface.Log.MakeIndent())
+                    {
+                        ModInterface.Log.LogLine("dialog trigger indexes");
+                        int nextIndex = 16;//by default has one default (0), 12 for the normal girls, 1 for kyu, 2 for nymphojinn. 1+12+1+2=16
+                        foreach (var girlId in girlDataMods.Select(x => x.Id).Distinct())
+                        {
+                            if (ModInterface.Data.TryRegisterGirlDialogTrigger(girlId, nextIndex))
+                            {
+                                foreach (var dialogTrigger in dialogTriggerDataDict.Values)
+                                {
+                                    dialogTrigger.dialogLineSets.Add(new DialogTriggerLineSet());
+                                }
+                                nextIndex++;
+                            }
+                        }
+
+                        ModInterface.Log.LogLine("girl parts");
+                        foreach (var girlIdToPartModsById in partModsByIdByGirl)
+                        {
+                            var girlDef = girlDataDict[ModInterface.Data.GetRuntimeDataId(GameDataType.Girl, girlIdToPartModsById.Key)];
+
+                            nextIndex = girlDef.parts.Count;
+                            foreach (var partId in girlIdToPartModsById.Value.Select(x => x.Key).Distinct())
+                            {
+                                if (ModInterface.Data.TryRegisterPart(girlIdToPartModsById.Key, nextIndex, partId))
+                                {
+                                    girlDef.parts.Add(new GirlPartSubDefinition());
+                                    nextIndex++;
+                                }
+                            }
+                        }
+
+                        ModInterface.Log.LogLine("girl outfits");
+                        foreach (var girlIdToOutfitModsById in outfitModsByIdByGirl)
+                        {
+                            var girlDef = girlDataDict[ModInterface.Data.GetRuntimeDataId(GameDataType.Girl, girlIdToOutfitModsById.Key)];
+
+                            nextIndex = girlDef.outfits.Count;
+                            foreach (var outfitId in girlIdToOutfitModsById.Value.Select(x => x.Key).Distinct())
+                            {
+                                if (ModInterface.Data.TryRegisterOutfit(girlIdToOutfitModsById.Key, nextIndex, outfitId))
+                                {
+                                    girlDef.outfits.Add(new ExpandedOutfitDefinition());
+                                    nextIndex++;
+                                }
+                            }
+                        }
+
+                        ModInterface.Log.LogLine("girl hairstyles");
+                        foreach (var girlIdToHairstyleModsById in hairstyleModsByIdByGirl)
+                        {
+                            var girlDef = girlDataDict[ModInterface.Data.GetRuntimeDataId(GameDataType.Girl, girlIdToHairstyleModsById.Key)];
+
+                            nextIndex = girlDef.hairstyles.Count;
+                            foreach (var hairstyleId in girlIdToHairstyleModsById.Value.Select(x => x.Key).Distinct())
+                            {
+                                if (ModInterface.Data.TryRegisterHairstyle(girlIdToHairstyleModsById.Key, nextIndex, hairstyleId))
+                                {
+                                    girlDef.hairstyles.Add(new ExpandedHairstyleDefinition());
+                                    nextIndex++;
+                                }
+                            }
+                        }
+
+                        ModInterface.Log.LogLine("girl lines");
+                        foreach (var girlIdToDialogLineModsByIdByDialogTrigger in dialogLineModsByIdByDialogTriggerByGirlId)
+                        {
+                            var index = ModInterface.Data.GetGirlDialogTriggerIndex(girlIdToDialogLineModsByIdByDialogTrigger.Key);
+
+                            foreach (var dialogTriggerIdToDialogLineModsById in girlIdToDialogLineModsByIdByDialogTrigger.Value)
+                            {
+                                var dialogTriggerSet = dialogTriggerDataDict[ModInterface.Data.GetRuntimeDataId(GameDataType.DialogTrigger, dialogTriggerIdToDialogLineModsById.Key)].dialogLineSets[index];
+
+                                nextIndex = dialogTriggerSet.dialogLines.Count;
+
+                                foreach (var idToDialogLineMods in dialogTriggerIdToDialogLineModsById.Value)
+                                {
+                                    if (ModInterface.Data.TryRegisterLine(dialogTriggerIdToDialogLineModsById.Key, girlIdToDialogLineModsByIdByDialogTrigger.Key, nextIndex, idToDialogLineMods.Key))
+                                    {
+                                        dialogTriggerSet.dialogLines.Add(new DialogLine());
+                                        nextIndex++;
+                                    }
+                                }
+                            }
+                        }
+
+                        ModInterface.Log.LogLine("location slots");
+                        foreach (var location in ModInterface.Data.GetIds(GameDataType.Location).Where(x => x.SourceId != -1))
+                        {
+                            // do good stuff here pls
+                        }
+                    }
+
+                    ModInterface.Log.DecreaseIndent();
+
+                    //setup defs
+                    ModInterface.Log.LogLine("applying mod data to game data");
+                    using (ModInterface.Log.MakeIndent())
+                    {
+                        ModInterface.Log.LogLine("abilities");
+                        SetData(abilityDataDict, abilityDataMods, gameDataProvider, assetProvider, GameDataType.Ability);
+
+                        ModInterface.Log.LogLine("ailments");
+                        SetData(ailmentDataDict, ailmentDataMods, gameDataProvider, assetProvider, GameDataType.Ailment);
+
+                        ModInterface.Log.LogLine("codes");
+                        SetData(codeDataDict, codeDataMods, gameDataProvider, assetProvider, GameDataType.Code);
+
+                        ModInterface.Log.LogLine("cutscenes");
+                        SetData(cutsceneDataDict, cutsceneDataMods, gameDataProvider, assetProvider, GameDataType.Cutscene);
+
+                        ModInterface.Log.LogLine("dialog triggers");
+                        SetData(dialogTriggerDataDict, dialogTriggerDataMods, gameDataProvider, assetProvider, GameDataType.DialogTrigger);
+
+                        ModInterface.Log.LogLine("dlcs");
+                        SetData(dlcDataDict, dlcDataMods, gameDataProvider, assetProvider, GameDataType.Dlc);
+
+                        ModInterface.Log.LogLine("energys");
+                        SetData(energyDataDict, energyDataMods, gameDataProvider, assetProvider, GameDataType.Energy);
+
+                        ModInterface.Log.LogLine("girls");
+                        SetData(girlDataDict, girlDataMods, gameDataProvider, assetProvider, GameDataType.Girl);
+                        using (ModInterface.Log.MakeIndent())
+                        {
+                            ModInterface.Log.LogLine("parts");
+                            foreach (var girlIdToModsByPartId in partModsByIdByGirl)
+                            {
+                                var girl = girlDataDict[ModInterface.Data.GetRuntimeDataId(GameDataType.Girl, girlIdToModsByPartId.Key)];
+
+                                foreach (var partIdToMods in girlIdToModsByPartId.Value)
+                                {
+                                    var part = girl.parts[ModInterface.Data.GetPartIndex(girlIdToModsByPartId.Key, partIdToMods.Key)];
+
+                                    foreach (var mod in partIdToMods.Value.OrderBy(x => x.LoadPriority))
+                                    {
+                                        mod.SetData(ref part, gameDataProvider, assetProvider, InsertStyle.replace, girlIdToModsByPartId.Key);
+                                    }
+                                }
+                            }
+
+                            ModInterface.Log.LogLine("outfits");
+                            foreach (var girlIdToModsByOutfitId in outfitModsByIdByGirl)
+                            {
+                                var girl = girlDataDict[ModInterface.Data.GetRuntimeDataId(GameDataType.Girl, girlIdToModsByOutfitId.Key)];
+
+                                foreach (var outfitIdToMods in girlIdToModsByOutfitId.Value)
+                                {
+                                    var outfit = girl.outfits[ModInterface.Data.GetOutfitIndex(girlIdToModsByOutfitId.Key, outfitIdToMods.Key)];
+                                    var expandedOutfit = outfit is ExpandedOutfitDefinition definition ? definition : new ExpandedOutfitDefinition(outfit);
+
+                                    foreach (var mod in outfitIdToMods.Value.OrderBy(x => x.LoadPriority))
+                                    {
+                                        mod.SetData(ref expandedOutfit, gameDataProvider, assetProvider, InsertStyle.replace, girlIdToModsByOutfitId.Key);
+                                    }
+                                }
+                            }
+
+                            ModInterface.Log.LogLine("hairstyles");
+                            foreach (var girlIdToModsByHairstyleId in hairstyleModsByIdByGirl)
+                            {
+                                var girl = girlDataDict[ModInterface.Data.GetRuntimeDataId(GameDataType.Girl, girlIdToModsByHairstyleId.Key)];
+
+                                foreach (var hairstyleIdToMods in girlIdToModsByHairstyleId.Value)
+                                {
+                                    var hairstyle = girl.hairstyles[ModInterface.Data.GetHairstyleIndex(girlIdToModsByHairstyleId.Key, hairstyleIdToMods.Key)];
+                                    var expandedHairstye = hairstyle is ExpandedHairstyleDefinition definition ? definition : new ExpandedHairstyleDefinition(hairstyle);
+
+                                    foreach (var mod in hairstyleIdToMods.Value.OrderBy(x => x.LoadPriority))
+                                    {
+                                        mod.SetData(ref expandedHairstye, gameDataProvider, assetProvider, InsertStyle.replace, girlIdToModsByHairstyleId.Key);
+                                    }
+                                }
+                            }
+
+                            ModInterface.Log.LogLine("lines");
+                            foreach (var girlIdToModsByIdByDialogTrigger in dialogLineModsByIdByDialogTriggerByGirlId)
+                            {
+                                var girl = girlDataDict[ModInterface.Data.GetRuntimeDataId(GameDataType.Girl, girlIdToModsByIdByDialogTrigger.Key)];
+
+                                foreach (var dialogTriggerIdToModsById in girlIdToModsByIdByDialogTrigger.Value)
+                                {
+                                    var dialogTrigger = dialogTriggerDataDict[ModInterface.Data.GetRuntimeDataId(GameDataType.DialogTrigger, dialogTriggerIdToModsById.Key)];
+
+                                    foreach (var lineIdToMods in dialogTriggerIdToModsById.Value)
+                                    {
+                                        var line = dialogTrigger.GetLineSetByGirl(girl).dialogLines[ModInterface.Data.GetLineIndex(dialogTriggerIdToModsById.Key, girlIdToModsByIdByDialogTrigger.Key, lineIdToMods.Key)];
+
+                                        foreach (var mod in lineIdToMods.Value.OrderBy(x => x.LoadPriority))
+                                        {
+                                            mod.SetData(ref line, gameDataProvider, assetProvider, InsertStyle.replace, girlIdToModsByIdByDialogTrigger.Key);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                        ModInterface.Log.LogLine("girl pairs");
+                        SetData(girlPairDataDict, girlPairDataMods, gameDataProvider, assetProvider, GameDataType.GirlPair);
+                        using (ModInterface.Log.MakeIndent())
+                        {
+                            ModInterface.Log.LogLine("styles");
+                            foreach (var pairMod in girlPairDataMods)
+                            {
+                                ModInterface.Data.RegisterPairStyle(pairMod.Id, pairMod.GetStyles());
+                            }
+                        }
+
+                        ModInterface.Log.LogLine("items");
+                        SetData(itemDataDict, itemDataMods, gameDataProvider, assetProvider, GameDataType.Item);
+
+                        ModInterface.Log.LogLine("locations");
+                        SetData(locationDataDict, locationDataMods, gameDataProvider, assetProvider, GameDataType.Location);
+                        using (ModInterface.Log.MakeIndent())
+                        {
+                            ModInterface.Log.LogLine("styles");
+                            foreach (var locationMod in locationDataMods)
+                            {
+                                var styles = locationMod.GetStyles();
+
+                                var stylesDict = new Dictionary<RelativeId, GirlStyleInfo>();
+
+                                if (styles != null)
+                                {
+                                    foreach (var style in styles)
+                                    {
+                                        if (stylesDict.ContainsKey(style.Item1))
+                                        {
+                                            ModInterface.Log.LogError($"Repeat Style for {style.Item1}, ignoring");
+                                        }
+                                        else
+                                        {
+                                            stylesDict.Add(style.Item1, style.Item2);
+                                        }
+                                    }
+                                }
+
+                                ModInterface.Data.RegisterLocationStyles(locationMod.Id, locationMod.GetStyles().ToDictionary(x => x.Item1, x => x.Item2));
+                            }
+                        }
+
+                        ModInterface.Log.LogLine("photos");
+                        SetData(photoDataDict, photoDataMods, gameDataProvider, assetProvider, GameDataType.Photo);
+
+                        ModInterface.Log.LogLine("questions");
+                        SetData(questionDataDict, questionDataMods, gameDataProvider, assetProvider, GameDataType.Question);
+
+                        ModInterface.Log.LogLine("tokens");
+                        SetData(tokenDataDict, tokenDataMods, gameDataProvider, assetProvider, GameDataType.Token);
+                    }
+                }
             }
-
-            //mods
-            ModInterface.Instance.LogLine("reading data mods");
-            ModInterface.Instance.IncreaseLogIndent();
-            var abilityDataMods = ModInterface.Instance.ReadMods<AbilityDataMod>();
-            var ailmentDataMods = ModInterface.Instance.ReadMods<AilmentDataMod>();
-            var codeDataMods = ModInterface.Instance.ReadMods<CodeDataMod>();
-            var cutsceneDataMods = ModInterface.Instance.ReadMods<CutsceneDataMod>();
-            var dialogTriggerDataMods = ModInterface.Instance.ReadMods<DialogTriggerDataMod>();
-            var dlcDataMods = ModInterface.Instance.ReadMods<DlcDataMod>();
-            var energyDataMods = ModInterface.Instance.ReadMods<EnergyDataMod>();
-            var girlDataMods = ModInterface.Instance.ReadMods<GirlDataMod>();
-            var girlPairDataMods = ModInterface.Instance.ReadMods<GirlPairDataMod>();
-            var itemDataMods = ModInterface.Instance.ReadMods<ItemDataMod>();
-            var locationDataMods = ModInterface.Instance.ReadMods<LocationDataMod>();
-            var photoDataMods = ModInterface.Instance.ReadMods<PhotoDataMod>();
-            var questionDataMods = ModInterface.Instance.ReadMods<QuestionDataMod>();
-            var tokenDataMods = ModInterface.Instance.ReadMods<TokenDataMod>();
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
-
-            //grab defs to be modded, all need to be grabbed before any are setup
-            ModInterface.Instance.LogLine("creating data for new ids");
-            ModInterface.Instance.IncreaseLogIndent();
-            var abilities = CreateEmpties(abilityDataDict, abilityDataMods);
-            var ailments = CreateEmpties(ailmentDataDict, ailmentDataMods);
-            var codes = CreateEmpties(codeDataDict, codeDataMods);
-            var cutscenes = CreateEmpties(cutsceneDataDict, cutsceneDataMods);
-            var dialogTriggers = CreateEmpties(dialogTriggerDataDict, dialogTriggerDataMods);
-            var dlc = CreateEmpties(dlcDataDict, dlcDataMods);
-            var energy = CreateEmpties(energyDataDict, energyDataMods);
-            var girls = CreateEmpties(girlDataDict, girlDataMods);
-            var girlPairs = CreateEmpties(girlPairDataDict, girlPairDataMods);
-            var items = CreateEmpties(itemDataDict, itemDataMods);
-            var locations = CreateEmpties(locationDataDict, locationDataMods);
-            var photos = CreateEmpties(photoDataDict, photoDataMods);
-            var questions = CreateEmpties(questionDataDict, questionDataMods);
-            var tokens = CreateEmpties(tokenDataDict, tokenDataMods);
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
-
-            var orderedGirls = girls.Select(x => x.Value).OrderBy(x => x.id).ToList();
-            foreach(var girl in girls)
+            catch (Exception e)
             {
-                EnumLookups.AddGirlDialogTrigger(girl.Value.id, orderedGirls.IndexOf(girl.Value) + 1);
+                ModInterface.Log.LogLine($"{e}");
             }
-
-            //setup defs
-            ModInterface.Instance.LogLine("applying mod data to game data");
-            ModInterface.Instance.IncreaseLogIndent();
-            SetData(abilities, abilityDataMods, gameDataProvider, assetProvider);
-            SetData(ailments, ailmentDataMods, gameDataProvider, assetProvider);
-            SetData(codes, codeDataMods, gameDataProvider, assetProvider);
-            SetData(cutscenes, cutsceneDataMods, gameDataProvider, assetProvider);
-            SetData(dialogTriggers, dialogTriggerDataMods, gameDataProvider, assetProvider);
-            SetData(dlc, dlcDataMods, gameDataProvider, assetProvider);
-            SetData(energy, energyDataMods, gameDataProvider, assetProvider);
-            SetData(girls, girlDataMods, gameDataProvider, assetProvider);
-            SetData(girlPairs, girlPairDataMods, gameDataProvider, assetProvider);
-            SetData(items, itemDataMods, gameDataProvider, assetProvider);
-            SetData(locations, locationDataMods, gameDataProvider, assetProvider);
-            SetData(photos, photoDataMods, gameDataProvider, assetProvider);
-            SetData(questions, questionDataMods, gameDataProvider, assetProvider);
-            SetData(tokens, tokenDataMods, gameDataProvider, assetProvider);
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
-
-            ModInterface.Instance.DecreaseLogIndent();
         }
 
-        private static Dictionary<int, T> GetDataDict<T>(GameData gameData, Type dataType, string dataName)
-            => AccessTools.DeclaredField(dataType, "_definitions")
-                          .GetValue(AccessTools.DeclaredField(typeof(GameData), dataName)
-                          .GetValue(gameData)) as Dictionary<int, T>;
         #region Dev
 
-        private static void SaveDataMods(IEnumerable<DataMod> mods, string name)
+        // there are inconsistencies in how dt's are handled, yay.
+        // Some are indexed by girl id, others are made specifically for the hub, and there's no easy way to differentiate them
+        // so here's just a manual list, maybe add this to default data later. If someone wants to mod these they can make a dll I'm not gonna support it via json
+        // greeting = 49
+        // valediction = 50
+        // nap = 51
+        // wakeup = 52
+        // wing check = 53
+        // pre nymph = 54
+        // pos nymph = 55
+        // nonstop = 56
+        // wardrobe = 57
+        // album = 58
+        private static bool IsGirlDialogTrigger(DialogTriggerDefinition dt) => dt.id < 49 || dt.id > 58;
+
+        private static void SaveDataMods(IEnumerable<KeyValuePair<string,DataMod>> mods, string name)
         {
-            ModInterface.Instance.LogLine($"Dev: saving default {name}");
+            ModInterface.Log.LogLine($"Dev: saving default {name}");
 
             var folderPath = Path.Combine(_defaultDataDir, name);
 
@@ -201,43 +563,95 @@ namespace Hp2BaseMod.ModLoader
                 Directory.CreateDirectory(folderPath);
             }
 
-            ModInterface.Instance.IncreaseLogIndent();
+            ModInterface.Log.IncreaseIndent();
             foreach(var mod in mods)
             {
-                var filePath = Path.Combine(folderPath, $"{mod.ModName}.json");
+                var filePath = Path.Combine(folderPath, $"{mod.Key}.json");
 
-                ModInterface.Instance.LogLine($"Dev: Saving {mod.ModName} to {filePath}");
+                ModInterface.Log.LogLine($"Dev: Saving {mod.Key} to {filePath}");
 
-                File.WriteAllText(filePath, JsonConvert.SerializeObject(mod, Formatting.Indented));
+                File.WriteAllText(filePath, JsonConvert.SerializeObject(mod.Value, Formatting.Indented));
             }
-            ModInterface.Instance.DecreaseLogIndent();
+            ModInterface.Log.DecreaseIndent();
         }
 
         #endregion Dev
-        private static Dictionary<int, D> CreateEmpties<D>(Dictionary<int, D> dict, IEnumerable<DataMod> mods)
+
+        private static void AddGirlSubMods<T>(RelativeId girlId,
+                                              IEnumerable<IGirlSubDataMod<T>> subMods,
+                                              Dictionary<RelativeId, Dictionary<RelativeId, List<IGirlSubDataMod<T>>>> collection)
+        {
+            if (subMods != null)
+            {
+                if (!collection.ContainsKey(girlId))
+                {
+                    collection.Add(girlId, new Dictionary<RelativeId, List<IGirlSubDataMod<T>>>());
+                }
+
+                foreach (var subMod in subMods)
+                {
+                    if (!collection[girlId].ContainsKey(subMod.Id))
+                    {
+                        collection[girlId].Add(subMod.Id, new List<IGirlSubDataMod<T>>());
+                    }
+
+                    collection[girlId][subMod.Id].Add(subMod);
+                }
+            }
+        }
+
+        private static Dictionary<int, T> GetDataDict<T>(GameData gameData, Type dataType, string dataName)
+            => AccessTools.DeclaredField(dataType, "_definitions")
+                          .GetValue(AccessTools.DeclaredField(typeof(GameData), dataName)
+                          .GetValue(gameData)) as Dictionary<int, T>;
+
+        private static void CreateEmpties<D>(Dictionary<int, D> dict, IEnumerable<IGameDataMod<D>> mods, GameDataType type)
             where D : Definition, new()
         {
             foreach (var mod in mods)
             {
-                if (!dict.ContainsKey(mod.Id))
+                var runtimeId = ModInterface.Data.GetRuntimeDataId(type, mod.Id);
+
+                if (!dict.ContainsKey(runtimeId))
                 {
-                    var newDef = new D();
-                    newDef.id = mod.Id;
-                    dict.Add(mod.Id, newDef);
+                    var newDef = new D
+                    {
+                        id = runtimeId
+                    };
+                    dict.Add(runtimeId, newDef);
                 }
             }
-
-            return dict;
         }
 
         private static void SetData<T>(Dictionary<int, T> data,
                                        IEnumerable<IGameDataMod<T>> mods,
-                                       GameDataProvider gameDataProvider,
-                                       AssetProvider prefabProvider)
+                                       GameDefinitionProvider gameDataProvider,
+                                       AssetProvider prefabProvider,
+                                       GameDataType type)
         {
-            foreach (var mod in mods.OrderBy(x => x.LoadPriority))
+            //first split into groups of the same id
+            var modsByRuntimeId = new Dictionary<int, List<IGameDataMod<T>>>();
+            foreach (var mod in mods)
             {
-                mod.SetData(data[mod.Id], gameDataProvider, prefabProvider, mod.InsertStyle) ;
+                var runtimeId = ModInterface.Data.GetRuntimeDataId(type, mod.Id);
+                if (!modsByRuntimeId.ContainsKey(runtimeId))
+                {
+                    modsByRuntimeId.Add(runtimeId, new List<IGameDataMod<T>>() { mod });
+                }
+                else
+                {
+                    modsByRuntimeId[runtimeId].Add(mod);
+                }
+            }
+
+            // then set the data
+            foreach (var entry in modsByRuntimeId)
+            {
+                // order by the load priority
+                foreach (var mod in entry.Value.OrderBy(x => x.LoadPriority))
+                {
+                    mod.SetData(data[entry.Key], gameDataProvider, prefabProvider);
+                }
             }
         }
     }

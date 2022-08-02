@@ -13,42 +13,42 @@ namespace Hp2BaseMod.GameDataInfo
     /// <summary>
     /// Serializable information to make a sprite
     /// </summary>
-    public class AbilityStepInfo : IGameDataInfo<AbilityStepSubDefinition>
+    public class AbilityStepInfo : IGameDefinitionInfo<AbilityStepSubDefinition>
     {
-        [UiSonSelectorUi(DefaultData.AbilityStepTypeNullable_As_String, -100)]
+        [UiSonSelectorUi(DefaultData.AbilityStepTypeNullable, -100)]
         public AbilityStepType? StepType;
 
-        [UiSonSelectorUi(DefaultData.AbilityStepValueTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.AbilityStepValueTypeNullable)]
         public AbilityStepValueType? ValueType;
 
-        [UiSonSelectorUi(DefaultData.AbilityStepConditionTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.AbilityStepConditionTypeNullable)]
         public AbilityStepConditionType? ConditionType;
 
-        [UiSonSelectorUi(DefaultData.AbilityStepVisualEffectTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.AbilityStepVisualEffectTypeNullable)]
         public AbilityStepVisualEffectType? VisualEffectType;
 
-        [UiSonSelectorUi(DefaultData.AbilityStepVisualEffectEnergyTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.AbilityStepVisualEffectEnergyTypeNullable)]
         public AbilityStepVisualEffectEnergyType? EnergyType;
 
-        [UiSonSelectorUi(DefaultData.AbilityStepAilmentAlterTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.AbilityStepAilmentAlterTypeNullable)]
         public AbilityStepAilmentAlterType? AilmentAlterType;
 
-        [UiSonSelectorUi(DefaultData.AbilityStepAilmentTargetTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.AbilityStepAilmentTargetTypeNullable)]
         public AbilityStepAilmentTargetType? AilmentTargetType;
 
-        [UiSonSelectorUi(DefaultData.PuzzleResourceTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.PuzzleResourceTypeNullable)]
         public PuzzleResourceType? ResourceType;
 
-        [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable)]
         public PuzzleAffectionType? AffectionType;
 
-        [UiSonSelectorUi(DefaultData.NumberCombineOperationNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.NumberCombineOperationNullable)]
         public NumberCombineOperation? CombineOperation;
 
-        [UiSonSelectorUi(DefaultData.GirlValueTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.GirlValueTypeNullable)]
         public GirlValueType? GirlValueType;
 
-        [UiSonSelectorUi(DefaultData.ItemTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.ItemTypeNullable)]
         public ItemType? AilmentItemType;
 
         [UiSonTextEditUi]
@@ -81,132 +81,55 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public int? AilmentIndex;
 
-        [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, null, "Id", DefaultData.DefaultAilmentNames_Name, DefaultData.DefaultAilmentIds_Name)]
-        public int? AilmentDefinitionID;
+        [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, null, "id", DefaultData.DefaultAilmentNames_Name, DefaultData.DefaultAilmentIds_Name)]
+        public RelativeId? AilmentDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(EnergyDataMod), 0, null, "Id", DefaultData.DefaultEnergyIds_Name, DefaultData.DefaultEnergyIds_Name)]
-        public int? EnergyDefinitionID;
+        [UiSonElementSelectorUi(nameof(EnergyDataMod), 0, null, "id", DefaultData.DefaultEnergyNames_Name, DefaultData.DefaultEnergyIds_Name)]
+        public RelativeId? EnergyDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Negative;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? OppositeGirl;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? ResourceMaxValue;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Merged;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? FlatMerge;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? OrCheck;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Weighted;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public TokenConditionSetInfo TokenConditionSetInfo;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public AudioKlipInfo AudioKlipInfo;
 
         [UiSonTextEditUi]
         public List<string> CombineValues;
 
-        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "Id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
-        public List<int?> TokenDefinitionIDs;
+        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
+        public List<RelativeId?> TokenDefinitionIDs;
 
         /// <summary>
-        /// Parameterless constructor
+        /// Constructor
         /// </summary>
         public AbilityStepInfo() { }
 
         /// <summary>
-        /// Constructor with all parameters
+        /// Constructor from a definition instance.
         /// </summary>
-        public AbilityStepInfo(AbilityStepType stepType,
-                               AbilityStepValueType valueType,
-                               PuzzleResourceType resourceType,
-                               PuzzleAffectionType affectionType,
-                               AbilityStepConditionType conditionType,
-                               AbilityStepVisualEffectType visualEffectType,
-                               AbilityStepVisualEffectEnergyType energyType,
-                               AbilityStepAilmentAlterType ailmentAlterType,
-                               AbilityStepAilmentTargetType ailmentTargetType,
-                               NumberCombineOperation combineOperation,
-                               GirlValueType girlValueType,
-                               ItemType ailmentItemType,
-                               string handle,
-                               string valueRef,
-                               string puzzleSetRef,
-                               string minRequirement,
-                               string min,
-                               string max,
-                               string splashText,
-                               string limit,
-                               float percentOfValue,
-                               int ailmentIndex,
-                               int ailmentDefinitionID,
-                               int energyDefinitionID,
-                               bool negative,
-                               bool oppositeGirl,
-                               bool orCheck,
-                               bool merged,
-                               bool flatMerge,
-                               bool resourceMaxValue,
-                               bool weighted,
-                               TokenConditionSetInfo tokenConditionSetInfo,
-                               AudioKlipInfo audioKlipInfo,
-                               List<int?> tokenDefinitionIDs,
-                               List<string> combineValues)
-        {
-            StepType = stepType;
-            Handle = handle;
-            ValueRef = valueRef;
-            PuzzleSetRef = puzzleSetRef;
-            MinRequirement = minRequirement;
-            ResourceType = resourceType;
-            AffectionType = affectionType;
-            Negative = negative;
-            OppositeGirl = oppositeGirl;
-            ValueType = valueType;
-            Min = min;
-            Max = max;
-            CombineValues = combineValues;
-            CombineOperation = combineOperation;
-            ResourceMaxValue = resourceMaxValue;
-            GirlValueType = girlValueType;
-            ConditionType = conditionType;
-            PercentOfValue = percentOfValue;
-            OrCheck = orCheck;
-            TokenConditionSetInfo = tokenConditionSetInfo;
-            Limit = limit;
-            Merged = merged;
-            FlatMerge = flatMerge;
-            TokenDefinitionIDs = tokenDefinitionIDs;
-            Weighted = weighted;
-            AilmentDefinitionID = ailmentDefinitionID;
-            VisualEffectType = visualEffectType;
-            EnergyType = energyType;
-            EnergyDefinitionID = energyDefinitionID;
-            SplashText = splashText;
-            AudioKlipInfo = audioKlipInfo;
-            AilmentItemType = ailmentItemType;
-            AilmentAlterType = ailmentAlterType;
-            AilmentTargetType = ailmentTargetType;
-            AilmentIndex = ailmentIndex;
-        }
-
-        /// <summary>
-        /// Constructor from data definition
-        /// </summary>
-        /// <param name="def"></param>
-        /// <param name="assetProvider"></param>
-        /// <exception cref="ArgumentNullException"></exception>
+        /// <param name="def">The definition.</param>
+        /// <param name="assetProvider">Asset provider containing the assest referenced by the definition.</param>
         public AbilityStepInfo(AbilityStepSubDefinition def, AssetProvider assetProvider)
         {
             if (def == null) { throw new ArgumentNullException(nameof(def)); }
@@ -243,27 +166,18 @@ namespace Hp2BaseMod.GameDataInfo
             AilmentTargetType = def.ailmentTargetType;
             AilmentIndex = def.ailmentIndex;
 
-            AilmentDefinitionID = def.ailmentDefinition?.id ?? -1;
-            EnergyDefinitionID = def.energyDefinition?.id ?? -1;
+            AilmentDefinitionID = new RelativeId(def.ailmentDefinition);
+            EnergyDefinitionID = new RelativeId(def.energyDefinition);
 
             if (def.audioKlip != null) { AudioKlipInfo = new AudioKlipInfo(def.audioKlip, assetProvider); }
             if (def.tokenConditionSet != null) { TokenConditionSetInfo = new TokenConditionSetInfo(def.tokenConditionSet); }
 
-            if (def.tokenDefinitions != null) { TokenDefinitionIDs = def.tokenDefinitions.Select(x => x?.id).ToList(); }
+            if (def.tokenDefinitions != null) { TokenDefinitionIDs = def.tokenDefinitions.Select(x => (RelativeId?)new RelativeId(x)).ToList(); }
         }
 
-        /// <summary>
-        /// Writes to the game data definition this represents
-        /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref AbilityStepSubDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
+        /// <inheritdoc/>
+        public void SetData(ref AbilityStepSubDefinition def, GameDefinitionProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
-            ModInterface.Instance.LogLine("Setting data for an ability step");
-            ModInterface.Instance.IncreaseLogIndent();
-
             if (def == null)
             {
                 def = Activator.CreateInstance<AbilityStepSubDefinition>();
@@ -307,9 +221,6 @@ namespace Hp2BaseMod.GameDataInfo
 
             ValidatedSet.SetListValue(ref def.tokenDefinitions, TokenDefinitionIDs?.Select(x => gameDataProvider.GetToken(x)).ToList(), insertStyle);
             ValidatedSet.SetListValue(ref def.combineValues, CombineValues, insertStyle);
-
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

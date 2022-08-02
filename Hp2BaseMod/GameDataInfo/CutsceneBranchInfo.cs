@@ -13,51 +13,41 @@ namespace Hp2BaseMod.GameDataInfo
     /// <summary>
     /// Serializable information to make a CutsceneBranchSubDefinition
     /// </summary>
-    public class CutsceneBranchInfo : IGameDataInfo<CutsceneBranchSubDefinition>
+    public class CutsceneBranchInfo : IGameDefinitionInfo<CutsceneBranchSubDefinition>
     {
-        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "Id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
-        public int? CutsceneDefinitionID;
+        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
+        public RelativeId? CutsceneDefinitionID;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public List<LogicConditionInfo> Conditions;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public List<CutsceneStepInfo> Steps;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public CutsceneBranchInfo() { }
 
-        public CutsceneBranchInfo(int cutsceneDefinitionID,
-                                  List<LogicConditionInfo> conditions,
-                                  List<CutsceneStepInfo> steps)
+        /// <summary>
+        /// Constructor from a definition instance.
+        /// </summary>
+        /// <param name="def">The definition.</param>
+        /// <param name="assetProvider">Asset provider containing the assest referenced by the definition.</param>
+        public CutsceneBranchInfo(CutsceneBranchSubDefinition def, AssetProvider assetProvider)
         {
-            Conditions = conditions;
-            CutsceneDefinitionID = cutsceneDefinitionID;
-            Steps = steps;
-        }
-
-        public CutsceneBranchInfo(CutsceneBranchSubDefinition cutsceneBranch, AssetProvider assetProvider)
-        {
-            if (cutsceneBranch == null) { throw new ArgumentNullException(nameof(cutsceneBranch)); }
+            if (def == null) { throw new ArgumentNullException(nameof(def)); }
             if (assetProvider == null) { throw new ArgumentNullException(nameof(assetProvider)); }
 
-            CutsceneDefinitionID = cutsceneBranch.cutsceneDefinition?.id ?? -1;
+            CutsceneDefinitionID = new RelativeId(def.cutsceneDefinition);
 
-            if (cutsceneBranch.conditions != null) { Conditions = cutsceneBranch.conditions.Select(x => new LogicConditionInfo(x)).ToList(); }
-            if (cutsceneBranch.steps != null) { Steps = cutsceneBranch.steps.Select(x => new CutsceneStepInfo(x, assetProvider)).ToList(); }
+            if (def.conditions != null) { Conditions = def.conditions.Select(x => new LogicConditionInfo(x)).ToList(); }
+            if (def.steps != null) { Steps = def.steps.Select(x => new CutsceneStepInfo(x, assetProvider)).ToList(); }
         }
 
-        /// <summary>
-        /// Writes to the game data definition this represents
-        /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref CutsceneBranchSubDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
+        /// <inheritdoc/>
+        public void SetData(ref CutsceneBranchSubDefinition def, GameDefinitionProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
-            ModInterface.Instance.LogLine("Setting data for a cutscene branch");
-            ModInterface.Instance.IncreaseLogIndent();
-
             if (def == null)
             {
                 def = Activator.CreateInstance<CutsceneBranchSubDefinition>();
@@ -67,9 +57,6 @@ namespace Hp2BaseMod.GameDataInfo
 
             ValidatedSet.SetListValue(ref def.conditions, Conditions, insertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetListValue(ref def.steps, Steps, insertStyle, gameDataProvider, assetProvider);
-
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

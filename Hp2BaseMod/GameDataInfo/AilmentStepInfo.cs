@@ -13,15 +13,15 @@ namespace Hp2BaseMod.GameDataInfo
     /// <summary>
     /// Serializable information to make an AilmentStep
     /// </summary>
-    public class AilmentStepInfo : IGameDataInfo<AilmentStepSubDefinition>
+    public class AilmentStepInfo : IGameDefinitionInfo<AilmentStepSubDefinition>
     {
-        [UiSonSelectorUi(DefaultData.AilmentStepTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.AilmentStepTypeNullable)]
         public AilmentStepType? StepType;
 
-        [UiSonSelectorUi(DefaultData.AilmentFlagTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.AilmentFlagTypeNullable)]
         public AilmentFlagType? FlagType;
 
-        [UiSonSelectorUi(DefaultData.NumberComparisonTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.NumberComparisonTypeNullable)]
         public NumberComparisonType? ComparisonType;
 
         [UiSonTextEditUi]
@@ -30,107 +30,68 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public int? IntValue;
 
-        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, null, "Id", DefaultData.DefaultAbilityNames_Name, DefaultData.DefaultAbilityIds_Name)]
-        public int? AbilityDefinitionID;
+        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, null, "id", DefaultData.DefaultAbilityNames_Name, DefaultData.DefaultAbilityIds_Name)]
+        public RelativeId? AbilityDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? BoolValue;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public MoveModifier MoveModifier;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public MatchModifierInfo MatchModifierInfo;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public GiftModifier GiftModifier;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public List<GirlConditionInfo> GirlConditionInfos;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public List<MoveConditionInfo> MoveConditionInfos;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public List<MatchConditionInfo> MatchConditionInfos;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public List<GiftConditionInfo> GiftConditionInfos;
 
         /// <summary>
-        /// Parameterless constructor
+        /// Constructor
         /// </summary>
         public AilmentStepInfo() { }
 
         /// <summary>
-        /// 
+        /// Constructor from a definition instance.
         /// </summary>
-        public AilmentStepInfo(AilmentStepType stepType,
-                               NumberComparisonType comparisonType,
-                               AilmentFlagType flagType,
-                               string stringValue,
-                               int abilityDefinitionID,
-                               int intValue,
-                               bool boolValue,
-                               MoveModifier moveModifier,
-                               MatchModifierInfo matchModifierInfo,
-                               GiftModifier giftModifier,
-                               List<GirlConditionInfo> girlConditionInfos,
-                               List<MoveConditionInfo> moveConditionInfos,
-                               List<MatchConditionInfo> matchConditionInfos,
-                               List<GiftConditionInfo> giftConditionInfos)
+        /// <param name="def">The definition.</param>
+        public AilmentStepInfo(AilmentStepSubDefinition def)
         {
-            StepType = stepType;
-            StringValue = stringValue;
-            IntValue = intValue;
-            BoolValue = boolValue;
-            ComparisonType = comparisonType;
-            AbilityDefinitionID = abilityDefinitionID;
-            MoveConditionInfos = moveConditionInfos;
-            MoveModifier = moveModifier;
-            MatchConditionInfos = matchConditionInfos;
-            MatchModifierInfo = matchModifierInfo;
-            GiftConditionInfos = giftConditionInfos;
-            GiftModifier = giftModifier;
-            GirlConditionInfos = girlConditionInfos;
-            FlagType = flagType;
+            if (def == null) { throw new ArgumentNullException(nameof(def)); }
+
+            StepType = def.stepType;
+            StringValue = def.stringValue;
+            IntValue = def.intValue;
+            BoolValue = def.boolValue;
+            ComparisonType = def.comparisonType;
+            MoveModifier = def.moveModifier;
+            GiftModifier = def.giftModifier;
+            FlagType = def.flagType;
+
+            AbilityDefinitionID = new RelativeId(def.abilityDefinition);
+
+            if (def.matchModifier != null) { MatchModifierInfo = new MatchModifierInfo(def.matchModifier); }
+
+            if (def.matchConditions != null) { MatchConditionInfos = def.matchConditions.Select(x => new MatchConditionInfo(x)).ToList(); }
+            if (def.giftConditions != null) { GiftConditionInfos = def.giftConditions.Select(x => new GiftConditionInfo(x)).ToList(); }
+            if (def.girlConditions != null) { GirlConditionInfos = def.girlConditions.Select(x => new GirlConditionInfo(x)).ToList(); }
+            if (def.moveConditions != null) { MoveConditionInfos = def.moveConditions.Select(x => new MoveConditionInfo(x)).ToList(); }
         }
 
-        public AilmentStepInfo(AilmentStepSubDefinition ailmentStep)
+        /// <inheritdoc/>
+        public void SetData(ref AilmentStepSubDefinition def, GameDefinitionProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
-            if (ailmentStep == null) { throw new ArgumentNullException(nameof(ailmentStep)); }
-
-            StepType = ailmentStep.stepType;
-            StringValue = ailmentStep.stringValue;
-            IntValue = ailmentStep.intValue;
-            BoolValue = ailmentStep.boolValue;
-            ComparisonType = ailmentStep.comparisonType;
-            MoveModifier = ailmentStep.moveModifier;
-            GiftModifier = ailmentStep.giftModifier;
-            FlagType = ailmentStep.flagType;
-
-            AbilityDefinitionID = ailmentStep.abilityDefinition?.id ?? -1;
-
-            if (ailmentStep.matchModifier != null) { MatchModifierInfo = new MatchModifierInfo(ailmentStep.matchModifier); }
-
-            if (ailmentStep.matchConditions != null) { MatchConditionInfos = ailmentStep.matchConditions.Select(x => new MatchConditionInfo(x)).ToList(); }
-            if (ailmentStep.giftConditions != null) { GiftConditionInfos = ailmentStep.giftConditions.Select(x => new GiftConditionInfo(x)).ToList(); }
-            if (ailmentStep.girlConditions != null) { GirlConditionInfos = ailmentStep.girlConditions.Select(x => new GirlConditionInfo(x)).ToList(); }
-            if (ailmentStep.moveConditions != null) { MoveConditionInfos = ailmentStep.moveConditions.Select(x => new MoveConditionInfo(x)).ToList(); }
-        }
-
-        /// <summary>
-        /// Writes to the game data definition this represents
-        /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref AilmentStepSubDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
-        {
-            ModInterface.Instance.LogLine("Setting data for an ailment step");
-            ModInterface.Instance.IncreaseLogIndent();
-
             if (def == null)
             {
                 def = Activator.CreateInstance<AilmentStepSubDefinition>();
@@ -153,9 +114,6 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetListValue(ref def.moveConditions, MoveConditionInfos, insertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetListValue(ref def.matchConditions, MatchConditionInfos, insertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetListValue(ref def.giftConditions, GiftConditionInfos, insertStyle, gameDataProvider, assetProvider);
-
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

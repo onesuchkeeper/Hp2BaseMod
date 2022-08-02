@@ -11,30 +11,30 @@ namespace Hp2BaseMod.GameDataInfo
     /// <summary>
     /// Serializable information to make an LogicCondition
     /// </summary>
-    public class LogicConditionInfo : IGameDataInfo<LogicCondition>
+    public class LogicConditionInfo : IGameDefinitionInfo<LogicCondition>
     {
-        [UiSonSelectorUi(DefaultData.LogicConditionTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.LogicConditionTypeNullable)]
         public LogicConditionType? Type;
 
-        [UiSonSelectorUi(DefaultData.NumberComparisonTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.NumberComparisonTypeNullable)]
         public NumberComparisonType? ComparisonType;
 
-        [UiSonSelectorUi(DefaultData.ClockDaytimeTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.ClockDaytimeTypeNullable)]
         public ClockDaytimeType? DaytimeType;
 
-        [UiSonSelectorUi(DefaultData.DollOrientationTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.DollOrientationTypeNullable)]
         public DollOrientationType? DollOrientation;
 
-        [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable)]
         public PuzzleAffectionType? AffectionType;
 
-        [UiSonSelectorUi(DefaultData.PuzzleResourceTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.PuzzleResourceTypeNullable)]
         public PuzzleResourceType? ResourceType;
 
-        [UiSonSelectorUi(DefaultData.SettingDifficultyNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.SettingDifficultyNullable)]
         public SettingDifficulty? SettingDifficulty;
 
-        [UiSonSelectorUi(DefaultData.PuzzleStatusTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.PuzzleStatusTypeNullable)]
         public PuzzleStatusType? DateType;
 
         [UiSonTextEditUi]
@@ -43,96 +43,59 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public int? IntValue;
 
-        [UiSonElementSelectorUi(nameof(LocationDataMod), 0, null, "Id", DefaultData.DefaultLocationNames_Name, DefaultData.DefaultLocationIds_Name)]
-        public int? LocationDefinitionID;
+        [UiSonElementSelectorUi(nameof(LocationDataMod), 0, null, "id", DefaultData.DefaultLocationNames_Name, DefaultData.DefaultLocationIds_Name)]
+        public RelativeId? LocationDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, null, "Id", DefaultData.DefaultGirlPairNames_Name, DefaultData.DefaultGirlPairIds_Name)]
-        public int? GirlPairDefinitionID;
+        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, null, "id", DefaultData.DefaultGirlPairNames_Name, DefaultData.DefaultGirlPairIds_Name)]
+        public RelativeId? GirlPairDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "Id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
-        public int? GirlDefinitionID;
+        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
+        public RelativeId? GirlDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, null, "Id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
-        public int? ItemDefinitionID;
+        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, null, "id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
+        public RelativeId? ItemDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Inverse;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? BoolValue;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public LogicConditionInfo() { }
 
-        public LogicConditionInfo(LogicConditionType type,
-                                  NumberComparisonType comparisonType,
-                                  ClockDaytimeType daytimeType,
-                                  DollOrientationType dollOrientation,
-                                  PuzzleAffectionType affectionType,
-                                  PuzzleResourceType resourceType,
-                                  SettingDifficulty settingDifficulty,
-                                  PuzzleStatusType dateType,
-                                  string stringValue,
-                                  int intValue,
-                                  int locationDefinitionID,
-                                  int girlPairDefinitionID,
-                                  int girlDefinitionID,
-                                  int itemDefinitionID,
-                                  bool inverse,
-                                  bool boolValue)
-        {
-            Type = type;
-            Inverse = inverse;
-            BoolValue = boolValue;
-            IntValue = intValue;
-            StringValue = stringValue;
-            ComparisonType = comparisonType;
-            LocationDefinitionID = locationDefinitionID;
-            DaytimeType = daytimeType;
-            GirlPairDefinitionID = girlPairDefinitionID;
-            GirlDefinitionID = girlDefinitionID;
-            DollOrientation = dollOrientation;
-            AffectionType = affectionType;
-            ResourceType = resourceType;
-            ItemDefinitionID = itemDefinitionID;
-            SettingDifficulty = settingDifficulty;
-            DateType = dateType;
-        }
-
-        public LogicConditionInfo(LogicCondition logicCondition)
-        {
-            if (logicCondition == null) { throw new ArgumentNullException(nameof(logicCondition)); }
-
-            Type = logicCondition.type;
-            Inverse = logicCondition.inverse;
-            BoolValue = logicCondition.boolValue;
-            IntValue = logicCondition.intValue;
-            StringValue = logicCondition.stringValue;
-            ComparisonType = logicCondition.comparisonType;
-            DaytimeType = logicCondition.daytimeType;
-            DollOrientation = logicCondition.dollOrientation;
-            AffectionType = logicCondition.affectionType;
-            ResourceType = logicCondition.resourceType;
-            SettingDifficulty = logicCondition.settingDifficulty;
-            DateType = logicCondition.dateType;
-
-            LocationDefinitionID = logicCondition.locationDefinition?.id ?? -1;
-            GirlPairDefinitionID = logicCondition.girlPairDefinition?.id ?? -1;
-            GirlDefinitionID = logicCondition.girlDefinition?.id ?? -1;
-            ItemDefinitionID = logicCondition.itemDefinition?.id ?? -1;
-        }
-
         /// <summary>
-        /// Writes to the game data definition this represents
+        /// Constructor from a definition instance.
         /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref LogicCondition def, GameDataProvider gameDataProvider, AssetProvider _, InsertStyle insertStyle)
+        /// <param name="def">The definition.</param>
+        public LogicConditionInfo(LogicCondition def)
         {
-            ModInterface.Instance.LogLine("Setting data for a logic condition");
-            ModInterface.Instance.IncreaseLogIndent();
+            if (def == null) { throw new ArgumentNullException(nameof(def)); }
 
+            Type = def.type;
+            Inverse = def.inverse;
+            BoolValue = def.boolValue;
+            IntValue = def.intValue;
+            StringValue = def.stringValue;
+            ComparisonType = def.comparisonType;
+            DaytimeType = def.daytimeType;
+            DollOrientation = def.dollOrientation;
+            AffectionType = def.affectionType;
+            ResourceType = def.resourceType;
+            SettingDifficulty = def.settingDifficulty;
+            DateType = def.dateType;
+
+            LocationDefinitionID = new RelativeId(def.locationDefinition);
+            GirlPairDefinitionID = new RelativeId(def.girlPairDefinition);
+            GirlDefinitionID = new RelativeId(def.girlDefinition);
+            ItemDefinitionID = new RelativeId(def.itemDefinition);
+        }
+
+        /// <inheritdoc/>
+        public void SetData(ref LogicCondition def, GameDefinitionProvider gameDataProvider, AssetProvider _, InsertStyle insertStyle)
+        {
             if (def == null)
             {
                 def = Activator.CreateInstance<LogicCondition>();
@@ -155,9 +118,6 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.itemDefinition, gameDataProvider.GetItem(ItemDefinitionID), insertStyle);
             ValidatedSet.SetValue(ref def.girlPairDefinition, gameDataProvider.GetGirlPair(GirlPairDefinitionID), insertStyle);
             ValidatedSet.SetValue(ref def.girlDefinition, gameDataProvider.GetGirl(GirlDefinitionID), insertStyle);
-
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

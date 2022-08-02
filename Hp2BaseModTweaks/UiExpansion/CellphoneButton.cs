@@ -1,6 +1,6 @@
 ﻿// Hp2BaseMod 2022, By OneSuchKeeper
 
-using Hp2BaseMod.UI;
+using Hp2BaseMod.Ui;
 using UnityEngine;
 using UnityEngine.UI;
 

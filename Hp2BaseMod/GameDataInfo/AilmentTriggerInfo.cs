@@ -11,14 +11,14 @@ using UiSon.Attribute;
 namespace Hp2BaseMod.GameDataInfo
 {
     /// <summary>
-    /// Serializable information to make a Color
+    /// Serializable information to make an ailment trigger
     /// </summary>
-    public class AilmentTriggerInfo : IGameDataInfo<AilmentTriggerSubDefinition>
+    public class AilmentTriggerInfo : IGameDefinitionInfo<AilmentTriggerSubDefinition>
     {
-        [UiSonSelectorUi(DefaultData.AilmentTriggerTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.AilmentTriggerTypeNullable)]
         public AilmentTriggerType? TriggerType;
 
-        [UiSonSelectorUi(DefaultData.AilmentTriggerStepsProcessTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.AilmentTriggerStepsProcessTypeNullable)]
         public AilmentTriggerStepsProcessType? StepsProcessType;
 
         [UiSonSliderUi(0, 1, 3)]
@@ -33,112 +33,73 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public int? VerbalizedIndex;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? FocusMatters;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? OnUnfocused;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? ExhaustionMatters;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? OnExhausted;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? UpsetMatters;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? OnUpset;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? ThresholdPersistent;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? DefaultDisabled;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Audibalized;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Verbalized;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public List<AilmentStepInfo> StepInfos;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public AilmentTriggerInfo() { }
 
-        public AilmentTriggerInfo(AilmentTriggerType triggerType,
-                                  AilmentTriggerStepsProcessType stepsProcessType,
-                                  float perentChance,
-                                  int thresholdValue,
-                                  int executeLimit,
-                                  int verbalizedIndex,
-                                  bool focusMatters,
-                                  bool onUnfocused,
-                                  bool exhaustionMatters,
-                                  bool onExhausted,
-                                  bool upsetMatters,
-                                  bool onUpset,
-                                  bool thresholdPersistent,
-                                  bool defaultDisabled,
-                                  bool audibalized,
-                                  bool verbalized,
-                                  List<AilmentStepInfo> stepInfos)
-        {
-            TriggerType = triggerType;
-            FocusMatters = focusMatters;
-            OnUnfocused = onUnfocused;
-            ExhaustionMatters = exhaustionMatters;
-            OnExhausted = onExhausted;
-            UpsetMatters = upsetMatters;
-            OnUpset = onUpset;
-            ThresholdValue = thresholdValue;
-            ThresholdPersistent = thresholdPersistent;
-            PerentChance = perentChance;
-            ExecuteLimit = executeLimit;
-            DefaultDisabled = defaultDisabled;
-            Audibalized = audibalized;
-            Verbalized = verbalized;
-            VerbalizedIndex = verbalizedIndex;
-            StepsProcessType = stepsProcessType;
-            StepInfos = stepInfos;
-        }
-
-        public AilmentTriggerInfo(AilmentTriggerSubDefinition ailmentTrigger)
-        {
-            TriggerType = ailmentTrigger.triggerType;
-            FocusMatters = ailmentTrigger.focusMatters;
-            OnUnfocused = ailmentTrigger.onUnfocused;
-            ExhaustionMatters = ailmentTrigger.exhaustionMatters;
-            OnExhausted = ailmentTrigger.onExhausted;
-            UpsetMatters = ailmentTrigger.upsetMatters;
-            OnUpset = ailmentTrigger.onUpset;
-            ThresholdValue = ailmentTrigger.thresholdValue;
-            ThresholdPersistent = ailmentTrigger.thresholdPersistent;
-            PerentChance = ailmentTrigger.perentChance;
-            ExecuteLimit = ailmentTrigger.executeLimit;
-            DefaultDisabled = ailmentTrigger.defaultDisabled;
-            Audibalized = ailmentTrigger.audibalized;
-            Verbalized = ailmentTrigger.verbalized;
-            VerbalizedIndex = ailmentTrigger.verbalizedIndex;
-            StepsProcessType = ailmentTrigger.stepsProcessType;
-
-            if (ailmentTrigger.steps != null) { StepInfos = ailmentTrigger.steps.Select(x => new AilmentStepInfo(x)).ToList(); }
-        }
-
         /// <summary>
-        /// Writes to the game data definition this represents
+        /// Constructor from a definition instance.
         /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref AilmentTriggerSubDefinition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
+        /// <param name="def">The definition.</param>
+        public AilmentTriggerInfo(AilmentTriggerSubDefinition def)
         {
-            ModInterface.Instance.LogLine("Setting data for an ailment trigger");
-            ModInterface.Instance.IncreaseLogIndent();
+            TriggerType = def.triggerType;
+            FocusMatters = def.focusMatters;
+            OnUnfocused = def.onUnfocused;
+            ExhaustionMatters = def.exhaustionMatters;
+            OnExhausted = def.onExhausted;
+            UpsetMatters = def.upsetMatters;
+            OnUpset = def.onUpset;
+            ThresholdValue = def.thresholdValue;
+            ThresholdPersistent = def.thresholdPersistent;
+            PerentChance = def.perentChance;
+            ExecuteLimit = def.executeLimit;
+            DefaultDisabled = def.defaultDisabled;
+            Audibalized = def.audibalized;
+            Verbalized = def.verbalized;
+            VerbalizedIndex = def.verbalizedIndex;
+            StepsProcessType = def.stepsProcessType;
 
+            if (def.steps != null) { StepInfos = def.steps.Select(x => new AilmentStepInfo(x)).ToList(); }
+        }
+
+        /// <inheritdoc/>
+        public void SetData(ref AilmentTriggerSubDefinition def, GameDefinitionProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
+        {
             if (def == null)
             {
                 def = Activator.CreateInstance<AilmentTriggerSubDefinition>();
@@ -162,9 +123,6 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.stepsProcessType, StepsProcessType);
 
             ValidatedSet.SetListValue(ref def.steps, StepInfos, insertStyle, gameDataProvider, assetProvider);
-
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

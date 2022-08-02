@@ -11,80 +11,59 @@ namespace Hp2BaseMod.GameDataInfo
     /// <summary>
     /// Serializable information to make a MatchCondition
     /// </summary>
-    public class MatchConditionInfo : IGameDataInfo<MatchCondition>
+    public class MatchConditionInfo : IGameDefinitionInfo<MatchCondition>
     {
-        [UiSonSelectorUi(DefaultData.MatchConditionTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.MatchConditionTypeNullable)]
         public MatchConditionType? Type;
 
-        [UiSonSelectorUi(DefaultData.MatchConditionTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.MatchConditionTypeNullable)]
         public MatchConditionTokenType? TokenType;
 
-        [UiSonSelectorUi(DefaultData.PuzzleResourceTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.PuzzleResourceTypeNullable)]
         public PuzzleResourceType? ResourceType;
 
-        [UiSonSelectorUi(DefaultData.NumberComparisonTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.NumberComparisonTypeNullable)]
         public NumberComparisonType? Comparison;
 
         [UiSonTextEditUi]
         public int? Val;
 
-        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "Id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
-        public int? TokenDefinitionID;
+        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
+        public RelativeId? TokenDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? BoolValue;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Inverse;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public MatchConditionInfo() { }
 
-        public MatchConditionInfo(MatchConditionType type,
-                                  MatchConditionTokenType tokenType,
-                                  PuzzleResourceType resourceType,
-                                  NumberComparisonType comparison,
-                                  int val,
-                                  int tokenDefinitionID,
-                                  bool boolValue,
-                                  bool inverse)
-        {
-            Type = type;
-            TokenType = tokenType;
-            TokenDefinitionID = tokenDefinitionID;
-            BoolValue = boolValue;
-            ResourceType = resourceType;
-            Comparison = comparison;
-            Val = val;
-            Inverse = inverse;
-        }
-
-        public MatchConditionInfo(MatchCondition matchCondition)
-        {
-            if (matchCondition == null) { throw new ArgumentNullException(nameof(matchCondition)); }
-
-            Type = matchCondition.type;
-            TokenType = matchCondition.tokenType;
-            BoolValue = matchCondition.boolValue;
-            ResourceType = matchCondition.resourceType;
-            Comparison = matchCondition.comparison;
-            Val = matchCondition.val;
-            Inverse = matchCondition.inverse;
-
-            TokenDefinitionID = matchCondition.tokenDefinition?.id ?? -1;
-        }
-
         /// <summary>
-        /// Writes to the game data definition this represents
+        /// Constructor from a definition instance.
         /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref MatchCondition def, GameDataProvider gameDataProvider, AssetProvider _, InsertStyle insertStyle)
+        /// <param name="def">The definition.</param>
+        public MatchConditionInfo(MatchCondition def)
         {
-            ModInterface.Instance.LogLine("Setting data for a match condition");
-            ModInterface.Instance.IncreaseLogIndent();
+            if (def == null) { throw new ArgumentNullException(nameof(def)); }
 
+            Type = def.type;
+            TokenType = def.tokenType;
+            BoolValue = def.boolValue;
+            ResourceType = def.resourceType;
+            Comparison = def.comparison;
+            Val = def.val;
+            Inverse = def.inverse;
+
+            TokenDefinitionID = new RelativeId(def.tokenDefinition);
+        }
+
+        /// <inheritdoc/>
+        public void SetData(ref MatchCondition def, GameDefinitionProvider gameDataProvider, AssetProvider _, InsertStyle insertStyle)
+        {
             if (def == null)
             {
                 def = Activator.CreateInstance<MatchCondition>();
@@ -99,9 +78,6 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.inverse, Inverse);
 
             ValidatedSet.SetValue(ref def.tokenDefinition, gameDataProvider.GetToken(TokenDefinitionID), insertStyle);
-
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

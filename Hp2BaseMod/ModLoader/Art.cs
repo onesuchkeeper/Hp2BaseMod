@@ -36,9 +36,9 @@ namespace Hp2BaseMod
                     return Tiffany;
                 case 11:
                     return Venus;
-                default:
-                    throw new Exception("Art out of range");
             }
+
+            return string.Empty;
         }
 
         public static string Aiko =>

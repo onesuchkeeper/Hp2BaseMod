@@ -1,13 +1,31 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
+using Hp2BaseMod.GameDataInfo;
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
+using Hp2BaseMod.Save;
+using Hp2BaseMod.Save.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Hp2BaseMod.Utility
 {
+    /// <summary>
+    /// Dictates the way a data mod is loaded into an exsisting data instance.
+    /// replace: assigns the value to that of the mod if the mod's value isn't null. For collections assigns the elements, not the collection itself.
+    /// append: appends the mod's value to the collection. If the collection is null assigns it instead.
+    /// prepend: prepends the mod's value to the collection. If the collection is null assigns it instead.
+    /// assignNull: if the value is nullable, assigns the value to that of the mod even if the mod's value is null. Will not assign null to value types.
+    /// </summary>
+    public enum InsertStyle
+    {
+        assignNull,
+        append,
+        prepend,
+        replace
+    }
+
     /// <summary>
     /// Sets value to target given propper conditions
     /// </summary>
@@ -30,7 +48,7 @@ namespace Hp2BaseMod.Utility
             }
         }
 
-        public static void SetValue<T>(ref T target, IGameDataInfo<T> info, InsertStyle style, GameDataProvider gameData, AssetProvider assetProvider)
+        public static void SetValue<T>(ref T target, IGameDefinitionInfo<T> info, InsertStyle style, GameDefinitionProvider gameData, AssetProvider assetProvider)
         {
             if (info == null)
             {
@@ -136,7 +154,7 @@ namespace Hp2BaseMod.Utility
             }
         }
 
-        public static void SetListValue<T>(ref List<T> target, IEnumerable<IGameDataInfo<T>> value, InsertStyle style, GameDataProvider gameData, AssetProvider assetProvider)
+        public static void SetListValue<T>(ref List<T> target, IEnumerable<IGameDefinitionInfo<T>> value, InsertStyle style, GameDefinitionProvider gameData, AssetProvider assetProvider)
         {
             var converted = value?.Select(x =>
             {
@@ -146,6 +164,55 @@ namespace Hp2BaseMod.Utility
             });
 
             SetListValue(ref target, converted, style);
+        }
+
+        public static void SetModIds(List<int> saveFileIds, List<SavedSourceId> savedSourceIds, Func<RelativeId, int> getRuntimeId)
+        {
+            if (savedSourceIds != null)
+            {
+                foreach (var savedSourceId in savedSourceIds)
+                {
+                    var id = savedSourceId.ToRelativeId();
+
+                    if (id.HasValue)
+                    {
+                        saveFileIds.Add(getRuntimeId.Invoke(id.Value));
+                    }
+                }
+            }
+        }
+
+        public static void StripRuntimeIds(ref List<int> saveFileIds, List<SavedSourceId> moddedIds, string errorDescriptor, Func<int, RelativeId> getId)
+        {
+            if (saveFileIds == null)
+            {
+                saveFileIds = new List<int>();
+            }
+
+            var defaultIds = new List<int>();
+            foreach (var runtimeId in saveFileIds)
+            {
+                var id = getId.Invoke(runtimeId);
+
+                if (id.SourceId == -1)
+                {
+                    defaultIds.Add(id.LocalId);
+                }
+                else
+                {
+                    var mod = ModInterface.FindMod(id.SourceId);
+
+                    if (mod == null)
+                    {
+                        ModInterface.Log.LogMissingIdError(errorDescriptor, id);
+                    }
+                    else
+                    {
+                        moddedIds.Add(new SavedSourceId(mod.SourceId, id.LocalId));
+                    }
+                }
+            }
+            saveFileIds = defaultIds;
         }
     }
 }

@@ -45,11 +45,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="EnumExpansion\" />
+    <None Update="Hp2ModConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="Copy &quot;$(OutDir)\Hp2BaseModTweaks.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2BaseModTweaks&quot;" />
+    <Exec Command="md &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2BaseModTweaks&quot;&#xD;&#xA;Copy &quot;$(OutDir)\Hp2BaseModTweaks.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2BaseModTweaks&quot;&#xD;&#xA;Copy &quot;$(OutDir)\Hp2ModConfig.json&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2BaseModTweaks&quot;&#xD;&#xA;&#xD;&#xA;md &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2BaseModTweaks\Images&quot;&#xD;&#xA;Copy &quot;C:\Users\camer\Desktop\hpdev\Images\BaseModTweaks&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2BaseModTweaks\Images&quot;" />
   </Target>
 
 </Project>

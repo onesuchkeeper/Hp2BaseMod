@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Hp2BaseMod.UI
+namespace Hp2BaseMod.Ui
 {
     /// <summary>
     /// Holds a <see cref="GameObject"/> with <see cref="EventTrigger"/> and <see cref="Button"/>

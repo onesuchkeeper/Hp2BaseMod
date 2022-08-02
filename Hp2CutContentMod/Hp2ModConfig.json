@@ -1,0 +1,29 @@
+﻿{
+  "Identifier": {
+    "Name": "Hp2CutContentMod",
+    "Version": "1.0"
+  },
+  "Dependencies": [],
+  "Assemblies": [
+    {
+      "Path": "mods/Hp2CutContentMod/Hp2CutContentMod.dll",
+      "Stage": 0,
+      "Priority": 0
+    }
+  ],
+  "Tags": [],
+  "AbilityDataModPaths": [],
+  "AilmentDataModPaths": [],
+  "CodeDataModPaths": [],
+  "CutsceneDataModPaths": [],
+  "DialogTriggerDataModPaths": [],
+  "DlcDataModPaths": [],
+  "EnergyDataModPaths": [],
+  "GirlDataModPaths": [],
+  "GirlPairDataModPaths": [],
+  "ItemDataModPaths": [],
+  "LocationDataModPaths": [],
+  "PhotoDataModPaths": [],
+  "QuestionDataModPaths": [],
+  "TokenDataModPaths": []
+}

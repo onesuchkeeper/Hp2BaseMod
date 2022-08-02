@@ -12,18 +12,18 @@ namespace Hp2BaseMod.GameDataInfo
     /// Serializable information to make an LogicAction
     /// </summary>
     [Serializable]
-    public class LogicActionInfo : IGameDataInfo<LogicAction>
+    public class LogicActionInfo : IGameDefinitionInfo<LogicAction>
     {
-        [UiSonSelectorUi(DefaultData.LogicActionTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.LogicActionTypeNullable)]
         public LogicActionType? Type;
 
-        [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable)]
         public PuzzleAffectionType? AffectionType;
 
-        [UiSonSelectorUi(DefaultData.PuzzleResourceTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.PuzzleResourceTypeNullable)]
         public PuzzleResourceType? ResourceType;
 
-        [UiSonSelectorUi(DefaultData.PuzzleGameStateNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.PuzzleGameStateNullable)]
         public PuzzleGameState? PuzzleState;
 
         [UiSonTextEditUi]
@@ -35,95 +35,63 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public int? IntValue;
 
-        [UiSonElementSelectorUi(nameof(LocationDataMod), 0, null, "Id", DefaultData.DefaultLocationNames_Name, DefaultData.DefaultLocationIds_Name)]
-        public int? LocationDefinitionID;
+        [UiSonElementSelectorUi(nameof(LocationDataMod), 0, null, "id", DefaultData.DefaultLocationNames_Name, DefaultData.DefaultLocationIds_Name)]
+        public RelativeId? LocationDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, null, "Id", DefaultData.DefaultGirlPairNames_Name, DefaultData.DefaultGirlPairIds_Name)]
-        public int? GirlPairDefinitionID;
+        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, null, "id", DefaultData.DefaultGirlPairNames_Name, DefaultData.DefaultGirlPairIds_Name)]
+        public RelativeId? GirlPairDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "Id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
-        public int? CutsceneDefinitionID;
+        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
+        public RelativeId? CutsceneDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, null, "Id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
-        public int? ItemDefinitionID;
+        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, null, "id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
+        public RelativeId? ItemDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "Id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
-        public int? GirlDefinitionID;
+        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
+        public RelativeId? GirlDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? BoolValue;
 
-        [UiSonMemberElement]
+        [UiSonEncapsulatingUi]
         public AudioKlipInfo BackgroundMusic;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public LogicActionInfo() { }
 
-        public LogicActionInfo(LogicActionType type,
-                               PuzzleAffectionType affectionType,
-                               PuzzleResourceType resourceType,
-                               PuzzleGameState puzzleState,
-                               string stringValue,
-                               float floatValue,
-                               int intValue,
-                               int locationDefinitionID,
-                               int girlPairDefinitionID,
-                               int cutsceneDefinitionID,
-                               int itemDefinitionID,
-                               int girlDefinitionID,
-                               bool boolValue,
-                               AudioKlipInfo backgroundMusic)
+        /// <summary>
+        /// Constructor from a definition instance.
+        /// </summary>
+        /// <param name="def">The definition.</param>
+        /// <param name="assetProvider">Asset provider containing the assest referenced by the definition.</param>
+        public LogicActionInfo(LogicAction def, AssetProvider assetProvider)
         {
-            Type = type;
-            BoolValue = boolValue;
-            IntValue = intValue;
-            FloatValue = floatValue;
-            StringValue = stringValue;
-            LocationDefinitionID = locationDefinitionID;
-            GirlPairDefinitionID = girlPairDefinitionID;
-            AffectionType = affectionType;
-            ResourceType = resourceType;
-            CutsceneDefinitionID = cutsceneDefinitionID;
-            PuzzleState = puzzleState;
-            ItemDefinitionID = itemDefinitionID;
-            GirlDefinitionID = girlDefinitionID;
-            BackgroundMusic = backgroundMusic;
-        }
-
-        public LogicActionInfo(LogicAction logicAction, AssetProvider assetProvider)
-        {
-            if (logicAction == null) { throw new ArgumentNullException(nameof(logicAction)); }
+            if (def == null) { throw new ArgumentNullException(nameof(def)); }
             if (assetProvider == null) { throw new ArgumentNullException(nameof(assetProvider)); }
 
-            Type = logicAction.type;
-            BoolValue = logicAction.boolValue;
-            IntValue = logicAction.intValue;
-            FloatValue = logicAction.floatValue;
-            StringValue = logicAction.stringValue;
-            AffectionType = logicAction.affectionType;
-            ResourceType = logicAction.resourceType;
-            PuzzleState = logicAction.puzzleState;
+            Type = def.type;
+            BoolValue = def.boolValue;
+            IntValue = def.intValue;
+            FloatValue = def.floatValue;
+            StringValue = def.stringValue;
+            AffectionType = def.affectionType;
+            ResourceType = def.resourceType;
+            PuzzleState = def.puzzleState;
 
-            LocationDefinitionID = logicAction.locationDefinition?.id ?? -1;
-            GirlPairDefinitionID = logicAction.girlPairDefinition?.id ?? -1;
-            ItemDefinitionID = logicAction.itemDefinition?.id ?? -1;
-            GirlDefinitionID = logicAction.girlDefinition?.id ?? -1;
-            CutsceneDefinitionID = logicAction.cutsceneDefinition?.id ?? -1;
+            LocationDefinitionID = new RelativeId(def.locationDefinition);
+            GirlPairDefinitionID = new RelativeId(def.girlPairDefinition);
+            ItemDefinitionID = new RelativeId(def.itemDefinition);
+            GirlDefinitionID = new RelativeId(def.girlDefinition);
+            CutsceneDefinitionID = new RelativeId(def.cutsceneDefinition);
 
-            if (logicAction.backgroundMusic != null) { BackgroundMusic = new AudioKlipInfo(logicAction.backgroundMusic, assetProvider); }
+            if (def.backgroundMusic != null) { BackgroundMusic = new AudioKlipInfo(def.backgroundMusic, assetProvider); }
         }
 
-        /// <summary>
-        /// Writes to the game data definition this represents
-        /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref LogicAction def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
+        /// <inheritdoc/>
+        public void SetData(ref LogicAction def, GameDefinitionProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
-            ModInterface.Instance.LogLine("Setting data for a logic action");
-            ModInterface.Instance.IncreaseLogIndent();
-
             if (def == null)
             {
                 def = Activator.CreateInstance<LogicAction>();
@@ -143,10 +111,8 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.itemDefinition, gameDataProvider.GetItem(ItemDefinitionID), insertStyle);
             ValidatedSet.SetValue(ref def.girlDefinition, gameDataProvider.GetGirl(GirlDefinitionID), insertStyle);
             ValidatedSet.SetValue(ref def.cutsceneDefinition, gameDataProvider.GetCutscene(CutsceneDefinitionID), insertStyle);
-            ValidatedSet.SetValue(ref def.backgroundMusic, BackgroundMusic, insertStyle, gameDataProvider, assetProvider);
 
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
+            ValidatedSet.SetValue(ref def.backgroundMusic, BackgroundMusic, insertStyle, gameDataProvider, assetProvider);
         }
     }
 }

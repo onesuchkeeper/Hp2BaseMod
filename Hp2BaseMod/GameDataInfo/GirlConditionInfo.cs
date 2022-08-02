@@ -11,56 +11,43 @@ namespace Hp2BaseMod.GameDataInfo
     /// <summary>
     /// Serializable information to make a GirlCondition
     /// </summary>
-    public class GirlConditionInfo : IGameDataInfo<GirlCondition>
+    public class GirlConditionInfo : IGameDefinitionInfo<GirlCondition>
     {
-        [UiSonSelectorUi(DefaultData.GirlConditionTypeNullable_As_String)]
+        [UiSonSelectorUi(DefaultData.GirlConditionTypeNullable)]
         public GirlConditionType? Type;
 
-        [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, null, "Id", DefaultData.DefaultAilmentNames_Name, DefaultData.DefaultAilmentIds_Name)]
-        public int? AilmentDefinitionID;
+        [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, null, "id", DefaultData.DefaultAilmentNames_Name, DefaultData.DefaultAilmentIds_Name)]
+        public RelativeId? AilmentDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? OtherGirl;
 
-        [UiSonSelectorUi(DefaultData.NullableBoolOptions_Name)]
+        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Inverse;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public GirlConditionInfo() { }
 
-        public GirlConditionInfo(GirlConditionType type,
-                                 int ailmentDefinitionID,
-                                 bool otherGirl,
-                                 bool inverse)
-        {
-            Type = type;
-            AilmentDefinitionID = ailmentDefinitionID;
-            OtherGirl = otherGirl;
-            Inverse = inverse;
-        }
-
-        public GirlConditionInfo(GirlCondition girlCondition)
-        {
-            if (girlCondition == null) { return; }
-
-            Type = girlCondition.type;
-            OtherGirl = girlCondition.otherGirl;
-            Inverse = girlCondition.inverse;
-
-            AilmentDefinitionID = girlCondition.ailmentDefinition?.id ?? -1;
-        }
-
         /// <summary>
-        /// Writes to the game data definition this represents
+        /// Constructor from a definition instance.
         /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref GirlCondition def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
+        /// <param name="def">The definition.</param>
+        public GirlConditionInfo(GirlCondition def)
         {
-            ModInterface.Instance.LogLine("Setting data for a girl condition");
-            ModInterface.Instance.IncreaseLogIndent();
+            if (def == null) { return; }
 
+            Type = def.type;
+            OtherGirl = def.otherGirl;
+            Inverse = def.inverse;
+
+            AilmentDefinitionID = new RelativeId(def.ailmentDefinition);
+        }
+
+        /// <inheritdoc/>
+        public void SetData(ref GirlCondition def, GameDefinitionProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
+        {
             if (def == null)
             {
                 def = Activator.CreateInstance<GirlCondition>();
@@ -70,9 +57,6 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.inverse, Inverse);
 
             ValidatedSet.SetValue(ref def.ailmentDefinition, gameDataProvider.GetAilment(AilmentDefinitionID), insertStyle);
-
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

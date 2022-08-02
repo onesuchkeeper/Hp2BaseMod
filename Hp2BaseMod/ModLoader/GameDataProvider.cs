@@ -1,231 +1,119 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
+using Hp2BaseMod.GameDataInfo;
 using System;
 
 namespace Hp2BaseMod.ModLoader
 {
     /// <summary>
-    /// Wrapper to allow nullable int ids and impliment logging in gamedata
+    /// Wrapper of <see cref="GameData"/> to handle nullable ids in looking up game data
     /// </summary>
-    public class GameDataProvider
+    public class GameDefinitionProvider
     {
-        private GameData _decorated;
+        private GameData _gameData;
 
-        public GameDataProvider(GameData decorated)
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="gameData"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public GameDefinitionProvider(GameData gameData)
         {
-            _decorated = decorated ?? throw new ArgumentNullException(nameof(decorated));
+            _gameData = gameData ?? throw new ArgumentNullException(nameof(gameData));
         }
 
-        public AbilityDefinition GetAbility(int? id)
+        /// <summary>
+        /// Gets the <see cref="Definition"/> for the given id. Returns null if one doesn't exist.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="id"></param>
+        /// <returns>The <see cref="Definition"/> for the given id. Returns null if one doesn't exist.</returns>
+        public Definition GetDefinition(GameDataType type, RelativeId? id) => id.HasValue ? GetDefinition(type, ModInterface.Data.GetRuntimeDataId(type, id.Value)) : null;
+
+        /// <summary>
+        /// Gets the <see cref="Definition"/> for the given id. Returns null if one doesn't exist.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="id"></param>
+        /// <returns>The <see cref="Definition"/> for the given id. Returns null if one doesn't exist.</returns>
+        public Definition GetDefinition(GameDataType type, RelativeId id) => GetDefinition(type, ModInterface.Data.GetRuntimeDataId(type, id));
+
+        /// <summary>
+        /// Gets the <see cref="Definition"/> for the given id. Returns null if one doesn't exist.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="runtimeId"></param>
+        /// <returns>The <see cref="Definition"/> for the given id. Returns null if one doesn't exist.</returns>
+        public Definition GetDefinition(GameDataType type, int runtimeId)
         {
-            if (id.HasValue && id.Value != -1)
+            if (runtimeId == -1)
             {
-                var result = _decorated.Abilities.Get(id.Value);
-
-                ModInterface.Instance.LogLine($"{(result == null ? "Failed to find" : "Found")} {nameof(AbilityDefinition)} {id} {result?.name}");
-
-                return result;
+                return null;
             }
 
-            return null;
-        }
-
-        public DlcDefinition GetDlc(int? id)
-        {
-            if (id.HasValue && id.Value != -1)
+            switch (type)
             {
-                var result = _decorated.Dlcs.Get(id.Value);
-
-                ModInterface.Instance.LogLine($"{(result == null ? "Failed to find" : "Found")} {nameof(DlcDefinition)} {id} {result?.name}");
-
-                return result;
+                case GameDataType.Ability:
+                    return _gameData.Abilities.Get(runtimeId);
+                case GameDataType.Ailment:
+                    return _gameData.Ailments.Get(runtimeId);
+                case GameDataType.Code:
+                    return _gameData.Codes.Get(runtimeId);
+                case GameDataType.Cutscene:
+                    return _gameData.Cutscenes.Get(runtimeId);
+                case GameDataType.DialogTrigger:
+                    return _gameData.DialogTriggers.Get(runtimeId);
+                case GameDataType.Dlc:
+                    return _gameData.Dlcs.Get(runtimeId);
+                case GameDataType.Energy:
+                    return _gameData.Energy.Get(runtimeId);
+                case GameDataType.Girl:
+                    return _gameData.Girls.Get(runtimeId);
+                case GameDataType.GirlPair:
+                    return _gameData.GirlPairs.Get(runtimeId);
+                case GameDataType.Item:
+                    return _gameData.Items.Get(runtimeId);
+                case GameDataType.Location:
+                    return _gameData.Locations.Get(runtimeId);
+                case GameDataType.Photo:
+                    return _gameData.Photos.Get(runtimeId);
+                case GameDataType.Question:
+                    return _gameData.Questions.Get(runtimeId);
+                case GameDataType.Token:
+                    return _gameData.Tokens.Get(runtimeId);
+                default:
+                    ModInterface.Log.LogLine($"Failed to find definition for {type} with runtime id {runtimeId}");
+                    return null;
             }
-
-            return null;
         }
 
-        public PauseDefinition GetPause(int? id)
-        {
-            if (id.HasValue && id.Value != -1)
-            {
-                var result = _decorated.Pause.Get(id.Value);
-
-                ModInterface.Instance.LogLine($"{(result == null ? "Failed to find" : "Found")} {nameof(PauseDefinition)} {id} {result?.name}");
-
-                return result;
-            }
-
-            return null;
-        }
-
-        public LocationDefinition GetLocation(int? id)
-        {
-            if (id.HasValue && id.Value != -1)
-            {
-                var result = _decorated.Locations.Get(id.Value);
-
-                ModInterface.Instance.LogLine($"{(result == null ? "Failed to find" : "Found")} {nameof(LocationDefinition)} {id} {result?.name}");
-
-                return result;
-            }
-
-            return null;
-        }
-
-        public GirlDefinition GetGirl(int? id)
-        {
-            if (id.HasValue && id.Value != -1)
-            {
-                var result = _decorated.Girls.Get(id.Value);
-
-                ModInterface.Instance.LogLine($"{(result == null ? "Failed to find" : "Found")} {nameof(GirlDefinition)} {id} {result?.name}");
-
-                return result;
-            }
-
-            return null;
-        }
-
-        public GirlPairDefinition GetGirlPair(int? id)
-        {
-            if (id.HasValue && id.Value != -1)
-            {
-                var result = _decorated.GirlPairs.Get(id.Value);
-
-                ModInterface.Instance.LogLine($"{(result == null ? "Failed to find" : "Found")} {nameof(GirlPairDefinition)} {id} {result?.name}");
-
-                return result;
-            }
-
-            return null;
-        }
-
-        public PhotoDefinition GetPhoto(int? id)
-        {
-            if (id.HasValue && id.Value != -1)
-            {
-                var result = _decorated.Photos.Get(id.Value);
-
-                ModInterface.Instance.LogLine($"{(result == null ? "Failed to find" : "Found")} {nameof(PhotoDefinition)} {id} {result?.name}");
-
-                return result;
-            }
-
-            return null;
-        }
-
-        public ItemDefinition GetItem(int? id)
-        {
-            ModInterface.Instance.LogLine($"starting get item, id: {id}");
-            if (id.HasValue && id.Value != -1)
-            {
-                ModInterface.Instance.LogLine("getting");
-                var result = _decorated.Items.Get(id.Value);
-                ModInterface.Instance.LogLine("got");
-                ModInterface.Instance.LogLine($"{(result == null ? "Failed to find" : "Found")} {nameof(ItemDefinition)} {id} {result?.name}");
-
-                return result;
-            }
-            ModInterface.Instance.LogLine("null");
-            return null;
-        }
-
-        public TokenDefinition GetToken(int? id)
-        {
-            if (id.HasValue && id.Value != -1)
-            {
-                var result = _decorated.Tokens.Get(id.Value);
-
-                ModInterface.Instance.LogLine($"{(result == null ? "Failed to find" : "Found")} {nameof(TokenDefinition)} {id} {result?.name}");
-
-                return result;
-            }
-
-            return null;
-        }
-
-        public AilmentDefinition GetAilment(int? id)
-        {
-            if (id.HasValue && id.Value != -1)
-            {
-                var result = _decorated.Ailments.Get(id.Value);
-
-                ModInterface.Instance.LogLine($"{(result == null ? "Failed to find" : "Found")} {nameof(AilmentDefinition)} {id} {result?.name}");
-
-                return result;
-            }
-
-            return null;
-        }
-
-        public DialogTriggerDefinition GetDialogTrigger(int? id)
-        {
-            if (id.HasValue && id.Value != -1)
-            {
-                var result = _decorated.DialogTriggers.Get(id.Value);
-
-                ModInterface.Instance.LogLine($"{(result == null ? "Failed to find" : "Found")} {nameof(DialogTriggerDefinition)} {id} {result?.name}");
-
-                return result;
-            }
-
-            return null;
-        }
-
-        public QuestionDefinition GetQuestion(int? id)
-        {
-            if (id.HasValue && id.Value != -1)
-            {
-                var result = _decorated.Questions.Get(id.Value);
-
-                ModInterface.Instance.LogLine($"{(result == null ? "Failed to find" : "Found")} {nameof(QuestionDefinition)} {id} {result?.name}");
-
-                return result;
-            }
-
-            return null;
-        }
-
-        public CutsceneDefinition GetCutscene(int? id)
-        {
-            if (id.HasValue && id.Value != -1)
-            {
-                var result = _decorated.Cutscenes.Get(id.Value);
-
-                ModInterface.Instance.LogLine($"{(result == null ? "Failed to find" : "Found")} {nameof(CutsceneDefinition)} {id} {result?.name}");
-
-                return result;
-            }
-
-            return null;
-        }
-
-        public EnergyDefinition GetEnergy(int? id)
-        {
-            if (id.HasValue && id.Value != -1)
-            {
-                var result = _decorated.Energy.Get(id.Value);
-
-                ModInterface.Instance.LogLine($"{(result == null ? "Failed to find" : "Found")} {nameof(EnergyDefinition)} {id} {result?.name}");
-
-                return result;
-            }
-
-            return null;
-        }
-
-        public CodeDefinition GetCode(int? id)
-        {
-            if (id.HasValue && id.Value != -1)
-            {
-                var result = _decorated.Codes.Get(id.Value);
-
-                ModInterface.Instance.LogLine($"{(result == null ? "Failed to find" : "Found")} {nameof(CodeDefinition)} {id} {result?.name}");
-
-                return result;
-            }
-
-            return null;
-        }
+        public AbilityDefinition GetAbility(RelativeId id) => _gameData.Abilities.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Ability, id));
+        public AbilityDefinition GetAbility(RelativeId? id) => id.HasValue ? _gameData.Abilities.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Ability, id.Value)) : null;
+        public AilmentDefinition GetAilment(RelativeId id) => _gameData.Ailments.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Ailment, id));
+        public AilmentDefinition GetAilment(RelativeId? id) => id.HasValue ? _gameData.Ailments.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Ailment, id.Value)) : null;
+        public CodeDefinition GetCode(RelativeId id) => _gameData.Codes.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Code, id));
+        public CodeDefinition GetCode(RelativeId? id) => id.HasValue ? _gameData.Codes.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Code, id.Value)) : null;
+        public CutsceneDefinition GetCutscene(RelativeId id) => _gameData.Cutscenes.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Cutscene, id));
+        public CutsceneDefinition GetCutscene(RelativeId? id) => id.HasValue ? _gameData.Cutscenes.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Cutscene, id.Value)) : null;
+        public DialogTriggerDefinition GetDialogTrigger(RelativeId id) => _gameData.DialogTriggers.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.DialogTrigger, id));
+        public DialogTriggerDefinition GetDialogTrigger(RelativeId? id) => id.HasValue ? _gameData.DialogTriggers.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.DialogTrigger, id.Value)) : null;
+        public DlcDefinition GetDlc(RelativeId id) => _gameData.Dlcs.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Dlc, id));
+        public DlcDefinition GetDlc(RelativeId? id) => id.HasValue ? _gameData.Dlcs.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Dlc, id.Value)) : null;
+        public EnergyDefinition GetEnergy(RelativeId id) => _gameData.Energy.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Energy, id));
+        public EnergyDefinition GetEnergy(RelativeId? id) => id.HasValue ? _gameData.Energy.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Energy, id.Value)) : null;
+        public GirlDefinition GetGirl(RelativeId id) => _gameData.Girls.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Girl, id));
+        public GirlDefinition GetGirl(RelativeId? id) => id.HasValue ? _gameData.Girls.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Girl, id.Value)) : null;
+        public GirlPairDefinition GetGirlPair(RelativeId id) => _gameData.GirlPairs.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.GirlPair, id));
+        public GirlPairDefinition GetGirlPair(RelativeId? id) => id.HasValue ? _gameData.GirlPairs.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.GirlPair, id.Value)) : null;
+        public ItemDefinition GetItem(RelativeId id) => _gameData.Items.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Item, id));
+        public ItemDefinition GetItem(RelativeId? id) => id.HasValue ? _gameData.Items.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Item, id.Value)) : null;
+        public LocationDefinition GetLocation(RelativeId id) => _gameData.Locations.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Location, id));
+        public LocationDefinition GetLocation(RelativeId? id) => id.HasValue ? _gameData.Locations.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Location, id.Value)) : null;
+        public PhotoDefinition GetPhoto(RelativeId id) => _gameData.Photos.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Photo, id));
+        public PhotoDefinition GetPhoto(RelativeId? id) => id.HasValue ? _gameData.Photos.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Photo, id.Value)) : null;
+        public QuestionDefinition GetQuestion(RelativeId id) => _gameData.Questions.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Question, id));
+        public QuestionDefinition GetQuestion(RelativeId? id) => id.HasValue ? _gameData.Questions.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Question, id.Value)) : null;
+        public TokenDefinition GetToken(RelativeId id) => _gameData.Tokens.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Token, id));
+        public TokenDefinition GetToken(RelativeId? id) => id.HasValue ? _gameData.Tokens.Get(ModInterface.Data.GetRuntimeDataId(GameDataType.Token, id.Value)) : null;
     }
 }

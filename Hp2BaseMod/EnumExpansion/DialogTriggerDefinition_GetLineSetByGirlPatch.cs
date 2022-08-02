@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using System;
 
 namespace Hp2BaseMod.EnumExpansion
 {
@@ -9,20 +10,32 @@ namespace Hp2BaseMod.EnumExpansion
         [HarmonyPatch("GetLineSetByGirl")]
         public static bool GetLineSetByGirl(DialogTriggerDefinition __instance, GirlDefinition girlDef, ref DialogTriggerLineSet __result)
         {
-            var dialogTriggerIndex = EnumLookups.GetGirlDialogTriggerIndex(girlDef.id);
-            if (__instance.dialogLineSets[dialogTriggerIndex].dialogLines.Count > 0)
+            try
             {
-                __result = __instance.dialogLineSets[dialogTriggerIndex];
+                var dialogTriggerIndex = ModInterface.Data.GetGirlDialogTriggerIndex(ModInterface.Data.GetDataId(GameDataType.Girl, girlDef.id));
+
+                var set = __instance.dialogLineSets[dialogTriggerIndex];
+
+                if (set.dialogLines.Count > 0)
+                {
+                    __result = set;
+                }
+                else if (__instance.dialogLineSets[0].dialogLines.Count > 0)
+                {
+                    __result = __instance.dialogLineSets[0];
+                }
+                else
+                {
+                    __result = null;
+                }
+                return true;
             }
-            else if (__instance.dialogLineSets[0].dialogLines.Count > 0)
+            catch (Exception e)
             {
-                __result = __instance.dialogLineSets[0];
+                ModInterface.Log.LogError($"Getting line sets for girl {girlDef.id} - {girlDef.name} {e}");
             }
-            else
-            {
-                __result = null;
-            }
-            return true;
+
+            return false;
         }
     }
 }

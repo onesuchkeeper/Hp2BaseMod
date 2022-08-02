@@ -10,9 +10,9 @@ using UnityEngine;
 namespace Hp2BaseMod.GameDataInfo
 {
     /// <summary>
-    /// Serializable information to make a sprite
+    /// Serializable information to make a vector
     /// </summary>
-    public class VectorInfo : IGameDataInfo<Vector2>
+    public class VectorInfo : IGameDefinitionInfo<Vector2>
     {
         [UiSonTextEditUi]
         public float? Xpos;
@@ -20,34 +20,35 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonTextEditUi]
         public float? Ypos;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public VectorInfo() { }
 
+        /// <summary>
+        /// Constructor from 2 floats
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
         public VectorInfo(float x, float y)
         {
             Xpos = x;
             Ypos = y;
         }
 
+        /// <summary>
+        /// Constructor from a defined vector instance.
+        /// </summary>
+        /// <param name="vector"></param>
         public VectorInfo(Vector2 vector)
         {
-            if (vector == null) { throw new ArgumentNullException(nameof(vector)); }
-
             Xpos = vector.x;
             Ypos = vector.y;
         }
 
-        /// <summary>
-        /// Writes to the game data definition this represents
-        /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref Vector2 def, GameDataProvider _, AssetProvider __, InsertStyle insertStyle)
+        /// <inheritdoc/>
+        public void SetData(ref Vector2 def, GameDefinitionProvider _, AssetProvider __, InsertStyle insertStyle)
         {
-            ModInterface.Instance.LogLine("Setting data for a vector");
-            ModInterface.Instance.IncreaseLogIndent();
-
             if (def == null)
             {
                 def = Activator.CreateInstance<Vector2>();
@@ -55,9 +56,6 @@ namespace Hp2BaseMod.GameDataInfo
 
             ValidatedSet.SetValue(ref def.x, Xpos);
             ValidatedSet.SetValue(ref def.y, Ypos);
-
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }

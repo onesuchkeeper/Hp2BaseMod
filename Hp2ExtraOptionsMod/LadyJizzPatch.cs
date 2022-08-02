@@ -1,7 +1,7 @@
 ﻿// Hp2Sample 2022, By OneSuchKeeper
 
 using HarmonyLib;
-using System.Linq;
+using Hp2BaseMod;
 
 namespace Hp2ExtraOptionsMod
 {
@@ -14,7 +14,7 @@ namespace Hp2ExtraOptionsMod
         public static void Postfix(ref int __result)
         {
             if (__result == 1
-                && Game.Persistence.playerData.unlockedCodes.Any(x => x.id == Constants.FemaleJizzToggleCodeID))
+                && ModInterface.IsCodeUnlocked(Constants.FemaleJizzToggleCodeID))
             {
                 __result = 2;
             }
@@ -30,7 +30,7 @@ namespace Hp2ExtraOptionsMod
         public static void Prefix(UiWindowPhotos __instance)
         {
             if (!Game.Persistence.playerData.uncensored
-                || !Game.Persistence.playerData.unlockedCodes.Any(x => x.id == Constants.FemaleJizzToggleCodeID))
+                || !ModInterface.IsCodeUnlocked(Constants.FemaleJizzToggleCodeID))
             {
                 return;
             }

@@ -1,11 +1,8 @@
 ﻿// Hp2RepeatThreesomeMod 2021, By onesuchkeeper
 
 using HarmonyLib;
-using System;
-using System.Linq;
-using System.Reflection;
-using UnityEngine;
 using Hp2BaseMod;
+using System;
 
 namespace Hp2RepeatThreesomeMod
 {
@@ -58,7 +55,7 @@ namespace Hp2RepeatThreesomeMod
                                 (
                                     (playerFileGirlPair.relationshipType == GirlPairRelationshipType.LOVERS)
                                     &&
-                                    Game.Persistence.playerData.unlockedCodes.Any(x => x.id == Constants.LocalCodeId)
+                                    ModInterface.IsCodeUnlocked(Constants.LocalCodeId)
                                 )
                             )
                             {
@@ -231,7 +228,7 @@ namespace Hp2RepeatThreesomeMod
         public void OnRoundOverCutsceneComplete()
         {
             var newRoundCutsceneValue = AccessTools.Field(typeof(PuzzleManager), "_newRoundCutscene").GetValue(_puzzleManager) as CutsceneDefinition;
-            var nudeCode = Game.Persistence.playerData.unlockedCodes.Any(x => x.id == Constants.NudeCodeId);
+            var nudeCode = ModInterface.IsCodeUnlocked(Constants.NudeCodeId);
 
             Game.Session.Cutscenes.CutsceneCompleteEvent -= OnRoundOverCutsceneComplete;
 
@@ -250,36 +247,38 @@ namespace Hp2RepeatThreesomeMod
 
         private void ChangeToNudeOutfit()
         {
-            var leftFileGirl = _puzzleManager.puzzleStatus.girlStatusLeft.playerFileGirl;
-            var rightFileGirl = _puzzleManager.puzzleStatus.girlStatusRight.playerFileGirl;
-
-            var girlLeftOutfitIndex = leftFileGirl.girlDefinition
-                                                   .outfits
-                                                   .IndexOf(leftFileGirl.girlDefinition
-                                                                        .outfits
-                                                                        .FirstOrDefault(x => x.outfitName == Constants.NudeOutfitName));
-            var girlRightOutfitIndex = rightFileGirl.girlDefinition
-                                                    .outfits
-                                                    .IndexOf(rightFileGirl.girlDefinition
-                                                                          .outfits
-                                                                          .FirstOrDefault(x => x.outfitName == Constants.NudeOutfitName));
-
-            Game.Session.gameCanvas.dollLeft.ChangeOutfit(girlLeftOutfitIndex);
-            Game.Session.gameCanvas.dollRight.ChangeOutfit(girlRightOutfitIndex);
-
-            var silent = false;
-
-            if (!leftFileGirl.IsOutfitUnlocked(girlLeftOutfitIndex))
+            try
             {
-                Game.Session.gameCanvas.dollLeft.notificationBox.Show(nudeUnlock, 4f, silent);
-                leftFileGirl.UnlockOutfit(girlLeftOutfitIndex);
-                silent = true;
+                var leftFileGirl = _puzzleManager.puzzleStatus.girlStatusLeft.playerFileGirl;
+                var rightFileGirl = _puzzleManager.puzzleStatus.girlStatusRight.playerFileGirl;
+
+                var girlLeftOutfitIndex = ModInterface.Data.GetOutfitIndex(ModInterface.Data.GetDataId(GameDataType.Girl, leftFileGirl.girlDefinition.id),
+                                                                           Constants.NudeOutfitId);
+
+                var girlRightOutfitIndex = ModInterface.Data.GetOutfitIndex(ModInterface.Data.GetDataId(GameDataType.Girl, rightFileGirl.girlDefinition.id),
+                                                                            Constants.NudeOutfitId);
+
+                Game.Session.gameCanvas.dollLeft.ChangeOutfit(girlLeftOutfitIndex);
+                Game.Session.gameCanvas.dollRight.ChangeOutfit(girlRightOutfitIndex);
+
+                var silent = false;
+
+                if (!leftFileGirl.IsOutfitUnlocked(girlLeftOutfitIndex))
+                {
+                    Game.Session.gameCanvas.dollLeft.notificationBox.Show(nudeUnlock, 4f, silent);
+                    leftFileGirl.UnlockOutfit(girlLeftOutfitIndex);
+                    silent = true;
+                }
+
+                if (!rightFileGirl.IsOutfitUnlocked(girlRightOutfitIndex))
+                {
+                    Game.Session.gameCanvas.dollRight.notificationBox.Show(nudeUnlock, 4f, silent);
+                    rightFileGirl.UnlockOutfit(girlRightOutfitIndex);
+                }
             }
-
-            if (!rightFileGirl.IsOutfitUnlocked(girlRightOutfitIndex))
+            catch(Exception e)
             {
-                Game.Session.gameCanvas.dollRight.notificationBox.Show(nudeUnlock, 4f, silent);
-                rightFileGirl.UnlockOutfit(girlRightOutfitIndex);
+                ModInterface.Log.LogLine(e.ToString());
             }
         }
     }

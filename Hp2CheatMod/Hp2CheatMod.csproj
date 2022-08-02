@@ -24,7 +24,13 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Hp2ModConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="Copy &quot;$(OutDir)\Hp2CheatMod.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2CheatMod&quot;" />
+    <Exec Command="md &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2CheatMod&quot;&#xD;&#xA;Copy &quot;$(OutDir)\Hp2CheatMod.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2CheatMod&quot;&#xD;&#xA;Copy &quot;$(OutDir)\Hp2ModConfig.json&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2CheatMod&quot;" />
   </Target>
 </Project>

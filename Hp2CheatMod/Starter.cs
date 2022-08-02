@@ -1,13 +1,29 @@
-﻿using System;
-using HarmonyLib;
+﻿using HarmonyLib;
 using Hp2BaseMod;
+using Hp2BaseMod.GameDataInfo.Interface;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
-namespace Hp2NudeDurringSexMod
+namespace Hp2CheatMod
 {
-    public class Starter : IHp2BaseModStarter
+    public class Starter : IHp2ModStarter
     {
-        public void Start(ModInterface gameDataMod)
+        IEnumerable<IGameDataMod<AbilityDefinition>> IProvideGameDataMods.AbilityDataMods => null;
+        IEnumerable<IGameDataMod<AilmentDefinition>> IProvideGameDataMods.AilmentDataMods => null;
+        IEnumerable<IGameDataMod<CodeDefinition>> IProvideGameDataMods.CodeDataMods => null;
+        IEnumerable<IGameDataMod<CutsceneDefinition>> IProvideGameDataMods.CutsceneDataMods => null;
+        IEnumerable<IGameDataMod<DialogTriggerDefinition>> IProvideGameDataMods.DialogTriggerDataMods => null;
+        IEnumerable<IGameDataMod<DlcDefinition>> IProvideGameDataMods.DlcDataMods => null;
+        IEnumerable<IGameDataMod<EnergyDefinition>> IProvideGameDataMods.EnergyDataMods => null;
+        IEnumerable<IGirlDataMod> IProvideGameDataMods.GirlDataMods => null;
+        IEnumerable<IGirlPairDataMod> IProvideGameDataMods.GirlPairDataMods => null;
+        IEnumerable<IGameDataMod<ItemDefinition>> IProvideGameDataMods.ItemDataMods => null;
+        IEnumerable<ILocationDataMod> IProvideGameDataMods.LocationDataMods => null;
+        IEnumerable<IGameDataMod<PhotoDefinition>> IProvideGameDataMods.PhotoDataMods => null;
+        IEnumerable<IGameDataMod<QuestionDefinition>> IProvideGameDataMods.QuestionDataMods => null;
+        IEnumerable<IGameDataMod<TokenDefinition>> IProvideGameDataMods.TokenDataMods => null;
+
+        public void Start(int modId)
         {
             new Harmony("Hp2BaseMod.Hp2CheatMod").PatchAll();
         }
@@ -18,7 +34,7 @@ namespace Hp2NudeDurringSexMod
     {
         public static void Prefix(PuzzleStatus __instance)
         {
-            if (__instance.bonusRound) { return; }
+            //if (__instance.bonusRound) { return; }
             __instance.AddResourceValue(PuzzleResourceType.AFFECTION, 100000, false);
         }
     }
@@ -30,7 +46,7 @@ namespace Hp2NudeDurringSexMod
         {
             var input = (AccessTools.Field(typeof(UiCellphoneAppCode), "inputField").GetValue(__instance) as InputField).text.ToUpper().Trim();
 
-            ModInterface.Instance.LogLine($"Submitted code: {input}, hashed to {StringUtils.MD5(input)}");
+            ModInterface.Log.LogLine($"Submitted code: {input}, hashed to {StringUtils.MD5(input)}");
         }
     }
 }

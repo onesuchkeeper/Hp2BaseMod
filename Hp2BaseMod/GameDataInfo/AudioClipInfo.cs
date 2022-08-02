@@ -13,7 +13,7 @@ namespace Hp2BaseMod.GameDataInfo
     /// <summary>
     /// Serializable information to make an AudioClip
     /// </summary>
-    public class AudioClipInfo : IGameDataInfo<AudioClip>
+    public class AudioClipInfo : IGameDefinitionInfo<AudioClip>
     {
         [UiSonTextEditUi]
         public string Path;
@@ -21,37 +21,29 @@ namespace Hp2BaseMod.GameDataInfo
         [UiSonCheckboxUi]
         public bool IsExternal;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public AudioClipInfo() { }
 
-        public AudioClipInfo(string path,
-                             bool isExternal)
+        /// <summary>
+        /// Constructor from a definition instance.
+        /// </summary>
+        /// <param name="def">The definition.</param>
+        /// <param name="assetProvider">Asset provider containing the assest referenced by the definition.</param>
+        public AudioClipInfo(AudioClip def, AssetProvider assetProvider)
         {
-            Path = path;
-            IsExternal = isExternal;
-        }
-
-        public AudioClipInfo(AudioClip audioClip, AssetProvider assetProvider)
-        {
-            if (audioClip == null) { throw new ArgumentNullException(nameof(audioClip)); }
+            if (def == null) { throw new ArgumentNullException(nameof(def)); }
             if (assetProvider == null) { throw new ArgumentNullException(nameof(assetProvider)); }
 
-            assetProvider.NameAndAddAsset(ref Path, audioClip);
+            assetProvider.NameAndAddAsset(ref Path, def);
 
             IsExternal = false;
         }
 
-        /// <summary>
-        /// Writes to the game data definition this represents
-        /// </summary>
-        /// <param name="def">The target game data definition to write to.</param>
-        /// <param name="gameData">The game data.</param>
-        /// <param name="assetProvider">The asset provider.</param>
-        /// <param name="insertStyle">The insert style.</param>
-        public void SetData(ref AudioClip def, GameDataProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
+        /// <inheritdoc/>
+        public void SetData(ref AudioClip def, GameDefinitionProvider gameDataProvider, AssetProvider assetProvider, InsertStyle insertStyle)
         {
-            ModInterface.Instance.LogLine("Setting data for an audio clip");
-            ModInterface.Instance.IncreaseLogIndent();
-
             if (Path == null)
             {
                 if (insertStyle == InsertStyle.assignNull)
@@ -66,13 +58,13 @@ namespace Hp2BaseMod.GameDataInfo
                     if (File.Exists(Path))
                     {
                         byte[] fileBytes = File.ReadAllBytes(Path);
-                        def =  WAVUtility.LoadAudioClip(fileBytes, 0);
+                        def =  WAVUtility.LoadAudioClip(fileBytes);
 
-                        ModInterface.Instance.LogLine($"{(def == null ? "Failed to load" : "Loaded")} external {nameof(AudioClip)} { Path ?? null}");
+                        ModInterface.Log.LogLine($"{(def == null ? "Failed to load" : "Loaded")} external {nameof(AudioClip)} { Path ?? null}");
                     }
                     else
                     {
-                        ModInterface.Instance.LogLine($"Could not find {Path} to load {nameof(AudioClip)} from");
+                        ModInterface.Log.LogLine($"Could not find {Path} to load {nameof(AudioClip)} from");
                     }
                 }
                 else
@@ -80,9 +72,6 @@ namespace Hp2BaseMod.GameDataInfo
                     def = (AudioClip)assetProvider.GetAsset(Path);
                 }
             }
-
-            ModInterface.Instance.LogLine("done");
-            ModInterface.Instance.DecreaseLogIndent();
         }
     }
 }
