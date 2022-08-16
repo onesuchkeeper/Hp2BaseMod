@@ -114,5 +114,14 @@ namespace Hp2BaseMod.GameDataInfo
 
             ValidatedSet.SetValue(ref def.backgroundMusic, BackgroundMusic, insertStyle, gameDataProvider, assetProvider);
         }
+
+        public void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            LocationDefinitionID = getNewId(LocationDefinitionID);
+            GirlPairDefinitionID = getNewId(GirlPairDefinitionID);
+            CutsceneDefinitionID = getNewId(CutsceneDefinitionID);
+            ItemDefinitionID = getNewId(ItemDefinitionID);
+            GirlDefinitionID = getNewId(GirlDefinitionID);
+        }
     }
 }

@@ -7,11 +7,20 @@
   "Assemblies": [
     {
       "Path": "mods/Hp2BaseModTweaks/Hp2BaseModTweaks.dll",
-      "Stage" : 0,
+      "Stage" : 4,
       "Priority": 0
     }
   ],
-  "Tags": [],
+  "Tags": [
+    {
+      "Name": "Hp2BaseModTweaks_Credits",
+      "Value": "{\"modImagePath\":\"mods/Hp2BaseModTweaks/Images/CreditsLogo.png\",\"redirectLink\":\"https://twitter.com/OneSuchKeeper\",\"CreditsEntries\":[{\"creditButtonImagePath\":\"mods/Hp2BaseModTweaks/Images/onesuchkeeper_credits.png\",\"creditButtonImageOverPath\":\"mods/Hp2BaseModTweaks/Images/onesuchkeeper_credits_over.png\",\"redirectLink\":\"https://twitter.com/OneSuchKeeper\"}]}"
+    },
+    {
+      "Name": "Hp2BaseModTweaks_Logo",
+      "Value": "mods/Hp2BaseModTweaks/Images/logo.png"
+    }
+  ],
   "AbilityDataModPaths": [],
   "AilmentDataModPaths": [],
   "CodeDataModPaths": [],

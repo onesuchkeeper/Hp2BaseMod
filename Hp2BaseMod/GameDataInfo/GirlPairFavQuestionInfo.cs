@@ -54,5 +54,10 @@ namespace Hp2BaseMod.GameDataInfo
 
             ValidatedSet.SetValue(ref def.questionDefinition, gameDataProvider.GetQuestion(QuestionDefinitionID), insertStyle);
         }
+
+        public void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            QuestionDefinitionID = getNewId(QuestionDefinitionID);
+        }
     }
 }

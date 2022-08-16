@@ -119,5 +119,13 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.girlPairDefinition, gameDataProvider.GetGirlPair(GirlPairDefinitionID), insertStyle);
             ValidatedSet.SetValue(ref def.girlDefinition, gameDataProvider.GetGirl(GirlDefinitionID), insertStyle);
         }
+
+        public void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            LocationDefinitionID = getNewId(LocationDefinitionID);
+            GirlPairDefinitionID = getNewId(GirlPairDefinitionID);
+            GirlDefinitionID = getNewId(GirlDefinitionID);
+            ItemDefinitionID = getNewId(ItemDefinitionID);
+        }
     }
 }

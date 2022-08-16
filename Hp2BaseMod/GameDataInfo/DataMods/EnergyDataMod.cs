@@ -120,5 +120,11 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetListValue(ref def.splashSprites, SplashSprites, InsertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetListValue(ref def.surgeSprites, SurgeSprites, InsertStyle, gameDataProvider, assetProvider);
         }
+
+        /// <inheritdoc/>
+        public override void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            Id = getNewId(Id) ?? Id;
+        }
     }
 }

@@ -3,6 +3,7 @@
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
+using System;
 using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
@@ -50,6 +51,12 @@ namespace Hp2BaseMod.GameDataInfo
             OffMessage = def.offMessage;
             OnMessage = def.onMessage;
             CodeHash = def.codeHash;
+        }
+
+        /// <inheritdoc/>
+        public override void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            Id = getNewId(Id) ?? Id;
         }
 
         /// <inheritdoc/>

@@ -3,6 +3,7 @@
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UiSon.Attribute;
@@ -59,6 +60,14 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.responseTriggerDefinition,
                                   (DialogTriggerDefinition)gameDataProvider.GetDefinition(GameDataType.DialogTrigger, ResponseTriggerDefinitionID),
                                   InsertStyle);
+        }
+
+        /// <inheritdoc/>
+        public override void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            Id = getNewId(Id) ?? Id;
+
+            ResponseTriggerDefinitionID = getNewId(ResponseTriggerDefinitionID);
         }
     }
 }

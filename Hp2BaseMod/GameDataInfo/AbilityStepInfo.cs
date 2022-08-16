@@ -1,5 +1,6 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
+using Hp2BaseMod.Extension.IEnumerableExtension;
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
@@ -221,6 +222,16 @@ namespace Hp2BaseMod.GameDataInfo
 
             ValidatedSet.SetListValue(ref def.tokenDefinitions, TokenDefinitionIDs?.Select(x => gameDataProvider.GetToken(x)).ToList(), insertStyle);
             ValidatedSet.SetListValue(ref def.combineValues, CombineValues, insertStyle);
+        }
+
+        public void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewSource)
+        {
+            AilmentDefinitionID = getNewSource.Invoke(AilmentDefinitionID);
+            EnergyDefinitionID = getNewSource.Invoke(EnergyDefinitionID);
+
+            TokenConditionSetInfo?.ReplaceRelativeIds(getNewSource);
+
+            TokenDefinitionIDs = TokenDefinitionIDs?.Select(x => getNewSource(x)).ToList();
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Hp2BaseMod.ModLoader
     internal static class GameDataPatch
     {
         private static readonly string _defaultDataDir = @"mods\DefaultData";
-        private static readonly bool _isDevMode = true;
+        private static readonly bool _isDevMode = false;
         private static bool _hasRun = false;
 
         private static void Postfix(GameData __instance)

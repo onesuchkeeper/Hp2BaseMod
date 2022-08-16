@@ -2,6 +2,7 @@
 
 using Hp2BaseMod.Extension.StringExtension;
 using Hp2BaseMod.GameDataInfo;
+using Hp2BaseMod.Ui;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,12 @@ namespace Hp2BaseMod
         internal static void NotifyPostLoad() => PostLoad?.Invoke();
 
         #endregion
+
+        /// <summary>
+        /// The cellphone managers
+        /// </summary>
+        public static ModUi Ui => _cellphone;
+        private static readonly ModUi _cellphone = new ModUi();
 
         /// <summary>
         /// The session's log
@@ -74,8 +81,11 @@ namespace Hp2BaseMod
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static bool IsCodeUnlocked(RelativeId id) 
-            => Game.Persistence?.playerData?.unlockedCodes.Any(x => x.id == _data.GetRuntimeDataId(GameDataType.Code, id)) ?? false;
+        public static bool IsCodeUnlocked(RelativeId id)
+        {
+            var runtimeId = _data.GetRuntimeDataId(GameDataType.Code, id);
+            return Game.Persistence?.playerData?.unlockedCodes.Any(x => x.id == runtimeId) ?? false;
+        }
 
         #endregion
     }

@@ -104,5 +104,11 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.tokenDefinition, gameDataProvider.GetToken(TokenDefinitionID), insertStyle);
             ValidatedSet.SetValue(ref def.replaceDefinition, gameDataProvider.GetToken(ReplaceDefinitionID), insertStyle);
         }
+
+        public void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            TokenDefinitionID = getNewId(TokenDefinitionID);
+            ReplaceDefinitionID = getNewId(ReplaceDefinitionID);
+        }
     }
 }

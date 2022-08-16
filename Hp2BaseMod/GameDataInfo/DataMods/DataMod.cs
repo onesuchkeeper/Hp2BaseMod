@@ -1,6 +1,7 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
 using Hp2BaseMod.Utility;
+using System;
 using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
@@ -38,5 +39,11 @@ namespace Hp2BaseMod.GameDataInfo
             InsertStyle = insertStyle;
             LoadPriority = loadPriority;
         }
+
+        /// <summary>
+        /// Replaces id sources using the provided func
+        /// </summary>
+        /// <param name="getNewId"></param>
+        public abstract void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId);
     }
 }

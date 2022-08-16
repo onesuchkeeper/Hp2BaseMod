@@ -3,6 +3,7 @@
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
+using System;
 using System.Collections.Generic;
 using UiSon.Attribute;
 
@@ -54,6 +55,12 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.questionName, QuestionName, InsertStyle);
             ValidatedSet.SetValue(ref def.questionText, QuestionText, InsertStyle);
             ValidatedSet.SetListValue(ref def.questionAnswers, QuestionAnswers, InsertStyle);
+        }
+
+        /// <inheritdoc/>
+        public override void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            Id = getNewId(Id) ?? Id;
         }
     }
 }

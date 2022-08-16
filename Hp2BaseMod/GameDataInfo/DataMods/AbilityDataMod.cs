@@ -1,8 +1,10 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
+using Hp2BaseMod.Extension.IEnumerableExtension;
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UiSon.Attribute;
@@ -65,6 +67,17 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.targetConditionSet, TargetConditionSetInfo, InsertStyle, gameDataProvider, assetProvider);
 
             ValidatedSet.SetListValue(ref def.steps, Steps, InsertStyle, gameDataProvider, assetProvider);
+        }
+
+        /// <inheritdoc/>
+        public override void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewSource)
+        {
+            Id = getNewSource.Invoke(Id) ?? Id;
+
+            foreach (var step in Steps.OrEmptyIfNull())
+            {
+                step?.ReplaceRelativeIds(getNewSource);
+            }
         }
     }
 }

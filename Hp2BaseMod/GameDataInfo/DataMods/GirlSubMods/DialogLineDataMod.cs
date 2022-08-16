@@ -65,6 +65,7 @@ namespace Hp2BaseMod.GameDataInfo
             if (def.audioClip != null) { AudioClipInfo = new AudioClipInfo(def.audioClip, assetProvider); }
         }
 
+        /// <inheritdoc/>
         public void SetData(ref DialogLine def, GameDefinitionProvider gameData, AssetProvider assetProvider, InsertStyle insertStyle, RelativeId girlId)
         {
             if (def == null)
@@ -81,6 +82,12 @@ namespace Hp2BaseMod.GameDataInfo
 
             ValidatedSet.SetValue(ref def.yuriAudioClip, YuriAudioClipInfo, insertStyle, gameData, assetProvider);
             ValidatedSet.SetValue(ref def.audioClip, AudioClipInfo, insertStyle, gameData, assetProvider);
+        }
+
+        /// <inheritdoc/>
+        public override void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            Id = getNewId(Id) ?? Id;
         }
     }
 }

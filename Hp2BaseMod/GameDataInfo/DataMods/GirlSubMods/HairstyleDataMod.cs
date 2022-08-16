@@ -79,5 +79,16 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.partIndexBackhair, ModInterface.Data.GetPartIndex(girlId, BackHairPartId));
             ValidatedSet.SetValue(ref def.partIndexFronthair, ModInterface.Data.GetPartIndex(girlId, FrontHairPartId));
         }
+
+        /// <inheritdoc/>
+        public override void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            Id = getNewId(Id) ?? Id;
+
+            FrontHairPartId = getNewId(FrontHairPartId);
+            BackHairPartId = getNewId(BackHairPartId);
+
+            PairOutfitId = getNewId(PairOutfitId);
+        }
     }
 }

@@ -93,5 +93,14 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.altPartIndex, ModInterface.Data.GetPartIndex(girlId, AltPartId));
             ValidatedSet.SetValue(ref def.sprite, SpriteInfo, insertStyle, gameDataProvider, assetProvider);
         }
+
+        /// <inheritdoc/>
+        public override void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            Id = getNewId(Id) ?? Id;
+
+            MirroredPartId = getNewId(MirroredPartId);
+            AltPartId = getNewId(AltPartId);
+        }
     }
 }

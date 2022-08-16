@@ -1,5 +1,6 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
+using Hp2BaseMod.Extension.IEnumerableExtension;
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
@@ -43,6 +44,14 @@ namespace Hp2BaseMod.GameDataInfo
             }
 
             ValidatedSet.SetListValue(ref def.conditions, Conditions, insertStyle, gameDataProvider, assetProvider);
+        }
+
+        public void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewSource)
+        {
+            foreach (var condition in Conditions.OrEmptyIfNull())
+            {
+                condition?.ReplaceRelativeIds(getNewSource);
+            }
         }
     }
 }

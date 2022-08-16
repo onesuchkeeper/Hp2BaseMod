@@ -1,6 +1,7 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
 using DG.Tweening;
+using Hp2BaseMod.Extension.IEnumerableExtension;
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
@@ -267,6 +268,28 @@ namespace Hp2BaseMod.GameDataInfo
 
                 def.dialogLine = def.dialogTriggerDefinition
                                     .GetLineSetByGirl(def.girlDefinition).dialogLines[ModInterface.Data.GetLineIndex(dtId, girlId, DialogLineId.Value)];
+            }
+        }
+
+        public void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            TargetGirlDefinitionID = getNewId(TargetGirlDefinitionID);
+            DialogTriggerDefinitionID = getNewId(DialogTriggerDefinitionID);
+            GirlDefinitionID = getNewId(GirlDefinitionID);
+            HairstyleId = getNewId(HairstyleId);
+            OutfitId = getNewId(OutfitId);
+            SubCutsceneDefinitionID = getNewId(SubCutsceneDefinitionID);
+            LogicActionInfo?.ReplaceRelativeIds(getNewId);
+            DialogLineId = getNewId(DialogLineId);
+
+            foreach (var entry in DialogOptionInfos.OrEmptyIfNull())
+            {
+                entry?.ReplaceRelativeIds(getNewId);
+            }
+
+            foreach (var entry in BranchInfos.OrEmptyIfNull())
+            {
+                entry?.ReplaceRelativeIds(getNewId);
             }
         }
     }

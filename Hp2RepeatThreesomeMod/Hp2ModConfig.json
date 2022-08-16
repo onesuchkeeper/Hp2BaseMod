@@ -11,7 +11,12 @@
       "Priority": 0
     }
   ],
-  "Tags": [],
+  "Tags": [
+    {
+      "Name": "Hp2BaseModTweaks_Credits",
+      "Value": "{\"modImagePath\":\"mods/Hp2RepeatThreesomeMod/Images/CreditsLogo.png\",\"redirectLink\":\"https://twitter.com/OneSuchKeeper\",\"CreditsEntries\":[{\"creditButtonImagePath\":\"mods/Hp2RepeatThreesomeMod/Images/onesuchkeeper_credits.png\",\"creditButtonImageOverPath\":\"mods/Hp2RepeatThreesomeMod/Images/onesuchkeeper_credits_over.png\",\"redirectLink\":\"https://twitter.com/OneSuchKeeper\"},{\"creditButtonImagePath\":\"mods/Hp2RepeatThreesomeMod/Images/onesuchkeeper_credits.png\",\"creditButtonImageOverPath\":\"mods/Hp2RepeatThreesomeMod/Images/onesuchkeeper_credits_over.png\",\"redirectLink\":\"https://twitter.com/OneSuchKeeper\"}]}"
+    }
+  ],
   "AbilityDataModPaths": [],
   "AilmentDataModPaths": [],
   "CodeDataModPaths": [],

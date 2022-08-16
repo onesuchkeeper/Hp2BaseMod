@@ -2,14 +2,12 @@
 
 namespace Hp2BaseMod.GameDataInfo
 {
-    [UiSonArray("SourceIdNames", new object[] { "Game", "Mod" })]
-    [UiSonArray("SourceIdIdentifiers", new object[] { -1, -2 })]
     public struct RelativeId
     {
         /// <summary>
         /// The id of the source that defined this.
         /// </summary>
-        [UiSonSelectorUi("SourceIdNames", 0, null, "SourceIdIdentifiers")]
+        [UiSonTextEditUi]
         public int SourceId;
 
         /// <summary>

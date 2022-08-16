@@ -3,6 +3,7 @@
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
+using System;
 using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
@@ -43,6 +44,12 @@ namespace Hp2BaseMod.GameDataInfo
         public void SetData(DlcDefinition def, GameDefinitionProvider _, AssetProvider __)
         {
             ValidatedSet.SetValue(ref def.dlcName, DlcName, InsertStyle);
+        }
+
+        /// <inheritdoc/>
+        public override void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            Id = getNewId(Id) ?? Id;
         }
     }
 }

@@ -52,64 +52,72 @@ namespace Hp2BaseMod.GameDataInfo
 
         public FileDataModsProvider(Hp2ModConfig config, int modId)
         {
+            var sourceIdLookups = new Dictionary<int, int>() { { -1, -1}, { -2, modId} };
+            foreach (var dependancy in config.Dependencies)
+            {
+                sourceIdLookups.Add(dependancy.AssumedId, ModInterface.FindMod(dependancy.SourceIdentifier).Id);
+            }
+
+            Func<RelativeId?, RelativeId?> getNewSource = (x) => x.HasValue ? (RelativeId?)new RelativeId(sourceIdLookups[x.Value.SourceId], x.Value.LocalId) : null;
+
             LoadModFiles(_abilityDataMods,
                 config.AbilityDataModPaths,
-                (x) => DefaultData.IsDefaultAbility(x.LocalId) ? new RelativeId(-1, x.LocalId) : new RelativeId(modId, x.LocalId));
+                getNewSource);
 
             LoadModFiles(_ailmentDataMods,
                 config.AilmentDataModPaths,
-                (x) => DefaultData.IsDefaultAilment(x.LocalId) ? new RelativeId(-1, x.LocalId) : new RelativeId(modId, x.LocalId));
+                getNewSource);
 
             LoadModFiles(_codeDataMods,
                 config.CodeDataModPaths,
-                (x) => DefaultData.IsDefaultCode(x.LocalId) ? new RelativeId(-1, x.LocalId) : new RelativeId(modId, x.LocalId));
+                getNewSource);
 
             LoadModFiles(_cutsceneDataMods,
                 config.CutsceneDataModPaths,
-                (x) => DefaultData.IsDefaultCutscene(x.LocalId) ? new RelativeId(-1, x.LocalId) : new RelativeId(modId, x.LocalId));
+                getNewSource);
 
             LoadModFiles(_dialogTriggerDataMods,
                 config.DialogTriggerDataModPaths,
-                (x) => DefaultData.IsDefaultDialogTrigger(x.LocalId) ? new RelativeId(-1, x.LocalId) : new RelativeId(modId, x.LocalId));
+                getNewSource);
 
             LoadModFiles(_dlcDataMods,
                 config.DlcDataModPaths,
-                (x) => DefaultData.IsDefaultDlc(x.LocalId) ? new RelativeId(-1, x.LocalId) : new RelativeId(modId, x.LocalId));
+                getNewSource);
 
             LoadModFiles(_energyDataMods,
                 config.EnergyDataModPaths,
-                (x) => DefaultData.IsDefaultEnergy(x.LocalId) ? new RelativeId(-1, x.LocalId) : new RelativeId(modId, x.LocalId));
+                getNewSource);
 
             LoadModFiles(_girlDataMods,
                 config.GirlDataModPaths,
-                (x) => DefaultData.IsDefaultGirl(x.LocalId) ? new RelativeId(-1, x.LocalId) : new RelativeId(modId, x.LocalId));
+                getNewSource);
 
             LoadModFiles(_girlPairDataMods,
                 config.GirlPairDataModPaths,
-                (x) => DefaultData.IsDefaultGirlPair(x.LocalId) ? new RelativeId(-1, x.LocalId) : new RelativeId(modId, x.LocalId));
+                getNewSource);
 
             LoadModFiles(_itemDataMods,
                 config.ItemDataModPaths,
-                (x) => DefaultData.IsDefaultItem(x.LocalId) ? new RelativeId(-1, x.LocalId) : new RelativeId(modId, x.LocalId));
+                getNewSource);
 
             LoadModFiles(_locationDataMods,
                 config.LocationDataModPaths,
-                (x) => DefaultData.IsDefaultLocation(x.LocalId) ? new RelativeId(-1, x.LocalId) : new RelativeId(modId, x.LocalId));
+                getNewSource);
 
             LoadModFiles(_photoDataMods,
                 config.PhotoDataModPaths,
-                (x) => DefaultData.IsDefaultPhoto(x.LocalId) ? new RelativeId(-1, x.LocalId) : new RelativeId(modId, x.LocalId));
+                getNewSource);
 
             LoadModFiles(_questionDataMods,
                 config.QuestionDataModPaths,
-                (x) => DefaultData.IsDefaultQuestion(x.LocalId) ? new RelativeId(-1, x.LocalId) : new RelativeId(modId, x.LocalId));
+                getNewSource);
 
             LoadModFiles(_tokenDataMods,
                 config.TokenDataModPaths,
-                (x) => DefaultData.IsDefaultToken(x.LocalId) ? new RelativeId(-1, x.LocalId) : new RelativeId(modId, x.LocalId));
+                getNewSource);
         }
 
-        private void LoadModFiles<T>(List<T> mods, IEnumerable<string> paths, Func<RelativeId, RelativeId> correctId)
+        private void LoadModFiles<T>(List<T> mods, IEnumerable<string> paths, Func<RelativeId?, RelativeId?> getNewSource)
             where T : DataMod
         {
             if (paths != null)
@@ -118,7 +126,7 @@ namespace Hp2BaseMod.GameDataInfo
                 {
                     if (File.Exists(path))
                     {
-                        var deserialized = JsonConvert.DeserializeObject<AbilityDataMod>(File.ReadAllText(path)) as T;
+                        var deserialized = JsonConvert.DeserializeObject<T>(File.ReadAllText(path)) as T;
 
                         if (deserialized == null)
                         {
@@ -126,7 +134,7 @@ namespace Hp2BaseMod.GameDataInfo
                         }
                         else
                         {
-                            deserialized.Id = correctId.Invoke(deserialized.Id);
+                            deserialized.ReplaceRelativeIds(getNewSource);
                             mods.Add(deserialized);
                         }
                     }

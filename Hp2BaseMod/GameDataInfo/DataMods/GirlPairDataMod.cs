@@ -1,9 +1,11 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
 using Hp2BaseMod.EnumExpansion;
+using Hp2BaseMod.Extension.IEnumerableExtension;
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UiSon.Attribute;
@@ -151,5 +153,25 @@ namespace Hp2BaseMod.GameDataInfo
         }
 
         public PairStyleInfo GetStyles() => Styles;
+
+        public override void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            Id = getNewId(Id) ?? Id;
+
+            foreach (var entry in FavQuestions.OrEmptyIfNull())
+            {
+                entry?.ReplaceRelativeIds(getNewId);
+            }
+
+            GirlDefinitionOneID = getNewId(GirlDefinitionOneID);
+            GirlDefinitionTwoID = getNewId(GirlDefinitionTwoID);
+            PhotoDefinitionID = getNewId(PhotoDefinitionID);
+            MeetingLocationDefinitionID = getNewId(MeetingLocationDefinitionID);
+            SexLocationDefinitionID = getNewId(SexLocationDefinitionID);
+            IntroRelationshipCutsceneDefinitionID = getNewId(IntroRelationshipCutsceneDefinitionID);
+            AttractRelationshipCutsceneDefinitionID = getNewId(AttractRelationshipCutsceneDefinitionID);
+            PreSexRelationshipCutsceneDefinitionID = getNewId(PreSexRelationshipCutsceneDefinitionID);
+            PostSexRelationshipCutsceneDefinitionID = getNewId(PostSexRelationshipCutsceneDefinitionID);
+        }
     }
 }

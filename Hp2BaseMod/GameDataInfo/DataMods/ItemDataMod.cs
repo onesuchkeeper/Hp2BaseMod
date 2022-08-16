@@ -3,6 +3,7 @@
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
+using System;
 using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
@@ -199,6 +200,18 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.costDescription, CostDescription, InsertStyle);
             ValidatedSet.SetValue(ref def.itemSprite, ItemSpriteInfo, InsertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetValue(ref def.categoryDescription, CategoryDescription, InsertStyle);
+        }
+
+        /// <inheritdoc/>
+        public override void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            Id = getNewId(Id) ?? Id;
+
+            CutsceneDefinitionID = getNewId(CutsceneDefinitionID);
+            AilmentDefinitionID = getNewId(AilmentDefinitionID);
+            EnergyDefinitionID = getNewId(EnergyDefinitionID);
+            GirlDefinitionID = getNewId(GirlDefinitionID);
+            AbilityDefinitionID = getNewId(AbilityDefinitionID);
         }
     }
 }

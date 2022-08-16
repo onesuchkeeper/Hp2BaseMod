@@ -106,9 +106,20 @@ namespace Hp2BaseMod.EnumExpansion
 
 						if (currentGirlPair == Game.Session.Puzzle.bossGirlPairDefinition)
 						{
-							allBySpecial.RemoveRange(8, allBySpecial.Count - 9);
+							// there needs to be n pairs of girls, then the nymphojinn. If there are no girls,
+							//just the nymphojinn are added and it'll go right to the bonus round. 
+							//having an odd ammount of girls will screw with the pairs so an even count must be enforced.
+							// 4 pairs is normal, but having more or less for whatever reason wont break it
+							allBySpecial = allBySpecial.Take(8).ToList();
+
+							if (allBySpecial.Count % 2 == 1)
+                            {
+								allBySpecial.RemoveAt(0);
+                            }
+
 							allBySpecial.Add(currentGirlPair.girlDefinitionOne);
 							allBySpecial.Add(currentGirlPair.girlDefinitionTwo);
+
 							Game.Session.Puzzle.puzzleStatus.Reset(allBySpecial, false);
 						}
 						else
@@ -125,18 +136,18 @@ namespace Hp2BaseMod.EnumExpansion
 					Game.Session.Puzzle.puzzleStatus.Clear();
 					break;
 			}
-			//locationManager.ResetDolls(currentGirlPair == Game.Session.Puzzle.bossGirlPairDefinition);
+
 			if (currentGirlPair == Game.Session.Puzzle.bossGirlPairDefinition)
-            {
+			{
 				Game.Session.gameCanvas.dollLeft.UnloadGirl();
 				Game.Session.gameCanvas.dollRight.UnloadGirl();
 				Game.Session.gameCanvas.dollMiddle.UnloadGirl();
 			}
-            else
-            {
+			else
+			{
 				ResetDolls(locationManager);
 			}
-			
+
 			Game.Session.Hub.PrepHub();
 			Game.Session.gameCanvas.header.rectTransform.anchoredPosition = new Vector2((!Game.Session.Location.AtLocationType(new LocationType[] { LocationType.HUB }))
 				? Game.Session.gameCanvas.header.xValues.x
@@ -146,11 +157,7 @@ namespace Hp2BaseMod.EnumExpansion
 				: Game.Session.gameCanvas.cellphone.xValues.y, Game.Session.gameCanvas.cellphone.rectTransform.anchoredPosition.y);
 			Game.Session.gameCanvas.header.Refresh(true);
 			Game.Session.gameCanvas.cellphone.Refresh(true);
-			//this event has no subscribers...
-			//if (locationManager.ArriveEvent != null)
-			//{
-			//	locationManager.ArriveEvent();
-			//}
+
 			var accessArrivalCutscene = AccessTools.Field(typeof(LocationManager), "_arrivalCutscene");
 
 			accessArrivalCutscene.SetValue(locationManager, null);

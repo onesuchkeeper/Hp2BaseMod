@@ -117,9 +117,9 @@ namespace Hp2BaseMod.Save
             // current pair
             //ModInterface.Log.LogLine($"pair");
             var currentPairId = ModInterface.Data.GetDataId(GameDataType.GirlPair, saveFile.girlPairId);
-            if (currentPairId.LocalId != -1)
+            if (currentPairId.SourceId != -1)
             {
-                var mod = ModInterface.Mods.FirstOrDefault(x => x.Id == currentPairId.SourceId);
+                var mod = ModInterface.FindMod(currentPairId.SourceId);
 
                 if (mod == null)
                 {
@@ -200,7 +200,7 @@ namespace Hp2BaseMod.Save
                     }
                     else
                     {
-                        var mod = ModInterface.Mods.FirstOrDefault(x => x.Id == girlPairId.SourceId);
+                        var mod = ModInterface.FindMod(girlPairId.SourceId);
 
                         if (mod == null)
                         {
@@ -356,8 +356,6 @@ namespace Hp2BaseMod.Save
                             var modData = GetModDataOrAddNew(mod.SourceId);
 
                             var pairId = ModInterface.Data.GetDataId(GameDataType.GirlPair, slot.girlPairId);
-
-                            ModInterface.Log.LogLine($"Saving slot for modded location {locationId} which has pair {pairId}");
 
                             // default pair
                             if (pairId.SourceId == -1)
@@ -614,6 +612,12 @@ namespace Hp2BaseMod.Save
             if (saveFile.locationId == _hotelRoomLocationID)
             {
                 saveFile.girlPairId = -1;
+            }
+
+            // if no pair, go to the hub
+            if (saveFile.girlPairId == 0 || saveFile.girlPairId == -1)
+            {
+                saveFile.locationId = _hotelRoomLocationID;
             }
         }
     }

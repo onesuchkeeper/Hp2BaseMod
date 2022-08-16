@@ -1,6 +1,6 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
-using Hp2BaseMod.EnumExpansion;
+using Hp2BaseMod.Extension.IEnumerableExtension;
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
@@ -112,5 +112,28 @@ namespace Hp2BaseMod.GameDataInfo
         }
 
         public IEnumerable<(RelativeId, GirlStyleInfo)> GetStyles() => GirlStyles;
+
+        /// <inheritdoc/>
+        public override void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            Id = getNewId(Id) ?? Id;
+
+            GirlStyles = GirlStyles?.Select(x => (getNewId(x.Item1) ?? x.Item1, x.Item2)).ToList();
+
+            foreach (var entry in GirlStyles.OrEmptyIfNull())
+            {
+                entry.Item2.ReplaceRelativeIds(getNewId);
+            }
+
+            foreach (var entry in ArriveBundleList.OrEmptyIfNull())
+            {
+                entry?.ReplaceRelativeIds(getNewId);
+            }
+
+            foreach (var entry in DepartBundleList.OrEmptyIfNull())
+            {
+                entry?.ReplaceRelativeIds(getNewId);
+            }
+        }
     }
 }

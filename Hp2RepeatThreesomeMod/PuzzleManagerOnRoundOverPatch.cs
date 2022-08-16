@@ -164,6 +164,7 @@ namespace Hp2RepeatThreesomeMod
                 case PuzzleStatusType.BOSS:
                     if (puzzleGridValue.roundState == PuzzleRoundState.SUCCESS)
                     {
+                        ModInterface.Log.LogLine("Boss round success");
                         if (puzzleStatusValue.bonusRound)
                         {
                             roundOverCutscene.SetValue(__instance, __instance.cutsceneSuccessBonus);
@@ -182,12 +183,14 @@ namespace Hp2RepeatThreesomeMod
                         }
                         else if (puzzleStatusValue.girlListCount <= 2)
                         {
+                            ModInterface.Log.LogLine("2 girls left");
                             roundOverCutscene.SetValue(__instance, __instance.cutsceneSuccessBoss);
                             newRoundCutscene.SetValue(__instance, __instance.cutsceneNewroundBossBonus);
                             flag = false;
                         }
                         else
                         {
+                            ModInterface.Log.LogLine("more than 2 girls left");
                             roundOverCutscene.SetValue(__instance, __instance.cutsceneSuccessBoss);
                             newRoundCutscene.SetValue(__instance, __instance.cutsceneNewroundBoss);
                             flag = false;
@@ -196,6 +199,7 @@ namespace Hp2RepeatThreesomeMod
                     else if (Game.Persistence.playerFile.storyProgress < 12
                              && Game.Persistence.playerFile.GetFlagValue("nymphojinn_failure") < 0)
                     {
+                        ModInterface.Log.LogLine("Boss round failed");
                         Game.Persistence.playerFile.SetFlagValue("nymphojinn_failure", 0);
                     }
                     break;

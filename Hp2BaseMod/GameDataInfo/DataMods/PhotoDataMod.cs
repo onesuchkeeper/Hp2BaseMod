@@ -3,8 +3,7 @@
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
-using System.Collections.Generic;
-using System.Linq;
+using System;
 using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
@@ -108,6 +107,15 @@ namespace Hp2BaseMod.GameDataInfo
 
             ValidatedSet.SetListValue(ref def.bigPhotoImages, new[] { BigPhotoCensored, BigPhotoUncensored, BigPhotoWet }, InsertStyle, gameDataProvider, assetProvider);
             ValidatedSet.SetListValue(ref def.thumbnailImages, new[] { ThumbnailCensored, ThumbnailUncensored, ThumbnailWet }, InsertStyle, gameDataProvider, assetProvider);
+        }
+
+        /// <inheritdoc/>
+        public override void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            Id = getNewId(Id) ?? Id;
+
+            GirlPairDefinitionID = getNewId(GirlPairDefinitionID);
+            AltCodeDefinitionID = getNewId(AltCodeDefinitionID);
         }
     }
 }

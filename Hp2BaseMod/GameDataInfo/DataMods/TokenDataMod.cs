@@ -3,6 +3,7 @@
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
+using System;
 using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
@@ -103,8 +104,8 @@ namespace Hp2BaseMod.GameDataInfo
 			EnergyDefinitionID = new RelativeId(def.energyDefinition);
 		}
 
-		/// <inheritdoc/>
-		public void SetData(TokenDefinition def, GameDefinitionProvider gameDataProvider, AssetProvider assetProvider)
+        /// <inheritdoc/>
+        public void SetData(TokenDefinition def, GameDefinitionProvider gameDataProvider, AssetProvider assetProvider)
 		{
 			ValidatedSet.SetValue(ref def.resourceType, ResourceType);
 			ValidatedSet.SetValue(ref def.affectionType, AffectionType);
@@ -125,5 +126,12 @@ namespace Hp2BaseMod.GameDataInfo
 			ValidatedSet.SetValue(ref def.altOverSprite, AltOverSpriteInfo, InsertStyle, gameDataProvider, assetProvider);
 			ValidatedSet.SetValue(ref def.sfxMatch, SfxMatchInfo, InsertStyle, gameDataProvider, assetProvider);
 		}
-    }
+
+		/// <inheritdoc/>
+		public override void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+		{
+			Id = getNewId(Id) ?? Id;
+			EnergyDefinitionID = getNewId(EnergyDefinitionID);
+		}
+	}
 }

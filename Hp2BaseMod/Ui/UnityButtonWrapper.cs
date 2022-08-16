@@ -19,6 +19,8 @@ namespace Hp2BaseMod.Ui
         public UnityButtonWrapper(string name)
         {
             _gameObject = new GameObject(name);
+            var rectTransform = _gameObject.AddComponent<RectTransform>();
+            var fsdf = _gameObject.AddComponent<CanvasRenderer>();
 
             var eventTrigger = _gameObject.AddComponent<EventTrigger>();
             eventTrigger.triggers.Add(MakeTriggerEntry(EventTriggerType.PointerDown,
@@ -64,7 +66,7 @@ namespace Hp2BaseMod.Ui
 
         public void SetLocalPostion(Vector2 pos) => _button.transform.localPosition = pos;
 
-        public void SetParent(Transform parent) => _button.transform.SetParent(parent);
+        public void SetParent(Transform parent) => _gameObject.transform.SetParent(parent);
 
         public void Destroy() => Object.Destroy(_gameObject);
     }

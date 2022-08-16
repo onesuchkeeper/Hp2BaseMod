@@ -12,7 +12,6 @@ namespace Hp2BaseMod.EnumExpansion
         public static bool Prefix(UiDoll __instance, int outfitIndex)
         {
             var girlDef = AccessTools.Field(typeof(UiDoll), "_girlDefinition").GetValue(__instance) as GirlDefinition;
-            //ModInterface.Log.LogLine($"Change outfit {girlDef.girlName} {outfitIndex}");
 
             if (girlDef == null) { return false; }
 
@@ -34,7 +33,7 @@ namespace Hp2BaseMod.EnumExpansion
                     && expandedOutfit.IsNSFW)
                 {
                     // if already nsfw, change to default
-                    if (__instance.currentOutfitIndex != -1)
+                    if (__instance.currentOutfitIndex > -1)
                     {
                         var currentoutfit = girlDef.outfits[__instance.currentOutfitIndex];
                         if (currentoutfit is ExpandedOutfitDefinition currentExpandedOutfit

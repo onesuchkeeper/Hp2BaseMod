@@ -1,5 +1,6 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
+using Hp2BaseMod.Extension.IEnumerableExtension;
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
@@ -449,6 +450,81 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetListValue(ref def.baggageItemDefs, BaggageItemDefIDs?.Select(x => gameDataProvider.GetItem(x)), InsertStyle);
             ValidatedSet.SetListValue(ref def.uniqueItemDefs, UniqueItemDefIDs?.Select(x => gameDataProvider.GetItem(x)), InsertStyle);
             ValidatedSet.SetListValue(ref def.shoesItemDefs, ShoesItemDefIDs?.Select(x => gameDataProvider.GetItem(x)), InsertStyle);
+        }
+
+        /// <inheritdoc/>
+        public override void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            Id = getNewId(Id) ?? Id;
+
+            foreach (var entry in parts.OrEmptyIfNull())
+            {
+                entry?.ReplaceRelativeIds(getNewId);
+            }
+
+            foreach (var entry in hairstyles.OrEmptyIfNull())
+            {
+                entry?.ReplaceRelativeIds(getNewId);
+            }
+
+            foreach (var entry in outfits.OrEmptyIfNull())
+            {
+                entry?.ReplaceRelativeIds(getNewId);
+            }
+
+            linesByDialogTriggerId = linesByDialogTriggerId?.Select(x => (getNewId(x.Item1) ?? x.Item1, x.Item2)).ToList();
+            foreach (var entry in linesByDialogTriggerId.SelectMany(x => x.Item2))
+            {
+                entry?.ReplaceRelativeIds(getNewId);
+            }
+
+            GirlPairDefIDs = GirlPairDefIDs?.Select(x => getNewId(x)).ToList();
+
+            BaggageItemDefIDs = BaggageItemDefIDs?.Select(x => getNewId(x)).ToList();
+
+            UniqueItemDefIDs = UniqueItemDefIDs?.Select(x => getNewId(x)).ToList();
+
+            ShoesItemDefIDs = ShoesItemDefIDs?.Select(x => getNewId(x)).ToList();
+
+            AltStylesCodeDefinitionID = getNewId(AltStylesCodeDefinitionID);
+
+            UnlockStyleCodeDefinitionID = getNewId(UnlockStyleCodeDefinitionID);
+
+            PartIdBody = getNewId(PartIdBody);
+
+            PartIdNipples = getNewId(PartIdNipples);
+
+            PartIdBlushLight = getNewId(PartIdBlushLight);
+
+            PartIdBlushHeavy = getNewId(PartIdBlushHeavy);
+
+            PartIdBlink = getNewId(PartIdBlink);
+
+            PartIdMouthNeutral = getNewId(PartIdMouthNeutral);
+
+            DefaultHairstyleId = getNewId(DefaultHairstyleId);
+
+            DefaultOutfitId = getNewId(DefaultOutfitId);
+
+            Phonemes_aeil = getNewId(Phonemes_aeil);
+
+            Phonemes_neutral = getNewId(Phonemes_neutral);
+
+            Phonemes_oquw = getNewId(Phonemes_oquw);
+
+            Phonemes_fv = getNewId(Phonemes_fv);
+
+            Phonemes_other = getNewId(Phonemes_other);
+
+            PhonemesTeeth_aeil = getNewId(PhonemesTeeth_aeil);
+
+            PhonemesTeeth_neutral = getNewId(PhonemesTeeth_neutral);
+
+            PhonemesTeeth_oquw = getNewId(PhonemesTeeth_oquw);
+
+            PhonemesTeeth_fv = getNewId(PhonemesTeeth_fv);
+
+            PhonemesTeeth_other = getNewId(PhonemesTeeth_other);
         }
 
         public IEnumerable<IGirlSubDataMod<ExpandedOutfitDefinition>> GetOutfits() => outfits;

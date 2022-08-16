@@ -289,27 +289,27 @@ namespace Hp2BaseMod.ModLoader
                 // make sure dependencies are loaded
                 if (config.Dependencies != null)
                 {
-                    foreach (var sourceId in config.Dependencies)
+                    foreach (var dependancy in config.Dependencies)
                     {
-                        var dependentConfig = _modConfigs.FirstOrDefault(x => x.Identifier.Name == sourceId.Name);
+                        var dependentConfig = _modConfigs.FirstOrDefault(x => x.Identifier.Name == dependancy.SourceIdentifier.Name);
 
                         if (dependentConfig == null)
                         {
-                            ModInterface.Log.LogError($"dependency {sourceId} is missing");
+                            ModInterface.Log.LogError($"dependency {dependancy} is missing");
                             return false;
                         }
 
-                        var minVersion = sourceId.Version.ToVersion();
+                        var minVersion = dependancy.SourceIdentifier.Version.ToVersion();
 
                         if (dependentConfig.Identifier.Version.ToVersion() < minVersion)
                         {
-                            ModInterface.Log.LogError($"dependency {sourceId} does not meet minimum version {minVersion}, please update");
+                            ModInterface.Log.LogError($"dependency {dependancy} does not meet minimum version {minVersion}, please update");
                             return false;
                         }
 
                         if (!TryLoadMod(dependentConfig))
                         {
-                            ModInterface.Log.LogError($"dependency {sourceId} failed to load");
+                            ModInterface.Log.LogError($"dependency {dependancy} failed to load");
                             return false;
                         }
                     }

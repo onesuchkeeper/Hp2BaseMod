@@ -28,14 +28,15 @@ namespace Hp2BaseMod.EnumExpansion
                 {
                     __result = null;
                 }
-                return true;
+
+                return false;
             }
             catch (Exception e)
             {
                 ModInterface.Log.LogError($"Getting line sets for girl {girlDef.id} - {girlDef.name} {e}");
             }
 
-            return false;
+            return true;
         }
     }
 }

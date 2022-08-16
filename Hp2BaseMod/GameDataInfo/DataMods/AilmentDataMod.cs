@@ -3,6 +3,7 @@
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UiSon.Attribute;
@@ -64,7 +65,6 @@ namespace Hp2BaseMod.GameDataInfo
         /// </summary>
         /// <param name="id"></param>
         /// <param name="insertStyle">The way in which mod data should be applied to the data instance.</param>
-
         public AilmentDataMod(RelativeId id, InsertStyle insertStyle, int loadPriority = 0)
             : base(id, insertStyle, loadPriority)
         {
@@ -123,6 +123,21 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.enableStringVal, EnableStringVal, InsertStyle);
             ValidatedSet.SetListValue(ref def.hints, Hints, InsertStyle);
             ValidatedSet.SetListValue(ref def.triggers, Triggers, InsertStyle, gameDataProvider, assetProvider);
+        }
+
+        /// <inheritdoc/>
+        public override void ReplaceRelativeIds(Func<RelativeId?, RelativeId?> getNewId)
+        {
+            Id = getNewId(Id) ?? Id;
+            ItemDefinitionID = getNewId(ItemDefinitionID);
+            EnableAbilityDefID = getNewId(EnableAbilityDefID);
+            EnableTokenDefID = getNewId(EnableTokenDefID);
+            DisableAbilityDefID = getNewId(DisableAbilityDefID);
+
+            foreach (var trigger in Triggers)
+            {
+                trigger?.ReplaceRelativeIds(getNewId);
+            }
         }
     }
 }

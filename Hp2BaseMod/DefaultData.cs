@@ -1,5 +1,5 @@
 // Hp2BaseMod 2022, by OneSuchKeeper
-// This file was auto-generated on 8/2/2022 1:41:11 AM. Changes made manually may be overridden.
+// This file was auto-generated on 8/2/2022 7:53:09 PM. Changes made manually may be overridden.
 
 using System;
 using System.Collections.Generic;
