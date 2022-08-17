@@ -25,7 +25,7 @@ namespace Hp2BaseMod.Save
 
             public List<int> MetGirlPairs;
             public List<int> CompletedGirlPairs;
-        }   
+        }
 
         private const string _wardrobeGirlIdFlagName = "wardrobe_girl_id";
         private const int _hotelRoomLocationID = 21;
@@ -92,7 +92,7 @@ namespace Hp2BaseMod.Save
                     FileIconGirlId = new SavedSourceId(mod.SourceId, iconGirlId.LocalId);
                 }
 
-                saveFile.fileIconGirlId = _lolaGirlID; 
+                saveFile.fileIconGirlId = _lolaGirlID;
             }
 
             // current location

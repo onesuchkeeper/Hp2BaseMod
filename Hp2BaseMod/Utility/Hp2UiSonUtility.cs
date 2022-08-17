@@ -49,7 +49,7 @@ namespace Hp2BaseMod.Utility
 
         private static readonly List<KeyValuePair<string, IEnumerable<int?>>> _staticEnumerableArrays = new List<KeyValuePair<string, IEnumerable<int?>>>()
         {
-            new KeyValuePair<string, IEnumerable<int?>>("EaseTypeIds", new List<int?> 
+            new KeyValuePair<string, IEnumerable<int?>>("EaseTypeIds", new List<int?>
             { null, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37 })
         };
 
@@ -130,7 +130,7 @@ namespace Hp2BaseMod.Utility
         };
 
         private static readonly List<KeyValuePair<string, Func<GameData, IEnumerable<string>>>> _gameDataNameArrays = new List<KeyValuePair<string, Func<GameData, IEnumerable<string>>>>()
-        { 
+        {
             new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultAbilityNames", (gameData) => _nullListStr.Concat(gameData.Abilities.GetAll().Select(x => x.name))),
 
             new KeyValuePair<string, Func<GameData, IEnumerable<string>>>("DefaultAilmentNames", (gameData) => _nullListStr.Concat(gameData.Ailments.GetAll().Select(x => x.name))),
@@ -218,7 +218,7 @@ namespace Hp2BaseMod.Utility
         private static string MakeRelativeIdArrayAttribute(string name, IEnumerable<string> entries, string formatString = "{0}")
             => $"[UiSonArray(\"{name}\", new object [] {{{ToCsv(entries, formatString)}}}, typeof(RelativeId?))]";
 
-        private static string ToCsv(IEnumerable<string> items, string formatString = "{0}") => string.Join(",", items.Select(x => string.Format(formatString,x ?? "null")));
+        private static string ToCsv(IEnumerable<string> items, string formatString = "{0}") => string.Join(",", items.Select(x => string.Format(formatString, x ?? "null")));
 
         internal static void MakeDefaultDataDotCs(GameData gameData)
         {
@@ -232,14 +232,14 @@ namespace Hp2BaseMod.Utility
                 file.WriteLine($"// This file was auto-generated on {DateTime.Now}. Changes made manually may be overridden.");
 
                 file.WriteLine(string.Empty);
-                
+
                 file.WriteLine(@"using System;");
                 file.WriteLine(@"using System.Collections.Generic;");
                 file.WriteLine(@"using System.Linq;");
                 file.WriteLine(@"using UiSon.Attribute;");
                 file.WriteLine(@"using Hp2BaseMod.GameDataInfo;");
                 file.WriteLine(@"using Hp2BaseMod.Utility;");
-                
+
                 file.WriteLine(string.Empty);
 
                 file.WriteLine(@"namespace Hp2BaseMod{");
@@ -279,58 +279,58 @@ namespace Hp2BaseMod.Utility
                     file.WriteLine("    " + MakeRelativeIdArrayAttribute(entry.Key, entry.Value.Invoke(gameData)?.Select(x => $"\"{JsonConvert.SerializeObject(x).Replace("\"", "\\\"")}\"")));
                 }
                 ModInterface.Log.LogLine("Class");
-                        file.WriteLine(@"   public class DefaultData{");
-                        foreach (var entry in _staticStringArrays)
-                        {
-                            file.WriteLine($"       internal const string {entry.Key}_Name = \"{entry.Key}\";");
-                            file.WriteLine($"       public static readonly IEnumerable<string> {entry.Key} = new string[] {{{ToCsv(entry.Value.Skip(1), _addQoutesFormat)}}};");
-                        }
-                        foreach (var entry in _staticIdArrays)
-                        {
-                            file.WriteLine($"       internal const string {entry.Key}_Name = \"{entry.Key}\";");
-                            file.WriteLine($"       public static readonly IEnumerable<{nameof(RelativeId)}> {entry.Key} = new {nameof(RelativeId)}[] {{{ToCsv(entry.Value.Skip(1).Select(x => $"new {nameof(RelativeId)}({x.Value.SourceId}, {x.Value.LocalId})"))}}};");
-                        }
-                        foreach (var entry in _staticEnumerableArrays)
-                        {
-                            file.WriteLine($"       internal const string {entry.Key}_Name = \"{entry.Key}\";");
-                            file.WriteLine($"       public static readonly IEnumerable<int> {entry.Key} = new int[] {{{ToCsv(entry.Value.Skip(1).Select(x => x.ToString()))}}};");
-                        }
+                file.WriteLine(@"   public class DefaultData{");
+                foreach (var entry in _staticStringArrays)
+                {
+                    file.WriteLine($"       internal const string {entry.Key}_Name = \"{entry.Key}\";");
+                    file.WriteLine($"       public static readonly IEnumerable<string> {entry.Key} = new string[] {{{ToCsv(entry.Value.Skip(1), _addQoutesFormat)}}};");
+                }
+                foreach (var entry in _staticIdArrays)
+                {
+                    file.WriteLine($"       internal const string {entry.Key}_Name = \"{entry.Key}\";");
+                    file.WriteLine($"       public static readonly IEnumerable<{nameof(RelativeId)}> {entry.Key} = new {nameof(RelativeId)}[] {{{ToCsv(entry.Value.Skip(1).Select(x => $"new {nameof(RelativeId)}({x.Value.SourceId}, {x.Value.LocalId})"))}}};");
+                }
+                foreach (var entry in _staticEnumerableArrays)
+                {
+                    file.WriteLine($"       internal const string {entry.Key}_Name = \"{entry.Key}\";");
+                    file.WriteLine($"       public static readonly IEnumerable<int> {entry.Key} = new int[] {{{ToCsv(entry.Value.Skip(1).Select(x => x.ToString()))}}};");
+                }
 
-                        file.WriteLine(string.Empty);
+                file.WriteLine(string.Empty);
 
-                        foreach (var entry in _enumArrays)
-                        {
-                            var name = MakeEnumName(entry);
-                            file.WriteLine($"       internal const string {name} = \"{name}\";");
-                        }
+                foreach (var entry in _enumArrays)
+                {
+                    var name = MakeEnumName(entry);
+                    file.WriteLine($"       internal const string {name} = \"{name}\";");
+                }
 
-                        file.WriteLine(string.Empty);
+                file.WriteLine(string.Empty);
 
-                        foreach (var entry in _gameDataNameArrays)
-                        {
-                            file.WriteLine($"       internal const string {entry.Key}_Name = \"{entry.Key}\";");
-                            file.WriteLine($"       public static readonly IEnumerable<string> {entry.Key} = new string[] {{{ToCsv(entry.Value.Invoke(gameData).Skip(1), _addQoutesFormat)}}};");
-                        }
+                foreach (var entry in _gameDataNameArrays)
+                {
+                    file.WriteLine($"       internal const string {entry.Key}_Name = \"{entry.Key}\";");
+                    file.WriteLine($"       public static readonly IEnumerable<string> {entry.Key} = new string[] {{{ToCsv(entry.Value.Invoke(gameData).Skip(1), _addQoutesFormat)}}};");
+                }
 
-                        file.WriteLine(string.Empty);
+                file.WriteLine(string.Empty);
 
-                        foreach (var entry in _gameDataIdArrays)
-                        {
-                            file.WriteLine($"       internal const string {entry.Key}_Name = \"{entry.Key}\";");
+                foreach (var entry in _gameDataIdArrays)
+                {
+                    file.WriteLine($"       internal const string {entry.Key}_Name = \"{entry.Key}\";");
 
-                            var ids = entry.Value.Invoke(gameData);
+                    var ids = entry.Value.Invoke(gameData);
 
-                            file.WriteLine($"       public static readonly IEnumerable<{nameof(RelativeId)}> {entry.Key} = new {nameof(RelativeId)}[] {{{ToCsv(ids.Skip(1).Select(x => $"new {nameof(RelativeId)}({x.Value.SourceId}, {x.Value.LocalId})"))}}};");
+                    file.WriteLine($"       public static readonly IEnumerable<{nameof(RelativeId)}> {entry.Key} = new {nameof(RelativeId)}[] {{{ToCsv(ids.Skip(1).Select(x => $"new {nameof(RelativeId)}({x.Value.SourceId}, {x.Value.LocalId})"))}}};");
 
-                            file.WriteLine($"       private static {nameof(IntSetChecker)} _{entry.Key}_Checker = new {nameof(IntSetChecker)}({entry.Key}.Select(x => x.LocalId));");
+                    file.WriteLine($"       private static {nameof(IntSetChecker)} _{entry.Key}_Checker = new {nameof(IntSetChecker)}({entry.Key}.Select(x => x.LocalId));");
 
-                            var sansIds = entry.Key.Substring(0, entry.Key.Length - 3);
+                    var sansIds = entry.Key.Substring(0, entry.Key.Length - 3);
 
-                            file.WriteLine($"       public static bool Is{sansIds}(int runtimeId) => _{entry.Key}_Checker.Contains(runtimeId);");
-                            file.WriteLine($"       public static int {sansIds}_Count => {ids.Count() - 1};");
-                        }
+                    file.WriteLine($"       public static bool Is{sansIds}(int runtimeId) => _{entry.Key}_Checker.Contains(runtimeId);");
+                    file.WriteLine($"       public static int {sansIds}_Count => {ids.Count() - 1};");
+                }
 
-                        file.WriteLine(string.Empty);
+                file.WriteLine(string.Empty);
 
                 file.WriteLine(@"   }");
                 file.WriteLine(@"}");

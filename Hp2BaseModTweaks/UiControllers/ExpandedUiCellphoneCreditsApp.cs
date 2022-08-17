@@ -20,7 +20,7 @@ namespace Hp2BaseModTweaks.CellphoneApps
         public RectTransform ContributorsPanel_RectTransform;
 
         private int _creditsIndex;
-        
+
         private List<Hp2ButtonWrapper> _contributors = new List<Hp2ButtonWrapper>();
 
         public ExpandedUiCellphoneCreditsApp(UiCellphoneAppCredits creditsApp)
@@ -31,7 +31,7 @@ namespace Hp2BaseModTweaks.CellphoneApps
                 backgroundImage.sprite = TextureUtility.SpriteFromPath(_creditsBackgroundPath);
                 ModInterface.Log.LogLine(backgroundImage.rectTransform.anchoredPosition.ToString());
                 backgroundImage.SetNativeSize();
-                backgroundImage.rectTransform.anchoredPosition = new Vector2(16,-18);
+                backgroundImage.rectTransform.anchoredPosition = new Vector2(16, -18);
             }
             else
             {
@@ -55,8 +55,9 @@ namespace Hp2BaseModTweaks.CellphoneApps
                                                                                  AssetHolder.Instance.Sprites["ui_app_setting_arrow_left_over"],
                                                                                  cellphoneButtonPressedKlip);
             ModCycleLeft.GameObject.transform.SetParent(creditsApp.transform, false);
-            ModCycleLeft.RectTransform.anchoredPosition = new Vector2(528-134, -60);
-            ModCycleLeft.ButtonBehavior.ButtonPressedEvent += (x) => {
+            ModCycleLeft.RectTransform.anchoredPosition = new Vector2(528 - 134, -60);
+            ModCycleLeft.ButtonBehavior.ButtonPressedEvent += (x) =>
+            {
                 _creditsIndex--;
                 PostRefresh();
             };
@@ -67,7 +68,8 @@ namespace Hp2BaseModTweaks.CellphoneApps
                                                                                   cellphoneButtonPressedKlip);
             ModCycleRight.GameObject.transform.SetParent(creditsApp.transform, false);
             ModCycleRight.RectTransform.anchoredPosition = new Vector2(528 + 134, -60);
-            ModCycleRight.ButtonBehavior.ButtonPressedEvent += (x) => {
+            ModCycleRight.ButtonBehavior.ButtonPressedEvent += (x) =>
+            {
                 _creditsIndex++;
                 PostRefresh();
             };
@@ -113,8 +115,8 @@ namespace Hp2BaseModTweaks.CellphoneApps
             //noop
         }
 
-		public void PostRefresh()
-		{
+        public void PostRefresh()
+        {
             if (_creditsIndex <= 0)
             {
                 _creditsIndex = 0;

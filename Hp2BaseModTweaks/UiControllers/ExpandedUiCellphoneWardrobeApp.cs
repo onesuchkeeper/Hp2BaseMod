@@ -12,7 +12,6 @@ namespace Hp2BaseModTweaks.CellphoneApps
     internal class ExpandedUiCellphoneWardrobeApp : IUiController
     {
         private static readonly FieldInfo _uiCellphoneWardrobeApp_selectedFileIconSlot = AccessTools.Field(typeof(UiCellphoneAppWardrobe), "_selectedFileIconSlot");
-        private static readonly MethodInfo _uiAppStyleSelectList_Refresh = AccessTools.Method(typeof(UiAppStyleSelectList), "Refresh");
         private static readonly int _girlsPerPage = 12;
         public static readonly int _warbrobeStylesPerPage = 10;
 
@@ -23,8 +22,10 @@ namespace Hp2BaseModTweaks.CellphoneApps
 
         private readonly UiCellphoneAppWardrobe _wardrobeApp;
         private readonly int _girlsPageMax;
-        private readonly PlayerFileGirl[] _metGirls; 
+        private readonly PlayerFileGirl[] _metGirls;
         private readonly UiAppFileIconSlot _dummyFileIconSlot;
+        private readonly RectTransform _hairPanel;
+        private readonly RectTransform _outfitPanel;
 
 
         public ExpandedUiCellphoneWardrobeApp(UiCellphoneAppWardrobe wardrobeApp)
@@ -50,7 +51,8 @@ namespace Hp2BaseModTweaks.CellphoneApps
 
                 _girlsLeft.GameObject.transform.SetParent(_wardrobeApp.transform, false);
                 _girlsLeft.RectTransform.anchoredPosition = new Vector2(30, -30);
-                _girlsLeft.ButtonBehavior.ButtonPressedEvent += (e) => {
+                _girlsLeft.ButtonBehavior.ButtonPressedEvent += (e) =>
+                {
                     _girlsPage--;
                     PostRefresh();
                 };
@@ -62,22 +64,44 @@ namespace Hp2BaseModTweaks.CellphoneApps
 
                 _girlsRight.GameObject.transform.SetParent(_wardrobeApp.transform, false);
                 _girlsRight.RectTransform.anchoredPosition = new Vector2(356, -30);
-                _girlsRight.ButtonBehavior.ButtonPressedEvent += (e) => {
+                _girlsRight.ButtonBehavior.ButtonPressedEvent += (e) =>
+                {
                     _girlsPage++;
                     PostRefresh();
                 };
 
                 _dummyFileIconSlot = new UiAppFileIconSlot() { button = new ButtonBehavior() };
+
+                //shift other stuff down a bit for the buttons to better fit
+                _wardrobeApp.transform.Find("FileIconSlotsContainer").GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, 32);
+                _wardrobeApp.transform.Find("WearOnDatesCheckBox").GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, 16);
+
+                //go to correct page
+                var wardrobeGirlId = Game.Persistence.playerFile.GetFlagValue("wardrobe_girl_id");
+                var index = 0;
+
+                foreach (var girl in _metGirls)
+                {
+                    if (girl.girlDefinition.id == wardrobeGirlId)
+                    {
+                        break;
+                    }
+
+                    index++;
+                }
+
+                _girlsPage = index / _girlsPerPage;
             }
 
             //outfits scroll
-            ExpandList(_wardrobeApp.selectListHairstyle);
-            ExpandList(_wardrobeApp.selectListOutfit);
+            ExpandList(_wardrobeApp.selectListHairstyle, out _hairPanel);
+            ExpandList(_wardrobeApp.selectListOutfit, out _outfitPanel);
 
+            PreRefresh();
             PostRefresh();
         }
 
-        public void ExpandList(UiAppStyleSelectList list)
+        public void ExpandList(UiAppStyleSelectList list, out RectTransform panel_RectTransform)
         {
             //scroll
             var scroll_GO = new GameObject($"{list.name}Scroll");
@@ -95,37 +119,38 @@ namespace Hp2BaseModTweaks.CellphoneApps
             scroll_Mask.showMaskGraphic = false;
 
             // panel
-            //var questionPanelHeight = 28 + (27 * _questions.Length);
+            var panel_GO = new GameObject($"{list.name}Panel");
+            panel_GO.transform.SetParent(scroll_GO.transform, false);
 
-            //var favAnswersPanel_GO = new GameObject("FavoritesPanel");
-            //favAnswersPanel_GO.transform.SetParent(favoritesScroll_GO.transform, false);
-
-            //var favoritesPanel_RectTransform = favAnswersPanel_GO.AddComponent<RectTransform>();
-            //favoritesPanel_RectTransform.anchorMin = new Vector2(0.5f, 1);
-            //favoritesPanel_RectTransform.anchorMax = new Vector2(0.5f, 1);
-            //favoritesPanel_RectTransform.pivot = new Vector2(0.5f, 1);
-            //favoritesPanel_RectTransform.anchoredPosition = new Vector2(0, 0);
-            //favoritesPanel_RectTransform.sizeDelta = new Vector2(383, questionPanelHeight);
+            panel_RectTransform = panel_GO.AddComponent<RectTransform>();
+            panel_RectTransform.anchorMin = new Vector2(0.5f, 1);
+            panel_RectTransform.anchorMax = new Vector2(0.5f, 1);
+            panel_RectTransform.pivot = new Vector2(0.5f, 1);
+            panel_RectTransform.anchoredPosition = Vector2.zero;
 
             //container
             var itemContainer = list.transform.Find("ListItemContainer");
-            itemContainer.transform.SetParent(scroll_GO.transform, true);
+            itemContainer.transform.SetParent(panel_GO.transform, true);
             var itemContainer_RectTransform = itemContainer.GetComponent<RectTransform>();
             itemContainer_RectTransform.anchorMin = new Vector2(0.5f, 1);
             itemContainer_RectTransform.anchorMax = new Vector2(0.5f, 1);
             itemContainer_RectTransform.pivot = new Vector2(0.5f, 1);
+            itemContainer_RectTransform.anchoredPosition = new Vector2(-112, -20);
 
             //scrollrect
             var scroll_ScrollRect = scroll_GO.AddComponent<ScrollRect>();
             scroll_ScrollRect.scrollSensitivity = 24;
             scroll_ScrollRect.horizontal = false;
             scroll_ScrollRect.viewport = scroll_RectTransform;
-            scroll_ScrollRect.content = itemContainer_RectTransform;
+            scroll_ScrollRect.content = panel_RectTransform;
         }
 
         public void PreRefresh()
         {
-
+            var wardrobeGirlId = Game.Persistence.playerFile.GetFlagValue("wardrobe_girl_id");
+            var wardrobeGirlDef = Game.Data.Girls.Get(wardrobeGirlId);
+            RefreshSelectList(_wardrobeApp.selectListHairstyle, wardrobeGirlDef.hairstyles.Count, _hairPanel);
+            RefreshSelectList(_wardrobeApp.selectListOutfit, wardrobeGirlDef.outfits.Count, _outfitPanel);
         }
 
         public void PostRefresh()
@@ -135,7 +160,7 @@ namespace Hp2BaseModTweaks.CellphoneApps
             var iconIndex = _girlsPage * _girlsPerPage;
             int renderedCount = 0;
             var wardrobeGirlId = Game.Persistence.playerFile.GetFlagValue("wardrobe_girl_id");
-
+            ModInterface.Log.LogLine($"Refresh, page {_girlsPage}, index {iconIndex}");
             foreach (var slot in _wardrobeApp.fileIconSlots.Take(_girlsPerPage))
             {
                 if (iconIndex < _metGirls.Length)
@@ -145,7 +170,7 @@ namespace Hp2BaseModTweaks.CellphoneApps
                     slot.Populate(false);
                     slot.canvasGroup.blocksRaycasts = true;
                     slot.canvasGroup.alpha = 1f;
-                    slot.rectTransform.anchoredPosition = new Vector2((float)(renderedCount % 3) * 120f, (float)Mathf.FloorToInt((float)renderedCount / 3f) * -120f);
+                    //slot.rectTransform.anchoredPosition = new Vector2((float)(renderedCount % 3) * 120f, (float)Mathf.FloorToInt((float)renderedCount / 3f) * -120f);
 
                     if (slot.girlDefinition.id == wardrobeGirlId)
                     {
@@ -161,6 +186,7 @@ namespace Hp2BaseModTweaks.CellphoneApps
                 }
                 else
                 {
+                    //slot.girlDefinition = null;
                     slot.Populate(true);
                     slot.canvasGroup.blocksRaycasts = false;
                     slot.canvasGroup.alpha = 0f;
@@ -185,9 +211,6 @@ namespace Hp2BaseModTweaks.CellphoneApps
             {
                 _uiCellphoneWardrobeApp_selectedFileIconSlot.SetValue(_wardrobeApp, selectedFileIconSlot);
             }
-
-            RefreshSelectList(_wardrobeApp.selectListHairstyle, wardrobeGirlDef.hairstyles.Count);
-            RefreshSelectList(_wardrobeApp.selectListOutfit, wardrobeGirlDef.outfits.Count);
 
             //buttons
             if (_girlsPageMax > 0)
@@ -214,8 +237,10 @@ namespace Hp2BaseModTweaks.CellphoneApps
             }
         }
 
-        private void RefreshSelectList(UiAppStyleSelectList list, int itemTotal)
+        private void RefreshSelectList(UiAppStyleSelectList list, int itemTotal, RectTransform panelRectTransform)
         {
+            panelRectTransform.sizeDelta = new Vector2(383, 20 + (40 * itemTotal));
+
             var diff = itemTotal - list.listItems.Count;
 
             if (diff > 0)
@@ -228,6 +253,8 @@ namespace Hp2BaseModTweaks.CellphoneApps
                     var newItem = UnityEngine.Object.Instantiate(template);
                     newItem.rectTransform.SetParent(template.transform.parent, false);
 
+                    var test = newItem.GetComponent<RectTransform>();
+
                     list.listItems.Add(newItem);
                 }
 
@@ -238,8 +265,6 @@ namespace Hp2BaseModTweaks.CellphoneApps
                     var rectTransform = item.GetComponent<RectTransform>();
                     rectTransform.anchoredPosition = new Vector2(0, -40 * j++);
                 }
-
-                _uiAppStyleSelectList_Refresh.Invoke(list, Array.Empty<object>());
             }
         }
     }

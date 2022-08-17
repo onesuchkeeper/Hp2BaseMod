@@ -57,7 +57,7 @@ namespace Hp2BaseMod.GameDataInfo
                         var texture = TextureUtility.LoadFromPath(Path);
                         def = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
 
-                        ModInterface.Log.LogLine($"{(def == null ? "Failed to load" : "Loaded")} external {nameof(Sprite)} { Path ?? null}");
+                        ModInterface.Log.LogLine($"{(def == null ? "Failed to load" : "Loaded")} external {nameof(Sprite)} {Path ?? null}");
                     }
                     else
                     {

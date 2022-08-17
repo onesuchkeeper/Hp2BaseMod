@@ -52,7 +52,7 @@ namespace Hp2BaseMod.GameDataInfo
 
         public FileDataModsProvider(Hp2ModConfig config, int modId)
         {
-            var sourceIdLookups = new Dictionary<int, int>() { { -1, -1}, { -2, modId} };
+            var sourceIdLookups = new Dictionary<int, int>() { { -1, -1 }, { -2, modId } };
             foreach (var dependancy in config.Dependencies)
             {
                 sourceIdLookups.Add(dependancy.AssumedId, ModInterface.FindMod(dependancy.SourceIdentifier).Id);
@@ -126,7 +126,7 @@ namespace Hp2BaseMod.GameDataInfo
                 {
                     if (File.Exists(path))
                     {
-                        var deserialized = JsonConvert.DeserializeObject<T>(File.ReadAllText(path)) as T;
+                        var deserialized = JsonConvert.DeserializeObject<T>(File.ReadAllText(path));
 
                         if (deserialized == null)
                         {

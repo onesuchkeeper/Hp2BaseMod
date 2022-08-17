@@ -1,5 +1,4 @@
-﻿using Hp2BaseMod.Extension.StringExtension;
-using Hp2BaseMod.GameDataInfo;
+﻿using Hp2BaseMod.GameDataInfo;
 
 namespace Hp2BaseMod.Save
 {

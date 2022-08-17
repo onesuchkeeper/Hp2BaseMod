@@ -4,7 +4,6 @@ using Hp2BaseMod.GameDataInfo;
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Save;
-using Hp2BaseMod.Save.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;

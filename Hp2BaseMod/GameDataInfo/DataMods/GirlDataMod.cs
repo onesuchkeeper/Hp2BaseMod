@@ -22,7 +22,7 @@ namespace Hp2BaseMod.GameDataInfo
     [UiSonGroup("Style", 2)]
     [UiSonGroup("Cellphone Sprites", 1)]
     [UiSonGroup("Parts", 0)]
-    
+
     public class GirlDataMod : DataMod, IGirlDataMod
     {
         [UiSonEncapsulatingUi(-1, "Parts")]
@@ -349,8 +349,8 @@ namespace Hp2BaseMod.GameDataInfo
             }
 
             linesByDialogTriggerId = new List<(RelativeId, List<DialogLineDataMod>)>();
-            
-            foreach(var dialogTrigger in dts)
+
+            foreach (var dialogTrigger in dts)
             {
                 var dialogTirggerId = new RelativeId(dialogTrigger);
 
@@ -363,7 +363,7 @@ namespace Hp2BaseMod.GameDataInfo
                 }
 
                 i = 0;
-                foreach(var line in dialogTrigger.GetLineSetByGirl(def).dialogLines)
+                foreach (var line in dialogTrigger.GetLineSetByGirl(def).dialogLines)
                 {
                     lines.Item2.Add(new DialogLineDataMod(line, assetProvider, new RelativeId(-1, i)));
                     i++;
@@ -531,6 +531,6 @@ namespace Hp2BaseMod.GameDataInfo
         public IEnumerable<IGirlSubDataMod<ExpandedHairstyleDefinition>> GetHairstyles() => hairstyles;
         public IEnumerable<IGirlSubDataMod<GirlPartSubDefinition>> GetPartMods() => parts;
         public IEnumerable<Tuple<RelativeId, IEnumerable<IGirlSubDataMod<DialogLine>>>> GetLinesByDialogTriggerId() => (IEnumerable<Tuple<RelativeId, IEnumerable<IGirlSubDataMod<DialogLine>>>>)linesByDialogTriggerId;
-        
+
     }
 }

@@ -5,7 +5,6 @@ using Hp2BaseMod.GameDataInfo;
 using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.Utility;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Hp2DependentSampleMod
 {
@@ -34,7 +33,7 @@ namespace Hp2DependentSampleMod
         public void Start(int modId)
         {
             // get the id for the sample mod which this mod is dependant on.
-            var sampleModId = ModInterface.FindMod("Hp2SampleMod", new System.Version(1,0))?.Id;
+            var sampleModId = ModInterface.FindMod("Hp2SampleMod", new System.Version(1, 0))?.Id;
 
             // if our dependency is missing, we should not proceed and log the issue
             if (!sampleModId.HasValue)

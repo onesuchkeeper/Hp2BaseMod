@@ -49,7 +49,7 @@ namespace Hp2BaseModTweaks.CellphoneApps
             var pairsLine = activeContainer.Find("PairsLine");
             pairsLine.position -= new Vector3(0, 9);
             var pairsLine_RectTransform = pairsLine.GetComponent<RectTransform>();
-            pairsLine_RectTransform.sizeDelta -= new Vector2(80,0);
+            pairsLine_RectTransform.sizeDelta -= new Vector2(80, 0);
 
             var pairsContainer = activeContainer.Find("PairsContainer");
             pairsContainer.position -= new Vector3(0, 16);
@@ -61,7 +61,8 @@ namespace Hp2BaseModTweaks.CellphoneApps
 
             _previousPage.GameObject.transform.SetParent(activeContainer, false);
             _previousPage.RectTransform.anchoredPosition = new Vector2(188, -364);
-            _previousPage.ButtonBehavior.ButtonPressedEvent += (e) => {
+            _previousPage.ButtonBehavior.ButtonPressedEvent += (e) =>
+            {
                 _currentPage--;
                 PostRefresh();
             };
@@ -73,7 +74,8 @@ namespace Hp2BaseModTweaks.CellphoneApps
 
             _nextPage.GameObject.transform.SetParent(activeContainer, false);
             _nextPage.RectTransform.anchoredPosition = new Vector2(622, -364);
-            _nextPage.ButtonBehavior.ButtonPressedEvent += (e) => {
+            _nextPage.ButtonBehavior.ButtonPressedEvent += (e) =>
+            {
                 _currentPage++;
                 PostRefresh();
             };

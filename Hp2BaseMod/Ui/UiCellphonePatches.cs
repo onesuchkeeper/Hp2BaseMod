@@ -1,8 +1,5 @@
 ﻿using HarmonyLib;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 
 namespace Hp2BaseMod.Ui
 {
@@ -268,38 +265,6 @@ namespace Hp2BaseMod.Ui
             manager.LoadApp(__instance.continueAppIndex);
 
             return false;
-        }
-    }
-
-    //[HarmonyPatch(typeof(UiCellphoneAppWardrobe))]
-    public static class UiCellphoneAppWardrobePatch
-    {
-        [HarmonyPrefix]
-        [HarmonyPatch("OnFileIconSlotSelected")]
-        public static void PreFileIconSlotSelected(UiCellphoneAppWardrobe __instance, UiAppFileIconSlot fileIconSlot)
-        {
-            //CellphoneController.UiCellphoneAppWardrobe_PreFileIconSlotSelected(__instance, fileIconSlot);
-        }
-
-        [HarmonyPostfix]
-        [HarmonyPatch("OnFileIconSlotSelected")]
-        public static void PostFileIconSlotSelected(UiCellphoneAppWardrobe __instance, UiAppFileIconSlot fileIconSlot)
-        {
-            //CellphoneController.UiCellphoneAppWardrobe_PostFileIconSlotSelected(__instance, fileIconSlot);
-        }
-
-        [HarmonyPrefix]
-        [HarmonyPatch("Refresh")]
-        public static void Refresh(UiCellphoneAppWardrobe __instance)
-        {
-            //CellphoneController.UiCellphoneAppWardrobe_PostWardrobeRefresh(__instance);
-        }
-
-        [HarmonyPrefix]
-        [HarmonyPatch("OnListItemSelected")]
-        public static void OnListItemSelected(UiCellphoneAppWardrobe __instance, UiAppStyleSelectList selectList, bool unlocked)
-        {
-            //CellphoneController.UiCellphoneAppWardrobe_PreListItemSelected(selectList);
         }
     }
 }

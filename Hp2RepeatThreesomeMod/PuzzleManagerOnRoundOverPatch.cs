@@ -280,7 +280,7 @@ namespace Hp2RepeatThreesomeMod
                     rightFileGirl.UnlockOutfit(girlRightOutfitIndex);
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 ModInterface.Log.LogLine(e.ToString());
             }

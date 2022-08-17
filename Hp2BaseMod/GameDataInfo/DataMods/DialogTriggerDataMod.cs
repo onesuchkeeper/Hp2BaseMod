@@ -4,8 +4,6 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo

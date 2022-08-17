@@ -103,7 +103,7 @@ namespace Hp2BaseMod.GameDataInfo
             ValidatedSet.SetValue(ref def.enableIntVal, EnableIntVal);
             ValidatedSet.SetValue(ref def.enableFloatVal, EnableFloatVal);
             ValidatedSet.SetValue(ref def.enableBoolVal, EnableBoolVal);
-            
+
             ValidatedSet.SetValue(ref def.itemDefinition,
                                   (ItemDefinition)gameDataProvider.GetDefinition(GameDataType.Item, ItemDefinitionID),
                                   InsertStyle);

@@ -81,7 +81,7 @@ namespace Hp2BaseModTweaks
                         if (isValid)
                         {
                             Common.Credits.Add(config);
-                        } 
+                        }
                     }
                     // and logo tags
                     else if (tag.Name == _logoTagName)

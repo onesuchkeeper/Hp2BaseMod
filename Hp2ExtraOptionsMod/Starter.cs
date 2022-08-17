@@ -37,14 +37,14 @@ namespace Hp2ExtraOptionsMod
             Constants.RandomStylesCodeId = new RelativeId(modId, 4);
             Constants.RunInBackgroundCodeId = new RelativeId(modId, 5);
 
-            _codeDataMods = new []
+            _codeDataMods = new[]
             {
                 new CodeDataMod(Constants.FemaleJizzToggleCodeID, InsertStyle.replace)
-                { 
+                {
                     CodeHash = MD5Utility.Encrypt("JIZZ FOR ALL"),
                     CodeType = CodeType.TOGGLE,
-                    OnMessage = "Female jizz on.",
-                    OffMessage = "Female jizz off."
+                    OnMessage = "Female 'wet' photos enabled.",
+                    OffMessage = "Female 'wet' photos disabled."
                 },
                 new CodeDataMod(Constants.HubStyleChangeRateUpCodeId, InsertStyle.replace)
                 {
@@ -57,8 +57,8 @@ namespace Hp2ExtraOptionsMod
                 {
                     CodeHash = MD5Utility.Encrypt("YES N NO"),
                     CodeType = CodeType.TOGGLE,
-                    OnMessage = "Girl styles randomization on.",
-                    OffMessage = "Girl styles randomization off."
+                    OnMessage = "Girl sim styles randomization on.",
+                    OffMessage = "Girl sim styles randomization off."
                 },
                 new CodeDataMod(Constants.RunInBackgroundCodeId, InsertStyle.replace)
                 {

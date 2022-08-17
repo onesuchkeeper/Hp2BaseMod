@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Hp2BaseMod.Save
+﻿namespace Hp2BaseMod.Save
 {
     public struct ModSaveItemSlot
     {

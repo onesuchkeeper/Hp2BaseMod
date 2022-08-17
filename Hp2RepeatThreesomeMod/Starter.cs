@@ -94,7 +94,7 @@ namespace Hp2RepeatThreesomeMod
                     OffMessage = "Lovers' threesome location requirement on."
                 },
                 new CodeDataMod(Constants.NudeCodeId, InsertStyle.replace)
-                { 
+                {
                     CodeHash = MD5Utility.Encrypt("DOHOONKABHANKOLOOS"),
                     CodeType = CodeType.TOGGLE,
                     OnMessage = "Nudity durring bonus rounds on.",

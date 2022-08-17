@@ -1,5 +1,4 @@
 ﻿using HarmonyLib;
-using Hp2BaseMod;
 using Hp2BaseMod.Ui;
 using System;
 using System.Linq;
@@ -44,7 +43,8 @@ namespace Hp2BaseModTweaks.CellphoneApps
 
                 _previousPage.GameObject.transform.SetParent(finderApp.transform, false);
                 _previousPage.RectTransform.anchoredPosition = new Vector2(30, -30);
-                _previousPage.ButtonBehavior.ButtonPressedEvent += (e) => {
+                _previousPage.ButtonBehavior.ButtonPressedEvent += (e) =>
+                {
                     _currentPage--;
                     PostRefresh();
                 };
@@ -56,7 +56,8 @@ namespace Hp2BaseModTweaks.CellphoneApps
 
                 _nextPage.GameObject.transform.SetParent(finderApp.transform, false);
                 _nextPage.RectTransform.anchoredPosition = new Vector2(1024, -30);
-                _nextPage.ButtonBehavior.ButtonPressedEvent += (e) => {
+                _nextPage.ButtonBehavior.ButtonPressedEvent += (e) =>
+                {
                     _currentPage++;
                     PostRefresh();
                 };
@@ -74,7 +75,7 @@ namespace Hp2BaseModTweaks.CellphoneApps
         {
             //location slots
             var locationIndex = _currentPage * _finderLocationsPerPage;
-            
+
             foreach (var slot in _finderApp.finderSlots.Take(_finderLocationsPerPage))
             {
                 if (locationIndex < _simLocations.Length)
@@ -197,7 +198,7 @@ namespace Hp2BaseModTweaks.CellphoneApps
                     {
                         num++;
                     }
-                    slot.locationRectTransform.sizeDelta = new Vector2((float)(90 + num), slot.locationRectTransform.sizeDelta.y);
+                    slot.locationRectTransform.sizeDelta = new Vector2(90 + num, slot.locationRectTransform.sizeDelta.y);
 
                     _playerFileFinderSlotAccess.SetValue(slot, playerFileFinderSlot);
 

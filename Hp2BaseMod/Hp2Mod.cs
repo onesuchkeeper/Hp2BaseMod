@@ -1,7 +1,6 @@
 ﻿// Hp2BaseMododLoader 2022, by OneSuchKeeper
 
 using Hp2BaseMod.GameDataInfo.Interface;
-using Hp2BaseMod.Utility;
 using System.Collections.Generic;
 using System.Linq;
 

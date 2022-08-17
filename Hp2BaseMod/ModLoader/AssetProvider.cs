@@ -1,6 +1,5 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -38,7 +37,7 @@ namespace Hp2BaseMod.ModLoader
             }
             else
             {
-                ModInterface.Log.LogLine($"Failed to find internal asset { identifier ?? "null"}");
+                ModInterface.Log.LogLine($"Failed to find internal asset {identifier ?? "null"}");
             }
             return null;
         }

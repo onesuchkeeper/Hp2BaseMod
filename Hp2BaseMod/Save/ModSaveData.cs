@@ -1,6 +1,5 @@
 ﻿// Hp2BaseMod 2021, By OneSuchKeeper
 
-using Hp2BaseMod.Extension.StringExtension;
 using Hp2BaseMod.GameDataInfo;
 using Hp2BaseMod.Save.Interface;
 using System;

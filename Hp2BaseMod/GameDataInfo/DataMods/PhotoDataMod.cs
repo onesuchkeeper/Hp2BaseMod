@@ -100,7 +100,7 @@ namespace Hp2BaseMod.GameDataInfo
         {
             ValidatedSet.SetValue(ref def.hasAlts, HasAlts);
 
-            ValidatedSet.SetValue(ref def.girlPairDefinition, (GirlPairDefinition)gameDataProvider.GetDefinition(GameDataType.GirlPair, GirlPairDefinitionID) , InsertStyle);
+            ValidatedSet.SetValue(ref def.girlPairDefinition, (GirlPairDefinition)gameDataProvider.GetDefinition(GameDataType.GirlPair, GirlPairDefinitionID), InsertStyle);
             ValidatedSet.SetValue(ref def.altCodeDefinition, (CodeDefinition)gameDataProvider.GetDefinition(GameDataType.Code, AltCodeDefinitionID), InsertStyle);
 
             ValidatedSet.SetValue(ref def.altFlagName, AltFlagName, InsertStyle);

@@ -2,7 +2,6 @@
 
 using Hp2BaseMod.Extension.StringExtension;
 using Hp2BaseMod.GameDataInfo;
-using Hp2BaseMod.Ui;
 using System;
 using System.Collections.Generic;
 using System.Linq;

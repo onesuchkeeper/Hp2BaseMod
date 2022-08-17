@@ -168,7 +168,7 @@ namespace Hp2BaseMod
 
         internal void RegisterDefaultData(GameDataType type, int localId)
         {
-            var id = new RelativeId(-1,localId);
+            var id = new RelativeId(-1, localId);
             _relativeIdToRuntimeId[type].Add(id, localId);
             _runtimeIdToRelativeId[type].Add(localId, id);
             _dataIds[type].Add(id);
@@ -224,7 +224,7 @@ namespace Hp2BaseMod
         {
             if (!_girlIdToHairstyleIndexLookup.ContainsKey(girlId))
             {
-                _girlIdToHairstyleIndexLookup.Add(girlId, new Dictionary<RelativeId, int>() { { RelativeId.Default, -1} });
+                _girlIdToHairstyleIndexLookup.Add(girlId, new Dictionary<RelativeId, int>() { { RelativeId.Default, -1 } });
                 _girlIdToHairstyleIdLookup.Add(girlId, new Dictionary<int, RelativeId>() { { -1, RelativeId.Default } });
             }
 
@@ -271,7 +271,7 @@ namespace Hp2BaseMod
                 _dtIdToGirlIdToLineIdLookup[dialogTriggerId].Add(girlId, new Dictionary<int, RelativeId>());
             }
 
-            if(!_dtIdToGirlIdToLineIndexLookup[dialogTriggerId][girlId].ContainsKey(lineId))
+            if (!_dtIdToGirlIdToLineIndexLookup[dialogTriggerId][girlId].ContainsKey(lineId))
             {
                 _dtIdToGirlIdToLineIndexLookup[dialogTriggerId][girlId].Add(lineId, index);
                 _dtIdToGirlIdToLineIdLookup[dialogTriggerId][girlId].Add(index, lineId);

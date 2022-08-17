@@ -42,7 +42,7 @@ namespace Hp2BaseMod.GameDataInfo
         }
 
         internal HairstyleDataMod(int index,
-                                  GirlDefinition girlDef, 
+                                  GirlDefinition girlDef,
                                   AssetProvider assetProvider)
             : base(new RelativeId() { SourceId = -1, LocalId = index }, InsertStyle.replace, 0)
         {

@@ -10,7 +10,7 @@ namespace Hp2BaseMod
         {
             var rand = new Random();
 
-            switch (rand.Next(0,12))
+            switch (rand.Next(0, 12))
             {
                 case 0:
                     return Aiko;

@@ -56,7 +56,7 @@ namespace Hp2BaseMod.EnumExpansion
                     return false;
                 }
             }
-            
+
             return true;
         }
     }

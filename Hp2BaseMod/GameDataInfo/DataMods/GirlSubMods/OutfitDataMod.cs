@@ -44,7 +44,7 @@ namespace Hp2BaseMod.GameDataInfo
         internal OutfitDataMod(int index,
                                GirlDefinition girlDef,
                                AssetProvider assetProvider)
-            :base (new RelativeId() { SourceId = -1, LocalId = index }, InsertStyle.replace, 0)
+            : base(new RelativeId() { SourceId = -1, LocalId = index }, InsertStyle.replace, 0)
         {
             PairHairstyleId = Id;
             IsNSFW = false;

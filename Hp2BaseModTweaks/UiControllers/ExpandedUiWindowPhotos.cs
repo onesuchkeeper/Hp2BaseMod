@@ -1,5 +1,4 @@
 ﻿using HarmonyLib;
-using Hp2BaseMod;
 using Hp2BaseMod.Ui;
 using System;
 using System.Collections.Generic;
@@ -7,13 +6,13 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
-namespace Hp2BaseModTweaks.UiControllers
+namespace Hp2BaseModTweaks
 {
     public class ExpandedUiWindowPhotos : IUiController
     {
         private static readonly FieldInfo _uiPhotoSlot_photoDefinition = AccessTools.Field(typeof(UiPhotoSlot), "_photoDefinition");
         private static readonly FieldInfo _uiWindowPhotos_earnedPhotos = AccessTools.Field(typeof(UiWindowPhotos), "_earnedPhotos");
-        private static readonly int _photosPerPage = 10;//29;
+        private static readonly int _photosPerPage = 29;
         private static Sprite _emptyPhotoSlot;
 
         private int _pageIndex;

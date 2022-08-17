@@ -473,7 +473,7 @@ namespace Hp2BaseMod.ModLoader
                                 }
                             }
                         }
-                        
+
                         ModInterface.Log.LogLine("girl pairs");
                         SetData(girlPairDataDict, girlPairDataMods, gameDataProvider, assetProvider, GameDataType.GirlPair);
                         using (ModInterface.Log.MakeIndent())
@@ -552,7 +552,7 @@ namespace Hp2BaseMod.ModLoader
         // album = 58
         private static bool IsGirlDialogTrigger(DialogTriggerDefinition dt) => dt.id < 49 || dt.id > 58;
 
-        private static void SaveDataMods(IEnumerable<KeyValuePair<string,DataMod>> mods, string name)
+        private static void SaveDataMods(IEnumerable<KeyValuePair<string, DataMod>> mods, string name)
         {
             ModInterface.Log.LogLine($"Dev: saving default {name}");
 
@@ -564,7 +564,7 @@ namespace Hp2BaseMod.ModLoader
             }
 
             ModInterface.Log.IncreaseIndent();
-            foreach(var mod in mods)
+            foreach (var mod in mods)
             {
                 var filePath = Path.Combine(folderPath, $"{mod.Key}.json");
 

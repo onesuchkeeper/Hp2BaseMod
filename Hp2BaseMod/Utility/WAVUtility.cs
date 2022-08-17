@@ -1,7 +1,7 @@
 ﻿// Hp2BaseMod 2022, By OneSuchKeeper
 
-using UnityEngine;
 using System;
+using UnityEngine;
 
 namespace Hp2BaseMod.Utility
 {
@@ -44,7 +44,7 @@ namespace Hp2BaseMod.Utility
                     throw new Exception(bitDepth + " bit depth is not supported.");
             }
 
-            AudioClip audioClip = AudioClip.Create(name, data.Length, (int)channels, sampleRate, false);
+            AudioClip audioClip = AudioClip.Create(name, data.Length, channels, sampleRate, false);
             audioClip.SetData(data, 0);
             return audioClip;
         }

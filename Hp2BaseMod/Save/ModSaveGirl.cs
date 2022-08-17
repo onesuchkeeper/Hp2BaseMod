@@ -1,5 +1,4 @@
-﻿using Hp2BaseMod.GameDataInfo;
-using Hp2BaseMod.Utility;
+﻿using Hp2BaseMod.Utility;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -72,7 +71,7 @@ namespace Hp2BaseMod.Save
                             ReceivedUniques,
                             $"Attempting to save unique item for girl {girlId}",
                             (x) => ModInterface.Data.GetDataId(GameDataType.Item, x));
-            
+
             // shoes
             ValidatedSet.StripRuntimeIds(ref saveFileGirl.receivedShoes,
                             ReceivedShoes,

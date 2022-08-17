@@ -25,7 +25,7 @@ namespace Hp2BaseMod.Ui
 
         private readonly List<IUiController> _appControllers = new List<IUiController>();
 
-        private readonly Dictionary<Type, List<Func<UiCellphoneApp, IUiController>>> _appControllerSources 
+        private readonly Dictionary<Type, List<Func<UiCellphoneApp, IUiController>>> _appControllerSources
             = new Dictionary<Type, List<Func<UiCellphoneApp, IUiController>>>();
 
         internal void PreRefresh()
@@ -72,7 +72,6 @@ namespace Hp2BaseMod.Ui
         /// Loads the given app
         /// </summary>
         /// <param name="app"></param>
-        /// <param name="index"></param>
         public void LoadApp(UiCellphoneApp app)
         {
             SetupApp(app, -1);
@@ -86,7 +85,8 @@ namespace Hp2BaseMod.Ui
         public void LoadApp(int appIndex)
         {
             _cellphone.LoadApp(appIndex);
-            ApplyControllers(_uiCellphone_currentApp.GetValue(_cellphone) as UiCellphoneApp);
+            var app = _uiCellphone_currentApp.GetValue(_cellphone) as UiCellphoneApp;
+            ApplyControllers(app);
         }
 
         private void ApplyControllers(UiCellphoneApp app)
@@ -140,6 +140,8 @@ namespace Hp2BaseMod.Ui
         /// <param name="index"></param>
         private void SetupApp(UiCellphoneApp app, int index)
         {
+            app.enabled = true;
+
             CleanUpCurrentApp();
 
             _uiCellphone_currentAppIndex.SetValue(_cellphone, index);

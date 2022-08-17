@@ -41,7 +41,8 @@ namespace Hp2BaseModTweaks.CellphoneApps
 
                 _previousPage.GameObject.transform.SetParent(pairsApp.transform, false);
                 _previousPage.RectTransform.anchoredPosition = new Vector2(30, -30);
-                _previousPage.ButtonBehavior.ButtonPressedEvent += (e) => {
+                _previousPage.ButtonBehavior.ButtonPressedEvent += (e) =>
+                {
                     _currentPage--;
                     PostRefresh();
                 };
@@ -53,7 +54,8 @@ namespace Hp2BaseModTweaks.CellphoneApps
 
                 _nextPage.GameObject.transform.SetParent(pairsApp.transform, false);
                 _nextPage.RectTransform.anchoredPosition = new Vector2(1024, -30);
-                _nextPage.ButtonBehavior.ButtonPressedEvent += (e) => {
+                _nextPage.ButtonBehavior.ButtonPressedEvent += (e) =>
+                {
                     _currentPage++;
                     PostRefresh();
                 };
@@ -82,8 +84,8 @@ namespace Hp2BaseModTweaks.CellphoneApps
                     entry.canvasGroup.alpha = 1f;
                     entry.canvasGroup.blocksRaycasts = true;
                     entry.button.Enable();
-                    entry.rectTransform.anchoredPosition = new Vector2((float)(renderCount % 4) * 256f,
-                                                                      (float)Mathf.FloorToInt((float)renderCount / 4f) * -90f);
+                    //entry.rectTransform.anchoredPosition = new Vector2((float)(renderCount % 4) * 256f,
+                    //                                                  (float)Mathf.FloorToInt((float)renderCount / 4f) * -90f);
                     renderCount++;
                     current++;
                 }
@@ -98,10 +100,10 @@ namespace Hp2BaseModTweaks.CellphoneApps
                 entry.Populate(null, null);
             }
 
-            _pairsApp.pairSlotsContainer.anchoredPosition = new Vector2(528, -284);
+            //_pairsApp.pairSlotsContainer.anchoredPosition = new Vector2(528, -284);
 
-            _pairsApp.pairSlotsContainer.anchoredPosition += new Vector2(Mathf.Min(renderCount - 1, 3) * -128f,
-                                                                         Mathf.Max(Mathf.CeilToInt((float)renderCount / 4f) - 1, 0) * 45f);
+            //_pairsApp.pairSlotsContainer.anchoredPosition += new Vector2(Mathf.Min(renderCount - 1, 3) * -128f,
+            //                                                             Mathf.Max(Mathf.CeilToInt((float)renderCount / 4f) - 1, 0) * 45f);
 
             if (_pageMax == 0)
             {

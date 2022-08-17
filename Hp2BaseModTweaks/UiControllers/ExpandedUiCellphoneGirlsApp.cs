@@ -42,7 +42,8 @@ namespace Hp2BaseModTweaks.CellphoneApps
 
                 _previousPage.GameObject.transform.SetParent(girlsApp.transform, false);
                 _previousPage.RectTransform.anchoredPosition = new Vector2(30, -30);
-                _previousPage.ButtonBehavior.ButtonPressedEvent += (e) => {
+                _previousPage.ButtonBehavior.ButtonPressedEvent += (e) =>
+                {
                     _currentPage--;
                     PostRefresh();
                 };
@@ -54,7 +55,8 @@ namespace Hp2BaseModTweaks.CellphoneApps
 
                 _nextPage.GameObject.transform.SetParent(girlsApp.transform, false);
                 _nextPage.RectTransform.anchoredPosition = new Vector2(1024, -30);
-                _nextPage.ButtonBehavior.ButtonPressedEvent += (e) => {
+                _nextPage.ButtonBehavior.ButtonPressedEvent += (e) =>
+                {
                     _currentPage++;
                     PostRefresh();
                 };
@@ -79,8 +81,8 @@ namespace Hp2BaseModTweaks.CellphoneApps
                 if (girlIndex < _playerfileGirls.Length)
                 {
                     slot.girlDefinition = _playerfileGirls[girlIndex].girlDefinition;
-                    slot.rectTransform.anchoredPosition = new Vector2(renderedCount % 6 * 172f,
-                                                                      Mathf.FloorToInt(renderedCount / 6f) * -272f);
+                    //slot.rectTransform.anchoredPosition = new Vector2(renderedCount % 6 * 172f,
+                    //                                                  Mathf.FloorToInt(renderedCount / 6f) * -272f);
                     slot.Populate();
 
                     renderedCount++;
@@ -97,10 +99,10 @@ namespace Hp2BaseModTweaks.CellphoneApps
                 slot.Clear();
             }
 
-            _girlsApp.girlSlotsContainer.anchoredPosition = new Vector2(528, -284);
+            //_girlsApp.girlSlotsContainer.anchoredPosition = new Vector2(528, -284);
 
-            _girlsApp.girlSlotsContainer.anchoredPosition += new Vector2((float)Mathf.Min(renderedCount - 1, 5) * -86f,
-                                                                         (float)Mathf.Max(Mathf.CeilToInt((float)renderedCount / 6f) - 1, 0) * 136f);
+            //_girlsApp.girlSlotsContainer.anchoredPosition += new Vector2((float)Mathf.Min(renderedCount - 1, 5) * -86f,
+            //                                                             (float)Mathf.Max(Mathf.CeilToInt((float)renderedCount / 6f) - 1, 0) * 136f);
 
             if (_pageMax == 0)
             {
