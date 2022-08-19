@@ -1,20 +1,15 @@
 ﻿using System;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
     public class PairStyleInfo
     {
-        [UiSonEncapsulatingUi]
         public GirlStyleInfo MeetingGirlOne;
 
-        [UiSonEncapsulatingUi]
         public GirlStyleInfo MeetingGirlTwo;
 
-        [UiSonEncapsulatingUi]
         public GirlStyleInfo SexGirlOne;
 
-        [UiSonEncapsulatingUi]
         public GirlStyleInfo SexGirlTwo;
 
         public void SetData(ref PairStyleInfo def)

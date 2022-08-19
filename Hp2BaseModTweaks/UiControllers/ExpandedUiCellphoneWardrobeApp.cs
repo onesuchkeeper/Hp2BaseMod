@@ -160,7 +160,7 @@ namespace Hp2BaseModTweaks.CellphoneApps
             var iconIndex = _girlsPage * _girlsPerPage;
             int renderedCount = 0;
             var wardrobeGirlId = Game.Persistence.playerFile.GetFlagValue("wardrobe_girl_id");
-            ModInterface.Log.LogLine($"Refresh, page {_girlsPage}, index {iconIndex}");
+
             foreach (var slot in _wardrobeApp.fileIconSlots.Take(_girlsPerPage))
             {
                 if (iconIndex < _metGirls.Length)

@@ -7,7 +7,6 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -16,7 +15,6 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class TokenConditionSetInfo : IGameDefinitionInfo<TokenConditionSet>
     {
-        [UiSonEncapsulatingUi]
         public List<TokenConditionInfo> Conditions;
 
         /// <summary>

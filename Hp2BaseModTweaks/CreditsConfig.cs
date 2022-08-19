@@ -5,7 +5,6 @@ namespace Hp2BaseModTweaks
     public class CreditsConfig
     {
         public string modImagePath;
-        public string redirectLink;
         public List<CreditsEntry> CreditsEntries;
     }
 

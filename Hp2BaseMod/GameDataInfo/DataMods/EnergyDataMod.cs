@@ -6,7 +6,6 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UiSon.Attribute;
 using UnityEngine;
 
 namespace Hp2BaseMod.GameDataInfo
@@ -14,50 +13,34 @@ namespace Hp2BaseMod.GameDataInfo
     /// <summary>
     /// Serializable information to make an EnergyDefinition
     /// </summary>
-    [UiSonElement]
-    [UiSonGroup("Text", 2)]
-    [UiSonGroup("Surge", 1)]
     public class EnergyDataMod : DataMod, IGameDataMod<EnergyDefinition>
     {
-        [UiSonSelectorUi(DefaultData.TextMaterialNames_Name, 0, "Text")]
         public string TextMaterialName;
 
-        [UiSonEncapsulatingUi(0, "Text")]
         public ColorInfo TextColorInfo;
 
-        [UiSonEncapsulatingUi(0, "Text")]
         public ColorInfo OutlineColorInfo;
 
-        [UiSonEncapsulatingUi(0, "Text")]
         public ColorInfo ShadowColorInfo;
 
-        [UiSonEncapsulatingUi(0, "Surge")]
         public ColorInfo SurgeColorInfo;
 
-        [UiSonSelectorUi(DefaultData.GirlExpressionTypeNullable, 0, "Surge")]
         public GirlExpressionType? SurgeExpression;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, "Surge", "NullableBoolIds")]
         public bool? SurgeEyesClosed;
         public GirlExpressionType? NegSurgeExpression;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, "Surge", "NullableBoolIds")]
         public bool? NegSurgeEyesClosed;
         public GirlExpressionType? BossSurgeExpression;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, "Surge", "NullableBoolIds")]
         public bool? BossSurgeEyesClosed;
 
-        [UiSonEncapsulatingUi(0, "Surge")]
         public List<SpriteInfo> SurgeSprites;
 
-        [UiSonEncapsulatingUi]
         public List<SpriteInfo> BurstSprites;
 
-        [UiSonEncapsulatingUi]
         public List<SpriteInfo> TrailSprites;
 
-        [UiSonEncapsulatingUi]
         public List<SpriteInfo> SplashSprites;
 
         /// <inheritdoc/>

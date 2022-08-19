@@ -4,45 +4,32 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
     /// <summary>
     /// Serializable information to make a PhotoDefinition
     /// </summary>
-    [UiSonElement]
-    [UiSonGroup("Alt")]
     public class PhotoDataMod : DataMod, IGameDataMod<PhotoDefinition>
     {
-        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, null, "id", DefaultData.DefaultGirlPairNames_Name, DefaultData.DefaultGirlPairIds_Name)]
         public RelativeId? GirlPairDefinitionID;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, "Alt", "NullableBoolIds")]
         public bool? HasAlts;
 
-        [UiSonTextEditUi(0, "Alt")]
         public string AltFlagName;
 
-        [UiSonElementSelectorUi(nameof(CodeDataMod), 0, "Alt", "id", DefaultData.DefaultCodeNames_Name, DefaultData.DefaultCodeIds_Name)]
         public RelativeId? AltCodeDefinitionID;
 
-        [UiSonEncapsulatingUi]
         SpriteInfo BigPhotoCensored;
 
-        [UiSonEncapsulatingUi]
         SpriteInfo BigPhotoUncensored;
 
-        [UiSonEncapsulatingUi]
         SpriteInfo BigPhotoWet;
 
-        [UiSonEncapsulatingUi]
         SpriteInfo ThumbnailCensored;
 
-        [UiSonEncapsulatingUi]
         SpriteInfo ThumbnailUncensored;
 
-        [UiSonEncapsulatingUi]
         SpriteInfo ThumbnailWet;
 
         /// <inheritdoc/>

@@ -4,19 +4,12 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
     /// <summary>
     /// Serializable information to make a ItemDefinition
     /// </summary>
-    [UiSonElement]
-    [UiSonGroup("Type")]
-    [UiSonGroup("Appearance")]
-    [UiSonGroup("Puzzle")]
-    [UiSonGroup("Store")]
-    [UiSonGroup("Ailment")]
     public class ItemDataMod : DataMod, IGameDataMod<ItemDefinition>
     {
         // these three are only used to generate the category descryption,
@@ -25,76 +18,52 @@ namespace Hp2BaseMod.GameDataInfo
         //public ItemShoesType? shoesType;
         //public ItemUniqueType? uniqueType;
 
-        [UiSonSelectorUi(DefaultData.ItemTypeNullable, 0, "Type")]
         public ItemType? ItemType;
 
-        [UiSonSelectorUi(DefaultData.ItemDateGiftTypeNullable, 0, "Type")]
         public ItemDateGiftType? DateGiftType;
 
-        [UiSonSelectorUi(DefaultData.ItemFoodTypeNullable, 0, "Type")]
         public ItemFoodType? FoodType;
 
-        [UiSonEncapsulatingUi(0, "Appearance")]
         public SpriteInfo ItemSpriteInfo;
 
-        [UiSonTextEditUi(0, "Appearance")]
         public string ItemName;
 
-        [UiSonTextEditUi(0, "Appearance")]
         public string ItemDescription;
 
-        [UiSonTextEditUi(0, "Appearance")]
         public int? TooltipColorIndex;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, "Store", "NullableBoolIds")]
         public bool? StoreSectionPreference;
 
-        [UiSonTextEditUi(0, "Store")]
         public int? StoreCost;
 
-        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, "Ailment", "id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
         public RelativeId? CutsceneDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, "Ailment", "id", DefaultData.DefaultAilmentNames_Name, DefaultData.DefaultAilmentIds_Name)]
         public RelativeId? AilmentDefinitionID;
 
-        [UiSonSelectorUi("NullableBoolNames")]
         public bool? DifficultyExclusive;
 
-        [UiSonSelectorUi(DefaultData.SettingDifficultyNullable)]
         public SettingDifficulty? Difficulty;
 
-        [UiSonElementSelectorUi(nameof(EnergyDataMod), 0, null, "id", DefaultData.DefaultEnergyNames_Name, DefaultData.DefaultEnergyIds_Name)]
         public RelativeId? EnergyDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable, 0, "Puzzle")]
         public PuzzleAffectionType? AffectionType;
 
-        [UiSonSelectorUi(DefaultData.ItemGiveConditionTypeNullable)]
         public ItemGiveConditionType? GiveConditionType;
 
-        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
         public RelativeId? GirlDefinitionID;
 
-        [UiSonSelectorUi("NullableBoolNames")]
         public bool? NoStaminaCost;
 
-        [UiSonSelectorUi("NullableBoolNames")]
         public bool? DateGiftAilment;
 
-        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, "Puzzle", "id", DefaultData.DefaultAbilityNames_Name, DefaultData.DefaultAbilityIds_Name)]
         public RelativeId? AbilityDefinitionID;
 
-        [UiSonTextEditUi(0, "Puzzle")]
         public int? UseCost;
 
-        [UiSonTextEditUi]
         public string CategoryDescription;
 
-        [UiSonTextEditUi]
         public string CostDescription;
 
-        [UiSonTextEditUi]
         public int? NotifierHeaderIndex;
 
         /// <inheritdoc/>

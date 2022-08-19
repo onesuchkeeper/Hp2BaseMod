@@ -2,31 +2,23 @@
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
     public class HairstyleDataMod : DataMod, IGirlSubDataMod<ExpandedHairstyleDefinition>
     {
-        [UiSonTextEditUi]
         public string Name;
 
-        [UiSonEncapsulatingUi]
         public RelativeId? FrontHairPartId;
 
-        [UiSonEncapsulatingUi]
         public RelativeId? BackHairPartId;
 
-        [UiSonCheckboxUi]
         public bool? IsNSFW;
 
-        [UiSonCheckboxUi]
         public bool? HideSpecials;
 
-        [UiSonCheckboxUi]
         public bool? TightlyPaired;
 
-        [UiSonEncapsulatingUi]
         public RelativeId? PairOutfitId;
 
         /// <inheritdoc/>

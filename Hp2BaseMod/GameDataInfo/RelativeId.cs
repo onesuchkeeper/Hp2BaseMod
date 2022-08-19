@@ -1,19 +1,15 @@
-﻿using UiSon.Attribute;
-
-namespace Hp2BaseMod.GameDataInfo
+﻿namespace Hp2BaseMod.GameDataInfo
 {
     public struct RelativeId
     {
         /// <summary>
         /// The id of the source that defined this.
         /// </summary>
-        [UiSonTextEditUi]
         public int SourceId;
 
         /// <summary>
         /// The id defined by the source.
         /// </summary>
-        [UiSonTextEditUi]
         public int LocalId;
 
         public RelativeId(int sourceId, int localId)

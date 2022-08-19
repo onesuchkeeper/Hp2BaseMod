@@ -7,27 +7,20 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
     /// <summary>
     /// Serializable information to make an AbilityDefinition
     /// </summary>
-    [UiSonElement]
-    [UiSonGroup("Target", 1)]
     public class AbilityDataMod : DataMod, IGameDataMod<AbilityDefinition>
     {
-        [UiSonCheckboxUi(0, "Target")]
         public bool? SelectableTarget;
 
-        [UiSonTextEditUi(0, "Target")]
         public int? TargetMinimumCount;
 
-        [UiSonEncapsulatingUi(0, "Target")]
         public TokenConditionSetInfo TargetConditionSetInfo;
 
-        [UiSonEncapsulatingUi]
         public List<AbilityStepInfo> Steps;
 
         /// <inheritdoc/>

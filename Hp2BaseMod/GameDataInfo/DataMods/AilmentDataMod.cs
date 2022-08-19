@@ -6,55 +6,38 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
     /// <summary>
     /// Serializable information to make an AilmentDefinition
     /// </summary>
-    [UiSonElement]
-    [UiSonGroup("Enable", -1)]
-    [UiSonGroup("Disable", -2)]
     public class AilmentDataMod : DataMod, IGameDataMod<AilmentDefinition>
     {
-        [UiSonElementSelectorUi(nameof(ItemDataMod), 1, null, "id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
         public RelativeId? ItemDefinitionID;
 
-        [UiSonSelectorUi("NullableBoolNames", 1, null, "NullableBoolIds")]
         public bool? PersistentFlags;
 
-        [UiSonSelectorUi(DefaultData.AilmentEnableTypeNullable, 0, "Enable")]
         public AilmentEnableType? EnableType;
 
-        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, "Enable", "id", DefaultData.DefaultAbilityNames_Name, DefaultData.DefaultAbilityIds_Name)]
         public RelativeId? EnableAbilityDefID;
 
-        [UiSonElementSelectorUi(nameof(DialogTriggerDataMod), 0, "Enable", "id", DefaultData.DefaultDialogTriggerNames_Name, DefaultData.DefaultDialogTriggerIds_Name)]
         public int? EnableTriggerIndex;
 
-        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, "Enable", "id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
         public RelativeId? EnableTokenDefID;
 
-        [UiSonTextEditUi(0, "Enable")]
         public int? EnableIntVal;
 
-        [UiSonTextEditUi(0, "Enable")]
         public float? EnableFloatVal;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, "Enable", "NullableBoolIds")]
         public bool? EnableBoolVal;
 
-        [UiSonTextEditUi(0, "Enable")]
         public string EnableStringVal;
 
-        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, "Disable", "id", DefaultData.DefaultAbilityNames_Name, DefaultData.DefaultAbilityIds_Name)]
         public RelativeId? DisableAbilityDefID;
 
-        [UiSonEncapsulatingUi]
         public List<AilmentHintSubDefinition> Hints;
 
-        [UiSonEncapsulatingUi]
         public List<AilmentTriggerInfo> Triggers;
 
         /// <inheritdoc/>

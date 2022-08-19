@@ -4,7 +4,6 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -14,46 +13,32 @@ namespace Hp2BaseMod.GameDataInfo
     [Serializable]
     public class LogicActionInfo : IGameDefinitionInfo<LogicAction>
     {
-        [UiSonSelectorUi(DefaultData.LogicActionTypeNullable)]
         public LogicActionType? Type;
 
-        [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable)]
         public PuzzleAffectionType? AffectionType;
 
-        [UiSonSelectorUi(DefaultData.PuzzleResourceTypeNullable)]
         public PuzzleResourceType? ResourceType;
 
-        [UiSonSelectorUi(DefaultData.PuzzleGameStateNullable)]
         public PuzzleGameState? PuzzleState;
 
-        [UiSonTextEditUi]
         public string StringValue;
 
-        [UiSonTextEditUi]
         public float? FloatValue;
 
-        [UiSonTextEditUi]
         public int? IntValue;
 
-        [UiSonElementSelectorUi(nameof(LocationDataMod), 0, null, "id", DefaultData.DefaultLocationNames_Name, DefaultData.DefaultLocationIds_Name)]
         public RelativeId? LocationDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, null, "id", DefaultData.DefaultGirlPairNames_Name, DefaultData.DefaultGirlPairIds_Name)]
         public RelativeId? GirlPairDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
         public RelativeId? CutsceneDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, null, "id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
         public RelativeId? ItemDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
         public RelativeId? GirlDefinitionID;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? BoolValue;
 
-        [UiSonEncapsulatingUi]
         public AudioKlipInfo BackgroundMusic;
 
         /// <summary>

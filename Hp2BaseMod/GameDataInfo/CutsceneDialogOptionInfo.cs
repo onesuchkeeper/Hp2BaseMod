@@ -7,7 +7,6 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -16,16 +15,12 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class CutsceneDialogOptionInfo : IGameDefinitionInfo<CutsceneDialogOptionSubDefinition>
     {
-        [UiSonTextEditUi]
         public string DialogOptionText;
 
-        [UiSonTextEditUi]
         public string YuriDialogOptionText;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Yuri;
 
-        [UiSonEncapsulatingUi]
         public List<CutsceneStepInfo> Steps;
 
         /// <summary>

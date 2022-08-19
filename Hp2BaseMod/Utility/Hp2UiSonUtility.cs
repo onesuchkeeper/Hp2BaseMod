@@ -209,15 +209,6 @@ namespace Hp2BaseMod.Utility
                 => _nullListIdNullable.Concat(gameData.Tokens.GetAll().Select(x => (RelativeId?)new RelativeId(x))))
         };
 
-        private static string MakeEnumName(string enumName)
-            => (enumName.EndsWith("?") ? enumName.Substring(0, enumName.Length - 1) + "Nullable" : enumName);
-
-        private static string MakeArrayAttribute(string name, IEnumerable<string> entries, string formatString = "{0}")
-            => $"[UiSonArray(\"{name}\", new object [] {{{ToCsv(entries, formatString)}}})]";
-
-        private static string MakeRelativeIdArrayAttribute(string name, IEnumerable<string> entries, string formatString = "{0}")
-            => $"[UiSonArray(\"{name}\", new object [] {{{ToCsv(entries, formatString)}}}, typeof(RelativeId?))]";
-
         private static string ToCsv(IEnumerable<string> items, string formatString = "{0}") => string.Join(",", items.Select(x => string.Format(formatString, x ?? "null")));
 
         internal static void MakeDefaultDataDotCs(GameData gameData)
@@ -236,79 +227,30 @@ namespace Hp2BaseMod.Utility
                 file.WriteLine(@"using System;");
                 file.WriteLine(@"using System.Collections.Generic;");
                 file.WriteLine(@"using System.Linq;");
-                file.WriteLine(@"using UiSon.Attribute;");
                 file.WriteLine(@"using Hp2BaseMod.GameDataInfo;");
                 file.WriteLine(@"using Hp2BaseMod.Utility;");
 
                 file.WriteLine(string.Empty);
 
                 file.WriteLine(@"namespace Hp2BaseMod{");
-                ModInterface.Log.LogLine("Attributes");
-
-                file.WriteLine("    [UiSonArray(\"NullableBoolNames\", new object [] {\"null\", \"true\", \"false\"})]");
-                file.WriteLine("    [UiSonArray(\"NullableBoolIds\", new object [] {\"null\", true, false})]");
-
-                foreach (var entry in _staticStringArrays)
-                {
-                    file.WriteLine("    " + MakeArrayAttribute(entry.Key, entry.Value, _addQoutesFormat));
-                }
-                foreach (var entry in _staticIdArrays)
-                {
-                    file.WriteLine("    " + MakeRelativeIdArrayAttribute(entry.Key, entry.Value?.Select(x => $"\"{JsonConvert.SerializeObject(x).Replace("\"", "\\\"")}\"")));
-                }
-                foreach (var entry in _staticEnumerableArrays)
-                {
-                    file.WriteLine("    " + MakeArrayAttribute(entry.Key, entry.Value.Select(x => x?.ToString() ?? "null")));
-                }
-
-                file.WriteLine(string.Empty);
-
-                foreach (var entry in _enumArrays)
-                {
-                    file.WriteLine($"    [UiSonArray(\"{MakeEnumName(entry)}\", typeof({entry}))]");
-                }
-
-                file.WriteLine(string.Empty);
-
-                foreach (var entry in _gameDataNameArrays)
-                {
-                    file.WriteLine("    " + MakeArrayAttribute(entry.Key, entry.Value.Invoke(gameData), _addQoutesFormat));
-                }
-                foreach (var entry in _gameDataIdArrays)
-                {
-                    file.WriteLine("    " + MakeRelativeIdArrayAttribute(entry.Key, entry.Value.Invoke(gameData)?.Select(x => $"\"{JsonConvert.SerializeObject(x).Replace("\"", "\\\"")}\"")));
-                }
-                ModInterface.Log.LogLine("Class");
                 file.WriteLine(@"   public class DefaultData{");
                 foreach (var entry in _staticStringArrays)
                 {
-                    file.WriteLine($"       internal const string {entry.Key}_Name = \"{entry.Key}\";");
                     file.WriteLine($"       public static readonly IEnumerable<string> {entry.Key} = new string[] {{{ToCsv(entry.Value.Skip(1), _addQoutesFormat)}}};");
                 }
                 foreach (var entry in _staticIdArrays)
                 {
-                    file.WriteLine($"       internal const string {entry.Key}_Name = \"{entry.Key}\";");
                     file.WriteLine($"       public static readonly IEnumerable<{nameof(RelativeId)}> {entry.Key} = new {nameof(RelativeId)}[] {{{ToCsv(entry.Value.Skip(1).Select(x => $"new {nameof(RelativeId)}({x.Value.SourceId}, {x.Value.LocalId})"))}}};");
                 }
                 foreach (var entry in _staticEnumerableArrays)
                 {
-                    file.WriteLine($"       internal const string {entry.Key}_Name = \"{entry.Key}\";");
                     file.WriteLine($"       public static readonly IEnumerable<int> {entry.Key} = new int[] {{{ToCsv(entry.Value.Skip(1).Select(x => x.ToString()))}}};");
                 }
 
                 file.WriteLine(string.Empty);
 
-                foreach (var entry in _enumArrays)
-                {
-                    var name = MakeEnumName(entry);
-                    file.WriteLine($"       internal const string {name} = \"{name}\";");
-                }
-
-                file.WriteLine(string.Empty);
-
                 foreach (var entry in _gameDataNameArrays)
                 {
-                    file.WriteLine($"       internal const string {entry.Key}_Name = \"{entry.Key}\";");
                     file.WriteLine($"       public static readonly IEnumerable<string> {entry.Key} = new string[] {{{ToCsv(entry.Value.Invoke(gameData).Skip(1), _addQoutesFormat)}}};");
                 }
 
@@ -316,8 +258,6 @@ namespace Hp2BaseMod.Utility
 
                 foreach (var entry in _gameDataIdArrays)
                 {
-                    file.WriteLine($"       internal const string {entry.Key}_Name = \"{entry.Key}\";");
-
                     var ids = entry.Value.Invoke(gameData);
 
                     file.WriteLine($"       public static readonly IEnumerable<{nameof(RelativeId)}> {entry.Key} = new {nameof(RelativeId)}[] {{{ToCsv(ids.Skip(1).Select(x => $"new {nameof(RelativeId)}({x.Value.SourceId}, {x.Value.LocalId})"))}}};");

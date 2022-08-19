@@ -14,7 +14,7 @@
   "Tags": [
     {
       "Name": "Hp2BaseModTweaks_Credits",
-      "Value": "{\"modImagePath\":\"mods/Hp2BaseModTweaks/Images/CreditsLogo.png\",\"redirectLink\":\"https://twitter.com/OneSuchKeeper\",\"CreditsEntries\":[{\"creditButtonImagePath\":\"mods/Hp2BaseModTweaks/Images/onesuchkeeper_credits.png\",\"creditButtonImageOverPath\":\"mods/Hp2BaseModTweaks/Images/onesuchkeeper_credits_over.png\",\"redirectLink\":\"https://twitter.com/OneSuchKeeper\"}]}"
+      "Value": "{\"modImagePath\":\"mods/Hp2BaseModTweaks/Images/CreditsLogo.png\",\"CreditsEntries\":[{\"creditButtonImagePath\":\"mods/Hp2BaseModTweaks/Images/onesuchkeeper_credits.png\",\"creditButtonImageOverPath\":\"mods/Hp2BaseModTweaks/Images/onesuchkeeper_credits_over.png\",\"redirectLink\":\"https://twitter.com/OneSuchKeeper\"},{\"creditButtonImagePath\":\"mods/Hp2BaseModTweaks/Images/ravenlord_credits.png\",\"creditButtonImageOverPath\":\"mods/Hp2BaseModTweaks/Images/ravenlord_credits_over.png\",\"redirectLink\":\"https://ravenlord359.tumblr.com/\"}]}"
     },
     {
       "Name": "Hp2BaseModTweaks_Logo",

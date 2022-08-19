@@ -7,68 +7,46 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
     /// <summary>
     /// Serializable information to make a GirlPairDefinition
     /// </summary>
-    [UiSonElement]
-    [UiSonGroup("Meeting", 2)]
-    [UiSonGroup("Sex", 1)]
     public class GirlPairDataMod : DataMod, IGirlPairDataMod
     {
-        [UiSonCollection(true, false, DisplayMode.Grid)]
-        [UiSonEncapsulatingUi(0, null, DisplayMode.Grid)]
         public List<GirlPairFavQuestionInfo> FavQuestions;
 
-        [UiSonElementSelectorUi(nameof(GirlDataMod), 10, null, "id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
         public RelativeId? GirlDefinitionOneID;
 
-        [UiSonElementSelectorUi(nameof(GirlDataMod), 10, null, "id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
         public RelativeId? GirlDefinitionTwoID;
 
-        [UiSonSelectorUi("NullableBoolNames", 10, null, "NullableBoolIds")]
         public bool? SpecialPair;
 
-        [UiSonElementSelectorUi(nameof(PhotoDataMod), 10, null, "id", DefaultData.DefaultPhotoNames_Name, DefaultData.DefaultPhotoIds_Name)]
         public RelativeId? PhotoDefinitionID;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, "Meeting", "NullableBoolIds")]
         public bool? IntroductionPair;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, "Meeting", "NullableBoolIds")]
         public bool? IntroSidesFlipped;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, "Meeting", "NullableBoolIds")]
         public bool? HasMeetingStyleOne;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, "Meeting", "NullableBoolIds")]
         public bool? HasMeetingStyleTwo;
 
-        [UiSonElementSelectorUi(nameof(LocationDataMod), 0, "Meeting", "id", DefaultData.DefaultLocationNames_Name, DefaultData.DefaultLocationIds_Name)]
         public RelativeId? MeetingLocationDefinitionID;
 
-        [UiSonSelectorUi(DefaultData.ClockDaytimeTypeNullable, 0, "Sex")]
         public ClockDaytimeType? SexDayTime;
 
-        [UiSonEncapsulatingUi]
         public PairStyleInfo Styles;
 
-        [UiSonElementSelectorUi(nameof(LocationDataMod), 0, "Sex", "id", DefaultData.DefaultLocationNames_Name, DefaultData.DefaultLocationIds_Name)]
         public RelativeId? SexLocationDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
         public RelativeId? IntroRelationshipCutsceneDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
         public RelativeId? AttractRelationshipCutsceneDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
         public RelativeId? PreSexRelationshipCutsceneDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
         public RelativeId? PostSexRelationshipCutsceneDefinitionID;
 
         /// <inheritdoc/>

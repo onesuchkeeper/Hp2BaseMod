@@ -7,222 +7,150 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
     /// <summary>
     /// Serializable information to make a GirlDefinition
     /// </summary>
-    [UiSonElement]
-    [UiSonGroup("Girl Info", 7)]
-    [UiSonGroup("Items", 6, null, DisplayMode.Horizontal)]
-    [UiSonGroup("Emmiters", 4, null, DisplayMode.Horizontal)]
-    [UiSonGroup("Special Effect", 3)]
-    [UiSonGroup("Style", 2)]
-    [UiSonGroup("Cellphone Sprites", 1)]
-    [UiSonGroup("Parts", 0)]
-
     public class GirlDataMod : DataMod, IGirlDataMod
     {
-        [UiSonEncapsulatingUi(-1, "Parts")]
         public List<GirlPartDataMod> parts;
 
-        [UiSonEncapsulatingUi]
         public List<HairstyleDataMod> hairstyles;
 
-        [UiSonEncapsulatingUi]
         public List<OutfitDataMod> outfits;
 
-        [UiSonEncapsulatingUi]
         public List<(RelativeId, List<DialogLineDataMod>)> linesByDialogTriggerId;
 
         #region Girl Info
 
-        [UiSonTextEditUi(0, "Girl Info")]
         public string GirlName;
 
-        [UiSonTextEditUi(0, "Girl Info")]
         public string GirlNickName;
 
-        [UiSonTextEditUi(0, "Girl Info")]
         public int? GirlAge;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, "Girl Info", "NullableBoolIds")]
         public bool? SpecialCharacter;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, "Girl Info", "NullableBoolIds")]
         public bool? BossCharacter;
 
-        [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable, 0, "Girl Info")]
         public PuzzleAffectionType? FavoriteAffectionType;
 
-        [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable, 0, "Girl Info")]
         public PuzzleAffectionType? LeastFavoriteAffectionType;
 
-        [UiSonSelectorUi(DefaultData.ItemShoesTypeNullable, 0, "Girl Info")]
         public ItemShoesType? ShoesType;
 
-        [UiSonTextEditUi(0, "Girl Info")]
         public string ShoesAdj;
 
-        [UiSonSelectorUi(DefaultData.ItemUniqueTypeNullable, 0, "Girl Info")]
         public ItemUniqueType? UniqueType;
 
-        [UiSonTextEditUi(0, "Girl Info")]
         public string UniqueAdj;
 
-        [UiSonTextEditUi(0, "Girl Info")]
         public float? VoiceVolume;
 
-        [UiSonTextEditUi(0, "Girl Info")]
         public float? SexVoiceVolume;
 
-        [UiSonMultiChoiceUi(DefaultData.ItemFoodType, 0, "Girl Info")]
         public List<ItemFoodType> BadFoodTypes;
 
-        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, null, "id", DefaultData.DefaultGirlPairNames_Name, DefaultData.DefaultGirlPairIds_Name)]
         public List<RelativeId?> GirlPairDefIDs;
 
         #endregion
 
         #region Items
 
-        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, "Items", "id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
         public List<RelativeId?> BaggageItemDefIDs;
 
-        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, "Items", "id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
         public List<RelativeId?> UniqueItemDefIDs;
 
-        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, "Items", "id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
         public List<RelativeId?> ShoesItemDefIDs;
 
         #endregion
 
         #region Questions
 
-        [UiSonCollection]
-        [UiSonEncapsulatingUi]
         public List<GirlQuestionSubDefinition> HerQuestions;
 
-        [UiSonCollection]
-        [UiSonTextEditUi]
         public List<int> FavAnswers;
 
         #endregion
 
         #region special
 
-        [UiSonSelectorUi(DefaultData.UiDollSpecialEffectNames_Name, 0, "Special Effect")]
         public string SpecialEffectName;
 
-        [UiSonEncapsulatingUi(0, "Special Effect")]
         public VectorInfo SpecialEffectOffset;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, "Style", "NullableBoolIds")]
         public bool? HasAltStyles;
 
-        [UiSonTextEditUi(0, "Style")]
         public string AltStylesFlagName;
 
-        [UiSonElementSelectorUi(nameof(CodeDataMod), 0, "Style", "id", DefaultData.DefaultCodeNames_Name, DefaultData.DefaultCodeIds_Name)]
         public RelativeId? AltStylesCodeDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(CodeDataMod), 0, "Style", "id", DefaultData.DefaultCodeNames_Name, DefaultData.DefaultCodeIds_Name)]
         public RelativeId? UnlockStyleCodeDefinitionID;
 
         #endregion
 
         #region Sprites
 
-        [UiSonEncapsulatingUi(0, "Cellphone Sprites")]
         public SpriteInfo CellphonePortrait;
 
-        [UiSonEncapsulatingUi(0, "Cellphone Sprites")]
         public SpriteInfo CellphonePortraitAlt;
 
-        [UiSonEncapsulatingUi(0, "Cellphone Sprites")]
         public SpriteInfo CellphoneHead;
 
-        [UiSonEncapsulatingUi(0, "Cellphone Sprites")]
         public SpriteInfo CellphoneHeadAlt;
 
-        [UiSonEncapsulatingUi(0, "Cellphone Sprites")]
         public SpriteInfo CellphoneMiniHead;
 
-        [UiSonEncapsulatingUi(0, "Cellphone Sprites")]
         public SpriteInfo CellphoneMiniHeadAlt;
 
-        [UiSonEncapsulatingUi(0, "Emmiters")]
         public VectorInfo BreathEmitterPos;
 
-        [UiSonEncapsulatingUi(0, "Emmiters")]
         public VectorInfo UpsetEmitterPos;
 
-        [UiSonEncapsulatingUi(1, "Parts")]
         public RelativeId? PartIdBody;
 
-        [UiSonEncapsulatingUi(1, "Parts")]
         public RelativeId? PartIdNipples;
 
-        [UiSonEncapsulatingUi(1, "Parts")]
         public RelativeId? PartIdBlushLight;
 
-        [UiSonEncapsulatingUi(1, "Parts")]
         public RelativeId? PartIdBlushHeavy;
 
-        [UiSonEncapsulatingUi(1, "Parts")]
         public RelativeId? PartIdBlink;
 
-        [UiSonEncapsulatingUi(1, "Parts")]
         public RelativeId? PartIdMouthNeutral;
 
-        [UiSonTextEditUi(1, "Parts")]
         public int? DefaultExpressionIndex;
 
-        [UiSonTextEditUi(1, "Parts")]
         public int? FailureExpressionIndex;
 
-        [UiSonEncapsulatingUi(1, "Parts")]
         public RelativeId? DefaultHairstyleId;
 
-        [UiSonEncapsulatingUi(1, "Parts")]
         public RelativeId? DefaultOutfitId;
 
-        [UiSonEncapsulatingUi(-1, "Parts")]
         public RelativeId? Phonemes_aeil;
 
-        [UiSonEncapsulatingUi(-1, "Parts")]
         public RelativeId? Phonemes_neutral;
 
-        [UiSonEncapsulatingUi(-1, "Parts")]
         public RelativeId? Phonemes_oquw;
 
-        [UiSonEncapsulatingUi(-1, "Parts")]
         public RelativeId? Phonemes_fv;
 
-        [UiSonEncapsulatingUi(-1, "Parts")]
         public RelativeId? Phonemes_other;
 
-        [UiSonEncapsulatingUi(-2, "Parts")]
         public RelativeId? PhonemesTeeth_aeil;
 
-        [UiSonEncapsulatingUi(-2, "Parts")]
         public RelativeId? PhonemesTeeth_neutral;
 
-        [UiSonEncapsulatingUi(-2, "Parts")]
         public RelativeId? PhonemesTeeth_oquw;
 
-        [UiSonEncapsulatingUi(-2, "Parts")]
         public RelativeId? PhonemesTeeth_fv;
 
-        [UiSonEncapsulatingUi(-2, "Parts")]
         public RelativeId? PhonemesTeeth_other;
 
-        [UiSonEncapsulatingUi]
         public List<GirlExpressionSubDefinition> Expressions;
 
-        [UiSonEncapsulatingUi]
         public List<GirlSpecialPartSubDefinition> SpecialParts;
 
         #endregion

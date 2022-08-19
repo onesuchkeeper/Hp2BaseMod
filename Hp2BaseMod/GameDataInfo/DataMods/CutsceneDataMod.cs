@@ -7,20 +7,16 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
     /// <summary>
     /// Serializable information to make a CutsceneDefinition
     /// </summary>
-    [UiSonElement]
     public class CutsceneDataMod : DataMod, IGameDataMod<CutsceneDefinition>
     {
-        [UiSonSelectorUi(DefaultData.CutsceneCleanUpTypeNullable)]
         public CutsceneCleanUpType? CleanUpType;
 
-        [UiSonEncapsulatingUi]
         public List<CutsceneStepInfo> Steps;
 
         /// <inheritdoc/>

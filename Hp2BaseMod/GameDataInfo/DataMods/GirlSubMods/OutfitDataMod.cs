@@ -2,7 +2,6 @@
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -11,22 +10,16 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class OutfitDataMod : DataMod, IGirlSubDataMod<ExpandedOutfitDefinition>
     {
-        [UiSonTextEditUi]
         public string Name;
 
-        [UiSonEncapsulatingUi]
         public RelativeId? OutfitPartId;
 
-        [UiSonCheckboxUi]
         public bool? IsNSFW;
 
-        [UiSonCheckboxUi]
         public bool? HideNipples;
 
-        [UiSonCheckboxUi]
         public bool? TightlyPaired;
 
-        [UiSonEncapsulatingUi]
         public RelativeId? PairHairstyleId;
 
         /// <inheritdoc/>

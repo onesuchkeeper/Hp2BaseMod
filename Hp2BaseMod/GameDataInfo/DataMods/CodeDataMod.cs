@@ -4,27 +4,20 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
     /// <summary>
     /// Serializable information to make a CodeDefinition
     /// </summary>
-    [UiSonElement]
-    [UiSonTextBlock("The plaintext code hashed in MD5", -1)]
     public class CodeDataMod : DataMod, IGameDataMod<CodeDefinition>
     {
-        [UiSonSelectorUi(DefaultData.CodeTypeNullable)]
         public CodeType? CodeType;
 
-        [UiSonTextEditUi]
         public string OnMessage;
 
-        [UiSonTextEditUi]
         public string OffMessage;
 
-        [UiSonTextEditUi(-2)]
         public string CodeHash;
 
         /// <inheritdoc/>

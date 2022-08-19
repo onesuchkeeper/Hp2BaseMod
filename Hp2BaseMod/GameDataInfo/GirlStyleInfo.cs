@@ -1,15 +1,12 @@
 ﻿using Hp2BaseMod.Utility;
 using System;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
     public class GirlStyleInfo
     {
-        [UiSonEncapsulatingUi]
         public RelativeId? OutfitId;
 
-        [UiSonEncapsulatingUi]
         public RelativeId? HairstyleId;
 
         public void SetData(ref GirlStyleInfo def)

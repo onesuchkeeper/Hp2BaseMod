@@ -4,7 +4,6 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -13,25 +12,18 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class GirlPartDataMod : DataMod, IGirlSubDataMod<GirlPartSubDefinition>
     {
-        [UiSonSelectorUi(DefaultData.GirlPartTypeNullable)]
         public GirlPartType? PartType;
 
-        [UiSonTextEditUi]
         public string PartName;
 
-        [UiSonTextEditUi]
         public int? X;
 
-        [UiSonTextEditUi]
         public int? Y;
 
-        [UiSonEncapsulatingUi]
         public RelativeId? MirroredPartId;
 
-        [UiSonEncapsulatingUi]
         public RelativeId? AltPartId;
 
-        [UiSonEncapsulatingUi]
         public SpriteInfo SpriteInfo;
 
         /// <inheritdoc/>

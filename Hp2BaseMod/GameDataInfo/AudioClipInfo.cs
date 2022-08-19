@@ -5,7 +5,6 @@ using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
 using System.IO;
-using UiSon.Attribute;
 using UnityEngine;
 
 namespace Hp2BaseMod.GameDataInfo
@@ -15,10 +14,8 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class AudioClipInfo : IGameDefinitionInfo<AudioClip>
     {
-        [UiSonTextEditUi]
         public string Path;
 
-        [UiSonCheckboxUi]
         public bool IsExternal;
 
         /// <summary>

@@ -4,7 +4,6 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -13,28 +12,20 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class MoveConditionInfo : IGameDefinitionInfo<MoveCondition>
     {
-        [UiSonSelectorUi(DefaultData.MoveConditionTypeNullable)]
         public MoveConditionType? Type;
 
-        [UiSonSelectorUi(DefaultData.MoveConditionTokenTypeNullable)]
         public MoveConditionTokenType? TokenType;
 
-        [UiSonSelectorUi(DefaultData.PuzzleResourceTypeNullable)]
         public PuzzleResourceType? ResourceType;
 
-        [UiSonSelectorUi(DefaultData.NumberComparisonTypeNullable)]
         public NumberComparisonType? Comparison;
 
-        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
         public RelativeId? TokenDefinitionID;
 
-        [UiSonTextEditUi]
         public int? Val;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? BoolValue;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Inverse;
 
         /// <summary>

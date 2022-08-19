@@ -7,7 +7,6 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -16,46 +15,32 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class AilmentStepInfo : IGameDefinitionInfo<AilmentStepSubDefinition>
     {
-        [UiSonSelectorUi(DefaultData.AilmentStepTypeNullable)]
         public AilmentStepType? StepType;
 
-        [UiSonSelectorUi(DefaultData.AilmentFlagTypeNullable)]
         public AilmentFlagType? FlagType;
 
-        [UiSonSelectorUi(DefaultData.NumberComparisonTypeNullable)]
         public NumberComparisonType? ComparisonType;
 
-        [UiSonTextEditUi]
         public string StringValue;
 
-        [UiSonTextEditUi]
         public int? IntValue;
 
-        [UiSonElementSelectorUi(nameof(AbilityDataMod), 0, null, "id", DefaultData.DefaultAbilityNames_Name, DefaultData.DefaultAbilityIds_Name)]
         public RelativeId? AbilityDefinitionID;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? BoolValue;
 
-        [UiSonEncapsulatingUi]
         public MoveModifier MoveModifier;
 
-        [UiSonEncapsulatingUi]
         public MatchModifierInfo MatchModifierInfo;
 
-        [UiSonEncapsulatingUi]
         public GiftModifier GiftModifier;
 
-        [UiSonEncapsulatingUi]
         public List<GirlConditionInfo> GirlConditionInfos;
 
-        [UiSonEncapsulatingUi]
         public List<MoveConditionInfo> MoveConditionInfos;
 
-        [UiSonEncapsulatingUi]
         public List<MatchConditionInfo> MatchConditionInfos;
 
-        [UiSonEncapsulatingUi]
         public List<GiftConditionInfo> GiftConditionInfos;
 
         /// <summary>

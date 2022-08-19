@@ -7,7 +7,6 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -16,13 +15,10 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class CutsceneBranchInfo : IGameDefinitionInfo<CutsceneBranchSubDefinition>
     {
-        [UiSonElementSelectorUi(nameof(CutsceneDataMod), 0, null, "id", DefaultData.DefaultCutsceneNames_Name, DefaultData.DefaultCutsceneIds_Name)]
         public RelativeId? CutsceneDefinitionID;
 
-        [UiSonEncapsulatingUi]
         public List<LogicConditionInfo> Conditions;
 
-        [UiSonEncapsulatingUi]
         public List<CutsceneStepInfo> Steps;
 
         /// <summary>

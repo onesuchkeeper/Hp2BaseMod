@@ -4,7 +4,6 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -13,43 +12,30 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class MatchModifierInfo : IGameDefinitionInfo<MatchModifier>
     {
-        [UiSonSelectorUi(DefaultData.NumberCombineOperationNullable)]
         public NumberCombineOperation? PointsOperation;
 
-        [UiSonSelectorUi(DefaultData.NumberCombineOperationNullable)]
         public NumberCombineOperation? PointsOperation2;
 
-        [UiSonTextEditUi]
         public float? PointsFactor;
 
-        [UiSonTextEditUi]
         public float? PointsFactor2;
 
-        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
         public RelativeId? TokenDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
         public RelativeId? ReplaceDefinitionID;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Absorb;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? AbsorbAltGirl;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? ReplacePriority;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? SkipMostFavFactor;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? SkipLeastFavFactor;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? PointsOp;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? PointsOp2;
 
         /// <summary>

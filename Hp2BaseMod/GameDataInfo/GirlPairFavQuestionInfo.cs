@@ -4,7 +4,6 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -13,13 +12,10 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class GirlPairFavQuestionInfo : IGameDefinitionInfo<GirlPairFavQuestionSubDefinition>
     {
-        [UiSonElementSelectorUi(nameof(QuestionDataMod), 0, null, "id", DefaultData.DefaultQuestionNames_Name, DefaultData.DefaultQuestionIds_Name)]
         public RelativeId? QuestionDefinitionID;
 
-        [UiSonTextEditUi]
         public int? GirlResponceIndexOne;
 
-        [UiSonTextEditUi]
         public int? GirlResponceIndexTwo;
 
         /// <summary>

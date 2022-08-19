@@ -7,47 +7,34 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
     /// <summary>
     /// Serializable information to make a LocationDefinition
     /// </summary>
-    [UiSonElement]
     public class LocationDataMod : DataMod, ILocationDataMod
     {
-        [UiSonTextEditUi]
         public string LocationName;
 
-        [UiSonSelectorUi(DefaultData.LocationTypeNullable)]
         public LocationType? LocationType;
 
-        [UiSonEncapsulatingUi]
         public List<(RelativeId, GirlStyleInfo)> GirlStyles;
 
-        [UiSonTextEditUi]
         public string NonStopOptionText;
 
-        [UiSonEncapsulatingUi]
         public List<LocationSpecialLabelSubDefinition> SpecialLabels;
 
-        [UiSonEncapsulatingUi]
         public AudioKlipInfo BgMusic;
 
-        [UiSonTextEditUi]
         public float? BgYOffset;
 
-        [UiSonEncapsulatingUi]
         public List<SpriteInfo> Backgrounds;
 
-        [UiSonEncapsulatingUi]
         public SpriteInfo FinderLocationIcon;
 
-        [UiSonEncapsulatingUi]
         public List<LogicBundleInfo> ArriveBundleList;
 
-        [UiSonEncapsulatingUi]
         public List<LogicBundleInfo> DepartBundleList;
 
         /// <inheritdoc/>

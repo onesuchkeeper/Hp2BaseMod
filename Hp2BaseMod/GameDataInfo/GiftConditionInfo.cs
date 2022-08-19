@@ -4,7 +4,6 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -13,16 +12,12 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class GiftConditionInfo : IGameDefinitionInfo<GiftCondition>
     {
-        [UiSonSelectorUi(DefaultData.GiftConditionTypeNullable)]
         public GiftConditionType? Type;
 
-        [UiSonSelectorUi(DefaultData.ItemDateGiftTypeNullable)]
         public ItemDateGiftType? DateGiftType;
 
-        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, null, "id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
         public RelativeId? ItemDefinitionID;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Inverse;
 
         /// <summary>

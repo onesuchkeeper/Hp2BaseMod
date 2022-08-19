@@ -4,7 +4,6 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System.IO;
-using UiSon.Attribute;
 using UnityEngine;
 
 namespace Hp2BaseMod.GameDataInfo
@@ -14,10 +13,8 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class SpriteInfo : IGameDefinitionInfo<Sprite>
     {
-        [UiSonTextEditUi]
         public string Path;
 
-        [UiSonCheckboxUi]
         public bool IsExternal;
 
         /// <summary>

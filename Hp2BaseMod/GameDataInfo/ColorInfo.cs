@@ -4,7 +4,6 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
-using UiSon.Attribute;
 using UnityEngine;
 
 namespace Hp2BaseMod.GameDataInfo
@@ -14,16 +13,12 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class ColorInfo : IGameDefinitionInfo<Color>
     {
-        [UiSonSliderUi(0, 1, 5)]
         public float? R;
 
-        [UiSonSliderUi(0, 1, 5)]
         public float? G;
 
-        [UiSonSliderUi(0, 1, 5)]
         public float? B;
 
-        [UiSonSliderUi(0, 1, 5)]
         public float? A;
 
         /// <summary>

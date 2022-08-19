@@ -6,7 +6,6 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -15,109 +14,74 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class AbilityStepInfo : IGameDefinitionInfo<AbilityStepSubDefinition>
     {
-        [UiSonSelectorUi(DefaultData.AbilityStepTypeNullable, -100)]
         public AbilityStepType? StepType;
 
-        [UiSonSelectorUi(DefaultData.AbilityStepValueTypeNullable)]
         public AbilityStepValueType? ValueType;
 
-        [UiSonSelectorUi(DefaultData.AbilityStepConditionTypeNullable)]
         public AbilityStepConditionType? ConditionType;
 
-        [UiSonSelectorUi(DefaultData.AbilityStepVisualEffectTypeNullable)]
         public AbilityStepVisualEffectType? VisualEffectType;
 
-        [UiSonSelectorUi(DefaultData.AbilityStepVisualEffectEnergyTypeNullable)]
         public AbilityStepVisualEffectEnergyType? EnergyType;
 
-        [UiSonSelectorUi(DefaultData.AbilityStepAilmentAlterTypeNullable)]
         public AbilityStepAilmentAlterType? AilmentAlterType;
 
-        [UiSonSelectorUi(DefaultData.AbilityStepAilmentTargetTypeNullable)]
         public AbilityStepAilmentTargetType? AilmentTargetType;
 
-        [UiSonSelectorUi(DefaultData.PuzzleResourceTypeNullable)]
         public PuzzleResourceType? ResourceType;
 
-        [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable)]
         public PuzzleAffectionType? AffectionType;
 
-        [UiSonSelectorUi(DefaultData.NumberCombineOperationNullable)]
         public NumberCombineOperation? CombineOperation;
 
-        [UiSonSelectorUi(DefaultData.GirlValueTypeNullable)]
         public GirlValueType? GirlValueType;
 
-        [UiSonSelectorUi(DefaultData.ItemTypeNullable)]
         public ItemType? AilmentItemType;
 
-        [UiSonTextEditUi]
         public string Handle;
 
-        [UiSonTextEditUi]
         public string ValueRef;
 
-        [UiSonTextEditUi]
         public string PuzzleSetRef;
 
-        [UiSonTextEditUi]
         public string MinRequirement;
 
-        [UiSonTextEditUi]
         public string Min;
 
-        [UiSonTextEditUi]
         public string Max;
 
-        [UiSonTextEditUi]
         public string Limit;
 
-        [UiSonTextEditUi]
         public string SplashText;
 
-        [UiSonTextEditUi]
         public float? PercentOfValue;
 
-        [UiSonTextEditUi]
         public int? AilmentIndex;
 
-        [UiSonElementSelectorUi(nameof(AilmentDataMod), 0, null, "id", DefaultData.DefaultAilmentNames_Name, DefaultData.DefaultAilmentIds_Name)]
         public RelativeId? AilmentDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(EnergyDataMod), 0, null, "id", DefaultData.DefaultEnergyNames_Name, DefaultData.DefaultEnergyIds_Name)]
         public RelativeId? EnergyDefinitionID;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Negative;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? OppositeGirl;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? ResourceMaxValue;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Merged;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? FlatMerge;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? OrCheck;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Weighted;
 
-        [UiSonEncapsulatingUi]
         public TokenConditionSetInfo TokenConditionSetInfo;
 
-        [UiSonEncapsulatingUi]
         public AudioKlipInfo AudioKlipInfo;
 
-        [UiSonTextEditUi]
         public List<string> CombineValues;
 
-        [UiSonElementSelectorUi(nameof(TokenDataMod), 0, null, "id", DefaultData.DefaultTokenNames_Name, DefaultData.DefaultTokenIds_Name)]
         public List<RelativeId?> TokenDefinitionIDs;
 
         /// <summary>

@@ -5,23 +5,18 @@ using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
     /// <summary>
     /// Serializable information to make a QuestionDefinition
     /// </summary>
-    [UiSonElement]
     public class QuestionDataMod : DataMod, IGameDataMod<QuestionDefinition>
     {
-        [UiSonTextEditUi]
         public string QuestionName;
 
-        [UiSonTextEditUi]
         public string QuestionText;
 
-        [UiSonTextEditUi]
         public List<string> QuestionAnswers;
 
         /// <inheritdoc/>

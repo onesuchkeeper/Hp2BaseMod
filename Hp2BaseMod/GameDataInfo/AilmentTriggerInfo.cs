@@ -7,7 +7,6 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -16,55 +15,38 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class AilmentTriggerInfo : IGameDefinitionInfo<AilmentTriggerSubDefinition>
     {
-        [UiSonSelectorUi(DefaultData.AilmentTriggerTypeNullable)]
         public AilmentTriggerType? TriggerType;
 
-        [UiSonSelectorUi(DefaultData.AilmentTriggerStepsProcessTypeNullable)]
         public AilmentTriggerStepsProcessType? StepsProcessType;
 
-        [UiSonSliderUi(0, 1, 3)]
         public float? PerentChance;
 
-        [UiSonTextEditUi]
         public int? ThresholdValue;
 
-        [UiSonTextEditUi]
         public int? ExecuteLimit;
 
-        [UiSonTextEditUi]
         public int? VerbalizedIndex;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? FocusMatters;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? OnUnfocused;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? ExhaustionMatters;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? OnExhausted;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? UpsetMatters;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? OnUpset;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? ThresholdPersistent;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? DefaultDisabled;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Audibalized;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Verbalized;
 
-        [UiSonEncapsulatingUi]
         public List<AilmentStepInfo> StepInfos;
 
         /// <summary>

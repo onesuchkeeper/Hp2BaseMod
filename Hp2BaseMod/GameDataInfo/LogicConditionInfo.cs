@@ -4,7 +4,6 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -13,52 +12,36 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class LogicConditionInfo : IGameDefinitionInfo<LogicCondition>
     {
-        [UiSonSelectorUi(DefaultData.LogicConditionTypeNullable)]
         public LogicConditionType? Type;
 
-        [UiSonSelectorUi(DefaultData.NumberComparisonTypeNullable)]
         public NumberComparisonType? ComparisonType;
 
-        [UiSonSelectorUi(DefaultData.ClockDaytimeTypeNullable)]
         public ClockDaytimeType? DaytimeType;
 
-        [UiSonSelectorUi(DefaultData.DollOrientationTypeNullable)]
         public DollOrientationType? DollOrientation;
 
-        [UiSonSelectorUi(DefaultData.PuzzleAffectionTypeNullable)]
         public PuzzleAffectionType? AffectionType;
 
-        [UiSonSelectorUi(DefaultData.PuzzleResourceTypeNullable)]
         public PuzzleResourceType? ResourceType;
 
-        [UiSonSelectorUi(DefaultData.SettingDifficultyNullable)]
         public SettingDifficulty? SettingDifficulty;
 
-        [UiSonSelectorUi(DefaultData.PuzzleStatusTypeNullable)]
         public PuzzleStatusType? DateType;
 
-        [UiSonTextEditUi]
         public string StringValue;
 
-        [UiSonTextEditUi]
         public int? IntValue;
 
-        [UiSonElementSelectorUi(nameof(LocationDataMod), 0, null, "id", DefaultData.DefaultLocationNames_Name, DefaultData.DefaultLocationIds_Name)]
         public RelativeId? LocationDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(GirlPairDataMod), 0, null, "id", DefaultData.DefaultGirlPairNames_Name, DefaultData.DefaultGirlPairIds_Name)]
         public RelativeId? GirlPairDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(GirlDataMod), 0, null, "id", DefaultData.DefaultGirlNames_Name, DefaultData.DefaultGirlIds_Name)]
         public RelativeId? GirlDefinitionID;
 
-        [UiSonElementSelectorUi(nameof(ItemDataMod), 0, null, "id", DefaultData.DefaultItemNames_Name, DefaultData.DefaultItemIds_Name)]
         public RelativeId? ItemDefinitionID;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? Inverse;
 
-        [UiSonSelectorUi("NullableBoolNames", 0, null, "NullableBoolIds")]
         public bool? BoolValue;
 
         /// <summary>

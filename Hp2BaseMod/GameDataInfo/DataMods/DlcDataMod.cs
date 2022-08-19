@@ -4,17 +4,14 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
     /// <summary>
     /// Serializable information to make a DlcDefinition
     /// </summary>
-    [UiSonElement]
     public class DlcDataMod : DataMod, IGameDataMod<DlcDefinition>
     {
-        [UiSonTextEditUi]
         public string DlcName;
 
         /// <inheritdoc/>

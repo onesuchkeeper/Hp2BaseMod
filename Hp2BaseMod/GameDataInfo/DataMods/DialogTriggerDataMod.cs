@@ -4,23 +4,18 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
-using UiSon.Attribute;
 
 namespace Hp2BaseMod.GameDataInfo
 {
     /// <summary>
     /// Serializable information to make a DialogTriggerDefinition
     /// </summary>
-    [UiSonElement]
     public class DialogTriggerDataMod : DataMod, IGameDataMod<DialogTriggerDefinition>
     {
-        [UiSonSelectorUi(DefaultData.DialogTriggerForceTypeNullable)]
         public DialogTriggerForceType? ForceType;
 
-        [UiSonElementSelectorUi(nameof(DialogTriggerDataMod), 0, null, "id", DefaultData.DefaultDialogTriggerNames_Name, DefaultData.DefaultDialogTriggerIds_Name)]
         public RelativeId? ResponseTriggerDefinitionID;
 
-        [UiSonTextEditUi]
         public int? Priority;
 
         /// <inheritdoc/>

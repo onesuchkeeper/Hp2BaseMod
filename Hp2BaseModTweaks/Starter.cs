@@ -13,9 +13,7 @@ namespace Hp2BaseModTweaks
 {
     public class Starter : IHp2ModStarter
     {
-        IEnumerable<IGameDataMod<QuestionDefinition>> IProvideGameDataMods.QuestionDataMods => _questionDataMods;
-        IGameDataMod<QuestionDefinition>[] _questionDataMods;
-
+        IEnumerable<IGameDataMod<QuestionDefinition>> IProvideGameDataMods.QuestionDataMods => null;
         IEnumerable<IGameDataMod<AbilityDefinition>> IProvideGameDataMods.AbilityDataMods => null;
         IEnumerable<IGameDataMod<AilmentDefinition>> IProvideGameDataMods.AilmentDataMods => null;
         IEnumerable<IGameDataMod<CodeDefinition>> IProvideGameDataMods.CodeDataMods => null;

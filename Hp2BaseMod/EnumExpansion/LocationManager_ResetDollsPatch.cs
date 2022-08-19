@@ -3,6 +3,7 @@ using Hp2BaseMod.GameDataInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
 namespace Hp2BaseMod.EnumExpansion
@@ -16,6 +17,9 @@ namespace Hp2BaseMod.EnumExpansion
     [HarmonyPatch(typeof(LocationManager))]
     public static class LocationManager_ResetDollsPatch
     {
+        private static readonly FieldInfo _locationManager_currentGirlPair = AccessTools.Field(typeof(LocationManager), "_currentGirlPair");
+        private static readonly FieldInfo _locationManager_currentSidesFlipped = AccessTools.Field(typeof(LocationManager), "_currentSidesFlipped");
+
         [HarmonyPrefix]
         [HarmonyPatch("OnDepartureComplete")]
         public static bool OnDepartureComplete(LocationManager __instance)
@@ -44,7 +48,7 @@ namespace Hp2BaseMod.EnumExpansion
             AccessTools.Field(typeof(LocationManager), "_currentGirlPair").SetValue(locationManager, currentGirlPair);
 
             var currentSidesFlipped = Game.Persistence.playerFile.sidesFlipped;
-            AccessTools.Field(typeof(LocationManager), "_currentSidesFlipped").SetValue(locationManager, currentSidesFlipped);
+            _locationManager_currentSidesFlipped.SetValue(locationManager, currentSidesFlipped);
 
             var currentTransitionType = (LocationTransitionType)AccessTools.Field(typeof(LocationManager), "_currentTransitionType").GetValue(locationManager);
             var transitions = AccessTools.Field(typeof(LocationManager), "_transitions").GetValue(locationManager) as Dictionary<LocationTransitionType, LocationTransition>;
@@ -145,7 +149,14 @@ namespace Hp2BaseMod.EnumExpansion
             }
             else
             {
-                ResetDolls(locationManager);
+                try
+                {
+                    ResetDolls(locationManager);
+                }
+                catch (Exception e)
+                {
+                    ModInterface.Log.LogError(e.ToString());
+                }
             }
 
             Game.Session.Hub.PrepHub();
@@ -249,7 +260,7 @@ namespace Hp2BaseMod.EnumExpansion
 
                 //randomize
                 if (Game.Persistence.playerFile.storyProgress >= 7
-                        && Game.Persistence.playerFile.GetFlagValue(Game.Session.Hub.firstLocationFlag) >= 0)
+                    && Game.Persistence.playerFile.GetFlagValue(Game.Session.Hub.firstLocationFlag) >= 0)
                 {
                     var hubChangeRateUp = Codes.HubStyleChangeRateUpCodeId.HasValue
                         ? ModInterface.IsCodeUnlocked(Codes.HubStyleChangeRateUpCodeId.Value)
@@ -277,59 +288,87 @@ namespace Hp2BaseMod.EnumExpansion
             // pair based locations
             else
             {
-                var currentGirlPair = AccessTools.Field(typeof(LocationManager), "_currentGirlPair").GetValue(locationManager) as GirlPairDefinition;
+                GirlDefinition leftGirlDef = null;
+                GirlDefinition rightGirlDef = null;
+                GirlDefinition soulGirlDefOne = null;
+                GirlDefinition soulGirlDefTwo = null;
 
-                if (currentGirlPair == null)
+                var currentGirlPair = _locationManager_currentGirlPair.GetValue(locationManager) as GirlPairDefinition;
+                ModInterface.Log.LogLine("A");
+                if (Game.Session.Puzzle.puzzleStatus.isEmpty)
                 {
-                    Game.Session.gameCanvas.dollLeft.UnloadGirl();
-                    Game.Session.gameCanvas.dollRight.UnloadGirl();
-                }
-                else
-                {
-                    var playerFileGirlPair = Game.Persistence.playerFile.GetPlayerFileGirlPair(currentGirlPair);
-
-                    // soul defs are needed for the boss rounds
-                    GirlDefinition soulGirlDefOne = null;
-                    GirlDefinition soulGirlDefTwo = null;
-
-                    if (!Game.Session.Puzzle.puzzleStatus.isEmpty
-                        && currentGirlPair == Game.Session.Puzzle.bossGirlPairDefinition)
+                    ModInterface.Log.LogLine("A1");
+                    if (currentGirlPair != null)
                     {
-                        soulGirlDefOne = Game.Session.Puzzle.bossGirlPairDefinition.girlDefinitionOne;
-                        soulGirlDefTwo = Game.Session.Puzzle.bossGirlPairDefinition.girlDefinitionTwo;
-                    }
-
-                    GirlStyleInfo leftStyle = GirlStyleInfo.Default();
-                    GirlStyleInfo rightStyle = GirlStyleInfo.Default();
-                    RelativeId leftGirlId, rightGirlId;
-
-                    if ((bool)AccessTools.Field(typeof(LocationManager), "_currentSidesFlipped").GetValue(locationManager))
-                    {
-                        DetermineStyles(currentGirlPair.girlDefinitionTwo, currentGirlPair.girlDefinitionOne, currentLocation, playerFileGirlPair, unpairedStyles, out leftStyle, out rightStyle);
-
-                        leftGirlId = ModInterface.Data.GetDataId(GameDataType.Girl, currentGirlPair.girlDefinitionTwo.id);
-                        rightGirlId = ModInterface.Data.GetDataId(GameDataType.Girl, currentGirlPair.girlDefinitionOne.id);
+                        ModInterface.Log.LogLine("A1a");
+                        if ((bool)_locationManager_currentSidesFlipped.GetValue(locationManager))
+                        {
+                            ModInterface.Log.LogLine("A1a1");
+                            leftGirlDef = currentGirlPair.girlDefinitionOne;
+                            rightGirlDef = currentGirlPair.girlDefinitionTwo;
+                        }
+                        else
+                        {
+                            ModInterface.Log.LogLine("A1a2");
+                            leftGirlDef = currentGirlPair.girlDefinitionTwo;
+                            rightGirlDef = currentGirlPair.girlDefinitionOne;
+                        }
                     }
                     else
                     {
-                        DetermineStyles(currentGirlPair.girlDefinitionOne, currentGirlPair.girlDefinitionTwo, currentLocation, playerFileGirlPair, unpairedStyles, out leftStyle, out rightStyle);
-
-                        leftGirlId = ModInterface.Data.GetDataId(GameDataType.Girl, currentGirlPair.girlDefinitionOne.id);
-                        rightGirlId = ModInterface.Data.GetDataId(GameDataType.Girl, currentGirlPair.girlDefinitionTwo.id);
+                        ModInterface.Log.LogLine("A1b");
+                        Game.Session.gameCanvas.dollLeft.UnloadGirl();
+                        Game.Session.gameCanvas.dollRight.UnloadGirl();
+                        return;
                     }
-
-                    Game.Session.gameCanvas.dollLeft.LoadGirl(locationManager.currentGirlLeft,
-                                                              -1,
-                                                              ModInterface.Data.GetHairstyleIndex(leftGirlId, leftStyle.HairstyleId) ?? -1,
-                                                              ModInterface.Data.GetOutfitIndex(leftGirlId, leftStyle.OutfitId) ?? -1,
-                                                              soulGirlDefOne);
-
-                    Game.Session.gameCanvas.dollRight.LoadGirl(locationManager.currentGirlRight,
-                                                               -1,
-                                                               ModInterface.Data.GetHairstyleIndex(rightGirlId, rightStyle.HairstyleId) ?? -1,
-                                                               ModInterface.Data.GetOutfitIndex(rightGirlId, rightStyle.OutfitId) ?? -1,
-                                                               soulGirlDefTwo);
                 }
+                else
+                {
+                    ModInterface.Log.LogLine("A2");
+                    if (currentGirlPair == Game.Session.Puzzle.bossGirlPairDefinition)
+                    {
+                        ModInterface.Log.LogLine("A2a1");
+                        soulGirlDefOne = Game.Session.Puzzle.bossGirlPairDefinition.girlDefinitionOne;
+                        soulGirlDefTwo = Game.Session.Puzzle.bossGirlPairDefinition.girlDefinitionTwo;
+                    }
+                    ModInterface.Log.LogLine("A2a2");
+                    leftGirlDef = Game.Session.Puzzle.puzzleStatus.girlStatusLeft.girlDefinition;
+                    rightGirlDef = Game.Session.Puzzle.puzzleStatus.girlStatusRight.girlDefinition;
+                }
+                ModInterface.Log.LogLine("B");
+                var playerFileGirlPair = Game.Persistence.playerFile.GetPlayerFileGirlPair(currentGirlPair);
+                ModInterface.Log.LogLine("C");
+                if (!Game.Session.Puzzle.puzzleStatus.isEmpty
+                    && currentGirlPair == Game.Session.Puzzle.bossGirlPairDefinition)
+                {
+                    ModInterface.Log.LogLine("C1");
+                    soulGirlDefOne = Game.Session.Puzzle.bossGirlPairDefinition.girlDefinitionOne;
+                    soulGirlDefTwo = Game.Session.Puzzle.bossGirlPairDefinition.girlDefinitionTwo;
+                }
+                ModInterface.Log.LogLine("D");
+                RelativeId leftGirlId, rightGirlId;
+
+                DetermineStyles(leftGirlDef,
+                                rightGirlDef,
+                                currentLocation,
+                                playerFileGirlPair,
+                                unpairedStyles,
+                                out var leftStyle,
+                                out var rightStyle);
+                ModInterface.Log.LogLine("E");
+                leftGirlId = ModInterface.Data.GetDataId(GameDataType.Girl, leftGirlDef.id);
+                Game.Session.gameCanvas.dollLeft.LoadGirl(leftGirlDef,
+                                                          -1,
+                                                          ModInterface.Data.GetHairstyleIndex(leftGirlId, leftStyle.HairstyleId) ?? -1,
+                                                          ModInterface.Data.GetOutfitIndex(leftGirlId, leftStyle.OutfitId) ?? -1,
+                                                          soulGirlDefOne);
+                ModInterface.Log.LogLine("F");
+                rightGirlId = ModInterface.Data.GetDataId(GameDataType.Girl, rightGirlDef.id);
+                Game.Session.gameCanvas.dollRight.LoadGirl(rightGirlDef,
+                                                           -1,
+                                                           ModInterface.Data.GetHairstyleIndex(rightGirlId, rightStyle.HairstyleId) ?? -1,
+                                                           ModInterface.Data.GetOutfitIndex(rightGirlId, rightStyle.OutfitId) ?? -1,
+                                                           soulGirlDefTwo);
             }
 
             Game.Session.gameCanvas.dollMiddle.UnloadGirl();

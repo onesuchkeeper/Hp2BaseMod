@@ -103,7 +103,7 @@ namespace Hp2BaseModTweaks.CellphoneApps
             contributorsScroll_ScrollRect.content = ContributorsPanel_RectTransform;
 
             var contributorsPanel_VLG = ContributorsPanel.AddComponent<VerticalLayoutGroup>();
-            contributorsPanel_VLG.spacing = 10;
+            contributorsPanel_VLG.spacing = 0;
             contributorsPanel_VLG.childForceExpandWidth = false;
             contributorsPanel_VLG.childForceExpandHeight = false;
 
