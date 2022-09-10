@@ -44,6 +44,12 @@ namespace Hp2BaseMod
         private readonly Dictionary<RelativeId, Dictionary<int, RelativeId>> _girlIdToPartIdLookup = new Dictionary<RelativeId, Dictionary<int, RelativeId>>();
 
         /// <summary>
+        /// Maps a girls id to a lookup from a <see cref="RelativeId"/> to an index of the girl's expressions
+        /// </summary>
+        private readonly Dictionary<RelativeId, Dictionary<RelativeId, int>> _girlIdToExpressionIndexLookup = new Dictionary<RelativeId, Dictionary<RelativeId, int>>();
+        private readonly Dictionary<RelativeId, Dictionary<int, RelativeId>> _girlIdToExpressionIdLookup = new Dictionary<RelativeId, Dictionary<int, RelativeId>>();
+
+        /// <summary>
         /// Maps a source's local ids to the ids used at runtime.
         /// </summary>
         private readonly Dictionary<GameDataType, Dictionary<RelativeId, int>> _relativeIdToRuntimeId = new Dictionary<GameDataType, Dictionary<RelativeId, int>>()
@@ -251,7 +257,23 @@ namespace Hp2BaseMod
             {
                 _girlIdToPartIndexLookup[girlId].Add(partId, index);
                 _girlIdToPartIdLookup[girlId].Add(index, partId);
-                //_log.LogLine($"Girl with id {girlId} had part with id {partId} assigned to index {index}");
+                return true;
+            }
+            return false;
+        }
+
+        internal bool TryRegisterExpression(RelativeId girlId, int index, RelativeId expressionId)
+        {
+            if (!_girlIdToExpressionIndexLookup.ContainsKey(girlId))
+            {
+                _girlIdToExpressionIndexLookup.Add(girlId, new Dictionary<RelativeId, int>() { { RelativeId.Default, -1 } });
+                _girlIdToExpressionIdLookup.Add(girlId, new Dictionary<int, RelativeId>() { { -1, RelativeId.Default } });
+            }
+
+            if (!_girlIdToExpressionIndexLookup[girlId].ContainsKey(expressionId))
+            {
+                _girlIdToExpressionIndexLookup[girlId].Add(expressionId, index);
+                _girlIdToExpressionIdLookup[girlId].Add(index, expressionId);
                 return true;
             }
             return false;
@@ -329,6 +351,10 @@ namespace Hp2BaseMod
         public int? GetPartIndex(RelativeId girlId, RelativeId? id) => id.HasValue ? (int?)GetPartIndex(girlId, id.Value) : null;
         public int GetPartIndex(RelativeId girlId, RelativeId id) => _girlIdToPartIndexLookup[girlId][id];
         public RelativeId GetPartId(RelativeId girlId, int index) => _girlIdToPartIdLookup[girlId][index];
+
+        public int? GetExpressionIndex(RelativeId girlId, RelativeId? id) => id.HasValue ? (int?)GetExpressionIndex(girlId, id.Value) : null;
+        public int GetExpressionIndex(RelativeId girlId, RelativeId id) => _girlIdToExpressionIndexLookup[girlId][id];
+        public RelativeId GetExpressionId(RelativeId girlId, int index) => _girlIdToExpressionIdLookup[girlId][index];
 
         #endregion
     }

@@ -8,6 +8,7 @@ namespace Hp2BaseMod.GameDataInfo.Interface
         IEnumerable<IGirlSubDataMod<GirlPartSubDefinition>> GetPartMods();
         IEnumerable<IGirlSubDataMod<ExpandedHairstyleDefinition>> GetHairstyles();
         IEnumerable<IGirlSubDataMod<ExpandedOutfitDefinition>> GetOutfits();
+        IEnumerable<IGirlSubDataMod<GirlExpressionSubDefinition>> GetExpressions();
         IEnumerable<Tuple<RelativeId, IEnumerable<IGirlSubDataMod<DialogLine>>>> GetLinesByDialogTriggerId();
     }
 }

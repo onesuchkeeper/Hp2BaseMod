@@ -27,9 +27,25 @@
         public static RelativeId Default => new RelativeId(-1, -1);
         public static RelativeId Zero => new RelativeId(-1, 0);
 
-        public override string ToString() => $"(Source: {SourceId}, Local: {LocalId})";
+        public override int GetHashCode()
+        {
+            int hashCode = -21478398;
+            hashCode = hashCode * -1521134295 + SourceId.GetHashCode();
+            hashCode = hashCode * -1521134295 + LocalId.GetHashCode();
+            return hashCode;
+        }
 
-        public static implicit operator int(RelativeId id) => id.LocalId;
-        public static implicit operator RelativeId(int localId) => new RelativeId() { SourceId = -1, LocalId = localId };
+        public static bool operator !=(RelativeId x, RelativeId y)
+        {
+            return !(x == y);
+        }
+
+        public static bool operator ==(RelativeId x, RelativeId y)
+        {
+            return x.SourceId == y.SourceId
+                   && x.LocalId == y.LocalId;
+        }
+
+        public override string ToString() => $"(Source: {SourceId}, Local: {LocalId})";
     }
 }

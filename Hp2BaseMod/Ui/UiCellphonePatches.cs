@@ -7,7 +7,7 @@ namespace Hp2BaseMod.Ui
     public static class UiGameCanvasPatch
     {
         /// <summary>
-        /// Not a great injection point, But I couldn't find anything better
+        /// Not a great activation point, But I couldn't find anything better
         /// </summary>
         /// <param name="__instance"></param>
         [HarmonyPrefix]

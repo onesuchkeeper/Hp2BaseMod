@@ -63,6 +63,7 @@ namespace Hp2CutContentMod
             var hiddenWaterfallLocationId = new RelativeId(modId, 0);
 
             // hidden waterfall
+            var styleId = new RelativeId(-1,4);
             _locations = new ILocationDataMod[]
             {
                 new LocationDataMod(hiddenWaterfallLocationId, InsertStyle.replace)
@@ -71,80 +72,80 @@ namespace Hp2CutContentMod
                     LocationName = "Hidden Waterfall",
                     GirlStyles = new List<(RelativeId, GirlStyleInfo)>()
                     {
-                        (1, new GirlStyleInfo()
+                        (new RelativeId(-1,1), new GirlStyleInfo()
                         {
-                            HairstyleId = 4,
-                            OutfitId = 4
+                            HairstyleId = styleId,
+                            OutfitId = styleId
                         }),
-                        (2, new GirlStyleInfo()
+                        (new RelativeId(-1,2), new GirlStyleInfo()
                         {
-                            HairstyleId = 4,
-                            OutfitId = 4
+                            HairstyleId = styleId,
+                            OutfitId = styleId
                         }),
-                        (3, new GirlStyleInfo()
+                        (new RelativeId(-1,3), new GirlStyleInfo()
                         {
-                            HairstyleId = 4,
-                            OutfitId = 4
+                            HairstyleId = styleId,
+                            OutfitId = styleId
                         }),
-                        (4, new GirlStyleInfo()
+                        (new RelativeId(-1,4), new GirlStyleInfo()
                         {
-                            HairstyleId = 4,
-                            OutfitId = 4
+                            HairstyleId = styleId,
+                            OutfitId = styleId
                         }),
-                        (5, new GirlStyleInfo()
+                        (new RelativeId(-1,5), new GirlStyleInfo()
                         {
-                            HairstyleId = 4,
-                            OutfitId = 4
+                            HairstyleId = styleId,
+                            OutfitId = styleId
                         }),
-                        (6, new GirlStyleInfo()
+                        (new RelativeId(-1,6), new GirlStyleInfo()
                         {
-                            HairstyleId = 4,
-                            OutfitId = 4
+                            HairstyleId = styleId,
+                            OutfitId = styleId
                         }),
-                        (7, new GirlStyleInfo()
+                        (new RelativeId(-1,7), new GirlStyleInfo()
                         {
-                            HairstyleId = 4,
-                            OutfitId = 4
+                            HairstyleId = styleId,
+                            OutfitId = styleId
                         }),
-                        (8, new GirlStyleInfo()
+                        (new RelativeId(-1,8), new GirlStyleInfo()
                         {
-                            HairstyleId = 4,
-                            OutfitId = 4
+                            HairstyleId = styleId,
+                            OutfitId = styleId
                         }),
-                        (9, new GirlStyleInfo()
+                        (new RelativeId(-1,9), new GirlStyleInfo()
                         {
-                            HairstyleId = 4,
-                            OutfitId = 4
+                            HairstyleId = styleId,
+                            OutfitId = styleId
                         }),
-                        (10, new GirlStyleInfo()
+                        (new RelativeId(-1,10), new GirlStyleInfo()
                         {
-                            HairstyleId = 4,
-                            OutfitId = 4
+                            HairstyleId = styleId,
+                            OutfitId = styleId
                         }),
-                        (11, new GirlStyleInfo()
+                        (new RelativeId(-1,11), new GirlStyleInfo()
                         {
-                            HairstyleId = 4,
-                            OutfitId = 4
+                            HairstyleId = styleId,
+                            OutfitId = styleId
                         }),
-                        (12, new GirlStyleInfo()
+                        (new RelativeId(-1,12), new GirlStyleInfo()
                         {
-                            HairstyleId = 4,
-                            OutfitId = 4
+                            HairstyleId = styleId,
+                            OutfitId = styleId
                         }),
-                        (13, new GirlStyleInfo()
+                        (new RelativeId(-1,13), new GirlStyleInfo()
                         {
-                            HairstyleId = 4,
-                            OutfitId = 4
+                            HairstyleId = styleId,
+                            OutfitId = styleId
                         }),
-                        (14, new GirlStyleInfo()
+                        (new RelativeId(-1,14), new GirlStyleInfo()
                         {
-                            HairstyleId = 4,
-                            OutfitId = 4
+                            HairstyleId = styleId,
+                            OutfitId = styleId
                         }),
-                        (15, new GirlStyleInfo()
+                        (new RelativeId(-1,15), new GirlStyleInfo()
                         {
-                            HairstyleId = 4,
-                            OutfitId = 4
+                            HairstyleId = styleId,
+                            OutfitId = styleId
                         })
                     },
                     NonStopOptionText = "Do you remember where we left that [[highlight]HIDDEN WATERFALL]?",

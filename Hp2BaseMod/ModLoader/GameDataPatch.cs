@@ -217,6 +217,7 @@ namespace Hp2BaseMod.ModLoader
                     var tokenDataMods = ModInterface.Mods.SelectMany(x => x.TokenDataMods);
 
                     var partModsByIdByGirl = new Dictionary<RelativeId, Dictionary<RelativeId, List<IGirlSubDataMod<GirlPartSubDefinition>>>>();
+                    var expressionModsByIdByGirl = new Dictionary<RelativeId, Dictionary<RelativeId, List<IGirlSubDataMod<GirlExpressionSubDefinition>>>>();
                     var outfitModsByIdByGirl = new Dictionary<RelativeId, Dictionary<RelativeId, List<IGirlSubDataMod<ExpandedOutfitDefinition>>>>();
                     var hairstyleModsByIdByGirl = new Dictionary<RelativeId, Dictionary<RelativeId, List<IGirlSubDataMod<ExpandedHairstyleDefinition>>>>();
                     var dialogLineModsByIdByDialogTriggerByGirlId = new Dictionary<RelativeId, Dictionary<RelativeId, Dictionary<RelativeId, List<IGirlSubDataMod<DialogLine>>>>>();
@@ -224,6 +225,7 @@ namespace Hp2BaseMod.ModLoader
                     foreach (var girlMod in girlDataMods)
                     {
                         AddGirlSubMods(girlMod.Id, girlMod.GetPartMods(), partModsByIdByGirl);
+                        AddGirlSubMods(girlMod.Id, girlMod.GetExpressions(), expressionModsByIdByGirl);
                         AddGirlSubMods(girlMod.Id, girlMod.GetOutfits(), outfitModsByIdByGirl);
                         AddGirlSubMods(girlMod.Id, girlMod.GetHairstyles(), hairstyleModsByIdByGirl);
 
@@ -305,6 +307,22 @@ namespace Hp2BaseMod.ModLoader
                                 if (ModInterface.Data.TryRegisterPart(girlIdToPartModsById.Key, nextIndex, partId))
                                 {
                                     girlDef.parts.Add(new GirlPartSubDefinition());
+                                    nextIndex++;
+                                }
+                            }
+                        }
+
+                        ModInterface.Log.LogLine("girl expressions");
+                        foreach (var girlIdToExpressionModsById in expressionModsByIdByGirl)
+                        {
+                            var girlDef = girlDataDict[ModInterface.Data.GetRuntimeDataId(GameDataType.Girl, girlIdToExpressionModsById.Key)];
+
+                            nextIndex = girlDef.expressions.Count;
+                            foreach (var partId in girlIdToExpressionModsById.Value.Select(x => x.Key).Distinct())
+                            {
+                                if (ModInterface.Data.TryRegisterExpression(girlIdToExpressionModsById.Key, nextIndex, partId))
+                                {
+                                    girlDef.expressions.Add(new GirlExpressionSubDefinition());
                                     nextIndex++;
                                 }
                             }
@@ -414,6 +432,22 @@ namespace Hp2BaseMod.ModLoader
                                     foreach (var mod in partIdToMods.Value.OrderBy(x => x.LoadPriority))
                                     {
                                         mod.SetData(ref part, gameDataProvider, assetProvider, InsertStyle.replace, girlIdToModsByPartId.Key);
+                                    }
+                                }
+                            }
+
+                            ModInterface.Log.LogLine("expressions");
+                            foreach (var girlIdToModsByExpressionId in expressionModsByIdByGirl)
+                            {
+                                var girl = girlDataDict[ModInterface.Data.GetRuntimeDataId(GameDataType.Girl, girlIdToModsByExpressionId.Key)];
+
+                                foreach (var expressionIdToMods in girlIdToModsByExpressionId.Value)
+                                {
+                                    var expression = girl.expressions[ModInterface.Data.GetPartIndex(girlIdToModsByExpressionId.Key, expressionIdToMods.Key)];
+
+                                    foreach (var mod in expressionIdToMods.Value.OrderBy(x => x.LoadPriority))
+                                    {
+                                        mod.SetData(ref expression, gameDataProvider, assetProvider, InsertStyle.replace, girlIdToModsByExpressionId.Key);
                                     }
                                 }
                             }
