@@ -4,6 +4,7 @@ using Hp2BaseMod.GameDataInfo.Interface;
 using Hp2BaseMod.ModLoader;
 using Hp2BaseMod.Utility;
 using System;
+using UnityEngine;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -12,7 +13,7 @@ namespace Hp2BaseMod.GameDataInfo
     /// </summary>
     public class AudioKlipInfo : IGameDefinitionInfo<AudioKlip>
     {
-        public AudioClipInfo AudioClipInfo;
+        public IGameDefinitionInfo<AudioClip> AudioClipInfo;
 
         public float? Volume;
 

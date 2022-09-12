@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Hp2ModConfig.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -37,10 +33,16 @@
     <Reference Include="Assembly-CSharp">
       <HintPath>..\lib\Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\HuniePop 2 - Double Date_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\lib\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="md &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2CutContentMod&quot;&#xD;&#xA;Copy &quot;$(OutDir)\Hp2CutContentMod.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2CutContentMod&quot;&#xD;&#xA;Copy &quot;$(OutDir)\Hp2ModConfig.json&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2CutContentMod&quot;&#xD;&#xA;md &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2CutContentMod\Images&quot;&#xD;&#xA;Copy &quot;C:\Users\camer\Desktop\hpdev\Images\CutContent&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\Hp2CutContentMod\Images&quot;" />
+    <Exec Command="md &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\HiddenWaterfall&quot;&#xD;&#xA;Copy &quot;$(OutDir)\Hp2HiddenWaterfall.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\HiddenWaterfall&quot;&#xD;&#xA;Copy &quot;$(OutDir)\Hp2ModConfig.json&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\HuniePop 2 - Double Date\mods\HiddenWaterfall&quot;" />
   </Target>
 
 </Project>

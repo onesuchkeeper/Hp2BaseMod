@@ -7,6 +7,7 @@ using Hp2BaseMod.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace Hp2BaseMod.GameDataInfo
 {
@@ -29,9 +30,9 @@ namespace Hp2BaseMod.GameDataInfo
 
         public float? BgYOffset;
 
-        public List<SpriteInfo> Backgrounds;
+        public List<IGameDefinitionInfo<Sprite>> Backgrounds;
 
-        public SpriteInfo FinderLocationIcon;
+        public IGameDefinitionInfo<Sprite> FinderLocationIcon;
 
         public List<LogicBundleInfo> ArriveBundleList;
 
@@ -67,7 +68,7 @@ namespace Hp2BaseMod.GameDataInfo
             FinderLocationIcon = new SpriteInfo(def.finderLocationIcon, assetProvider);
             NonStopOptionText = def.nonStopOptionText;
             SpecialLabels = def.specialLabels;
-            Backgrounds = def.backgrounds.Select(x => new SpriteInfo(x, assetProvider)).ToList();
+            Backgrounds = def.backgrounds.Select(x => (IGameDefinitionInfo<Sprite>)new SpriteInfo(x, assetProvider)).ToList();
             ArriveBundleList = def.arriveBundleList.Select(x => new LogicBundleInfo(x, assetProvider)).ToList();
             DepartBundleList = def.departBundleList.Select(x => new LogicBundleInfo(x, assetProvider)).ToList();
 

@@ -1,17 +1,26 @@
 ﻿{
   "Identifier": {
-    "Name": "Hp2CutContentMod",
+    "Name": "HiddenWaterfall",
     "Version": "1.0"
   },
   "Dependencies": [],
   "Assemblies": [
     {
-      "Path": "mods/Hp2CutContentMod/Hp2CutContentMod.dll",
-      "Stage": 0,
-      "Priority": 0
+      "Path": "mods/HiddenWaterfall/Hp2HiddenWaterfall.dll",
+      "Stage": 2,
+      "Priority": 10000
     }
   ],
-  "Tags": [],
+  "Tags": [
+    {
+      "Name": "HiddenWaterfall_OST",
+      "Value": "../../music/HuniePop 2 - Double Date OST"
+    },
+    {
+      "Name": "HiddenWaterfall_DigitalArtCollection",
+      "Value": "Digital Art Collection"
+    }
+  ],
   "AbilityDataModPaths": [],
   "AilmentDataModPaths": [],
   "CodeDataModPaths": [],
